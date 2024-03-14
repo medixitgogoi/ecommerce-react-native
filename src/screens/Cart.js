@@ -3,6 +3,7 @@ import Icon4 from 'react-native-vector-icons/dist/Feather';
 import Icon from 'react-native-vector-icons/dist/MaterialIcons';
 import Icon3 from 'react-native-vector-icons/dist/MaterialCommunityIcons';
 import Icon2 from 'react-native-vector-icons/dist/Ionicons';
+import Icon5 from 'react-native-vector-icons/dist/Entypo';
 import { useDispatch, useSelector } from 'react-redux';
 import { removeItemFromCart } from '../redux/CartSlice';
 import { addItemToCart, decrementItem, deleteAllItemsFromCart } from '../redux/CartSlice';
@@ -46,21 +47,21 @@ const Cart = ({ navigation }) => {
             />
 
             {/* heading */}
-            <View style={{ flexDirection: "row", backgroundColor: "#fff", alignItems: "center", justifyContent: "space-between", paddingHorizontal: 8 }}>
+            <View style={{ flexDirection: "row", backgroundColor: "#fff", alignItems: "center", justifyContent: "space-between", paddingHorizontal: 10 }}>
                 <View style={{ backgroundColor: "#fff", paddingVertical: 8, flexDirection: "row", alignItems: "center", }}>
-                    <TouchableOpacity style={{ backgroundColor: "#f6f6f6", padding: 5, borderRadius: 100, alignItems: "center", justifyContent: "center", elevation: 1, marginRight: 8 }} onPress={() => navigation.goBack()}>
+                    <TouchableOpacity style={{ backgroundColor: "#f6f6f6", padding: 5, borderRadius: 100, alignItems: "center", justifyContent: "center", elevation: 1, marginRight: 6 }} onPress={() => navigation.goBack()}>
                         <Icon name="keyboard-arrow-left" size={20} color="#000" />
                     </TouchableOpacity>
                     <Text style={{ color: '#000', fontWeight: "600", fontSize: 16 }}>Shopping Bag</Text>
                     <Text style={{ color: '#000', fontSize: 14, marginLeft: 3 }}>({cartProducts.length} items)</Text>
                 </View>
                 <View>
-                    <TouchableOpacity style={{ backgroundColor: "#f6f6f6", padding: 5, flexDirection: "row", borderRadius: 100, alignItems: "center", justifyContent: "center", elevation: 1, marginRight: 8 }} onPress={() => setOpen(!open)}>
+                    <TouchableOpacity style={{ backgroundColor: "#f6f6f6", padding: 5, flexDirection: "row", borderRadius: 100, alignItems: "center", justifyContent: "center", elevation: 1, }} onPress={() => setOpen(!open)}>
                         <Icon3 name="dots-horizontal" size={18} color="#000" />
                     </TouchableOpacity>
                     {open && cartProducts.length > 0 && (
                         <TouchableOpacity
-                            style={{ position: "absolute", right: 40, width: 110, backgroundColor: "#f6f6f6", borderRadius: 5, flexDirection: "row", alignItems: "center", justifyContent: "center", zIndex: 10, elevation: 3, flex: 1, paddingHorizontal: 5, paddingVertical: 6, borderColor: "red", borderWidth: 1 }}
+                            style={{ position: "absolute", right: 33, width: 110, backgroundColor: "#f6f6f6", borderRadius: 5, flexDirection: "row", alignItems: "center", justifyContent: "center", zIndex: 10, elevation: 3, flex: 1, paddingHorizontal: 5, paddingVertical: 6, borderColor: "red", borderWidth: 1 }}
                             onPress={() => {
                                 dispatch(deleteAllItemsFromCart())
                                 setOpen(!open)
@@ -108,31 +109,43 @@ const Cart = ({ navigation }) => {
                         data={cartProducts}
                         renderItem={({ item }) => {
                             return (
-                                <View style={{ flexDirection: "column", alignItems: "center", padding: 5, borderRadius: 8, backgroundColor: "#fff", marginVertical: 5, marginHorizontal: 5, }}>
+                                <View style={{ flexDirection: "column", alignItems: "center", padding: 5, borderRadius: 8, backgroundColor: "#fff", marginVertical: 5, marginHorizontal: 5, borderBottomColor: "#000", borderBottomWidth: 0.4, paddingBottom: 15, }}>
                                     <View style={{ flexDirection: "row" }}>
 
                                         <View style={{ flexDirection: "row", flex: 1, backgroundColor: "#fff", padding: 5, elevation: 15 }}>
                                             <Image source={{ uri: item.image }} style={{ resizeMode: "contain", height: 110, width: "100%" }} />
                                         </View>
 
-                                        <View style={{ flex: 2, flexDirection: "column", height: "100%", marginLeft: 10, paddingTop: 10 }}>
-                                            <Text style={{ color: "#000", fontWeight: "700", fontSize: 15, width: "100%", textTransform: "uppercase", letterSpacing: 0.1 }}>{item.title}</Text>
-                                            <View style={{ flexDirection: "row", justifyContent: "space-between", alignItems: "center", paddingRight: 14 }}>
+                                        <View style={{ flex: 2, flexDirection: "column", height: "100%", marginLeft: 15, paddingTop: 5, }}>
+                                            <View style={{ flexDirection: "row", alignItems: "flex-start", width: "100%", justifyContent: "space-between" }}>
+                                                <View style={{ width: "90%", }}>
+                                                    <Text numberOfLines={2} style={{ color: "#4b4b4b", fontWeight: "700", fontSize: 15, width: "95%", textTransform: "uppercase", letterSpacing: 0.1, textAlign: "justify", marginRight: 20 }}>{item.title}</Text>
+                                                </View>
+                                                <TouchableOpacity style={{ flexDirection: "row", alignItems: "center", justifyContent: "center", width: 25, height: 25, borderLeftColor: "#000", borderLeftWidth: 0.5 }} onPress={() => dispatch(removeItemFromCart(item))}>
+                                                    <Icon5 name="cross" color="#000" size={22} />
+                                                </TouchableOpacity>
+                                            </View>
+                                            <View style={{ flexDirection: "row", alignItems: "center", marginTop: 6 }}>
+                                                <Text style={{ color: "#a9b9ac", textTransform: "uppercase", fontSize: 14, fontWeight: "700" }}>Quantity: </Text>
+                                                <Text style={{ color: "#4b4b4b", fontWeight: "500" }}>{item.qty}</Text>
+                                            </View>
+                                            <View style={{ flexDirection: "row", marginTop: 2, justifyContent: "space-between", alignItems: "center" }}>
                                                 <View style={{ marginTop: 3, flexDirection: "row", alignItems: "center", }}>
-                                                    <Text style={{ color: "#000" }}>Price:</Text>
-                                                    <Text style={{ color: "#000", marginLeft: 5 }}>₹{item.qty * (item.price * 100)}</Text>
+                                                    <Text style={{ color: "#000", fontWeight: "600", fontSize: 21 }}>₹{item.qty * (item.price * 100)}</Text>
                                                 </View>
                                                 <View style={{ flexDirection: "row", alignItems: "center", marginTop: 3 }}>
-                                                    <TouchableOpacity style={{ backgroundColor: "#e27e45", borderRadius: 8, paddingHorizontal: 10, flexDirection: "row", alignItems: "center", justifyContent: "center", }} onPress={() => decrementQuantity(item)} ><Text style={{ fontSize: "600", fontSize: 22, color: "#fff" }}>-</Text></TouchableOpacity>
+                                                    <TouchableOpacity style={{ backgroundColor: "#e5e3e0", borderRadius: 50, paddingHorizontal: 10, flexDirection: "row", alignItems: "center", justifyContent: "center", }} onPress={() => decrementQuantity(item)} ><Text style={{ fontWeight: "600", fontSize: 22, color: "#000" }}>-</Text></TouchableOpacity>
                                                     <Text style={{ color: "#000", marginLeft: 6, fontWeight: "600", fontSize: 16 }}>{item.qty}</Text>
-                                                    <TouchableOpacity style={{ backgroundColor: "#e27e45", paddingVertical: 1, borderRadius: 8, paddingHorizontal: 8, flexDirection: "row", alignItems: "center", justifyContent: "center", marginLeft: 6 }} onPress={() => incrementQuantity(item)}><Text style={{ fontSize: "600", fontSize: 20, color: "#fff" }}>+</Text></TouchableOpacity>
+                                                    <TouchableOpacity style={{ backgroundColor: "#e5e3e0", paddingVertical: 1, borderRadius: 50, paddingHorizontal: 8, flexDirection: "row", alignItems: "center", justifyContent: "center", marginLeft: 6 }} onPress={() => incrementQuantity(item)}><Text style={{ fontSize: "600", fontSize: 20, color: "#000" }}>+</Text></TouchableOpacity>
                                                 </View>
                                             </View>
-
+                                            <View style={{marginTop: 3}}>
+                                                <Text style={{ color: "#5eb11b" }}>In stock</Text>
+                                            </View>
                                         </View>
                                     </View>
 
-                                    <View style={{ width: "100%", marginTop: 8 }}>
+                                    {/* <View style={{ width: "100%", marginTop: 8 }}>
                                         <TouchableOpacity style={{ backgroundColor: "#de2130", paddingVertical: 9, marginTop: 8, borderRadius: 8, paddingHorizontal: 9, flexDirection: "row", alignItems: "center", justifyContent: "center" }} onPress={() => dispatch(removeItemFromCart(item))}>
                                             <Icon
                                                 name="delete"
@@ -146,7 +159,7 @@ const Cart = ({ navigation }) => {
                                             <Text style={{ color: "#fff", textAlign: "center", fontWeight: "600", fontSize: 17 }}>Delete item from cart</Text>
                                         </TouchableOpacity>
 
-                                    </View>
+                                    </View> */}
                                 </View>
                             )
                         }}
@@ -158,7 +171,7 @@ const Cart = ({ navigation }) => {
 
             {/* Buy now button */}
             {cartProducts.length > 0 && (
-                <View style={{ position: "absolute", bottom: 15, width: "100%", paddingHorizontal: 10 }}>
+                <View style={{ position: "absolute", bottom: 15, width: "100%", paddingHorizontal: 10, }}>
                     <View style={{}} />
                     <View style={{ backgroundColor: "#212121", borderRadius: 100, paddingVertical: 7, flexDirection: "row", alignItems: "center", justifyContent: "space-between", paddingHorizontal: 7 }}>
                         <View style={{ marginLeft: 25 }}>
