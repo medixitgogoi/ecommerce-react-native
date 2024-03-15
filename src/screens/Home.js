@@ -6,6 +6,7 @@ import { addItemToCart } from '../redux/CartSlice';
 import axios from 'axios';
 import { useDispatch, useSelector } from 'react-redux';
 import TabBar from '../components/TabBar';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 const brandsData = [
     { id: '1', name: 'Nike', logo: require('../assets/nike_logo.png') },
@@ -83,6 +84,16 @@ const Home = ({ navigation }) => {
             }
         }
         return starComponents;
+    };
+
+    const removeData = async () => {
+        try {
+
+            await AsyncStorage.removeItem('userData');
+            console.log('Data removed successfully!');
+        } catch (error) {
+            console.error('Error removing data:', error);
+        }
     };
 
     return (

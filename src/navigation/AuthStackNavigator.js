@@ -1,6 +1,9 @@
 import { StyleSheet, Text, View } from 'react-native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import Dashboard from '../screens/Dashboard';
+import Home from '../screens/Home';
+import Cart from '../screens/Cart';
+import ProductDetails from '../screens/ProductDetails';
 
 const AuthStackNavigator = () => {
 
@@ -8,6 +11,9 @@ const AuthStackNavigator = () => {
 
     return (
         <Stack.Navigator screenOptions={{ headerShown: false }}>
+            <Stack.Screen name="Home" component={Home} />
+            <Stack.Screen name="Cart" component={Cart} />
+             <Stack.Screen name="ProductDetails" component={ProductDetails} />
             <Stack.Screen name="Dashboard" component={Dashboard} />
         </Stack.Navigator>
     )

@@ -2,12 +2,13 @@ import { StyleSheet, Text, View } from 'react-native';
 import GuestStackNavigator from './src/navigation/GuestStackNavigator';
 import { store } from './src/redux/Store';
 import { Provider } from 'react-redux';
+import Stacknavigation from './src/navigation/Stacknavigation';
 
 const App = () => {
 
   return (
     <Provider store={store}>
-      <GuestStackNavigator />
+      <Stacknavigation/>
     </Provider>
   )
 }
