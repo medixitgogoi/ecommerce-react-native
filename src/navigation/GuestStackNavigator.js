@@ -14,17 +14,15 @@ const Stack = createNativeStackNavigator();
 const GuestStackNavigator = () => {
 
     return (
-        <NavigationContainer>
-            <Stack.Navigator initialRouteName='Registration' screenOptions={{ headerShown: false }}>
-                <Stack.Screen name="ProductDetails" component={ProductDetails} />
-                <Stack.Screen name="Home" component={Home} />
+       
+            <Stack.Navigator initialRouteName='Login' screenOptions={{ headerShown: false }}>
                 <Stack.Screen name="Login" component={Login} />
                 <Stack.Screen name="Registration" component={Registration} />
                 <Stack.Screen name="ForgotPassword" component={ForgotPassword} />
-                <Stack.Screen name="Cart" component={Cart} />
-                <Stack.Screen name="Signin" component={Signin} />
+               
+              
             </Stack.Navigator>
-        </NavigationContainer>
+       
     )
 }
 
