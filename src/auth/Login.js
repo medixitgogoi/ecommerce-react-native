@@ -55,4 +55,3 @@ const GoogleSignInScreen = () => {
 };
 
 export default GoogleSignInScreen;
-

@@ -8,6 +8,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { removeItemFromCart } from '../redux/CartSlice';
 import { addItemToCart, decrementItem, deleteAllItemsFromCart } from '../redux/CartSlice';
 import { useState } from 'react';
+import TabBar from '../components/TabBar';
 
 const Cart = ({ navigation }) => {
 
@@ -171,7 +172,7 @@ const Cart = ({ navigation }) => {
 
             {/* Buy now button */}
             {cartProducts.length > 0 && (
-                <View style={{ position: "absolute", bottom: 15, width: "100%", paddingHorizontal: 10, }}>
+                <View style={{ position: "absolute", bottom: 75, width: "100%", paddingHorizontal: 10, }}>
                     <View style={{}} />
                     <View style={{ backgroundColor: "#212121", borderRadius: 100, paddingVertical: 7, flexDirection: "row", alignItems: "center", justifyContent: "space-between", paddingHorizontal: 7 }}>
                         <View style={{ marginLeft: 25 }}>
@@ -186,6 +187,10 @@ const Cart = ({ navigation }) => {
                     </View>
                 </View>
             )}
+
+            <View style={{ position: "absolute", bottom: 0, width: "100%" }}>
+                <TabBar />
+            </View>
 
         </SafeAreaView>
     )

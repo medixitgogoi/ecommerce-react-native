@@ -6,6 +6,7 @@ import Icon3 from 'react-native-vector-icons/dist/Fontisto';
 import Icon4 from 'react-native-vector-icons/dist/Feather';
 import { useDispatch } from 'react-redux';
 import { addItemToCart } from '../redux/CartSlice';
+import TabBar from '../components/TabBar';
 
 const ReadMore = ({ text, maxLength }) => {
 
@@ -164,7 +165,7 @@ const ProductDetails = ({ navigation }) => {
             </ScrollView>
 
             {/* Add to cart button */}
-            <View style={{ position: "absolute", bottom: 15, width: "100%", paddingHorizontal: 10 }}>
+            <View style={{ position: "absolute", bottom: 75, width: "100%", paddingHorizontal: 10 }}>
                 <View style={{}} />
                 <View style={{ backgroundColor: "#212121", borderRadius: 100, paddingVertical: 7, flexDirection: "row", alignItems: "center", justifyContent: "space-between", paddingHorizontal: 7 }}>
                     <View style={{ marginLeft: 25 }}>
@@ -188,6 +189,10 @@ const ProductDetails = ({ navigation }) => {
                 </View>
             </View>
 
+            <View style={{ position: "absolute", bottom: 0, width: "100%" }}>
+                <TabBar />
+            </View>
+            
         </View>
     )
 }
