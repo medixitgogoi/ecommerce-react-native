@@ -1,7 +1,7 @@
-import { StyleSheet, Text, View, SafeAreaView, StatusBar } from 'react-native';
-import TabBar from '../components/TabBar';
+import { StyleSheet, Text, View, SafeAreaView, StatusBar } from 'react-native'
+import TabBar from '../components/TabBar'
 
-const Help = () => {
+const Orders = () => {
     return (
         <SafeAreaView style={{ flex: 1, paddingBottom: 53 }}>
             <StatusBar
@@ -10,7 +10,7 @@ const Help = () => {
                 barStyle="dark-content"
             />
             <View style={{ backgroundColor: "#e5e3e0", height: "100%" }}>
-                <Text style={{ color: "#000" }}>Help</Text>
+                <Text style={{ color: "#000" }}>Orders</Text>
             </View>
             <View style={{ position: "absolute", bottom: 0, width: "100%" }}>
                 <TabBar />
@@ -19,6 +19,6 @@ const Help = () => {
     )
 }
 
-export default Help
+export default Orders
 
 const styles = StyleSheet.create({})

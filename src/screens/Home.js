@@ -86,7 +86,7 @@ const Home = ({ navigation }) => {
     };
 
     return (
-        <SafeAreaView style={{ flex: 1 }}>
+        <SafeAreaView style={{ flex: 1, paddingBottom: 53 }}>
             <StatusBar
                 animated={true}
                 backgroundColor="#e5e3e0"
@@ -97,9 +97,6 @@ const Home = ({ navigation }) => {
             <View style={{ backgroundColor: "#e5e3e0", paddingVertical: 8, paddingHorizontal: 15, flexDirection: "row", justifyContent: "space-between", alignItems: "center", }}>
                 <Text style={{ color: "#000", fontSize: 20, fontWeight: "700" }}>GCOMMERC</Text>
                 <View style={{ flexDirection: "row", alignItems: "center" }}>
-                    <TouchableOpacity onPress={() => navigation.navigate("Cart")}>
-                        <Text style={{ color: "#000" }}>Cart</Text>
-                    </TouchableOpacity>
                     <TouchableOpacity style={{ alignItems: "center", justifyContent: "center" }}>
                         <Icon
                             name="location-sharp"
@@ -139,7 +136,6 @@ const Home = ({ navigation }) => {
 
             <ScrollView>
                 <View style={{ backgroundColor: "#e5e3e0", height: "100%", }}>
-
                     {/* Brands */}
                     <View style={styles.container}>
                         <FlatList
@@ -260,11 +256,10 @@ const Home = ({ navigation }) => {
                             </View>
                         )}
                     </View>
-
                 </View>
             </ScrollView>
 
-            <View style={{ position: "absolute", bottom: 0, width: "100%"}}>
+            <View style={{ position: "absolute", bottom: 0, width: "100%" }}>
                 <TabBar />
             </View>
 

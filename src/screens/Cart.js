@@ -1,5 +1,5 @@
 import { StyleSheet, Text, View, TouchableOpacity, Image, FlatList, SafeAreaView, StatusBar } from 'react-native';
-import Icon4 from 'react-native-vector-icons/dist/Feather';
+import Icon4 from 'react-native-vector-icons/dist/FontAwesome5';
 import Icon from 'react-native-vector-icons/dist/MaterialIcons';
 import Icon3 from 'react-native-vector-icons/dist/MaterialCommunityIcons';
 import Icon2 from 'react-native-vector-icons/dist/Ionicons';
@@ -20,7 +20,7 @@ const Cart = ({ navigation }) => {
     const dispatch = useDispatch();
 
     const incrementQuantity = (item) => {
-        dispatch(addItemToCart(item)); // Dispatch the action to add the item to the cart
+        dispatch(addItemToCart(item));
     };
 
     const decrementQuantity = (item) => {
@@ -40,7 +40,7 @@ const Cart = ({ navigation }) => {
     }
 
     return (
-        <SafeAreaView style={{ flex: 1 }}>
+        <SafeAreaView style={{ flex: 1, paddingBottom: 55 }}>
             <StatusBar
                 animated={true}
                 backgroundColor="#fff"
@@ -93,11 +93,11 @@ const Cart = ({ navigation }) => {
                         <Text style={{ color: "#000", textAlign: "center", fontWeight: "600", fontSize: 20, marginBottom: 5 }}>No items added yet!</Text>
                         <TouchableOpacity onPress={() => navigation.navigate("Home")} style={{ backgroundColor: "#e27e45", height: 40, paddingHorizontal: 10, borderRadius: 5, alignItems: "center", flexDirection: "row", justifyContent: "center", marginTop: 5 }}>
                             <Text style={{ fontSize: 17, fontWeight: "600", color: '#fff', marginRight: 5 }}>Take me to the shopping page</Text>
-                            <Icon3
-                                name="sticker-emoji"
+                            <Icon4
+                                name="smile-beam"
                                 style={{
-                                    color: '#fff',
-                                    fontSize: 18,
+                                    color: '#000',
+                                    fontSize: 20,
                                     fontWeight: "600"
                                 }}
                             />
@@ -140,7 +140,7 @@ const Cart = ({ navigation }) => {
                                                     <TouchableOpacity style={{ backgroundColor: "#e5e3e0", paddingVertical: 1, borderRadius: 50, paddingHorizontal: 8, flexDirection: "row", alignItems: "center", justifyContent: "center", marginLeft: 6 }} onPress={() => incrementQuantity(item)}><Text style={{ fontSize: "600", fontSize: 20, color: "#000" }}>+</Text></TouchableOpacity>
                                                 </View>
                                             </View>
-                                            <View style={{marginTop: 3}}>
+                                            <View style={{ marginTop: 3 }}>
                                                 <Text style={{ color: "#5eb11b" }}>In stock</Text>
                                             </View>
                                         </View>
@@ -172,9 +172,8 @@ const Cart = ({ navigation }) => {
 
             {/* Buy now button */}
             {cartProducts.length > 0 && (
-                <View style={{ position: "absolute", bottom: 75, width: "100%", paddingHorizontal: 10, }}>
-                    <View style={{}} />
-                    <View style={{ backgroundColor: "#212121", borderRadius: 100, paddingVertical: 7, flexDirection: "row", alignItems: "center", justifyContent: "space-between", paddingHorizontal: 7 }}>
+                <View style={{ position: "absolute", bottom: 65, width: "100%", paddingHorizontal: 10, }}>
+                    <View View style={{ backgroundColor: "#212121", borderRadius: 100, paddingVertical: 7, flexDirection: "row", alignItems: "center", justifyContent: "space-between", paddingHorizontal: 7 }}>
                         <View style={{ marginLeft: 25 }}>
                             <Text style={{ color: "#949494", fontWeight: "600", fontSize: 15 }}>Total price:</Text>
                             <Text style={{ color: "#fff", fontSize: 22, fontWeight: "500", textAlign: "center" }}>₹{getTotal()}</Text>

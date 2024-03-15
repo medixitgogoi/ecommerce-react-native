@@ -39,7 +39,8 @@ const ProductDetails = ({ navigation }) => {
     const dispatch = useDispatch();
 
     return (
-        <View style={{ flex: 1 }}>
+        <View style={{ flex: 1, paddingBottom: 55 }}>
+            
             <StatusBar
                 animated={true}
                 backgroundColor="#f6f6f6"
@@ -165,7 +166,7 @@ const ProductDetails = ({ navigation }) => {
             </ScrollView>
 
             {/* Add to cart button */}
-            <View style={{ position: "absolute", bottom: 75, width: "100%", paddingHorizontal: 10 }}>
+            <View style={{ position: "absolute", bottom: 65, width: "100%", paddingHorizontal: 10 }}>
                 <View style={{}} />
                 <View style={{ backgroundColor: "#212121", borderRadius: 100, paddingVertical: 7, flexDirection: "row", alignItems: "center", justifyContent: "space-between", paddingHorizontal: 7 }}>
                     <View style={{ marginLeft: 25 }}>
