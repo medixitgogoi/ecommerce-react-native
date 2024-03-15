@@ -20,15 +20,18 @@ const TabBar = () => {
         },
         {
             id: 2,
-            name: "Orders"
+            name: "Orders",
+            iconName: "receipt"
         },
         {
             id: 3,
-            name: "Help"
+            name: "Help",
+            iconName: "support-agent"
         },
         {
             id: 4,
-            name: "Profile"
+            name: "Profile",
+            iconName: "user"
         },
     ]
 
@@ -37,62 +40,66 @@ const TabBar = () => {
     return (
         <View style={{ backgroundColor: "#212121", height: 63, borderTopRightRadius: 18, borderTopLeftRadius: 18, flexDirection: "row", justifyContent: "space-between", alignItems: "center", paddingHorizontal: 20, }}>
 
-            
-            <TouchableOpacity onPress={() => navigation.navigate("Home")}>
-                <Icon
-                    name="home"
-                    style={{
-                        color: '#797979',
-                        fontSize: 20,
-                        // backgroundColor: "red",
-                        padding: 5,
-                    }}
-                />
-            </TouchableOpacity>
+            {data.map((item) => (
+                <TouchableOpacity onPress={() => navigation.navigate(item.name)}>
+                    <Icon
+                        name={item.iconName}
+                        style={{
+                            color: '#797979',
+                            fontSize: 20,
+                            // backgroundColor: "red",
+                            padding: 5,
+                        }}
+                    />
+                </TouchableOpacity>
+            ))}
 
-            <TouchableOpacity onPress={() => navigation.navigate("Cart")}>
-                <Icon3
-                    name="cart"
-                    style={{
-                        color: '#797979',
-                        fontSize: 20,
-                        padding: 5,
-                    }}
-                />
-            </TouchableOpacity>
+            {/* 
+                <TouchableOpacity onPress={() => navigation.navigate(item.name)}>
+                    <Icon3
+                        name="cart"
+                        style={{
+                            color: '#797979',
+                            fontSize: 20,
+                            padding: 5,
+                        }}
+                    />
+                </TouchableOpacity>
 
-            <TouchableOpacity onPress={() => navigation.navigate("Orders")}>
-                <Icon3
-                    name="receipt"
-                    style={{
-                        color: '#797979',
-                        fontSize: 19,
-                        padding: 5,
-                    }}
-                />
-            </TouchableOpacity>
+                <TouchableOpacity onPress={() => navigation.navigate("Orders")}>
+                    <Icon3
+                        name="receipt"
+                        style={{
+                            color: '#797979',
+                            fontSize: 19,
+                            padding: 5,
+                        }}
+                    />
+                </TouchableOpacity>
 
-            <TouchableOpacity onPress={() => navigation.navigate("Help")}>
-                <Icon4
-                    name="support-agent"
-                    style={{
-                        color: '#797979',
-                        fontSize: 19,
-                        padding: 5,
-                    }}
-                />
-            </TouchableOpacity>
+                <TouchableOpacity onPress={() => navigation.navigate("Help")}>
+                    <Icon4
+                        name="support-agent"
+                        style={{
+                            color: '#797979',
+                            fontSize: 19,
+                            padding: 5,
+                        }}
+                    />
+                </TouchableOpacity>
 
-            <TouchableOpacity onPress={() => navigation.navigate("Profile")}>
-                <Icon2
-                    name="user"
-                    style={{
-                        color: '#797979',
-                        fontSize: 19,
-                        padding: 5,
-                    }}
-                />
-            </TouchableOpacity>
+                <TouchableOpacity onPress={() => navigation.navigate("Profile")}>
+                    <Icon2
+                        name="user"
+                        style={{
+                            color: '#797979',
+                            fontSize: 19,
+                            padding: 5,
+                        }}
+                    />
+                </TouchableOpacity>
+             */}
+
         </View>
     )
 }
