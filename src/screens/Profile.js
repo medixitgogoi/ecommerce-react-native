@@ -174,7 +174,7 @@ import {
                   justifyContent: "center"
   
                 }}>
-                <Text style={{ color: "#fff" }}>Location Button</Text>
+                <Text style={{ color: "#fff" }}>Location Buttons</Text>
   
               </View>
   
