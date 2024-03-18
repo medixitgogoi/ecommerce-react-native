@@ -8,6 +8,49 @@ import { useDispatch } from 'react-redux';
 import { addItemToCart } from '../redux/CartSlice';
 import TabBar from '../components/TabBar';
 
+const sizeData = [
+    {
+        id: 0,
+        size: 40
+    },
+    {
+        id: 1,
+        size: 41
+    },
+    {
+        id: 2,
+        size: 42
+    },
+    {
+        id: 3,
+        size: 43
+    },
+    {
+        id: 4,
+        size: 44
+    },
+    {
+        id: 5,
+        size: 45
+    },
+    {
+        id: 6,
+        size: 46
+    },
+    {
+        id: 7,
+        size: 47
+    },
+    {
+        id: 8,
+        size: 48
+    },
+    {
+        id: 9,
+        size: 49
+    },
+]
+
 const ReadMore = ({ text, maxLength }) => {
 
     const [showMore, setShowMore] = useState(false);
@@ -33,14 +76,19 @@ const ReadMore = ({ text, maxLength }) => {
     );
 };
 
-const ProductDetails = ({ navigation }) => {
+const ProductDetails = ({ navigation, route }) => {
 
-    const longText = "Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime adipisci temporibus, obcaecati fugit est voluptas ut cupiditate recusandae! Quia tempore vitae eius consequatur. Maiores quasi est quibusdam expedita obcaecati tempore"
+    const [selectedSize, setSelectedSize] = useState(0);
+
+    console.log(route)
+    const detail = route.params.data;
+    console.log(detail.rating)
+
     const dispatch = useDispatch();
 
     return (
         <View style={{ flex: 1, paddingBottom: 55 }}>
-            
+
             <StatusBar
                 animated={true}
                 backgroundColor="#f6f6f6"
@@ -63,8 +111,8 @@ const ProductDetails = ({ navigation }) => {
 
                 {/* Product image */}
                 <View style={{ backgroundColor: "#f6f6f6" }}>
-                    <View style={{ width: "100%", alignItems: "center", }}>
-                        <Image source={require("../assets/shirt.png")} style={{ borderRadius: 8, resizeMode: "contain", height: 400 }} />
+                    <View style={{ width: "100%", alignItems: "center", elevation: 5 }}>
+                        <Image source={{ uri: detail?.image }} style={{ borderRadius: 8, resizeMode: "contain", height: 400, width: 200 }} />
                     </View>
                 </View>
 
@@ -80,14 +128,15 @@ const ProductDetails = ({ navigation }) => {
                                 fontSize: 16,
                             }}
                         />
-                        <Text style={{
-                            color: "#000", marginLeft: 4, fontWeight: "500"
-                        }}>5.0(124 reviews)</Text>
+                        <View style={{ flexDirection: "row", alignItems: "center" }}>
+                            <Text style={{ color: "#000", marginLeft: 4, fontWeight: "500" }}>{detail.rating.rate}</Text>
+                            <Text style={{ color: "#000", marginLeft: 4, fontWeight: "500" }}>({detail.rating.count} reviews)</Text>
+                        </View>
                     </View>
 
                     {/* Product title */}
                     <View style={{ marginTop: 5, flexDirection: "row", alignItems: 'flex-start', justifyContent: "space-between", }}>
-                        <Text style={{ color: "#000", fontWeight: "700", fontSize: 19, width: "80%" }}>Air Jordan 1 Low Fragment X Travis Scoot</Text>
+                        <Text style={{ color: "#000", fontWeight: "700", fontSize: 19, width: "80%" }}>{detail.title}</Text>
                         <TouchableOpacity style={{ backgroundColor: "#f6f6f6", padding: 5, borderRadius: 100, alignItems: "center", justifyContent: "center", elevation: 1 }}>
                             <Icon2
                                 name="share-social"
@@ -109,7 +158,7 @@ const ProductDetails = ({ navigation }) => {
                                 name="check"
                                 style={{
                                     color: '#fff',
-                                    fontSize: 9,
+                                    fontSize: 8,
                                     fontWeight: "600"
                                 }}
                             />
@@ -124,37 +173,22 @@ const ProductDetails = ({ navigation }) => {
                             fontSize: 16,
                             textTransform: "uppercase",
                         }}>Description :</Text>
-                        <ReadMore text={longText} maxLength={200} />
+                        <ReadMore text={detail.description} maxLength={200} />
                     </View>
 
                     {/* Size */}
                     <View style={{ marginTop: 20 }}>
 
                         <View style={{ flexDirection: "row", justifyContent: "space-between", alignItems: "center", }}>
-                            <Text style={{
-                                color: "#000",
-                                fontWeight: "700",
-                                fontSize: 16,
-                            }}>
-                                Size :
-                            </Text>
-                            <View style={{ flexDirection: "row" }}>
-                                <Text style={{ color: '#000', backgroundColor: "#f0f0f0", padding: 4, borderRadius: 3, elevation: 5, fontWeight: "500", fontSize: 14 }}>EU</Text>
-                                <Text style={{ color: '#000', backgroundColor: "#f0f0f0", padding: 4, borderRadius: 3, elevation: 5, fontWeight: "500", marginLeft: 8, fontSize: 14 }}>US</Text>
-                                <Text style={{ color: '#000', backgroundColor: "#f0f0f0", padding: 4, borderRadius: 3, elevation: 5, fontWeight: "500", marginLeft: 8, fontSize: 14 }}>UK</Text>
-                            </View>
+                            <Text style={{ color: "#000", fontWeight: "700", fontSize: 16, }}>Size :</Text>
                         </View>
-                        <View style={{ flexDirection: "row", flexWrap: "wrap", marginTop: 10 }}>
-                            <Text style={{ backgroundColor: "#efefef", padding: 10, borderRadius: 8, color: "#000", fontWeight: "600", margin: 4, }}>40</Text>
-                            <Text style={{ backgroundColor: "#efefef", padding: 10, borderRadius: 8, color: "#000", fontWeight: "600", margin: 4, }}>41</Text>
-                            <Text style={{ backgroundColor: "#efefef", padding: 10, borderRadius: 8, color: "#000", fontWeight: "600", margin: 4, }}>42</Text>
-                            <Text style={{ backgroundColor: "#efefef", padding: 10, borderRadius: 8, color: "#000", fontWeight: "600", margin: 4, }}>43</Text>
-                            <Text style={{ backgroundColor: "#e79465", padding: 10, borderRadius: 8, color: "#fff", fontWeight: "600", margin: 4, }}>45</Text>
-                            <Text style={{ backgroundColor: "#efefef", padding: 10, borderRadius: 8, color: "#000", fontWeight: "600", margin: 4, }}>46</Text>
-                            <Text style={{ backgroundColor: "#efefef", padding: 10, borderRadius: 8, color: "#000", fontWeight: "600", margin: 4, }}>47</Text>
-                            <Text style={{ backgroundColor: "#efefef", padding: 10, borderRadius: 8, color: "#000", fontWeight: "600", margin: 4, }}>40</Text>
-                            <Text style={{ backgroundColor: "#efefef", padding: 10, borderRadius: 8, color: "#000", fontWeight: "600", margin: 4, }}>40</Text>
-                            <Text style={{ backgroundColor: "#efefef", padding: 10, borderRadius: 8, color: "#000", fontWeight: "600", margin: 4, }}>40</Text>
+
+                        <View style={{ flexDirection: "row", flexWrap: "wrap", marginTop: 10, }}>
+                            {sizeData.map(item => (
+                                <TouchableOpacity onPress={() => setSelectedSize(item.id)}>
+                                    <Text style={{ backgroundColor: selectedSize === item.id ? "#e79465" : "#efefef", padding: 8, borderRadius: 8, color: selectedSize === item.id ? "#fff" : "#000", fontWeight: "600", marginVertical: 4, marginRight: 8 }}>{item.size}</Text>
+                                </TouchableOpacity>
+                            ))}
                         </View>
 
                     </View>
@@ -162,18 +196,17 @@ const ProductDetails = ({ navigation }) => {
                     <View style={{ paddingBottom: 55 }} />
 
                 </View>
-
             </ScrollView>
 
             {/* Add to cart button */}
-            <View style={{ position: "absolute", bottom: 65, width: "100%", paddingHorizontal: 10 }}>
-                <View style={{}} />
+            <View View style={{ position: "absolute", bottom: 65, width: "100%", paddingHorizontal: 10 }}>
+
                 <View style={{ backgroundColor: "#212121", borderRadius: 100, paddingVertical: 7, flexDirection: "row", alignItems: "center", justifyContent: "space-between", paddingHorizontal: 7 }}>
                     <View style={{ marginLeft: 25 }}>
                         <Text style={{ color: "#959595", fontWeight: "500", fontSize: 15 }}>Price</Text>
                         <Text style={{ color: "#fff", fontSize: 22, fontWeight: "500" }}>₹2250</Text>
                     </View>
-                    <TouchableOpacity style={{ backgroundColor: "#e27e45", paddingVertical: 12, borderRadius: 100, paddingHorizontal: 20, flexDirection: "row" }} >
+                    <TouchableOpacity style={{ backgroundColor: "#e27e45", paddingVertical: 12, borderRadius: 100, paddingHorizontal: 20, flexDirection: "row" }} onPress={() => dispatch(addItemToCart(detail))}>
                         <Icon2
                             name="cart"
                             style={{
@@ -193,7 +226,7 @@ const ProductDetails = ({ navigation }) => {
             <View style={{ position: "absolute", bottom: 0, width: "100%" }}>
                 <TabBar />
             </View>
-            
+
         </View>
     )
 }
@@ -329,7 +362,7 @@ const styles = StyleSheet.create({})
 //                                 name="check"
 //                                 style={{
 //                                     color: '#fff',
-//                                     fontSize: 9,
+//                                     fontSize: 8,
 //                                     fontWeight: "600"
 //                                 }}
 //                             />
@@ -365,16 +398,16 @@ const styles = StyleSheet.create({})
 //                             </View>
 //                         </View>
 //                         <View style={{ flexDirection: "row", flexWrap: "wrap", marginTop: 15 }}>
-//                             <Text style={{ backgroundColor: "#efefef", padding: 10, borderRadius: 8, color: "#000", fontWeight: "600", margin: 4 }}>40</Text>
-//                             <Text style={{ backgroundColor: "#efefef", padding: 10, borderRadius: 8, color: "#000", fontWeight: "600", margin: 4 }}>41</Text>
-//                             <Text style={{ backgroundColor: "#efefef", padding: 10, borderRadius: 8, color: "#000", fontWeight: "600", margin: 4 }}>42</Text>
-//                             <Text style={{ backgroundColor: "#efefef", padding: 10, borderRadius: 8, color: "#000", fontWeight: "600", margin: 4 }}>43</Text>
-//                             <Text style={{ backgroundColor: "#e79465", padding: 10, borderRadius: 8, color: "#fff", fontWeight: "600", margin: 4 }}>45</Text>
-//                             <Text style={{ backgroundColor: "#efefef", padding: 10, borderRadius: 8, color: "#000", fontWeight: "600", margin: 4 }}>46</Text>
-//                             <Text style={{ backgroundColor: "#efefef", padding: 10, borderRadius: 8, color: "#000", fontWeight: "600", margin: 4 }}>47</Text>
-//                             <Text style={{ backgroundColor: "#efefef", padding: 10, borderRadius: 8, color: "#000", fontWeight: "600", margin: 4 }}>40</Text>
-//                             <Text style={{ backgroundColor: "#efefef", padding: 10, borderRadius: 8, color: "#000", fontWeight: "600", margin: 4 }}>40</Text>
-//                             <Text style={{ backgroundColor: "#efefef", padding: 10, borderRadius: 8, color: "#000", fontWeight: "600", margin: 4 }}>40</Text>
+//                             <Text style={{ backgroundColor: "#efefef", padding: 8, borderRadius: 8, color: "#000", fontWeight: "600", marginVertical: 4  marginRight: 8}}>40</Text>
+//                             <Text style={{ backgroundColor: "#efefef", padding: 8, borderRadius: 8, color: "#000", fontWeight: "600", marginVertical: 4  marginRight: 8}}>41</Text>
+//                             <Text style={{ backgroundColor: "#efefef", padding: 8, borderRadius: 8, color: "#000", fontWeight: "600", marginVertical: 4  marginRight: 8}}>42</Text>
+//                             <Text style={{ backgroundColor: "#efefef", padding: 8, borderRadius: 8, color: "#000", fontWeight: "600", marginVertical: 4  marginRight: 8}}>43</Text>
+//                             <Text style={{ backgroundColor: "#e79465", padding: 8, borderRadius: 8, color: "#fff", fontWeight: "600", marginVertical: 4  marginRight: 8}}>45</Text>
+//                             <Text style={{ backgroundColor: "#efefef", padding: 8, borderRadius: 8, color: "#000", fontWeight: "600", marginVertical: 4  marginRight: 8}}>46</Text>
+//                             <Text style={{ backgroundColor: "#efefef", padding: 8, borderRadius: 8, color: "#000", fontWeight: "600", marginVertical: 4  marginRight: 8}}>47</Text>
+//                             <Text style={{ backgroundColor: "#efefef", padding: 8, borderRadius: 8, color: "#000", fontWeight: "600", marginVertical: 4  marginRight: 8}}>40</Text>
+//                             <Text style={{ backgroundColor: "#efefef", padding: 8, borderRadius: 8, color: "#000", fontWeight: "600", marginVertical: 4  marginRight: 8}}>40</Text>
+//                             <Text style={{ backgroundColor: "#efefef", padding: 8, borderRadius: 8, color: "#000", fontWeight: "600", marginVertical: 4  marginRight: 8}}>40</Text>
 //                         </View>
 
 //                     </View>

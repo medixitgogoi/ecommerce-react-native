@@ -5,7 +5,6 @@ import { Provider } from 'react-redux';
 import Stacknavigation from './src/navigation/Stacknavigation';
 
 const App = () => {
-
   return (
     <Provider store={store}>
       <Stacknavigation/>

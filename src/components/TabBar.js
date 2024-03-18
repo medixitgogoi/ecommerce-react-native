@@ -1,11 +1,14 @@
-import { StyleSheet, Text, View, TouchableOpacity } from 'react-native'
+import { StyleSheet, View, TouchableOpacity } from 'react-native';
 import Icon from 'react-native-vector-icons/dist/MaterialCommunityIcons';
 import Icon2 from 'react-native-vector-icons/dist/FontAwesome';
-import Icon3 from 'react-native-vector-icons/dist/Ionicons';
-import Icon4 from 'react-native-vector-icons/dist/MaterialIcons';
 import { useNavigation } from '@react-navigation/native';
+import { useState } from 'react';
+import { Animated, } from 'react-native';
 
 const TabBar = () => {
+
+    const [selected, setSelected] = useState(0);
+    const navigation = useNavigation();
 
     const data = [
         {
@@ -26,7 +29,7 @@ const TabBar = () => {
         {
             id: 3,
             name: "Help",
-            iconName: "support-agent"
+            iconName: "help-circle"
         },
         {
             id: 4,
@@ -35,23 +38,65 @@ const TabBar = () => {
         },
     ]
 
-    const navigation = useNavigation();
+    const handleTabPress = (name, index) => {
+        navigation.navigate(name)
+        // setSelected(index);
+    }
 
     return (
         <View style={{ backgroundColor: "#212121", height: 63, borderTopRightRadius: 18, borderTopLeftRadius: 18, flexDirection: "row", justifyContent: "space-between", alignItems: "center", paddingHorizontal: 20, }}>
 
-            {data.map((item) => (
-                <TouchableOpacity onPress={() => navigation.navigate(item.name)}>
-                    <Icon
-                        name={item.iconName}
+            {/* {selected == 0 ? (<Home />) : selected == 1 ? (<Cart />) : selected == 2 ? (<Orders />) : selected == 3 ? (<Help />) : selected == 4 ? (<Profile />) : ""} */}
+            {/* <Animated.View style={{ width: 40, height: 40, borderRadius: 50, backgroundColor: "red", position: "absolute", left: 14.5 }}>
+
+            </Animated.View> */}
+
+            {data.map((item, index) => (
+                item.name === "Profile" ? (
+                    <TouchableOpacity
+                        key={item.id}
                         style={{
-                            color: '#797979',
-                            fontSize: 20,
-                            // backgroundColor: "red",
-                            padding: 5,
+                            // backgroundColor: `${selected === item.id ? "red" : ""}`,
+                            width: 40,
+                            height: 40,
+                            borderRadius: 50,
+                            alignItems: "center",
+                            justifyContent: "center"
                         }}
-                    />
-                </TouchableOpacity>
+                        onPress={() => handleTabPress(item.name, item.id)}
+                    >
+                        <Icon2
+                            name={item.iconName}
+                            style={{
+                                color: '#797979',
+                                fontSize: 20,
+                                padding: 5,
+                            }}
+                        />
+                    </TouchableOpacity>
+                ) : (
+                    <TouchableOpacity
+                        key={item.id}
+                        style={{
+                            // backgroundColor: `${selected === item.id ? "red" : ""}`,
+                            width: 40,
+                            height: 40,
+                            borderRadius: 50,
+                            alignItems: "center",
+                            justifyContent: "center"
+                        }}
+                        onPress={() => handleTabPress(item.name, index)}
+                    >
+                        <Icon
+                            name={item.iconName}
+                            style={{
+                                color: '#797979',
+                                fontSize: 20,
+                                padding: 5,
+                            }}
+                        />
+                    </TouchableOpacity>
+                )
             ))}
 
             {/* 
@@ -99,11 +144,46 @@ const TabBar = () => {
                     />
                 </TouchableOpacity>
              */}
-
         </View>
     )
 }
 
-export default TabBar
+export default TabBar;
 
-const styles = StyleSheet.create({})
+const styles = StyleSheet.create({
+    tabBar: {
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        backgroundColor: '#fff',
+        elevation: 5,
+    },
+    tab: {
+        flex: 1,
+        alignItems: 'center',
+        justifyContent: 'center',
+        paddingVertical: 10,
+    },
+    activeTab: {
+        backgroundColor: '#ddd',
+    },
+})
+
+
+{/* <TouchableOpacity
+                    key={item.id}
+                    // style={[
+                    //     styles.tab,
+                    //     index === activeTab && styles.activeTab,
+                    // ]}
+                    onPress={() => handleTabPress(item.name, index)}
+                >
+                    <Icon
+                        name={item.iconName}
+                        style={{
+                            color: '#797979',
+                            fontSize: 20,
+                            padding: 5,
+                        }}
+                    />
+                </TouchableOpacity>
+            ))} */}

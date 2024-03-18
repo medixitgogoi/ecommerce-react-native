@@ -1,0 +1,110 @@
+{
+    "categories": {
+        "male": [
+            {
+                "name": "Men's Coaches' Jacket",
+                "price": 100,
+                "images": [
+                    "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/534d2359-c6e2-42fb-b8ce-82b658be202d/swift-uv-running-jacket-9rNwSf.png",
+                    "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/75520ec3-492f-4cc1-8b9f-40203b2493e0/club-coaches-jacket-kWqWsm.png",
+                    "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/aafa2ef0-442e-4f00-bbe2-dc48ea2ba4c5/club-coaches-jacket-kWqWsm.png"
+                ],
+                "rating": 5,
+                 "discount":10
+            },
+            {
+                "name": "Men's Coaches' Jacket",
+                "price": 100,
+                "images": [
+                    "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/534d2359-c6e2-42fb-b8ce-82b658be202d/swift-uv-running-jacket-9rNwSf.png",
+                    "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/75520ec3-492f-4cc1-8b9f-40203b2493e0/club-coaches-jacket-kWqWsm.png",
+                    "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/aafa2ef0-442e-4f00-bbe2-dc48ea2ba4c5/club-coaches-jacket-kWqWsm.png"
+                ],
+                "rating": 5,
+                 "discount":10
+            },
+            {
+                "name": "Men's Coaches' Jacket",
+                "price": 100,
+                "images": [
+                    "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/534d2359-c6e2-42fb-b8ce-82b658be202d/swift-uv-running-jacket-9rNwSf.png",
+                    "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/75520ec3-492f-4cc1-8b9f-40203b2493e0/club-coaches-jacket-kWqWsm.png",
+                    "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/aafa2ef0-442e-4f00-bbe2-dc48ea2ba4c5/club-coaches-jacket-kWqWsm.png"
+                ],
+                "rating": 5,
+                 "discount":10
+            }
+        ],
+        "female": [
+            {
+                "name": "Women's Running Jacket",
+                "price": 100,
+                "images": [
+                    "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/c297a4f8-8ba4-4d0e-948b-b0832e703811/club-coaches-jacket-kWqWsm.png",
+                   "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/3346385b-a478-47d5-81aa-3af4db3a5e0e/swift-uv-running-jacket-9rNwSf.png",
+                    "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/a0ea7ab1-a717-4199-855a-9b58ab900781/swift-uv-running-jacket-9rNwSf.png"
+                ],
+                "rating": 5,
+                 "discount":10
+            },
+            {
+                "name": "Women's Running Jacket",
+                "price": 100,
+                "images": [
+                    "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/c297a4f8-8ba4-4d0e-948b-b0832e703811/club-coaches-jacket-kWqWsm.png",
+                   "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/3346385b-a478-47d5-81aa-3af4db3a5e0e/swift-uv-running-jacket-9rNwSf.png",
+                    "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/a0ea7ab1-a717-4199-855a-9b58ab900781/swift-uv-running-jacket-9rNwSf.png"
+                ],
+                "rating": 5,
+                 "discount":10
+            },
+            {
+                "name": "Women's Running Jacket",
+                "price": 100,
+                "images": [
+                    "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/c297a4f8-8ba4-4d0e-948b-b0832e703811/club-coaches-jacket-kWqWsm.png",
+                   "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/3346385b-a478-47d5-81aa-3af4db3a5e0e/swift-uv-running-jacket-9rNwSf.png",
+                    "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/a0ea7ab1-a717-4199-855a-9b58ab900781/swift-uv-running-jacket-9rNwSf.png"
+                ],
+                "rating": 5,
+                 "discount":10
+            }
+        ],
+
+        "children": [
+            {
+                "name": "Air Jordan 1 Low",
+                "price": 100,
+                "images": [
+                    "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco,u_126ab356-44d8-4a06-89b4-fcdcc8df0245,c_scale,fl_relative,w_1.0,h_1.0,fl_layer_apply/73d20ad4-26ef-49d7-b79c-80042b084b5b/air-jordan-1-low-older-shoes-xLzJc6.png",
+                    "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco,u_126ab356-44d8-4a06-89b4-fcdcc8df0245,c_scale,fl_relative,w_1.0,h_1.0,fl_layer_apply/c3f5cab4-a77d-4a22-958f-96eedf415c30/air-jordan-1-low-older-shoes-xLzJc6.png",
+                    "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco,u_126ab356-44d8-4a06-89b4-fcdcc8df0245,c_scale,fl_relative,w_1.0,h_1.0,fl_layer_apply/571a8a0d-1c59-4d54-b208-bbdd82561742/air-jordan-1-low-older-shoes-xLzJc6.png"
+                ],
+                "rating": 5,
+                 "discount":10
+            },
+            {
+                "name": "Air Jordan 1 Low",
+                "price": 100,
+                "images": [
+                    "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco,u_126ab356-44d8-4a06-89b4-fcdcc8df0245,c_scale,fl_relative,w_1.0,h_1.0,fl_layer_apply/73d20ad4-26ef-49d7-b79c-80042b084b5b/air-jordan-1-low-older-shoes-xLzJc6.png",
+                    "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco,u_126ab356-44d8-4a06-89b4-fcdcc8df0245,c_scale,fl_relative,w_1.0,h_1.0,fl_layer_apply/c3f5cab4-a77d-4a22-958f-96eedf415c30/air-jordan-1-low-older-shoes-xLzJc6.png",
+                    "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco,u_126ab356-44d8-4a06-89b4-fcdcc8df0245,c_scale,fl_relative,w_1.0,h_1.0,fl_layer_apply/571a8a0d-1c59-4d54-b208-bbdd82561742/air-jordan-1-low-older-shoes-xLzJc6.png"
+                ],
+                "rating": 5,
+                 "discount":10
+            },
+            {
+                "name": "Air Jordan 1 Low",
+                "price": 100,
+                "images": [
+                    "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco,u_126ab356-44d8-4a06-89b4-fcdcc8df0245,c_scale,fl_relative,w_1.0,h_1.0,fl_layer_apply/73d20ad4-26ef-49d7-b79c-80042b084b5b/air-jordan-1-low-older-shoes-xLzJc6.png",
+                    "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco,u_126ab356-44d8-4a06-89b4-fcdcc8df0245,c_scale,fl_relative,w_1.0,h_1.0,fl_layer_apply/c3f5cab4-a77d-4a22-958f-96eedf415c30/air-jordan-1-low-older-shoes-xLzJc6.png",
+                    "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco,u_126ab356-44d8-4a06-89b4-fcdcc8df0245,c_scale,fl_relative,w_1.0,h_1.0,fl_layer_apply/571a8a0d-1c59-4d54-b208-bbdd82561742/air-jordan-1-low-older-shoes-xLzJc6.png"
+                ],
+                "rating": 5,
+                 "discount":10
+            }
+]
+}
+}

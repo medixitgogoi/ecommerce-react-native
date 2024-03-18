@@ -83,16 +83,16 @@ const Cart = ({ navigation }) => {
                         <Image
                             source={require("../assets/cart.png")}
                             style={{
-                                width: 150,
-                                height: 150,
+                                width: 140,
+                                height: 140,
                                 resizeMode: 'contain',
                             }}
                         />
                     </View>
                     <View style={{}}>
-                        <Text style={{ color: "#000", textAlign: "center", fontWeight: "600", fontSize: 20, marginBottom: 5 }}>No items added yet!</Text>
-                        <TouchableOpacity onPress={() => navigation.navigate("Home")} style={{ backgroundColor: "#e27e45", height: 40, paddingHorizontal: 10, borderRadius: 5, alignItems: "center", flexDirection: "row", justifyContent: "center", marginTop: 5 }}>
-                            <Text style={{ fontSize: 17, fontWeight: "600", color: '#fff', marginRight: 5 }}>Take me to the shopping page</Text>
+                        <Text style={{ color: "#000", textAlign: "center", fontWeight: "600", fontSize: 16, marginBottom: 3 }}>No items added yet!</Text>
+                        <TouchableOpacity onPress={() => navigation.navigate("Home")} style={{ backgroundColor: "#e27e45", height: 40, paddingHorizontal: 8, borderRadius: 5, alignItems: "center", flexDirection: "row", justifyContent: "center", marginTop: 5 }}>
+                            <Text style={{ fontSize: 15, fontWeight: "600", color: '#fff', marginRight: 5 }}>Take me to the shopping page</Text>
                             <Icon4
                                 name="smile-beam"
                                 style={{

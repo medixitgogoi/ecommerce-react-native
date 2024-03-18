@@ -6,7 +6,6 @@ import { addItemToCart } from '../redux/CartSlice';
 import axios from 'axios';
 import { useDispatch, useSelector } from 'react-redux';
 import TabBar from '../components/TabBar';
-import AsyncStorage from '@react-native-async-storage/async-storage';
 
 const brandsData = [
     { id: '1', name: 'Nike', logo: require('../assets/nike_logo.png') },
@@ -36,8 +35,8 @@ const Home = ({ navigation }) => {
     const fetchProducts = async () => {
         try {
             const response = await axios.get('https://fakestoreapi.com/products');
+            console.log(response.data)
             const data = response.data;
-            // console.log(data)
 
             const productsWithQty = data.map(product => ({
                 ...product,
@@ -58,7 +57,7 @@ const Home = ({ navigation }) => {
     }, [])
 
     const renderBrandItem = ({ item }) => (
-        <TouchableOpacity style={styles.brandItem}>
+        <TouchableOpacity style={styles.brandItem} onPress={()=>navigation.navigate("Category")}>
             <View style={{ height: 50, width: 50, backgroundColor: "#fff", borderRadius: 100, justifyContent: "center", alignItems: "center", }}>
                 <Image
                     source={item.logo}
@@ -84,16 +83,6 @@ const Home = ({ navigation }) => {
             }
         }
         return starComponents;
-    };
-
-    const removeData = async () => {
-        try {
-
-            await AsyncStorage.removeItem('userData');
-            console.log('Data removed successfully!');
-        } catch (error) {
-            console.error('Error removing data:', error);
-        }
     };
 
     return (
@@ -147,6 +136,7 @@ const Home = ({ navigation }) => {
 
             <ScrollView>
                 <View style={{ backgroundColor: "#e5e3e0", height: "100%", }}>
+                    
                     {/* Brands */}
                     <View style={styles.container}>
                         <FlatList
@@ -202,7 +192,7 @@ const Home = ({ navigation }) => {
                                     data={products}
                                     numColumns={2}
                                     renderItem={({ item }) => (
-                                        <TouchableOpacity style={{ backgroundColor: '#fff', borderRadius: 10, elevation: 2, width: "48%", margin: 3, }} onPress={() => navigation.navigate('ProductDetails')}>
+                                        <TouchableOpacity style={{ backgroundColor: '#fff', borderRadius: 10, elevation: 2, width: "48%", margin: 3, }} onPress={() => navigation.navigate('ProductDetails', {data: item})}>
                                             <TouchableOpacity style={{ position: 'absolute', right: 5, top: 5, padding: 3, backgroundColor: "#1f1f1f", borderRadius: 100, zIndex: 10 }}>
                                                 <Icon name="heart" size={15} color="#fff" />
                                             </TouchableOpacity>
@@ -266,6 +256,7 @@ const Home = ({ navigation }) => {
 
                             </View>
                         )}
+                        
                     </View>
                 </View>
             </ScrollView>
@@ -350,87 +341,3 @@ const styles = StyleSheet.create({
         transform: [{ translateY: -10 }],
     },
 })
-
-
-// const ProductCard = () => {
-//     return (
-//         <TouchableOpacity style={{ flexDirection: "row", flexWrap: 'wrap', height: "100%", justifyContent: 'space-between', alignItems: "center", width: "100%", flex: 1 }}>
-
-//             {/* 1 */}
-//             <TouchableOpacity style={{ backgroundColor: '#fff', borderRadius: 15, padding: 3, elevation: 2, width: "49%", marginBottom: 8 }} onPress={() => navigation.navigate('ProductDetails')}>
-//                 <TouchableOpacity style={{ position: 'absolute', right: 8, top: 8, padding: 3, backgroundColor: "#1f1f1f", borderRadius: 100, zIndex: 10 }}>
-//                     <Icon name="heart" size={15} color="#fff" />
-//                 </TouchableOpacity>
-//                 <View style={{ width: "50%", }}>
-//                     <Image
-//                         source={{ uri: item.image }}
-//                         style={{
-//                             width: 100,
-//                             height: 100,
-//                             resizeMode: 'cover',
-//                         }}
-//                     />
-//                 </View>
-//                 <View style={{ paddingHorizontal: 8, marginTop: 5 }}>
-//                     <View style={{ flexDirection: 'row', alignItems: 'center', marginBottom: 5 }}>
-//                         {renderStarRating(3)}
-//                         <Text style={{ marginLeft: 4, color: '#333', fontWeight: "600" }}>3.0</Text>
-//                     </View>
-//                     <View style={{ flexDirection: "row", alignItems: "center", marginBottom: 8 }}>
-//                         <Text style={{ color: "#000", fontWeight: "700", fontSize: 14 }}>LEVIS - </Text>
-//                         <Text numberOfLines={1} ellipsizeMode="tail" style={{ fontSize: 13, fontWeight: 'bold', color: "#a2a2a2" }}>{item.title}</Text>
-//                     </View>
-//                     <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: "space-between" }}>
-//                         <Text style={{ fontSize: 15, fontWeight: 'bold', marginRight: 4, color: "#000" }}>₹2000</Text>
-//                         <View style={{ backgroundColor: "#1d8618", paddingVertical: 3, borderRadius: 8, paddingHorizontal: 5 }}>
-//                             <Text style={{ fontSize: 12, color: '#fff', fontWeight: "600" }}>10% off</Text>
-//                         </View>
-//                     </View>
-//                     <TouchableOpacity style={{ backgroundColor: "#e27e45", borderRadius: 10, paddingVertical: 8, alignItems: 'center', marginTop: 15, marginBottom: 5, width: "100%" }} onPress={() => dispatch(addItemToCart(item))}>
-//                         <Text style={{ fontSize: 16, fontWeight: '600', color: '#fff' }}>Add to Cart</Text>
-//                     </TouchableOpacity>
-//                 </View>
-//             </TouchableOpacity>
-
-//         </TouchableOpacity>
-//     )
-// }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-{/* Location */ }
-{/* <View style={{ backgroundColor: "#ffffff", marginHorizontal: 10, padding: 5, borderRadius: 100, alignItems: "center", justifyContent: "space-between", flexDirection: "row", marginVertical: 8 }}>
-
-                        <View style={{ flexDirection: "row" }}>
-                            <View style={{ backgroundColor: "#e27e45", padding: 8, borderRadius: 100, alignItems: "center", justifyContent: "center" }}>
-                                <Icon
-                                    name="location-sharp"
-                                    style={{
-                                        color: '#fff',
-                                        fontSize: 17,
-                                    }}
-                                />
-                            </View>
-                            <View style={{ marginLeft: 7 }}>
-                                <Text style={{ color: "#a4a4a4", fontSize: 12, fontWeight: "700", }}>Send to:</Text>
-                                <Text style={{ color: "#373737", fontSize: 14, fontWeight: "800", }}>Guwahati, Assam</Text>
-                            </View>
-                        </View>
-                        <View>
-                            <TouchableOpacity style={{ backgroundColor: "#e27e45", padding: 8, borderRadius: 100 }}>
-                                <Text style={{ color: "#ffffff", fontWeight: "500" }}>Change</Text>
-                            </TouchableOpacity>
-                        </View>
-                    </View> */}
