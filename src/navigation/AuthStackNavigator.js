@@ -10,22 +10,21 @@ import Profile from '../screens/Profile';
 import Practice from "../screens/Practice";
 import Category from '../screens/Category';
 
-
 const AuthStackNavigator = () => {
 
     const Stack = createNativeStackNavigator();
 
     return (
         <Stack.Navigator screenOptions={{ headerShown: false }}>
+            {/* <Stack.Screen name="Practice" component={Practice} /> */}
             <Stack.Screen name="Home" component={Home} />
-            <Stack.Screen name="Category" component={Category} />
             <Stack.Screen name="Cart" component={Cart} />
             <Stack.Screen name="ProductDetails" component={ProductDetails} />
             <Stack.Screen name="Dashboard" component={Dashboard} />
             <Stack.Screen name="Orders" component={Orders} />
             <Stack.Screen name="Help" component={Help} />
             <Stack.Screen name="Profile" component={Profile} />
-            {/* <Stack.Screen name="Category" component={Category} /> */}
+            <Stack.Screen name="Category" component={Category} />
         </Stack.Navigator>
     )
 }
