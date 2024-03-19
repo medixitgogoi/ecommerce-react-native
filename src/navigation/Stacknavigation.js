@@ -8,7 +8,7 @@ import AuthStackNavigator from './AuthStackNavigator';
 const Stacknavigation = () => {
 
   const [tokendata, settokendata] = useState(null)
-  
+
   const logindata = useSelector(state => state.user);
   // settokendata(logindata[0])
   console.log("logindata", logindata);
