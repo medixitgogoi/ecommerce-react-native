@@ -29,6 +29,7 @@ import {
     LocationError,
     LocationErrorCode,
   } from 'react-native-get-location';
+  import TabBar from '../components/TabBar';
   import { logoutUser } from '../redux/UserSlice';
   import DoubleTick from 'react-native-vector-icons/dist/Ionicons';
   import { useNavigation } from '@react-navigation/native';
@@ -207,7 +208,7 @@ import {
   
   
   
-  
+        <TabBar/>
   
         {/* location */}
   
