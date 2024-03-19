@@ -62,7 +62,7 @@ const ReadMore = ({ text, maxLength }) => {
 
     return (
         <View style={{ marginTop: 8 }}>
-            <Text style={{ color: "#808080", fontWeight: "400", textAlign: "justify", }}>
+            <Text style={{ color: "#808080", fontWeight: "400", textAlign: "justify", width: "98%" }}>
                 {showMore ? text : `${text.slice(0, maxLength)}...`}
             </Text>
             {text.length > maxLength && (
@@ -172,6 +172,7 @@ const ProductDetails = ({ navigation, route }) => {
                             fontWeight: "700",
                             fontSize: 16,
                             textTransform: "uppercase",
+                            
                         }}>Description :</Text>
                         <ReadMore text={detail.description} maxLength={200} />
                     </View>

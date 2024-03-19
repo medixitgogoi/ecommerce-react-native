@@ -1,4 +1,4 @@
-import { StyleSheet, Text, SafeAreaView, StatusBar, View, TouchableOpacity, FlatList, Image, ScrollView, ActivityIndicator, TextInput, RefreshControl } from 'react-native';
+import { StyleSheet, Text, SafeAreaView, StatusBar, View, TouchableOpacity, FlatList, Image, ScrollView, ActivityIndicator, TextInput, } from 'react-native';
 import Icon from 'react-native-vector-icons/dist/Ionicons';
 import { useState, useEffect } from 'react';
 import { SliderBox } from "react-native-image-slider-box";
@@ -12,7 +12,7 @@ const brandsData = [
     { id: '2', name: 'Adidas', logo: require('../assets/adidas_logo.png') },
     { id: '3', name: 'Puma', logo: require('../assets/puma-logo.png'), width: 37, height: 37, },
     { id: '4', name: 'Reebok', logo: require('../assets/reebok-logo.png'), width: 40, height: 40, },
-    { id: '5', name: 'Reebok', logo: require('../assets/nike_logo.png') },
+    { id: '5', name: 'Campus', logo: require('../assets/campus.png'), width: 37, height: 37, },
     { id: '6', name: 'Reebok', logo: require('../assets/nike_logo.png') },
     { id: '7', name: 'Reebok', logo: require('../assets/nike_logo.png') },
 ];
@@ -57,7 +57,7 @@ const Home = ({ navigation }) => {
     }, [])
 
     const renderBrandItem = ({ item }) => (
-        <TouchableOpacity style={styles.brandItem} onPress={()=>navigation.navigate("Category")}>
+        <TouchableOpacity style={styles.brandItem} onPress={() => navigation.navigate("Category", { data: item })}>
             <View style={{ height: 50, width: 50, backgroundColor: "#fff", borderRadius: 100, justifyContent: "center", alignItems: "center", }}>
                 <Image
                     source={item.logo}
@@ -136,7 +136,7 @@ const Home = ({ navigation }) => {
 
             <ScrollView>
                 <View style={{ backgroundColor: "#e5e3e0", height: "100%", }}>
-                    
+
                     {/* Brands */}
                     <View style={styles.container}>
                         <FlatList
@@ -174,7 +174,7 @@ const Home = ({ navigation }) => {
                     </View>
 
                     {/* Popular products */}
-                    <View style={{ backgroundColor: '#fff', paddingHorizontal: 10, height: "100%", paddingTop: 10 }}>
+                    <View style={{ backgroundColor: '#fff', paddingHorizontal: 10, height: "100%", paddingTop: 10, flex: 1 }}>
 
                         {/* Heading */}
                         <View style={{ flexDirection: 'row', alignItems: "center", justifyContent: "space-between", marginHorizontal: 5, marginBottom: 10 }}>
@@ -192,7 +192,7 @@ const Home = ({ navigation }) => {
                                     data={products}
                                     numColumns={2}
                                     renderItem={({ item }) => (
-                                        <TouchableOpacity style={{ backgroundColor: '#fff', borderRadius: 10, elevation: 2, width: "48%", margin: 3, }} onPress={() => navigation.navigate('ProductDetails', {data: item})}>
+                                        <TouchableOpacity style={{ backgroundColor: '#fff', borderRadius: 10, elevation: 2, width: "48%", margin: 3, }} onPress={() => navigation.navigate('ProductDetails', { data: item })}>
                                             <TouchableOpacity style={{ position: 'absolute', right: 5, top: 5, padding: 3, backgroundColor: "#1f1f1f", borderRadius: 100, zIndex: 10 }}>
                                                 <Icon name="heart" size={15} color="#fff" />
                                             </TouchableOpacity>
@@ -256,8 +256,9 @@ const Home = ({ navigation }) => {
 
                             </View>
                         )}
-                        
+
                     </View>
+
                 </View>
             </ScrollView>
 
