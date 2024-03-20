@@ -1,189 +1,133 @@
-import { StyleSheet, View, TouchableOpacity } from 'react-native';
+import { StyleSheet, Text, View, TouchableOpacity } from 'react-native'
+import { useState } from 'react'
 import Icon from 'react-native-vector-icons/dist/MaterialCommunityIcons';
 import Icon2 from 'react-native-vector-icons/dist/FontAwesome';
 import { useNavigation } from '@react-navigation/native';
-import { useState } from 'react';
-import { Animated, } from 'react-native';
+import { responsiveFontSize } from "react-native-responsive-dimensions";
 
 const TabBar = () => {
-
-    const [selected, setSelected] = useState(0);
     const navigation = useNavigation();
+    const [activeTab, setActiveTab] = useState('Home');
 
-    const data = [
-        {
-            id: 0,
-            name: "Home",
-            iconName: "home"
-        },
-        {
-            id: 1,
-            name: "Cart",
-            iconName: "cart"
-        },
-        {
-            id: 2,
-            name: "Orders",
-            iconName: "receipt"
-        },
-        {
-            id: 3,
-            name: "Help",
-            iconName: "help-circle"
-        },
-        {
-            id: 4,
-            name: "Profile",
-            iconName: "user"
-        },
-    ]
+    // Update active tab based on current route
+    navigation.addListener('state', (e) => {
+        console.log("kkkkkk", e)
+        const currentRoute = e.data.state.routes[e.data.state.index].name;
+        setActiveTab(currentRoute);
+    });
 
-    const handleTabPress = (name, index) => {
-        navigation.navigate(name)
-        // setSelected(index);
-    }
+    const changeTab = (tabName) => {
+        setActiveTab(tabName);
+        navigation.navigate(tabName);
+    };
 
     return (
-        <View style={{ backgroundColor: "#212121", height: 63, borderTopRightRadius: 18, borderTopLeftRadius: 18, flexDirection: "row", justifyContent: "space-between", alignItems: "center", paddingHorizontal: 20, }}>
+        <View style={{ flex: 1 }}>
 
-            {/* {selected == 0 ? (<Home />) : selected == 1 ? (<Cart />) : selected == 2 ? (<Orders />) : selected == 3 ? (<Help />) : selected == 4 ? (<Profile />) : ""} */}
-            {/* <Animated.View style={{ width: 40, height: 40, borderRadius: 50, backgroundColor: "red", position: "absolute", left: 14.5 }}>
+            <View
+                style={{
+                    width: "100%",
+                    height: 60,
+                    position: "absolute",
+                    bottom: 0,
+                    flexDirection: "row",
+                }}>
 
-            </Animated.View> */}
-
-            {data.map((item, index) => (
-                item.name === "Profile" ? (
-                    <TouchableOpacity
-                        key={item.id}
-                        style={{
-                            // backgroundColor: `${selected === item.id ? "red" : ""}`,
-                            width: 40,
-                            height: 40,
-                            borderRadius: 50,
-                            alignItems: "center",
-                            justifyContent: "center"
-                        }}
-                        onPress={() => handleTabPress(item.name, item.id)}
-                    >
-                        <Icon2
-                            name={item.iconName}
-                            style={{
-                                color: '#797979',
-                                fontSize: 20,
-                                padding: 5,
-                            }}
-                        />
-                    </TouchableOpacity>
-                ) : (
-                    <TouchableOpacity
-                        key={item.id}
-                        style={{
-                            // backgroundColor: `${selected === item.id ? "red" : ""}`,
-                            width: 40,
-                            height: 40,
-                            borderRadius: 50,
-                            alignItems: "center",
-                            justifyContent: "center"
-                        }}
-                        onPress={() => handleTabPress(item.name, index)}
-                    >
-                        <Icon
-                            name={item.iconName}
-                            style={{
-                                color: '#797979',
-                                fontSize: 20,
-                                padding: 5,
-                            }}
-                        />
-                    </TouchableOpacity>
-                )
-            ))}
-
-            {/* 
-                <TouchableOpacity onPress={() => navigation.navigate(item.name)}>
-                    <Icon3
-                        name="cart"
-                        style={{
-                            color: '#797979',
-                            fontSize: 20,
-                            padding: 5,
-                        }}
+                {/* home */}
+                <TouchableOpacity
+                    style={{
+                        width: "20%",
+                        height: "100%",
+                        justifyContent: "center",
+                        alignItems: "center",
+                        backgroundColor: activeTab === 'Home' ? "#e27e45" : "#000000", // Change color based on active state
+                        borderTopStartRadius: 20,
+                    }}
+                    onPress={() => changeTab('Home')}
+                >
+                    <Icon name='home'
+                        style={{ color: "#fff", fontSize: responsiveFontSize(2.5) }}
                     />
+                    <Text style={{ fontSize: responsiveFontSize(1.70), color: "#fff" }}>HOME</Text>
                 </TouchableOpacity>
 
-                <TouchableOpacity onPress={() => navigation.navigate("Orders")}>
-                    <Icon3
-                        name="receipt"
-                        style={{
-                            color: '#797979',
-                            fontSize: 19,
-                            padding: 5,
-                        }}
+                {/* Astrologer List */}
+                <TouchableOpacity
+                    style={{
+                        width: "20%",
+                        height: "100%",
+                        justifyContent: "center",
+                        alignItems: "center",
+                        backgroundColor: activeTab === 'Orders' ? "#e27e45" : "#000000",
+                    }}
+                    onPress={() => changeTab('Orders')}
+                >
+                    <Icon name='receipt'
+                        style={{ color: "#fff", fontSize: responsiveFontSize(2) }}
                     />
+                    <Text style={{ fontSize: responsiveFontSize(1.75), color: "#fff", paddingTop: 5 }}> Orders</Text>
                 </TouchableOpacity>
 
-                <TouchableOpacity onPress={() => navigation.navigate("Help")}>
-                    <Icon4
-                        name="support-agent"
-                        style={{
-                            color: '#797979',
-                            fontSize: 19,
-                            padding: 5,
-                        }}
+                {/* cart*/}
+                <TouchableOpacity
+                    style={{
+                        width: "20%",
+                        height: "100%",
+                        justifyContent: "center",
+                        alignItems: "center",
+                        backgroundColor: activeTab === 'Cart' ? "#e27e45" : "#000000",
+
+
+                    }}
+                    onPress={() => changeTab('Cart')}
+                >
+                    <Icon name='cart'
+                        style={{ color: "#fff", fontSize: responsiveFontSize(2) }}
                     />
+                    <Text style={{ fontSize: responsiveFontSize(1.75), color: "#fff", paddingTop: 5 }}> Cart</Text>
                 </TouchableOpacity>
 
-                <TouchableOpacity onPress={() => navigation.navigate("Profile")}>
-                    <Icon2
-                        name="user"
-                        style={{
-                            color: '#797979',
-                            fontSize: 19,
-                            padding: 5,
-                        }}
+                {/* Help */}
+                <TouchableOpacity
+                    style={{
+                        width: "20%",
+                        height: "100%",
+                        justifyContent: "center",
+                        alignItems: "center",
+                        backgroundColor: activeTab === 'Help' ? "#e27e45" : "#000000",
+                    }}
+                    onPress={() => changeTab('Help')}
+                >
+                    <Icon name='help-circle'
+                        style={{ color: "#fff", fontSize: responsiveFontSize(2) }}
                     />
+                    <Text style={{ fontSize: responsiveFontSize(1.75), color: "#fff", paddingTop: 5 }}> Help</Text>
                 </TouchableOpacity>
-             */}
+                {/* profile */}
+                <TouchableOpacity
+                    style={{
+                        width: "20%",
+                        height: "100%",
+                        justifyContent: "center",
+                        alignItems: "center",
+                        backgroundColor: activeTab === 'Profile' ? "#e27e45" : "#000000",
+                        borderTopEndRadius: 21
+                    }}
+                    onPress={() => changeTab('Profile')}
+                >
+                    <Icon2 name='user'
+                        style={{ color: "#fff", fontSize: responsiveFontSize(2) }}
+                    />
+                    <Text style={{ fontSize: responsiveFontSize(1.75), color: "#fff", paddingTop: 5 }}> Profile</Text>
+                </TouchableOpacity>
+
+            </View>
         </View>
     )
 }
 
 export default TabBar;
 
-const styles = StyleSheet.create({
-    tabBar: {
-        flexDirection: 'row',
-        justifyContent: 'space-between',
-        backgroundColor: '#fff',
-        elevation: 5,
-    },
-    tab: {
-        flex: 1,
-        alignItems: 'center',
-        justifyContent: 'center',
-        paddingVertical: 10,
-    },
-    activeTab: {
-        backgroundColor: '#ddd',
-    },
-})
+const styles = StyleSheet.create({});
 
 
-{/* <TouchableOpacity
-                    key={item.id}
-                    // style={[
-                    //     styles.tab,
-                    //     index === activeTab && styles.activeTab,
-                    // ]}
-                    onPress={() => handleTabPress(item.name, index)}
-                >
-                    <Icon
-                        name={item.iconName}
-                        style={{
-                            color: '#797979',
-                            fontSize: 20,
-                            padding: 5,
-                        }}
-                    />
-                </TouchableOpacity>
-            ))} */}
