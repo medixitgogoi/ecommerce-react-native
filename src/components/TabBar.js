@@ -11,7 +11,7 @@ const TabBar = () => {
     const navigation = useNavigation();
     const [activeTab, setActiveTab] = useState('Home');
     const cartProducts = useSelector(state => state.cart);
-    
+
     // Update active tab based on current route
     navigation.addListener('state', (e) => {
         console.log("kkkkkk", e)
@@ -26,24 +26,17 @@ const TabBar = () => {
 
     return (
         <View style={{ flex: 1 }}>
-            <View
-                style={{
-                    width: "100%",
-                    height: 55,
-                    position: "absolute",
-                    bottom: 0,
-                    flexDirection: "row",
-                }}>
+            <View style={{ width: "100%", height: 55, flexDirection: "row", backgroundColor: "#000", alignItems: "center", justifyContent: "space-evenly", borderTopLeftRadius: 15, borderTopRightRadius: 15 }}>
 
                 {/* home */}
                 <TouchableOpacity
                     style={{
-                        width: "20%",
-                        height: "100%",
+                        width: 50,
+                        height: 50,
                         justifyContent: "center",
                         alignItems: "center",
                         backgroundColor: activeTab === 'Home' ? "#e27e45" : "#000000", // Change color based on active state
-                        borderTopStartRadius: 20,
+                        borderRadius: 100
                     }}
                     onPress={() => changeTab('Home')}
                 >
@@ -56,13 +49,14 @@ const TabBar = () => {
                 {/* categories */}
                 <TouchableOpacity
                     style={{
-                        width: "20%",
-                        height: "100%",
+                        width: 50,
+                        height: 50,
                         justifyContent: "center",
                         alignItems: "center",
                         backgroundColor: activeTab === 'Categories' ? "#e27e45" : "#000000",
                         flexDirection: "column",
-                        // borderRadius: 50
+                        borderRadius: 100,
+                        padding: 2
                     }}
                     onPress={() => changeTab('Categories')}
                 >
@@ -75,11 +69,12 @@ const TabBar = () => {
                 {/* cart*/}
                 <TouchableOpacity
                     style={{
-                        width: "20%",
-                        height: "100%",
+                        width: 50,
+                        height: 50,
                         justifyContent: "center",
                         alignItems: "center",
                         backgroundColor: activeTab === 'Cart' ? "#e27e45" : "#000000",
+                        borderRadius: 100
                     }}
                     onPress={() => changeTab('Cart')}
                 >
@@ -97,12 +92,13 @@ const TabBar = () => {
                 {/* Orders*/}
                 <TouchableOpacity
                     style={{
-                        width: "20%",
-                        height: "100%",
+                        width: 50,
+                        height: 50,
                         justifyContent: "center",
                         alignItems: "center",
                         backgroundColor: activeTab === 'Orders' ? "#e27e45" : "#000000",
                         flexDirection: "column",
+                        borderRadius: 100
                     }}
                     onPress={() => changeTab('Orders')}
                 >
@@ -115,12 +111,12 @@ const TabBar = () => {
                 {/* profile */}
                 <TouchableOpacity
                     style={{
-                        width: "20%",
-                        height: "100%",
+                        width: 50,
+                        height: 50,
                         justifyContent: "center",
                         alignItems: "center",
                         backgroundColor: activeTab === 'Profile' ? "#e27e45" : "#000000",
-                        borderTopEndRadius: 21
+                        borderRadius: 100
                     }}
                     onPress={() => changeTab('Profile')}
                 >
