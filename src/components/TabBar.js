@@ -8,8 +8,7 @@ import { responsiveFontSize } from "react-native-responsive-dimensions";
 const TabBar = () => {
     const navigation = useNavigation();
     const [activeTab, setActiveTab] = useState('Home');
-
-    // Update active tab based on current route
+    
     navigation.addListener('state', (e) => {
         console.log("kkkkkk", e)
         const currentRoute = e.data.state.routes[e.data.state.index].name;
