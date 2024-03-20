@@ -3,6 +3,7 @@ import { useEffect, useState, useMemo } from 'react';
 import Icon from 'react-native-vector-icons/dist/MaterialIcons';
 import Icon2 from 'react-native-vector-icons/dist/Ionicons';
 import Icon3 from 'react-native-vector-icons/dist/FontAwesome6';
+import Icon4 from 'react-native-vector-icons/dist/MaterialCommunityIcons';
 import Modal from "react-native-modal";
 import RadioGroup from 'react-native-radio-buttons-group';
 import { addItemToCart } from '../redux/CartSlice';
@@ -123,7 +124,7 @@ const Category = ({ navigation, route }) => {
             </TouchableOpacity>
         );
 
-    }
+    };
 
     const radioButtons = useMemo(() => ([
         {

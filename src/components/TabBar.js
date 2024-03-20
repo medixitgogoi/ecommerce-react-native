@@ -1,5 +1,5 @@
-import { StyleSheet, Text, View, TouchableOpacity } from 'react-native'
-import { useState } from 'react'
+import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
+import { useState } from 'react';
 import Icon from 'react-native-vector-icons/dist/MaterialCommunityIcons';
 import Icon2 from 'react-native-vector-icons/dist/FontAwesome';
 import { useNavigation } from '@react-navigation/native';
@@ -11,6 +11,7 @@ const TabBar = () => {
     const navigation = useNavigation();
     const [activeTab, setActiveTab] = useState('Home');
     const cartProducts = useSelector(state => state.cart);
+    
     // Update active tab based on current route
     navigation.addListener('state', (e) => {
         console.log("kkkkkk", e)
@@ -28,7 +29,7 @@ const TabBar = () => {
             <View
                 style={{
                     width: "100%",
-                    height: 60,
+                    height: 55,
                     position: "absolute",
                     bottom: 0,
                     flexDirection: "row",
@@ -52,22 +53,23 @@ const TabBar = () => {
                     <Text style={{ fontSize: responsiveFontSize(1.40), color: "#fff" }}>Home</Text>
                 </TouchableOpacity>
 
-                {/* Orders*/}
+                {/* categories */}
                 <TouchableOpacity
                     style={{
                         width: "20%",
                         height: "100%",
                         justifyContent: "center",
                         alignItems: "center",
-                        backgroundColor: activeTab === 'Orders' ? "#e27e45" : "#000000",
+                        backgroundColor: activeTab === 'Categories' ? "#e27e45" : "#000000",
                         flexDirection: "column",
+                        // borderRadius: 50
                     }}
-                    onPress={() => changeTab('Orders')}
+                    onPress={() => changeTab('Categories')}
                 >
-                    <Icon name='receipt'
+                    <Icon name='view-dashboard'
                         style={{ color: "#fff", fontSize: responsiveFontSize(2.6) }}
                     />
-                    <Text style={{ fontSize: responsiveFontSize(1.4), color: "#fff", }}>Orders</Text>
+                    <Text style={{ fontSize: responsiveFontSize(1.4), color: "#fff" }}>Categories</Text>
                 </TouchableOpacity>
 
                 {/* cart*/}
@@ -92,23 +94,22 @@ const TabBar = () => {
                     <Text style={{ fontSize: responsiveFontSize(1.4), color: "#fff", }}>Cart</Text>
                 </TouchableOpacity>
 
-                {/* Help */}
+                {/* Orders*/}
                 <TouchableOpacity
                     style={{
                         width: "20%",
                         height: "100%",
                         justifyContent: "center",
                         alignItems: "center",
-                        backgroundColor: activeTab === 'Help' ? "#e27e45" : "#000000",
-                        // backgroundColor: "red",
-                        flexDirection: "column"
+                        backgroundColor: activeTab === 'Orders' ? "#e27e45" : "#000000",
+                        flexDirection: "column",
                     }}
-                    onPress={() => changeTab('Help')}
+                    onPress={() => changeTab('Orders')}
                 >
-                    <Icon name='help-circle'
+                    <Icon name='receipt'
                         style={{ color: "#fff", fontSize: responsiveFontSize(2.6) }}
                     />
-                    <Text style={{ fontSize: responsiveFontSize(1.4), color: "#fff" }}>Help</Text>
+                    <Text style={{ fontSize: responsiveFontSize(1.4), color: "#fff", }}>Orders</Text>
                 </TouchableOpacity>
 
                 {/* profile */}

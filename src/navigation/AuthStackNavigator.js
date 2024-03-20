@@ -9,6 +9,8 @@ import Help from '../screens/Help';
 import Profile from '../screens/Profile';
 import Practice from "../screens/Practice";
 import Category from '../screens/Category';
+import Categories from '../screens/Categories';
+import CategoryProducts from '../screens/CategoryProducts';
 
 
 const AuthStackNavigator = () => {
@@ -25,7 +27,8 @@ const AuthStackNavigator = () => {
             <Stack.Screen name="Orders" component={Orders} />
             <Stack.Screen name="Help" component={Help} />
             <Stack.Screen name="Profile" component={Profile} />
-            {/* <Stack.Screen name="Category" component={Category} /> */}
+            <Stack.Screen name="Categories" component={Categories} />
+            <Stack.Screen name="CategoryProducts" component={CategoryProducts} />
         </Stack.Navigator>
     )
 }
