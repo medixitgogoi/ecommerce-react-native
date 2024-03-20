@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View, SafeAreaView, StatusBar, TouchableOpacity, FlatList, Image, ActivityIndicator, TextInput, ScrollView } from 'react-native';
+import { StyleSheet, Text, View, SafeAreaView, StatusBar, TouchableOpacity, FlatList, Image, ActivityIndicator, TextInput } from 'react-native';
 import { useEffect, useState, useMemo } from 'react';
 import Icon from 'react-native-vector-icons/dist/MaterialIcons';
 import Icon2 from 'react-native-vector-icons/dist/Ionicons';
@@ -6,14 +6,26 @@ import Icon3 from 'react-native-vector-icons/dist/FontAwesome6';
 import Modal from "react-native-modal";
 import RadioGroup from 'react-native-radio-buttons-group';
 import { addItemToCart } from '../redux/CartSlice';
-import axios from 'axios';
 import { useSelector, useDispatch } from 'react-redux';
 import TabBar from '../components/TabBar';
+import data from "../data/products";
+import axios from 'axios';
 
 const Category = ({ navigation, route }) => {
 
+    console.log(data)
+
+    // console.log(route.params.data);
+    const category = route.params.data
+
+    const categoryProducts = data.filter(item => item.category === category);
+    const subCategoryProducts = categoryProducts.filter(item => item.subCategory === subCategorySelected);
+
+    console.log(categoryProducts);
+
     const [isModalVisible, setModalVisible] = useState(false);
     const [selectedId, setSelectedId] = useState("");
+    const [subCategorySelected, setSubCategorySelected] = useState("");
     const [products, setProducts] = useState([]);
     const [loading, setLoading] = useState(false);
 
@@ -34,22 +46,31 @@ const Category = ({ navigation, route }) => {
         setModalVisible(!isModalVisible);
     };
 
-    const fetchProducts = async () => {
-        try {
-            const response = await axios.get('https://fakestoreapi.com/products');
-            console.log(response.data)
-            setProducts(response.data);
-            setLoading(false);
-        } catch (error) {
-            console.error('Error fetching products:', error);
-            setLoading(false);
-        }
-    };
+    const handlePress = (id) => {
+        setSelectedId(id)
 
-    // setModalVisible(true)
+    }
+
     useEffect(() => {
-        fetchProducts();
-    }, [])
+
+    }, [subCategorySelected])
+
+    // const fetchProducts = async () => {
+    //     try {
+    //         const response = await axios.get('https://fakestoreapi.com/products');
+    //         console.log(response.data)
+    //         setProducts(response.data);
+    //         setLoading(false);
+    //     } catch (error) {
+    //         console.error('Error fetching products:', error);
+    //         setLoading(false);
+    //     }
+    // };
+
+    // // setModalVisible(true)
+    // useEffect(() => {
+    //     fetchProducts();
+    // }, [])
 
     const renderStarRating = (rating) => {
         const starComponents = [];
@@ -82,7 +103,7 @@ const Category = ({ navigation, route }) => {
 
     const radioButtons = useMemo(() => ([
         {
-            id: 'M',
+            id: 'men',
             label: (
                 <Text style={{ color: "#000", marginLeft: 3, fontSize: 16, fontWeight: "500" }}>{'Men'}</Text>
             ),
@@ -90,7 +111,7 @@ const Category = ({ navigation, route }) => {
             size: 15,
         },
         {
-            id: 'W',
+            id: 'women',
             label: (
                 <Text style={{ color: "#000", marginLeft: 2, fontSize: 16, fontWeight: "500" }}>{'Women'}</Text>
             ),
@@ -98,7 +119,7 @@ const Category = ({ navigation, route }) => {
             size: 15,
         },
         {
-            id: 'C',
+            id: 'children',
             label: (
                 <Text style={{ color: "#000", marginLeft: 3, fontSize: 16, fontWeight: "500" }}>{'Children'}</Text>
             ),
@@ -109,6 +130,7 @@ const Category = ({ navigation, route }) => {
 
     return (
         <SafeAreaView style={{ flex: 1, paddingBottom: 53 }}>
+
             <StatusBar
                 animated={true}
                 backgroundColor="#f6f6f6"
@@ -122,7 +144,7 @@ const Category = ({ navigation, route }) => {
                     <TouchableOpacity style={{ backgroundColor: "#fff", padding: 5, borderRadius: 100, alignItems: "center", justifyContent: "center", elevation: 1 }} onPress={() => navigation.goBack()}>
                         <Icon name="keyboard-arrow-left" size={20} color="#000" />
                     </TouchableOpacity>
-                    <Text style={{ color: "#000", textTransform: "uppercase", fontWeight: "600", fontSize: 17 }}>Category</Text>
+                    <Text style={{ color: "#000", textTransform: "uppercase", fontWeight: "600", fontSize: 17 }}>{category} products</Text>
                     <TouchableOpacity style={{ backgroundColor: "#f6f6f6", padding: 8, alignItems: "center", justifyContent: "center", }} onPress={() => navigation.navigate("Cart")}>
                         <Icon2 name="cart-outline" size={19} color="#000" />
                         <View style={{ backgroundColor: "#e27e45", width: 15, height: 15, borderRadius: 100, justifyContent: "center", alignItems: "center", position: "absolute", top: 1, right: 2 }}>
@@ -167,7 +189,8 @@ const Category = ({ navigation, route }) => {
                     ) : (
                         <View style={{ marginVertical: 10, marginHorizontal: 5, paddingTop: 3 }}>
                             <FlatList
-                                data={products}
+                                data={categoryProducts}
+                                style={{ marginBottom: 140 }}
                                 numColumns={2}
                                 renderItem={({ item }) => (
                                     <TouchableOpacity style={{ backgroundColor: '#fff', borderRadius: 10, elevation: 2, width: "48%", margin: 3, }} onPress={() => navigation.navigate('ProductDetails', { data: item })}>
@@ -176,7 +199,7 @@ const Category = ({ navigation, route }) => {
                                         </TouchableOpacity>
                                         <View style={{ margin: 5, paddingVertical: 4, justifyContent: "center", width: "100%", flexDirection: "row", alignItems: "center" }}>
                                             <Image
-                                                source={{ uri: item.image }}
+                                                source={{ uri: item.images[0] }}
                                                 style={{
                                                     width: 100,
                                                     height: 100,
@@ -228,12 +251,9 @@ const Category = ({ navigation, route }) => {
 
                                         </View>
                                     </TouchableOpacity>
-                                    
                                 )}
                                 keyExtractor={(item) => item.id.toString()}
-                                />
-                                
-                                
+                            />
                         </View>
                     )}
                 </View>
@@ -246,11 +266,11 @@ const Category = ({ navigation, route }) => {
                     onSwipeComplete={() => setModalVisible(false)}
                 >
                     <View style={{ backgroundColor: "#fff", height: 160, width: 300, alignSelf: "center", borderRadius: 10 }}>
-                        <Text style={{ color: "#000", fontWeight: "600", textAlign: "center", fontSize: 20, paddingTop: 20 }}>Select category type:</Text>
+                        <Text style={{ color: "#000", fontWeight: "600", textAlign: "center", fontSize: 20, paddingTop: 20 }}>Select sub-category type:</Text>
                         <View style={{ flexDirection: "row", justifyContent: "center", alignItems: "center", height: "70%" }}>
                             <RadioGroup
                                 radioButtons={radioButtons}
-                                onPress={setSelectedId}
+                                onPress={handlePress}
                                 selectedId={selectedId}
                             />
                         </View>

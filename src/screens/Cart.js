@@ -114,7 +114,7 @@ const Cart = ({ navigation }) => {
                                     <View style={{ flexDirection: "row" }}>
 
                                         <View style={{ flexDirection: "row", flex: 1, backgroundColor: "#fff", padding: 5, elevation: 15 }}>
-                                            <Image source={{ uri: item.image }} style={{ resizeMode: "contain", height: 110, width: "100%" }} />
+                                            <Image source={{ uri: item.images[0] }} style={{ resizeMode: "contain", height: 110, width: "100%" }} />
                                         </View>
 
                                         <View style={{ flex: 2, flexDirection: "column", height: "100%", marginLeft: 15, paddingTop: 5, }}>

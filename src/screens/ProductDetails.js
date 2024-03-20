@@ -112,7 +112,7 @@ const ProductDetails = ({ navigation, route }) => {
                 {/* Product image */}
                 <View style={{ backgroundColor: "#f6f6f6" }}>
                     <View style={{ width: "100%", alignItems: "center", elevation: 5 }}>
-                        <Image source={{ uri: detail?.image }} style={{ borderRadius: 8, resizeMode: "contain", height: 400, width: 200 }} />
+                        <Image source={{ uri: detail.image ? detail.image : detail.images[0] }} style={{ borderRadius: 8, resizeMode: "contain", height: 400, width: 200 }} />
                     </View>
                 </View>
 
@@ -172,7 +172,7 @@ const ProductDetails = ({ navigation, route }) => {
                             fontWeight: "700",
                             fontSize: 16,
                             textTransform: "uppercase",
-                            
+
                         }}>Description :</Text>
                         <ReadMore text={detail.description} maxLength={200} />
                     </View>

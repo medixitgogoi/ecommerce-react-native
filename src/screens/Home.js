@@ -59,7 +59,7 @@ const Home = ({ navigation }) => {
     }, [])
 
     const renderBrandItem = ({ item }) => (
-        <TouchableOpacity style={styles.brandItem} onPress={() => navigation.navigate("Category", { data: item })}>
+        <TouchableOpacity style={styles.brandItem} onPress={() => navigation.navigate("Category", { data: item.name })}>
             <View style={{ height: 50, width: 50, backgroundColor: "#fff", borderRadius: 100, justifyContent: "center", alignItems: "center", }}>
                 <Image
                     source={item.logo}
@@ -281,7 +281,7 @@ const Home = ({ navigation }) => {
                                     numColumns={2}
                                     renderItem={({ item }) => {
 
-                                        console.log("datatatatata", item);
+                                        // console.log("datatatatata", item);
 
                                         return (
                                             <TouchableOpacity style={{ backgroundColor: '#fff', borderRadius: 10, elevation: 2, width: "48%", margin: 3, }} onPress={() => navigation.navigate('ProductDetails', { data: item })}>
