@@ -10,7 +10,7 @@ const TabBar = () => {
 
     const navigation = useNavigation();
     const [activeTab, setActiveTab] = useState('Home');
-
+    const cartProducts = useSelector(state => state.cart);
     // Update active tab based on current route
     navigation.addListener('state', (e) => {
         console.log("kkkkkk", e)
