@@ -9,14 +9,23 @@ import { addItemToCart } from '../redux/CartSlice';
 import axios from 'axios';
 import { useSelector, useDispatch } from 'react-redux';
 import TabBar from '../components/TabBar';
-
+import {
+    responsiveHeight,
+    responsiveWidth,
+    responsiveFontSize
+} from "react-native-responsive-dimensions";
 const Category = ({ navigation, route }) => {
 
     const [isModalVisible, setModalVisible] = useState(false);
     const [selectedId, setSelectedId] = useState("");
     const [products, setProducts] = useState([]);
     const [loading, setLoading] = useState(false);
-
+    const [SortedBYmodel, setSortedBYmodel] = useState(false);
+    const [filtermodel, setfiltermodel] = useState(false);
+    const [Gendermodel, setGendermodel] = useState(false);
+    const [sizemodel, setsizemodel] = useState(false);
+    const [Brandmodel, setBrandmodel] = useState(false);
+    const [Discountmodel, setDiscountmodel] = useState(false);
     const dispatch = useDispatch();
 
     const cartProducts = useSelector(state => state.cart);
@@ -63,22 +72,42 @@ const Category = ({ navigation, route }) => {
         return starComponents;
     };
 
-    const renderBrandItem = ({ item }) => (
-        <TouchableOpacity style={styles.brandItem}>
-            <View style={{ backgroundColor: "#fff", paddingHorizontal: 10, borderRadius: 20, justifyContent: 'center', alignItems: "center", flexDirection: "row", paddingVertical: 4, borderColor: "#83a597", elevation: 3 }}>
-                <Text style={styles.brandName}>{item.name}</Text>
-                <Icon
-                    name={item.iconName}
-                    size={18}
-                    style={{
-                        color: '#000',
-                        marginLeft: 4,
-                        fontWeight: "600",
-                    }}
-                />
-            </View>
-        </TouchableOpacity>
-    );
+    const renderBrandItem = ({ item }) => {
+        console.log("itemitem", item.name == "Sort by")
+        return (
+            <TouchableOpacity
+                onPress={() => {
+                    if (item.name === "Sort by") {
+                        setSortedBYmodel(true);
+                    } else if (item.name === "Filter") {
+                        setfiltermodel(true)
+                    } else if (item.name === "Gender") {
+                        setGendermodel(true)
+                    } else if (item.name === "Size") {
+                        setsizemodel(true)
+                    } else if (item.name === "Brand") {
+                        setBrandmodel(true)
+                    } else if (item.name === "Discount") {
+                        setDiscountmodel(true)
+                    }
+                }}
+                style={styles.brandItem}>
+                <View style={{ backgroundColor: "#fff", paddingHorizontal: 10, borderRadius: 20, justifyContent: 'center', alignItems: "center", flexDirection: "row", paddingVertical: 4, borderColor: "#83a597", elevation: 3 }}>
+                    <Text style={styles.brandName}>{item.name}</Text>
+                    <Icon
+                        name={item.iconName}
+                        size={18}
+                        style={{
+                            color: '#000',
+                            marginLeft: 4,
+                            fontWeight: "600",
+                        }}
+                    />
+                </View>
+            </TouchableOpacity>
+        );
+
+    }
 
     const radioButtons = useMemo(() => ([
         {
@@ -168,7 +197,7 @@ const Category = ({ navigation, route }) => {
                         <View style={{ marginVertical: 10, marginHorizontal: 5, paddingTop: 3 }}>
                             <FlatList
                                 data={products}
-                                style={{marginBottom:150}}
+                                style={{ marginBottom: 150 }}
                                 numColumns={2}
                                 renderItem={({ item }) => (
                                     <TouchableOpacity style={{ backgroundColor: '#fff', borderRadius: 10, elevation: 2, width: "48%", margin: 3, }} onPress={() => navigation.navigate('ProductDetails', { data: item })}>
@@ -229,12 +258,12 @@ const Category = ({ navigation, route }) => {
 
                                         </View>
                                     </TouchableOpacity>
-                                    
+
                                 )}
                                 keyExtractor={(item) => item.id.toString()}
-                                />
-                                
-                                
+                            />
+
+
                         </View>
                     )}
                 </View>
@@ -264,6 +293,846 @@ const Category = ({ navigation, route }) => {
                 <TabBar />
             </View>
 
+            {/* SortedBY */}
+            <Modal
+                isVisible={SortedBYmodel}
+                onBackdropPress={() => setSortedBYmodel(false)}
+                onSwipeComplete={() => setSortedBYmodel(false)}
+                // swipeDirection={['down']}
+                backdropOpacity={0.5}
+                style={{ justifyContent: 'flex-end', margin: 0 }}
+            >
+                <View
+                    style={{
+                        height: "auto",
+                        backgroundColor: "#fff",
+                        position: "absolute",
+                        bottom: 0,
+                        right: 0,
+                        left: 0,
+                        width: "100%",
+                        borderTopLeftRadius: 30,
+                        borderTopRightRadius: 30,
+                        // paddingHorizontal: 15,
+                        borderColor: "#F29D38",
+                        borderWidth: 0.55
+                    }}>
+
+                    <View style={{ marginTop: 15 }}>
+                        <View style={{ width: "100%" }}>
+
+
+                            <View style={{ paddingHorizontal: 15, flexDirection: "row", justifyContent: "space-between", width: "100%" }}>
+                                <Text style={{ color: "#F29D38", fontSize: responsiveFontSize(2.3), fontWeight: "700" }}>
+                                    Languages
+                                </Text>
+                                <TouchableOpacity
+                                    onPress={() => languageremove()}
+                                    style={{
+                                        backgroundColor: "#F29D38",
+                                        borderRadius: 10,
+                                        alignItems: "center",
+                                        justifyContent: "center"
+                                    }}
+                                >
+                                    <Text style={{
+                                        color: "#fff",
+                                        fontSize: responsiveFontSize(1.5),
+                                        fontWeight: "300",
+                                        paddingHorizontal: 10,
+                                        paddingVertical: 2
+                                    }}>
+                                        Reset All
+                                    </Text>
+                                </TouchableOpacity>
+                            </View>
+
+
+                            {/* <RadioGroup
+                                radioButtons={languagesapii && languagesapii.map((item) => {
+                                    return (
+                                        {
+                                            id: item.name,
+                                            label: (
+                                                <Text style={{ color: "#000", }}>{item.name}</Text>
+                                            ),
+                                            color: "#F29D38",
+                                            size: responsiveFontSize(3),
+                                        }
+                                    )
+                                })}
+                                onPress={setSelectedlanguage}
+                                selectedId={selectedlanguage}
+                                containerStyle={styles.ViewCard}
+                            /> */}
+
+                        </View>
+                    </View>
+
+                    {/* buttonStyle */}
+
+                    <View
+                        style={{ width: '100%', flexDirection: 'row', paddingTop: 15, paddingHorizontal: 10 }}>
+
+                        <View
+                            style={{
+                                width: '50%',
+                                backgroundColor: '#F29D38',
+                                borderRadius: 20,
+                            }}>
+                            <TouchableOpacity
+                                activeOpacity={0.7}
+                                onPress={() => languagecancelfunction()}>
+                                <Text
+                                    style={{
+                                        color: '#fff',
+                                        textAlign: 'center',
+                                        padding: 8,
+                                        borderRightColor: '#fff',
+                                        borderRightWidth: 1,
+                                        fontSize: 15,
+                                    }}>
+                                    Cancel
+                                </Text>
+                            </TouchableOpacity>
+                        </View>
+
+
+                        <View
+                            style={{
+                                width: '50%',
+                                backgroundColor: '#fff',
+                                borderColor: '#F29D38',
+                                borderWidth: 1,
+                                borderRadius: 20,
+                                marginLeft: 3,
+                                flexDirection: "row",
+                                alignItems: "center",
+                                justifyContent: "center"
+                            }}>
+                            <TouchableOpacity
+                                onPress={() => languagesearchFilterFunction()}
+                                languagesearchFilterFunction
+                                activeOpacity={0.7}
+                                style={{
+                                }}>
+                                <Text
+                                    style={{
+                                        color: '#F29D38',
+                                        textAlign: 'center',
+                                        padding: 8,
+                                        fontSize: 15,
+
+                                    }}>
+                                    Apply Filter
+                                </Text>
+                            </TouchableOpacity>
+                        </View>
+                    </View>
+                    <View style={{ marginBottom: 10 }}></View>
+                </View>
+            </Modal>
+
+            {/* filter*/}
+            <Modal
+                isVisible={filtermodel}
+                onBackdropPress={() => setfiltermodel(false)}
+                onSwipeComplete={() => setfiltermodel(false)}
+                // swipeDirection={['down']}
+                backdropOpacity={0.5}
+                style={{ justifyContent: 'flex-end', margin: 0 }}
+            >
+                <View
+                    style={{
+                        height: "auto",
+                        backgroundColor: "#fff",
+                        position: "absolute",
+                        bottom: 0,
+                        right: 0,
+                        left: 0,
+                        width: "100%",
+                        borderTopLeftRadius: 30,
+                        borderTopRightRadius: 30,
+                        // paddingHorizontal: 15,
+                        borderColor: "#F29D38",
+                        borderWidth: 0.55
+                    }}>
+
+                    <View style={{ marginTop: 15 }}>
+                        <View style={{ width: "100%" }}>
+
+
+                            <View style={{ paddingHorizontal: 15, flexDirection: "row", justifyContent: "space-between", width: "100%" }}>
+                                <Text style={{ color: "#F29D38", fontSize: responsiveFontSize(2.3), fontWeight: "700" }}>
+                                    Languages
+                                </Text>
+                                <TouchableOpacity
+                                    onPress={() => languageremove()}
+                                    style={{
+                                        backgroundColor: "#F29D38",
+                                        borderRadius: 10,
+                                        alignItems: "center",
+                                        justifyContent: "center"
+                                    }}
+                                >
+                                    <Text style={{
+                                        color: "#fff",
+                                        fontSize: responsiveFontSize(1.5),
+                                        fontWeight: "300",
+                                        paddingHorizontal: 10,
+                                        paddingVertical: 2
+                                    }}>
+                                        Reset All
+                                    </Text>
+                                </TouchableOpacity>
+                            </View>
+
+
+                            {/* <RadioGroup
+                                radioButtons={languagesapii && languagesapii.map((item) => {
+                                    return (
+                                        {
+                                            id: item.name,
+                                            label: (
+                                                <Text style={{ color: "#000", }}>{item.name}</Text>
+                                            ),
+                                            color: "#F29D38",
+                                            size: responsiveFontSize(3),
+                                        }
+                                    )
+                                })}
+                                onPress={setSelectedlanguage}
+                                selectedId={selectedlanguage}
+                                containerStyle={styles.ViewCard}
+                            /> */}
+
+                        </View>
+                    </View>
+
+                    {/* buttonStyle */}
+
+                    <View
+                        style={{ width: '100%', flexDirection: 'row', paddingTop: 15, paddingHorizontal: 10 }}>
+
+                        <View
+                            style={{
+                                width: '50%',
+                                backgroundColor: '#F29D38',
+                                borderRadius: 20,
+                            }}>
+                            <TouchableOpacity
+                                activeOpacity={0.7}
+                                onPress={() => languagecancelfunction()}>
+                                <Text
+                                    style={{
+                                        color: '#fff',
+                                        textAlign: 'center',
+                                        padding: 8,
+                                        borderRightColor: '#fff',
+                                        borderRightWidth: 1,
+                                        fontSize: 15,
+                                    }}>
+                                    Cancel
+                                </Text>
+                            </TouchableOpacity>
+                        </View>
+
+
+                        <View
+                            style={{
+                                width: '50%',
+                                backgroundColor: '#fff',
+                                borderColor: '#F29D38',
+                                borderWidth: 1,
+                                borderRadius: 20,
+                                marginLeft: 3,
+                                flexDirection: "row",
+                                alignItems: "center",
+                                justifyContent: "center"
+                            }}>
+                            <TouchableOpacity
+                                onPress={() => languagesearchFilterFunction()}
+                                languagesearchFilterFunction
+                                activeOpacity={0.7}
+                                style={{
+                                }}>
+                                <Text
+                                    style={{
+                                        color: '#F29D38',
+                                        textAlign: 'center',
+                                        padding: 8,
+                                        fontSize: 15,
+
+                                    }}>
+                                    Apply Filter
+                                </Text>
+                            </TouchableOpacity>
+                        </View>
+                    </View>
+                    <View style={{ marginBottom: 10 }}></View>
+                </View>
+            </Modal>
+
+            {/* Gendermodel*/}
+            <Modal
+                isVisible={Gendermodel
+                }
+                onBackdropPress={() => setGendermodel(false)}
+                onSwipeComplete={() => setGendermodel(false)}
+                // swipeDirection={['down']}
+                backdropOpacity={0.5}
+                style={{ justifyContent: 'flex-end', margin: 0 }}
+            >
+                <View
+                    style={{
+                        height: "auto",
+                        backgroundColor: "#fff",
+                        position: "absolute",
+                        bottom: 0,
+                        right: 0,
+                        left: 0,
+                        width: "100%",
+                        borderTopLeftRadius: 30,
+                        borderTopRightRadius: 30,
+                        // paddingHorizontal: 15,
+                        borderColor: "#F29D38",
+                        borderWidth: 0.55
+                    }}>
+
+                    <View style={{ marginTop: 15 }}>
+                        <View style={{ width: "100%" }}>
+
+
+                            <View style={{ paddingHorizontal: 15, flexDirection: "row", justifyContent: "space-between", width: "100%" }}>
+                                <Text style={{ color: "#F29D38", fontSize: responsiveFontSize(2.3), fontWeight: "700" }}>
+                                    Languages
+                                </Text>
+                                <TouchableOpacity
+                                    onPress={() => languageremove()}
+                                    style={{
+                                        backgroundColor: "#F29D38",
+                                        borderRadius: 10,
+                                        alignItems: "center",
+                                        justifyContent: "center"
+                                    }}
+                                >
+                                    <Text style={{
+                                        color: "#fff",
+                                        fontSize: responsiveFontSize(1.5),
+                                        fontWeight: "300",
+                                        paddingHorizontal: 10,
+                                        paddingVertical: 2
+                                    }}>
+                                        Reset All
+                                    </Text>
+                                </TouchableOpacity>
+                            </View>
+
+
+                            {/* <RadioGroup
+                                radioButtons={languagesapii && languagesapii.map((item) => {
+                                    return (
+                                        {
+                                            id: item.name,
+                                            label: (
+                                                <Text style={{ color: "#000", }}>{item.name}</Text>
+                                            ),
+                                            color: "#F29D38",
+                                            size: responsiveFontSize(3),
+                                        }
+                                    )
+                                })}
+                                onPress={setSelectedlanguage}
+                                selectedId={selectedlanguage}
+                                containerStyle={styles.ViewCard}
+                            /> */}
+
+                        </View>
+                    </View>
+
+                    {/* buttonStyle */}
+
+                    <View
+                        style={{ width: '100%', flexDirection: 'row', paddingTop: 15, paddingHorizontal: 10 }}>
+
+                        <View
+                            style={{
+                                width: '50%',
+                                backgroundColor: '#F29D38',
+                                borderRadius: 20,
+                            }}>
+                            <TouchableOpacity
+                                activeOpacity={0.7}
+                                onPress={() => languagecancelfunction()}>
+                                <Text
+                                    style={{
+                                        color: '#fff',
+                                        textAlign: 'center',
+                                        padding: 8,
+                                        borderRightColor: '#fff',
+                                        borderRightWidth: 1,
+                                        fontSize: 15,
+                                    }}>
+                                    Cancel
+                                </Text>
+                            </TouchableOpacity>
+                        </View>
+
+
+                        <View
+                            style={{
+                                width: '50%',
+                                backgroundColor: '#fff',
+                                borderColor: '#F29D38',
+                                borderWidth: 1,
+                                borderRadius: 20,
+                                marginLeft: 3,
+                                flexDirection: "row",
+                                alignItems: "center",
+                                justifyContent: "center"
+                            }}>
+                            <TouchableOpacity
+                                onPress={() => languagesearchFilterFunction()}
+                                languagesearchFilterFunction
+                                activeOpacity={0.7}
+                                style={{
+                                }}>
+                                <Text
+                                    style={{
+                                        color: '#F29D38',
+                                        textAlign: 'center',
+                                        padding: 8,
+                                        fontSize: 15,
+
+                                    }}>
+                                    Apply Filter
+                                </Text>
+                            </TouchableOpacity>
+                        </View>
+                    </View>
+                    <View style={{ marginBottom: 10 }}></View>
+                </View>
+            </Modal>
+
+            {/* setsizemodel */}
+            <Modal
+                isVisible={sizemodel}
+                onBackdropPress={() => setsizemodel(false)}
+                onSwipeComplete={() => setsizemodel(false)}
+                // swipeDirection={['down']}
+                backdropOpacity={0.5}
+                style={{ justifyContent: 'flex-end', margin: 0 }}
+            >
+                <View
+                    style={{
+                        height: "auto",
+                        backgroundColor: "#fff",
+                        position: "absolute",
+                        bottom: 0,
+                        right: 0,
+                        left: 0,
+                        width: "100%",
+                        borderTopLeftRadius: 30,
+                        borderTopRightRadius: 30,
+                        // paddingHorizontal: 15,
+                        borderColor: "#F29D38",
+                        borderWidth: 0.55
+                    }}>
+
+                    <View style={{ marginTop: 15 }}>
+                        <View style={{ width: "100%" }}>
+
+
+                            <View style={{ paddingHorizontal: 15, flexDirection: "row", justifyContent: "space-between", width: "100%" }}>
+                                <Text style={{ color: "#F29D38", fontSize: responsiveFontSize(2.3), fontWeight: "700" }}>
+                                    Languages
+                                </Text>
+                                <TouchableOpacity
+                                    onPress={() => languageremove()}
+                                    style={{
+                                        backgroundColor: "#F29D38",
+                                        borderRadius: 10,
+                                        alignItems: "center",
+                                        justifyContent: "center"
+                                    }}
+                                >
+                                    <Text style={{
+                                        color: "#fff",
+                                        fontSize: responsiveFontSize(1.5),
+                                        fontWeight: "300",
+                                        paddingHorizontal: 10,
+                                        paddingVertical: 2
+                                    }}>
+                                        Reset All
+                                    </Text>
+                                </TouchableOpacity>
+                            </View>
+
+
+                            {/* <RadioGroup
+                                radioButtons={languagesapii && languagesapii.map((item) => {
+                                    return (
+                                        {
+                                            id: item.name,
+                                            label: (
+                                                <Text style={{ color: "#000", }}>{item.name}</Text>
+                                            ),
+                                            color: "#F29D38",
+                                            size: responsiveFontSize(3),
+                                        }
+                                    )
+                                })}
+                                onPress={setSelectedlanguage}
+                                selectedId={selectedlanguage}
+                                containerStyle={styles.ViewCard}
+                            /> */}
+
+                        </View>
+                    </View>
+
+                    {/* buttonStyle */}
+
+                    <View
+                        style={{ width: '100%', flexDirection: 'row', paddingTop: 15, paddingHorizontal: 10 }}>
+
+                        <View
+                            style={{
+                                width: '50%',
+                                backgroundColor: '#F29D38',
+                                borderRadius: 20,
+                            }}>
+                            <TouchableOpacity
+                                activeOpacity={0.7}
+                                onPress={() => languagecancelfunction()}>
+                                <Text
+                                    style={{
+                                        color: '#fff',
+                                        textAlign: 'center',
+                                        padding: 8,
+                                        borderRightColor: '#fff',
+                                        borderRightWidth: 1,
+                                        fontSize: 15,
+                                    }}>
+                                    Cancel
+                                </Text>
+                            </TouchableOpacity>
+                        </View>
+
+
+                        <View
+                            style={{
+                                width: '50%',
+                                backgroundColor: '#fff',
+                                borderColor: '#F29D38',
+                                borderWidth: 1,
+                                borderRadius: 20,
+                                marginLeft: 3,
+                                flexDirection: "row",
+                                alignItems: "center",
+                                justifyContent: "center"
+                            }}>
+                            <TouchableOpacity
+                                onPress={() => languagesearchFilterFunction()}
+                                languagesearchFilterFunction
+                                activeOpacity={0.7}
+                                style={{
+                                }}>
+                                <Text
+                                    style={{
+                                        color: '#F29D38',
+                                        textAlign: 'center',
+                                        padding: 8,
+                                        fontSize: 15,
+
+                                    }}>
+                                    Apply Filter
+                                </Text>
+                            </TouchableOpacity>
+                        </View>
+                    </View>
+                    <View style={{ marginBottom: 10 }}></View>
+                </View>
+            </Modal>
+
+            {/* setBrandmodel*/}
+            <Modal
+                isVisible={Brandmodel}
+                onBackdropPress={() => setBrandmodel(false)}
+                onSwipeComplete={() => setBrandmodel(false)}
+                // swipeDirection={['down']}
+                backdropOpacity={0.5}
+                style={{ justifyContent: 'flex-end', margin: 0 }}
+            >
+                <View
+                    style={{
+                        height: "auto",
+                        backgroundColor: "#fff",
+                        position: "absolute",
+                        bottom: 0,
+                        right: 0,
+                        left: 0,
+                        width: "100%",
+                        borderTopLeftRadius: 30,
+                        borderTopRightRadius: 30,
+                        // paddingHorizontal: 15,
+                        borderColor: "#F29D38",
+                        borderWidth: 0.55
+                    }}>
+
+                    <View style={{ marginTop: 15 }}>
+                        <View style={{ width: "100%" }}>
+
+
+                            <View style={{ paddingHorizontal: 15, flexDirection: "row", justifyContent: "space-between", width: "100%" }}>
+                                <Text style={{ color: "#F29D38", fontSize: responsiveFontSize(2.3), fontWeight: "700" }}>
+                                    Languages
+                                </Text>
+                                <TouchableOpacity
+                                    onPress={() => languageremove()}
+                                    style={{
+                                        backgroundColor: "#F29D38",
+                                        borderRadius: 10,
+                                        alignItems: "center",
+                                        justifyContent: "center"
+                                    }}
+                                >
+                                    <Text style={{
+                                        color: "#fff",
+                                        fontSize: responsiveFontSize(1.5),
+                                        fontWeight: "300",
+                                        paddingHorizontal: 10,
+                                        paddingVertical: 2
+                                    }}>
+                                        Reset All
+                                    </Text>
+                                </TouchableOpacity>
+                            </View>
+
+
+                            {/* <RadioGroup
+                                radioButtons={languagesapii && languagesapii.map((item) => {
+                                    return (
+                                        {
+                                            id: item.name,
+                                            label: (
+                                                <Text style={{ color: "#000", }}>{item.name}</Text>
+                                            ),
+                                            color: "#F29D38",
+                                            size: responsiveFontSize(3),
+                                        }
+                                    )
+                                })}
+                                onPress={setSelectedlanguage}
+                                selectedId={selectedlanguage}
+                                containerStyle={styles.ViewCard}
+                            /> */}
+
+                        </View>
+                    </View>
+
+                    {/* buttonStyle */}
+
+                    <View
+                        style={{ width: '100%', flexDirection: 'row', paddingTop: 15, paddingHorizontal: 10 }}>
+
+                        <View
+                            style={{
+                                width: '50%',
+                                backgroundColor: '#F29D38',
+                                borderRadius: 20,
+                            }}>
+                            <TouchableOpacity
+                                activeOpacity={0.7}
+                                onPress={() => languagecancelfunction()}>
+                                <Text
+                                    style={{
+                                        color: '#fff',
+                                        textAlign: 'center',
+                                        padding: 8,
+                                        borderRightColor: '#fff',
+                                        borderRightWidth: 1,
+                                        fontSize: 15,
+                                    }}>
+                                    Cancel
+                                </Text>
+                            </TouchableOpacity>
+                        </View>
+
+
+                        <View
+                            style={{
+                                width: '50%',
+                                backgroundColor: '#fff',
+                                borderColor: '#F29D38',
+                                borderWidth: 1,
+                                borderRadius: 20,
+                                marginLeft: 3,
+                                flexDirection: "row",
+                                alignItems: "center",
+                                justifyContent: "center"
+                            }}>
+                            <TouchableOpacity
+                                onPress={() => languagesearchFilterFunction()}
+                                languagesearchFilterFunction
+                                activeOpacity={0.7}
+                                style={{
+                                }}>
+                                <Text
+                                    style={{
+                                        color: '#F29D38',
+                                        textAlign: 'center',
+                                        padding: 8,
+                                        fontSize: 15,
+
+                                    }}>
+                                    Apply Filter
+                                </Text>
+                            </TouchableOpacity>
+                        </View>
+                    </View>
+                    <View style={{ marginBottom: 10 }}></View>
+                </View>
+            </Modal>
+            {/* setDiscountmodel*/}
+            <Modal
+                isVisible={Discountmodel}
+                onBackdropPress={() => setDiscountmodel(false)}
+                onSwipeComplete={() => setDiscountmodel(false)}
+                // swipeDirection={['down']}
+                backdropOpacity={0.5}
+                style={{ justifyContent: 'flex-end', margin: 0 }}
+            >
+                <View
+                    style={{
+                        height: "auto",
+                        backgroundColor: "#fff",
+                        position: "absolute",
+                        bottom: 0,
+                        right: 0,
+                        left: 0,
+                        width: "100%",
+                        borderTopLeftRadius: 30,
+                        borderTopRightRadius: 30,
+                        // paddingHorizontal: 15,
+                        borderColor: "#F29D38",
+                        borderWidth: 0.55
+                    }}>
+
+                    <View style={{ marginTop: 15 }}>
+                        <View style={{ width: "100%" }}>
+
+
+                            <View style={{ paddingHorizontal: 15, flexDirection: "row", justifyContent: "space-between", width: "100%" }}>
+                                <Text style={{ color: "#F29D38", fontSize: responsiveFontSize(2.3), fontWeight: "700" }}>
+                                    Languages
+                                </Text>
+                                <TouchableOpacity
+                                    onPress={() => languageremove()}
+                                    style={{
+                                        backgroundColor: "#F29D38",
+                                        borderRadius: 10,
+                                        alignItems: "center",
+                                        justifyContent: "center"
+                                    }}
+                                >
+                                    <Text style={{
+                                        color: "#fff",
+                                        fontSize: responsiveFontSize(1.5),
+                                        fontWeight: "300",
+                                        paddingHorizontal: 10,
+                                        paddingVertical: 2
+                                    }}>
+                                        Reset All
+                                    </Text>
+                                </TouchableOpacity>
+                            </View>
+
+
+                            {/* <RadioGroup
+                                radioButtons={languagesapii && languagesapii.map((item) => {
+                                    return (
+                                        {
+                                            id: item.name,
+                                            label: (
+                                                <Text style={{ color: "#000", }}>{item.name}</Text>
+                                            ),
+                                            color: "#F29D38",
+                                            size: responsiveFontSize(3),
+                                        }
+                                    )
+                                })}
+                                onPress={setSelectedlanguage}
+                                selectedId={selectedlanguage}
+                                containerStyle={styles.ViewCard}
+                            /> */}
+
+                        </View>
+                    </View>
+
+                    {/* buttonStyle */}
+
+                    <View
+                        style={{ width: '100%', flexDirection: 'row', paddingTop: 15, paddingHorizontal: 10 }}>
+
+                        <View
+                            style={{
+                                width: '50%',
+                                backgroundColor: '#F29D38',
+                                borderRadius: 20,
+                            }}>
+                            <TouchableOpacity
+                                activeOpacity={0.7}
+                                onPress={() => languagecancelfunction()}>
+                                <Text
+                                    style={{
+                                        color: '#fff',
+                                        textAlign: 'center',
+                                        padding: 8,
+                                        borderRightColor: '#fff',
+                                        borderRightWidth: 1,
+                                        fontSize: 15,
+                                    }}>
+                                    Cancel
+                                </Text>
+                            </TouchableOpacity>
+                        </View>
+
+
+                        <View
+                            style={{
+                                width: '50%',
+                                backgroundColor: '#fff',
+                                borderColor: '#F29D38',
+                                borderWidth: 1,
+                                borderRadius: 20,
+                                marginLeft: 3,
+                                flexDirection: "row",
+                                alignItems: "center",
+                                justifyContent: "center"
+                            }}>
+                            <TouchableOpacity
+                                onPress={() => languagesearchFilterFunction()}
+                                languagesearchFilterFunction
+                                activeOpacity={0.7}
+                                style={{
+                                }}>
+                                <Text
+                                    style={{
+                                        color: '#F29D38',
+                                        textAlign: 'center',
+                                        padding: 8,
+                                        fontSize: 15,
+
+                                    }}>
+                                    Apply Filter
+                                </Text>
+                            </TouchableOpacity>
+                        </View>
+                    </View>
+                    <View style={{ marginBottom: 10 }}></View>
+                </View>
+            </Modal>
+
         </SafeAreaView>
     )
 }
@@ -282,7 +1151,7 @@ const styles = StyleSheet.create({
         color: "#000",
         fontSize: 14,
         fontWeight: '400',
-        // backgroundColor: "#fff"
+
     },
     container: {
         elevation: 10,
