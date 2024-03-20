@@ -69,7 +69,7 @@ const TabBar = () => {
                     <Icon name='receipt'
                         style={{ color: "#fff", fontSize: responsiveFontSize(2.6) }}
                     />
-                    <Text style={{ fontSize: responsiveFontSize(1.4), color: "#fff", }}> Orders</Text>
+                    <Text style={{ fontSize: responsiveFontSize(1.4), color: "#fff", }}>Orders</Text>
                 </TouchableOpacity>
 
                 {/* cart*/}
@@ -87,8 +87,8 @@ const TabBar = () => {
                         <Icon name='cart'
                             style={{ color: "#fff", fontSize: responsiveFontSize(2.6) }}
                         />
-                        <View style={{ backgroundColor: "#e27e45", width: 15, height: 15, borderRadius: 100, justifyContent: "center", alignItems: "center", position: "absolute", top: -8, right: -8 }}>
-                            <Text style={{ color: "#fff", fontSize: 10, fontWeight: "600" }}>{cartProducts.length}</Text>
+                        <View style={{ backgroundColor: activeTab === 'Cart' ? "#fff" : "#e27e45", width: 15, height: 15, borderRadius: 100, justifyContent: "center", alignItems: "center", position: "absolute", top: -8, right: -8 }}>
+                            <Text style={{ color: activeTab === 'Cart' ? "#e27e45" : "#fff", fontSize: 10, fontWeight: "600" }}>{cartProducts.length}</Text>
                         </View>
                     </View>
                     <Text style={{ fontSize: responsiveFontSize(1.4), color: "#fff", }}>Cart</Text>
@@ -128,7 +128,7 @@ const TabBar = () => {
                     <Icon2 name='user'
                         style={{ color: "#fff", fontSize: responsiveFontSize(2.6) }}
                     />
-                    <Text style={{ fontSize: responsiveFontSize(1.4), color: "#fff", paddingTop: 5 }}> Profile</Text>
+                    <Text style={{ fontSize: responsiveFontSize(1.4), color: "#fff", paddingTop: 5 }}>Profile</Text>
                 </TouchableOpacity>
 
             </View>
