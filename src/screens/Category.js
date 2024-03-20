@@ -168,6 +168,7 @@ const Category = ({ navigation, route }) => {
                         <View style={{ marginVertical: 10, marginHorizontal: 5, paddingTop: 3 }}>
                             <FlatList
                                 data={products}
+                                style={{marginBottom:150}}
                                 numColumns={2}
                                 renderItem={({ item }) => (
                                     <TouchableOpacity style={{ backgroundColor: '#fff', borderRadius: 10, elevation: 2, width: "48%", margin: 3, }} onPress={() => navigation.navigate('ProductDetails', { data: item })}>
