@@ -21,9 +21,9 @@ const Category = ({ navigation, route }) => {
     const categoryProducts = data.filter(item => item.category === category);
     const subCategoryProducts = categoryProducts.filter(item => item.subCategory === subCategorySelected);
 
-    console.log(categoryProducts);
+    console.log("categoryProductscategoryProducts", categoryProducts);
 
-    const [isModalVisible, setModalVisible] = useState(false);
+    const [isModalVisible, setModalVisible] = useState(true);
     const [selectedId, setSelectedId] = useState("");
     const [subCategorySelected, setSubCategorySelected] = useState("");
     const [products, setProducts] = useState([]);
@@ -35,9 +35,10 @@ const Category = ({ navigation, route }) => {
     const [Brandmodel, setBrandmodel] = useState(false);
     const [Discountmodel, setDiscountmodel] = useState(false);
     const dispatch = useDispatch();
-
+  console.log("selectedId",selectedId)
+    const typee1 = "men"
+    console.log("typeetypee", typee1)
     const cartProducts = useSelector(state => state.cart);
-
     const brandsData = [
         { id: '1', name: 'Sort by', iconName: "keyboard-arrow-down" },
         { id: '2', name: 'Filter', iconName: "filter-list" },
@@ -50,15 +51,12 @@ const Category = ({ navigation, route }) => {
     const toggleModal = () => {
         setModalVisible(!isModalVisible);
     };
-
-    const handlePress = (id) => {
-        setSelectedId(id)
-
-    }
-
     useEffect(() => {
+        if (selectedId !== "") {
+            setModalVisible(false); 
+        }
+    }, [selectedId])
 
-    }, [subCategorySelected])
 
     // const fetchProducts = async () => {
     //     try {
@@ -215,72 +213,86 @@ const Category = ({ navigation, route }) => {
                         <View style={{ marginVertical: 10, marginHorizontal: 5, paddingTop: 3 }}>
                             <FlatList
                                 data={categoryProducts}
+                                style={{marginBottom:150}} 
                                 numColumns={2}
-                                renderItem={({ item }) => (
-                                    <TouchableOpacity style={{ backgroundColor: '#fff', borderRadius: 10, elevation: 2, width: "48%", margin: 3, }} onPress={() => navigation.navigate('ProductDetails', { data: item })}>
-                                        <TouchableOpacity style={{ position: 'absolute', right: 5, top: 5, padding: 3, backgroundColor: "#1f1f1f", borderRadius: 100, zIndex: 10 }}>
-                                            <Icon2 name="heart" size={15} color="#fff" />
-                                        </TouchableOpacity>
-                                        <View style={{ margin: 5, paddingVertical: 4, justifyContent: "center", width: "100%", flexDirection: "row", alignItems: "center" }}>
-                                            <Image
-                                                source={{ uri: item.images[0] }}
-                                                style={{
-                                                    width: 100,
-                                                    height: 100,
-                                                    resizeMode: 'contain',
-                                                }}
-                                            />
-                                        </View>
+                                renderItem={({ item }) => {
+                                    console.log("itemitem11", item)
+                                    if (selectedId == item.subCategory) {
+                                        return (
+                                            <TouchableOpacity style={{ backgroundColor: '#fff', borderRadius: 10, elevation: 2, width: "48%", margin: 3, }} onPress={() => navigation.navigate('ProductDetails', { data: item })}>
+                                                {/* <Text style={{ color: "red" }}>oooooo</Text> */}
+                                                <TouchableOpacity style={{ position: 'absolute', right: 5, top: 5, padding: 3, backgroundColor: "#1f1f1f", borderRadius: 100, zIndex: 10 }}>
+                                                    <Icon2 name="heart" size={15} color="#fff" />
+                                                    {/* <Text style={{ color: "#fff" }}>{item.subCategory}</Text> */}
+                                                </TouchableOpacity>
+                                           
 
-                                        <View style={{ paddingHorizontal: 8, marginTop: 5, backgroundColor: "#f8f8f7", borderRadius: 10, paddingTop: 10 }}>
-
-                                            <View style={{ flexDirection: 'row', alignItems: 'center', marginBottom: 7 }}>
-                                                {renderStarRating(item.rating.rate)}
-                                                <Text style={{ marginLeft: 4, color: '#333', fontWeight: "600" }}>{item.rating.rate}</Text>
-                                            </View>
-
-                                            <View style={{ flexDirection: "row", alignItems: "center", marginBottom: 8 }}>
-                                                <Text numberOfLines={1} ellipsizeMode="tail" style={{ fontSize: 15, fontWeight: 'bold', color: "#000" }}>{item.title}</Text>
-                                            </View>
-
-                                            <View style={{ flexDirection: "row", alignItems: "center", marginBottom: 10, width: "100%" }}>
-                                                <Text numberOfLines={2} ellipsizeMode="tail" style={{ fontSize: 13, fontWeight: '600', color: "#a2a2a2", textAlign: "justify", }}>{item.description}</Text>
-                                            </View>
-
-                                            <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: "space-between" }}>
-                                                <Text style={{ fontSize: 15, fontWeight: '700', marginRight: 4, color: "#000" }}>₹{item.price * 100}</Text>
-                                                <View style={{ backgroundColor: "#55961d", paddingVertical: 1, borderRadius: 4, paddingHorizontal: 5 }}>
-                                                    <Text style={{ fontSize: 12, color: '#fff', fontWeight: "600" }}>10% off</Text>
-                                                </View>
-                                            </View>
-
-                                            {/* Add to bag */}
-                                            <View style={{ flexDirection: "row", alignItems: "center", justifyContent: "center", }}>
-                                                <TouchableOpacity style={{ backgroundColor: "#e27e45", borderRadius: 10, paddingVertical: 8, alignItems: 'center', marginVertical: 10, width: "100%", flexDirection: "row", justifyContent: "center" }} onPress={() => dispatch(addItemToCart(item))}>
-                                                    <Text style={{ fontSize: 16, fontWeight: '500', color: '#fff' }}>Add to bag</Text>
-                                                    <Text style={{ color: "#fff", marginLeft: 5, fontSize: 16, fontWeight: '600', }}>(</Text>
-                                                    <Icon2
-                                                        name="bag"
-                                                        size={17}
+                                                <View style={{ margin: 5, paddingVertical: 4, justifyContent: "center", width: "100%", flexDirection: "row", alignItems: "center" }}>
+                                                    <Image
+                                                        source={{ uri: item.images[0] }}
                                                         style={{
-                                                            color: '#fff',
-                                                            marginRight: 2,
-                                                            fontWeight: "600",
-                                                            marginLeft: 2
+                                                            width: 100,
+                                                            height: 100,
+                                                            resizeMode: 'contain',
                                                         }}
                                                     />
-                                                    <Text style={{ color: "#fff", fontSize: 16, fontWeight: '600', }}>)</Text>
-                                                </TouchableOpacity>
-                                            </View>
+                                                </View>
 
-                                        </View>
-                                    </TouchableOpacity>
+                                                <View style={{ paddingHorizontal: 8, marginTop: 5, backgroundColor: "#f8f8f7", borderRadius: 10, paddingTop: 10 }}>
 
-                                )}
+                                                    <View style={{ flexDirection: 'row', alignItems: 'center', marginBottom: 7 }}>
+                                                        {renderStarRating(item.rating.rate)}
+                                                        <Text style={{ marginLeft: 4, color: '#333', fontWeight: "600" }}>{item.rating.rate}</Text>
+                                                    </View>
+                                                    <View>
+                                                <Text style={{ color: "#000" }}>{item.subCategory}</Text> 
+                                                </View>
+                                                    <View style={{ flexDirection: "row", alignItems: "center", marginBottom: 8 }}>
+                                                        <Text numberOfLines={1} ellipsizeMode="tail" style={{ fontSize: 15, fontWeight: 'bold', color: "#000" }}>{item.title}</Text>
+                                                        <Text style={{ color: "#" }}>{item.subCategory}</Text> 
+                                                    </View>
+
+                                                    <View style={{ flexDirection: "row", alignItems: "center", marginBottom: 10, width: "100%" }}>
+                                                        <Text numberOfLines={2} ellipsizeMode="tail" style={{ fontSize: 13, fontWeight: '600', color: "#a2a2a2", textAlign: "justify", }}>{item.description}</Text>
+                                                    </View>
+
+                                                    <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: "space-between" }}>
+                                                        <Text style={{ fontSize: 15, fontWeight: '700', marginRight: 4, color: "#000" }}>₹{item.price * 100}</Text>
+                                                        <View style={{ backgroundColor: "#55961d", paddingVertical: 1, borderRadius: 4, paddingHorizontal: 5 }}>
+                                                            <Text style={{ fontSize: 12, color: '#fff', fontWeight: "600" }}>10% off</Text>
+                                                        </View>
+                                                    </View>
+
+                                                    {/* Add to bag */}
+                                                    <View style={{ flexDirection: "row", alignItems: "center", justifyContent: "center", }}>
+                                                        <TouchableOpacity style={{ backgroundColor: "#e27e45", borderRadius: 10, paddingVertical: 8, alignItems: 'center', marginVertical: 10, width: "100%", flexDirection: "row", justifyContent: "center" }} onPress={() => dispatch(addItemToCart(item))}>
+                                                            <Text style={{ fontSize: 16, fontWeight: '500', color: '#fff' }}>Add to bag</Text>
+                                                            <Text style={{ color: "#fff", marginLeft: 5, fontSize: 16, fontWeight: '600', }}>(</Text>
+                                                            <Icon2
+                                                                name="bag"
+                                                                size={17}
+                                                                style={{
+                                                                    color: '#fff',
+                                                                    marginRight: 2,
+                                                                    fontWeight: "600",
+                                                                    marginLeft: 2
+                                                                }}
+                                                            />
+                                                            <Text style={{ color: "#fff", fontSize: 16, fontWeight: '600', }}>)</Text>
+                                                        </TouchableOpacity>
+                                                    </View>
+
+                                                </View>
+                                            </TouchableOpacity>
+                                        )
+
+                                    } else {
+                                        return null
+                                    }
+                                }
+                                }
                                 keyExtractor={(item) => item.id.toString()}
                             />
-
-
                         </View>
                     )}
                 </View>
@@ -297,7 +309,7 @@ const Category = ({ navigation, route }) => {
                         <View style={{ flexDirection: "row", justifyContent: "center", alignItems: "center", height: "70%" }}>
                             <RadioGroup
                                 radioButtons={radioButtons}
-                                onPress={handlePress}
+                                onPress={setSelectedId}
                                 selectedId={selectedId}
                             />
                         </View>
