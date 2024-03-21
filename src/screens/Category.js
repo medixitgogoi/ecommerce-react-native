@@ -3,7 +3,6 @@ import { useEffect, useState, useMemo } from 'react';
 import Icon from 'react-native-vector-icons/dist/MaterialIcons';
 import Icon2 from 'react-native-vector-icons/dist/Ionicons';
 import Icon3 from 'react-native-vector-icons/dist/FontAwesome6';
-import Icon4 from 'react-native-vector-icons/dist/MaterialCommunityIcons';
 import Modal from "react-native-modal";
 import RadioGroup from 'react-native-radio-buttons-group';
 import { addItemToCart } from '../redux/CartSlice';
@@ -26,7 +25,44 @@ const Category = ({ navigation, route }) => {
     const [isModalVisible, setModalVisible] = useState(true);
     const [selectedId, setSelectedId] = useState("");
     const [subCategorySelected, setSubCategorySelected] = useState("");
-    const [products, setProducts] = useState([]);
+
+    const [sortbydetails, setsortbydetails] = useState([
+        {
+            id:"1",
+            name:"Relavent",
+        },
+        {
+            id:"2",
+            name:"Newest Products",
+        },
+        {
+            id:"3",
+            name:"Price -- Low To High",
+        },
+        {
+            id:"3",
+            name:"Price -- Low To High",
+        }
+
+    ]);
+
+    const [genderfilter, setgenderfilter] = useState([
+        {
+            id:"1",
+            name:"Male",
+        },
+        {
+            id:"2",
+            name:"Female",
+        },
+        {
+            id:"3",
+            name:"Children",
+        },
+    
+
+    ]);
+
     const [loading, setLoading] = useState(false);
     const [SortedBYmodel, setSortedBYmodel] = useState(false);
     const [filtermodel, setfiltermodel] = useState(false);
@@ -35,7 +71,7 @@ const Category = ({ navigation, route }) => {
     const [Brandmodel, setBrandmodel] = useState(false);
     const [Discountmodel, setDiscountmodel] = useState(false);
     const dispatch = useDispatch();
-  console.log("selectedId",selectedId)
+    console.log("selectedId", selectedId)
     const typee1 = "men"
     console.log("typeetypee", typee1)
     const cartProducts = useSelector(state => state.cart);
@@ -53,7 +89,7 @@ const Category = ({ navigation, route }) => {
     };
     useEffect(() => {
         if (selectedId !== "") {
-            setModalVisible(false); 
+            setModalVisible(false);
         }
     }, [selectedId])
 
@@ -122,7 +158,7 @@ const Category = ({ navigation, route }) => {
             </TouchableOpacity>
         );
 
-    };
+    }
 
     const radioButtons = useMemo(() => ([
         {
@@ -213,7 +249,7 @@ const Category = ({ navigation, route }) => {
                         <View style={{ marginVertical: 10, marginHorizontal: 5, paddingTop: 3 }}>
                             <FlatList
                                 data={categoryProducts}
-                                style={{marginBottom:150}} 
+                                style={{ marginBottom: 150 }}
                                 numColumns={2}
                                 renderItem={({ item }) => {
                                     console.log("itemitem11", item)
@@ -225,7 +261,7 @@ const Category = ({ navigation, route }) => {
                                                     <Icon2 name="heart" size={15} color="#fff" />
                                                     {/* <Text style={{ color: "#fff" }}>{item.subCategory}</Text> */}
                                                 </TouchableOpacity>
-                                           
+
 
                                                 <View style={{ margin: 5, paddingVertical: 4, justifyContent: "center", width: "100%", flexDirection: "row", alignItems: "center" }}>
                                                     <Image
@@ -245,11 +281,11 @@ const Category = ({ navigation, route }) => {
                                                         <Text style={{ marginLeft: 4, color: '#333', fontWeight: "600" }}>{item.rating.rate}</Text>
                                                     </View>
                                                     <View>
-                                                <Text style={{ color: "#000" }}>{item.subCategory}</Text> 
-                                                </View>
+                                                        <Text style={{ color: "#000" }}>{item.subCategory}</Text>
+                                                    </View>
                                                     <View style={{ flexDirection: "row", alignItems: "center", marginBottom: 8 }}>
                                                         <Text numberOfLines={1} ellipsizeMode="tail" style={{ fontSize: 15, fontWeight: 'bold', color: "#000" }}>{item.title}</Text>
-                                                        <Text style={{ color: "#" }}>{item.subCategory}</Text> 
+                                                        <Text style={{ color: "#" }}>{item.subCategory}</Text>
                                                     </View>
 
                                                     <View style={{ flexDirection: "row", alignItems: "center", marginBottom: 10, width: "100%" }}>
@@ -327,10 +363,8 @@ const Category = ({ navigation, route }) => {
                 isVisible={SortedBYmodel}
                 onBackdropPress={() => setSortedBYmodel(false)}
                 onSwipeComplete={() => setSortedBYmodel(false)}
-                // swipeDirection={['down']}
                 backdropOpacity={0.5}
-                style={{ justifyContent: 'flex-end', margin: 0 }}
-            >
+                style={{ justifyContent: 'flex-end', margin: 0 }}>
                 <View
                     style={{
                         height: "auto",
@@ -343,22 +377,19 @@ const Category = ({ navigation, route }) => {
                         borderTopLeftRadius: 30,
                         borderTopRightRadius: 30,
                         // paddingHorizontal: 15,
-                        borderColor: "#F29D38",
+                        borderColor: "#e27e45",
                         borderWidth: 0.55
                     }}>
-
                     <View style={{ marginTop: 15 }}>
                         <View style={{ width: "100%" }}>
-
-
                             <View style={{ paddingHorizontal: 15, flexDirection: "row", justifyContent: "space-between", width: "100%" }}>
-                                <Text style={{ color: "#F29D38", fontSize: responsiveFontSize(2.3), fontWeight: "700" }}>
-                                    Languages
+                                <Text style={{ color: "#e27e45", fontSize: responsiveFontSize(2.3), fontWeight: "700" }}>
+                                    Sort By
                                 </Text>
                                 <TouchableOpacity
-                                    onPress={() => languageremove()}
+                                    // onPress={() => languageremove()}
                                     style={{
-                                        backgroundColor: "#F29D38",
+                                        backgroundColor: "#e27e45",
                                         borderRadius: 10,
                                         alignItems: "center",
                                         justifyContent: "center"
@@ -367,7 +398,7 @@ const Category = ({ navigation, route }) => {
                                     <Text style={{
                                         color: "#fff",
                                         fontSize: responsiveFontSize(1.5),
-                                        fontWeight: "300",
+                                        fontWeight: "400",
                                         paddingHorizontal: 10,
                                         paddingVertical: 2
                                     }}>
@@ -375,25 +406,23 @@ const Category = ({ navigation, route }) => {
                                     </Text>
                                 </TouchableOpacity>
                             </View>
-
-
-                            {/* <RadioGroup
-                                radioButtons={languagesapii && languagesapii.map((item) => {
+                            <RadioGroup
+                                radioButtons={sortbydetails && sortbydetails.map((item) => {
                                     return (
                                         {
                                             id: item.name,
                                             label: (
-                                                <Text style={{ color: "#000", }}>{item.name}</Text>
+                                                <Text style={{ color: "#000",paddingLeft:4,fontSize:responsiveFontSize(2)}}>{item.name}</Text>
                                             ),
-                                            color: "#F29D38",
-                                            size: responsiveFontSize(3),
+                                            color: "#e27e45",
+                                            size: responsiveFontSize(2),
                                         }
                                     )
                                 })}
-                                onPress={setSelectedlanguage}
-                                selectedId={selectedlanguage}
+                                onPress={setsortbydetails}
+                                selectedId={setsortbydetails}
                                 containerStyle={styles.ViewCard}
-                            /> */}
+                            />
 
                         </View>
                     </View>
@@ -402,11 +431,10 @@ const Category = ({ navigation, route }) => {
 
                     <View
                         style={{ width: '100%', flexDirection: 'row', paddingTop: 15, paddingHorizontal: 10 }}>
-
                         <View
                             style={{
                                 width: '50%',
-                                backgroundColor: '#F29D38',
+                                backgroundColor: '#e27e45',
                                 borderRadius: 20,
                             }}>
                             <TouchableOpacity
@@ -431,7 +459,7 @@ const Category = ({ navigation, route }) => {
                             style={{
                                 width: '50%',
                                 backgroundColor: '#fff',
-                                borderColor: '#F29D38',
+                                borderColor: '#e27e45',
                                 borderWidth: 1,
                                 borderRadius: 20,
                                 marginLeft: 3,
@@ -447,7 +475,7 @@ const Category = ({ navigation, route }) => {
                                 }}>
                                 <Text
                                     style={{
-                                        color: '#F29D38',
+                                        color: '#e27e45',
                                         textAlign: 'center',
                                         padding: 8,
                                         fontSize: 15,
@@ -469,9 +497,8 @@ const Category = ({ navigation, route }) => {
                 onSwipeComplete={() => setfiltermodel(false)}
                 // swipeDirection={['down']}
                 backdropOpacity={0.5}
-                style={{ justifyContent: 'flex-end', margin: 0 }}
-            >
-                <View
+                style={{ justifyContent: 'flex-end', margin: 0 }} >
+                 <View
                     style={{
                         height: "auto",
                         backgroundColor: "#fff",
@@ -483,22 +510,19 @@ const Category = ({ navigation, route }) => {
                         borderTopLeftRadius: 30,
                         borderTopRightRadius: 30,
                         // paddingHorizontal: 15,
-                        borderColor: "#F29D38",
+                        borderColor: "#e27e45",
                         borderWidth: 0.55
                     }}>
-
                     <View style={{ marginTop: 15 }}>
                         <View style={{ width: "100%" }}>
-
-
                             <View style={{ paddingHorizontal: 15, flexDirection: "row", justifyContent: "space-between", width: "100%" }}>
-                                <Text style={{ color: "#F29D38", fontSize: responsiveFontSize(2.3), fontWeight: "700" }}>
-                                    Languages
+                                <Text style={{ color: "#e27e45", fontSize: responsiveFontSize(2.3), fontWeight: "700" }}>
+                                    Sort By
                                 </Text>
                                 <TouchableOpacity
-                                    onPress={() => languageremove()}
+                                    // onPress={() => languageremove()}
                                     style={{
-                                        backgroundColor: "#F29D38",
+                                        backgroundColor: "#e27e45",
                                         borderRadius: 10,
                                         alignItems: "center",
                                         justifyContent: "center"
@@ -507,7 +531,7 @@ const Category = ({ navigation, route }) => {
                                     <Text style={{
                                         color: "#fff",
                                         fontSize: responsiveFontSize(1.5),
-                                        fontWeight: "300",
+                                        fontWeight: "400",
                                         paddingHorizontal: 10,
                                         paddingVertical: 2
                                     }}>
@@ -515,25 +539,23 @@ const Category = ({ navigation, route }) => {
                                     </Text>
                                 </TouchableOpacity>
                             </View>
-
-
-                            {/* <RadioGroup
-                                radioButtons={languagesapii && languagesapii.map((item) => {
+                            <RadioGroup
+                                radioButtons={sortbydetails && sortbydetails.map((item) => {
                                     return (
                                         {
                                             id: item.name,
                                             label: (
-                                                <Text style={{ color: "#000", }}>{item.name}</Text>
+                                                <Text style={{ color: "#000",paddingLeft:4,fontSize:responsiveFontSize(2)}}>{item.name}</Text>
                                             ),
-                                            color: "#F29D38",
-                                            size: responsiveFontSize(3),
+                                            color: "#e27e45",
+                                            size: responsiveFontSize(2),
                                         }
                                     )
                                 })}
-                                onPress={setSelectedlanguage}
-                                selectedId={selectedlanguage}
+                                onPress={setsortbydetails}
+                                selectedId={setsortbydetails}
                                 containerStyle={styles.ViewCard}
-                            /> */}
+                            />
 
                         </View>
                     </View>
@@ -542,11 +564,10 @@ const Category = ({ navigation, route }) => {
 
                     <View
                         style={{ width: '100%', flexDirection: 'row', paddingTop: 15, paddingHorizontal: 10 }}>
-
                         <View
                             style={{
                                 width: '50%',
-                                backgroundColor: '#F29D38',
+                                backgroundColor: '#e27e45',
                                 borderRadius: 20,
                             }}>
                             <TouchableOpacity
@@ -571,7 +592,7 @@ const Category = ({ navigation, route }) => {
                             style={{
                                 width: '50%',
                                 backgroundColor: '#fff',
-                                borderColor: '#F29D38',
+                                borderColor: '#e27e45',
                                 borderWidth: 1,
                                 borderRadius: 20,
                                 marginLeft: 3,
@@ -587,7 +608,7 @@ const Category = ({ navigation, route }) => {
                                 }}>
                                 <Text
                                     style={{
-                                        color: '#F29D38',
+                                        color: '#e27e45',
                                         textAlign: 'center',
                                         padding: 8,
                                         fontSize: 15,
@@ -610,9 +631,8 @@ const Category = ({ navigation, route }) => {
                 onSwipeComplete={() => setGendermodel(false)}
                 // swipeDirection={['down']}
                 backdropOpacity={0.5}
-                style={{ justifyContent: 'flex-end', margin: 0 }}
-            >
-                <View
+                style={{ justifyContent: 'flex-end', margin: 0 }}>
+                 <View
                     style={{
                         height: "auto",
                         backgroundColor: "#fff",
@@ -624,22 +644,19 @@ const Category = ({ navigation, route }) => {
                         borderTopLeftRadius: 30,
                         borderTopRightRadius: 30,
                         // paddingHorizontal: 15,
-                        borderColor: "#F29D38",
+                        borderColor: "#e27e45",
                         borderWidth: 0.55
                     }}>
-
                     <View style={{ marginTop: 15 }}>
                         <View style={{ width: "100%" }}>
-
-
                             <View style={{ paddingHorizontal: 15, flexDirection: "row", justifyContent: "space-between", width: "100%" }}>
-                                <Text style={{ color: "#F29D38", fontSize: responsiveFontSize(2.3), fontWeight: "700" }}>
-                                    Languages
+                                <Text style={{ color: "#e27e45", fontSize: responsiveFontSize(2.3), fontWeight: "700" }}>
+                                    Sort By
                                 </Text>
                                 <TouchableOpacity
-                                    onPress={() => languageremove()}
+                                    // onPress={() => languageremove()}
                                     style={{
-                                        backgroundColor: "#F29D38",
+                                        backgroundColor: "#e27e45",
                                         borderRadius: 10,
                                         alignItems: "center",
                                         justifyContent: "center"
@@ -648,7 +665,7 @@ const Category = ({ navigation, route }) => {
                                     <Text style={{
                                         color: "#fff",
                                         fontSize: responsiveFontSize(1.5),
-                                        fontWeight: "300",
+                                        fontWeight: "400",
                                         paddingHorizontal: 10,
                                         paddingVertical: 2
                                     }}>
@@ -656,25 +673,23 @@ const Category = ({ navigation, route }) => {
                                     </Text>
                                 </TouchableOpacity>
                             </View>
-
-
-                            {/* <RadioGroup
-                                radioButtons={languagesapii && languagesapii.map((item) => {
+                            <RadioGroup
+                                radioButtons={genderfilter && genderfilter.map((item) => {
                                     return (
                                         {
                                             id: item.name,
                                             label: (
-                                                <Text style={{ color: "#000", }}>{item.name}</Text>
+                                                <Text style={{ color: "#000",paddingLeft:4,fontSize:responsiveFontSize(2)}}>{item.name}</Text>
                                             ),
-                                            color: "#F29D38",
-                                            size: responsiveFontSize(3),
+                                            color: "#e27e45",
+                                            size: responsiveFontSize(2),
                                         }
                                     )
                                 })}
-                                onPress={setSelectedlanguage}
-                                selectedId={selectedlanguage}
+                                onPress={setgenderfilter}
+                                selectedId={setgenderfilter}
                                 containerStyle={styles.ViewCard}
-                            /> */}
+                            />
 
                         </View>
                     </View>
@@ -683,11 +698,10 @@ const Category = ({ navigation, route }) => {
 
                     <View
                         style={{ width: '100%', flexDirection: 'row', paddingTop: 15, paddingHorizontal: 10 }}>
-
                         <View
                             style={{
                                 width: '50%',
-                                backgroundColor: '#F29D38',
+                                backgroundColor: '#e27e45',
                                 borderRadius: 20,
                             }}>
                             <TouchableOpacity
@@ -712,7 +726,7 @@ const Category = ({ navigation, route }) => {
                             style={{
                                 width: '50%',
                                 backgroundColor: '#fff',
-                                borderColor: '#F29D38',
+                                borderColor: '#e27e45',
                                 borderWidth: 1,
                                 borderRadius: 20,
                                 marginLeft: 3,
@@ -728,7 +742,7 @@ const Category = ({ navigation, route }) => {
                                 }}>
                                 <Text
                                     style={{
-                                        color: '#F29D38',
+                                        color: '#e27e45',
                                         textAlign: 'center',
                                         padding: 8,
                                         fontSize: 15,
@@ -1187,4 +1201,16 @@ const styles = StyleSheet.create({
         paddingTop: 3,
         marginHorizontal: 12,
     },
+    ViewCard: {
+       
+        borderRadius: 8,
+        overflow: 'hidden',
+        flexDirection: "column",
+        color: "#F29D38",
+        paddingTop: 5,
+        alignItems: "flex-start",
+        paddingHorizontal: 10,
+       
+    }
+    
 });
