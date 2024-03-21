@@ -23,6 +23,7 @@ const Category = ({ navigation, route }) => {
 
     console.log("categoryProductscategoryProducts", categoryProducts);
 
+    const [okpress, setOkpress] = useState(false);
     const [isModalVisible, setModalVisible] = useState(true);
     const [selectedId, setSelectedId] = useState("");
     const [subCategorySelected, setSubCategorySelected] = useState("");
@@ -35,10 +36,11 @@ const Category = ({ navigation, route }) => {
     const [Brandmodel, setBrandmodel] = useState(false);
     const [Discountmodel, setDiscountmodel] = useState(false);
     const dispatch = useDispatch();
-  console.log("selectedId",selectedId)
+    console.log("selectedId", selectedId)
     const typee1 = "men"
     console.log("typeetypee", typee1)
     const cartProducts = useSelector(state => state.cart);
+
     const brandsData = [
         { id: '1', name: 'Sort by', iconName: "keyboard-arrow-down" },
         { id: '2', name: 'Filter', iconName: "filter-list" },
@@ -51,12 +53,12 @@ const Category = ({ navigation, route }) => {
     const toggleModal = () => {
         setModalVisible(!isModalVisible);
     };
-    useEffect(() => {
-        if (selectedId !== "") {
-            setModalVisible(false); 
-        }
-    }, [selectedId])
 
+    // useEffect(() => {
+    //     if (selectedId !== "") {
+    //         setModalVisible(false);
+    //     }
+    // }, [selectedId])
 
     // const fetchProducts = async () => {
     //     try {
@@ -74,6 +76,11 @@ const Category = ({ navigation, route }) => {
     // useEffect(() => {
     //     fetchProducts();
     // }, [])
+
+    const pressHandler = () => {
+        setModalVisible(false);
+        setOkpress(true)
+    }
 
     const renderStarRating = (rating) => {
         const starComponents = [];
@@ -128,25 +135,25 @@ const Category = ({ navigation, route }) => {
         {
             id: 'men',
             label: (
-                <Text style={{ color: "#000", marginLeft: 3, fontSize: 16, fontWeight: "500" }}>{'Men'}</Text>
+                <Text style={{ color: "#474747", marginLeft: 3, fontSize: 16, fontWeight: "500" }}>{'Men'}</Text>
             ),
-            color: "#000",
+            color: "#585858",
             size: 15,
         },
         {
             id: 'women',
             label: (
-                <Text style={{ color: "#000", marginLeft: 2, fontSize: 16, fontWeight: "500" }}>{'Women'}</Text>
+                <Text style={{ color: "#474747", marginLeft: 3, fontSize: 16, fontWeight: "500" }}>{'Women'}</Text>
             ),
-            color: "#000",
+            color: "#585858",
             size: 15,
         },
         {
             id: 'children',
             label: (
-                <Text style={{ color: "#000", marginLeft: 3, fontSize: 16, fontWeight: "500" }}>{'Children'}</Text>
+                <Text style={{ color: "#474747", marginLeft: 3, fontSize: 16, fontWeight: "500" }}>{'Children'}</Text>
             ),
-            color: "#000",
+            color: "#585858",
             size: 15,
         },
     ]), []);
@@ -213,11 +220,11 @@ const Category = ({ navigation, route }) => {
                         <View style={{ marginVertical: 10, marginHorizontal: 5, paddingTop: 3 }}>
                             <FlatList
                                 data={categoryProducts}
-                                style={{marginBottom:150}} 
+                                style={{ marginBottom: 150 }}
                                 numColumns={2}
                                 renderItem={({ item }) => {
                                     console.log("itemitem11", item)
-                                    if (selectedId == item.subCategory) {
+                                    if (selectedId == item.subCategory && okpress) {
                                         return (
                                             <TouchableOpacity style={{ backgroundColor: '#fff', borderRadius: 10, elevation: 2, width: "48%", margin: 3, }} onPress={() => navigation.navigate('ProductDetails', { data: item })}>
                                                 {/* <Text style={{ color: "red" }}>oooooo</Text> */}
@@ -225,7 +232,7 @@ const Category = ({ navigation, route }) => {
                                                     <Icon2 name="heart" size={15} color="#fff" />
                                                     {/* <Text style={{ color: "#fff" }}>{item.subCategory}</Text> */}
                                                 </TouchableOpacity>
-                                           
+
 
                                                 <View style={{ margin: 5, paddingVertical: 4, justifyContent: "center", width: "100%", flexDirection: "row", alignItems: "center" }}>
                                                     <Image
@@ -245,11 +252,11 @@ const Category = ({ navigation, route }) => {
                                                         <Text style={{ marginLeft: 4, color: '#333', fontWeight: "600" }}>{item.rating.rate}</Text>
                                                     </View>
                                                     <View>
-                                                <Text style={{ color: "#000" }}>{item.subCategory}</Text> 
-                                                </View>
+                                                        <Text style={{ color: "#000" }}>{item.subCategory}</Text>
+                                                    </View>
                                                     <View style={{ flexDirection: "row", alignItems: "center", marginBottom: 8 }}>
                                                         <Text numberOfLines={1} ellipsizeMode="tail" style={{ fontSize: 15, fontWeight: 'bold', color: "#000" }}>{item.title}</Text>
-                                                        <Text style={{ color: "#" }}>{item.subCategory}</Text> 
+                                                        <Text style={{ color: "#" }}>{item.subCategory}</Text>
                                                     </View>
 
                                                     <View style={{ flexDirection: "row", alignItems: "center", marginBottom: 10, width: "100%" }}>
@@ -304,14 +311,33 @@ const Category = ({ navigation, route }) => {
                     onBackdropPress={() => setModalVisible(false)}
                     onSwipeComplete={() => setModalVisible(false)}
                 >
-                    <View style={{ backgroundColor: "#fff", height: 160, width: 300, alignSelf: "center", borderRadius: 10 }}>
-                        <Text style={{ color: "#000", fontWeight: "600", textAlign: "center", fontSize: 20, paddingTop: 20 }}>Select sub-category type:</Text>
-                        <View style={{ flexDirection: "row", justifyContent: "center", alignItems: "center", height: "70%" }}>
-                            <RadioGroup
-                                radioButtons={radioButtons}
-                                onPress={setSelectedId}
-                                selectedId={selectedId}
-                            />
+                    <View style={{
+                        backgroundColor: "#fff", height: 160, width: 300, alignSelf: "center", borderRadius: 10, flexDirection: "column", justifyContent: "space-between"
+                    }}>
+                        <View style={{ paddingHorizontal: 20, flexDirection: "column", justifyContent: "space-evenly", flex: 1, paddingBottom: 15 }}>
+                            <View style={{}}>
+                                <Text style={{ color: "#000", fontWeight: "500", fontSize: 20, paddingTop: 10, marginLeft: 10, textAlign: "center" }}>Select sub-category type:</Text>
+                            </View>
+                            <View style={{ flexDirection: "row", }}>
+                                <RadioGroup
+                                    radioButtons={radioButtons}
+                                    onPress={setSelectedId}
+                                    selectedId={selectedId}
+                                    layout='row'
+                                />
+                            </View>
+                        </View>
+                        <View style={{ flexDirection: "row", alignItems: "center", borderTopColor: "#e27e45", borderTopWidth: 0.4 }}>
+                            <TouchableOpacity style={{ flex: 1, alignItems: "center", justifyContent: "center" }} onPress={() => navigation.navigate("Home")}>
+                                <Text style={{ textAlign: "center", color: "#383838", fontWeight: "600" }}>
+                                    CANCEL
+                                </Text>
+                            </TouchableOpacity>
+                            <TouchableOpacity style={{ flex: 1, backgroundColor: "#e27e45", height: 40, alignItems: "center", justifyContent: "center", borderBottomRightRadius: 10 }} onPress={() => pressHandler()}>
+                                <Text style={{ textAlign: "center", fontWeight: "600", color: "#fff" }}>
+                                    OK
+                                </Text>
+                            </TouchableOpacity>
                         </View>
                     </View>
                 </Modal>
@@ -883,145 +909,6 @@ const Category = ({ navigation, route }) => {
                 </View>
             </Modal>
 
-            {/* setBrandmodel*/}
-            <Modal
-                isVisible={Brandmodel}
-                onBackdropPress={() => setBrandmodel(false)}
-                onSwipeComplete={() => setBrandmodel(false)}
-                // swipeDirection={['down']}
-                backdropOpacity={0.5}
-                style={{ justifyContent: 'flex-end', margin: 0 }}
-            >
-                <View
-                    style={{
-                        height: "auto",
-                        backgroundColor: "#fff",
-                        position: "absolute",
-                        bottom: 0,
-                        right: 0,
-                        left: 0,
-                        width: "100%",
-                        borderTopLeftRadius: 30,
-                        borderTopRightRadius: 30,
-                        // paddingHorizontal: 15,
-                        borderColor: "#F29D38",
-                        borderWidth: 0.55
-                    }}>
-
-                    <View style={{ marginTop: 15 }}>
-                        <View style={{ width: "100%" }}>
-
-
-                            <View style={{ paddingHorizontal: 15, flexDirection: "row", justifyContent: "space-between", width: "100%" }}>
-                                <Text style={{ color: "#F29D38", fontSize: responsiveFontSize(2.3), fontWeight: "700" }}>
-                                    Languages
-                                </Text>
-                                <TouchableOpacity
-                                    onPress={() => languageremove()}
-                                    style={{
-                                        backgroundColor: "#F29D38",
-                                        borderRadius: 10,
-                                        alignItems: "center",
-                                        justifyContent: "center"
-                                    }}
-                                >
-                                    <Text style={{
-                                        color: "#fff",
-                                        fontSize: responsiveFontSize(1.5),
-                                        fontWeight: "300",
-                                        paddingHorizontal: 10,
-                                        paddingVertical: 2
-                                    }}>
-                                        Reset All
-                                    </Text>
-                                </TouchableOpacity>
-                            </View>
-
-
-                            {/* <RadioGroup
-                                radioButtons={languagesapii && languagesapii.map((item) => {
-                                    return (
-                                        {
-                                            id: item.name,
-                                            label: (
-                                                <Text style={{ color: "#000", }}>{item.name}</Text>
-                                            ),
-                                            color: "#F29D38",
-                                            size: responsiveFontSize(3),
-                                        }
-                                    )
-                                })}
-                                onPress={setSelectedlanguage}
-                                selectedId={selectedlanguage}
-                                containerStyle={styles.ViewCard}
-                            /> */}
-
-                        </View>
-                    </View>
-
-                    {/* buttonStyle */}
-
-                    <View
-                        style={{ width: '100%', flexDirection: 'row', paddingTop: 15, paddingHorizontal: 10 }}>
-
-                        <View
-                            style={{
-                                width: '50%',
-                                backgroundColor: '#F29D38',
-                                borderRadius: 20,
-                            }}>
-                            <TouchableOpacity
-                                activeOpacity={0.7}
-                                onPress={() => languagecancelfunction()}>
-                                <Text
-                                    style={{
-                                        color: '#fff',
-                                        textAlign: 'center',
-                                        padding: 8,
-                                        borderRightColor: '#fff',
-                                        borderRightWidth: 1,
-                                        fontSize: 15,
-                                    }}>
-                                    Cancel
-                                </Text>
-                            </TouchableOpacity>
-                        </View>
-
-
-                        <View
-                            style={{
-                                width: '50%',
-                                backgroundColor: '#fff',
-                                borderColor: '#F29D38',
-                                borderWidth: 1,
-                                borderRadius: 20,
-                                marginLeft: 3,
-                                flexDirection: "row",
-                                alignItems: "center",
-                                justifyContent: "center"
-                            }}>
-                            <TouchableOpacity
-                                onPress={() => languagesearchFilterFunction()}
-                                languagesearchFilterFunction
-                                activeOpacity={0.7}
-                                style={{
-                                }}>
-                                <Text
-                                    style={{
-                                        color: '#F29D38',
-                                        textAlign: 'center',
-                                        padding: 8,
-                                        fontSize: 15,
-
-                                    }}>
-                                    Apply Filter
-                                </Text>
-                            </TouchableOpacity>
-                        </View>
-                    </View>
-                    <View style={{ marginBottom: 10 }}></View>
-                </View>
-            </Modal>
             {/* setDiscountmodel*/}
             <Modal
                 isVisible={Discountmodel}

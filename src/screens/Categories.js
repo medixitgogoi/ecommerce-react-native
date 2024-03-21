@@ -1,6 +1,6 @@
 import { StyleSheet, Text, View, SafeAreaView, StatusBar, TouchableOpacity, TextInput, ScrollView, Image } from 'react-native';
 import Icon from 'react-native-vector-icons/dist/MaterialIcons';
-import categories from '../data/categories';
+import categories from '../data/categoriesLists';
 import { responsiveFontSize } from 'react-native-responsive-dimensions';
 import TabBar from '../components/TabBar';
 
@@ -41,7 +41,7 @@ const Categories = ({ navigation }) => {
 
                 {/* Categories */}
                 <ScrollView>
-                    <View style={{ backgroundColor: "#f6f6f6", height: "100%", flexDirection: "row", flexWrap: "wrap", justifyContent: "space-evenly", paddingTop: 10 }}>
+                    <View style={{ backgroundColor: "#f6f6f6", height: "100%", flexDirection: "row", flexWrap: "wrap", justifyContent: "space-evenly", paddingTop: 15 }}>
                         {categories.map(item => (
                             <TouchableOpacity style={{ justifyContent: "center", alignItems: "center", flexDirection: "column", marginBottom: 15, }} onPress={() => navigation.navigate('CategoryProducts', { data: item })} key={item.id}>
                                 <Image source={{ uri: item.image }} style={{ width: 95, height: 95, borderRadius: 10 }} />
