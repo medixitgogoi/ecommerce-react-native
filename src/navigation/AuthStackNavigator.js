@@ -7,11 +7,10 @@ import ProductDetails from '../screens/ProductDetails';
 import Orders from '../screens/Orders';
 import Help from '../screens/Help';
 import Profile from '../screens/Profile';
-import Practice from "../screens/Practice";
 import Category from '../screens/Category';
 import Categories from '../screens/Categories';
 import CategoryProducts from '../screens/CategoryProducts';
-import ElectronicCategory from '../screens/ElectronicCategory';
+import SubCategories from '../screens/SubCategories';
 
 
 const AuthStackNavigator = () => {
@@ -30,7 +29,7 @@ const AuthStackNavigator = () => {
             <Stack.Screen name="Profile" component={Profile} />
             <Stack.Screen name="Categories" component={Categories} />
             <Stack.Screen name="CategoryProducts" component={CategoryProducts} />
-            <Stack.Screen name="ElectronicCategory" component={ElectronicCategory} />
+            <Stack.Screen name="SubCategories" component={SubCategories} />
         </Stack.Navigator>
     )
 }
