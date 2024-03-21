@@ -12,7 +12,6 @@ const TabBar = () => {
     const [activeTab, setActiveTab] = useState('Home');
     const cartProducts = useSelector(state => state.cart);
 
-    // Update active tab based on current route
     navigation.addListener('state', (e) => {
         console.log("kkkkkk", e)
         const currentRoute = e.data.state.routes[e.data.state.index].name;
@@ -26,7 +25,7 @@ const TabBar = () => {
 
     return (
         <View style={{ flex: 1 }}>
-            <View style={{ width: "100%", height: 55, flexDirection: "row", backgroundColor: "#000", alignItems: "center", justifyContent: "space-evenly", borderTopLeftRadius: 15, borderTopRightRadius: 15 }}>
+            <View style={{ width: "100%", height: 60, flexDirection: "row", backgroundColor: "#000", alignItems: "center", justifyContent: "space-evenly", borderTopLeftRadius: 15, borderTopRightRadius: 15 }}>
 
                 {/* home */}
                 <TouchableOpacity
@@ -56,7 +55,7 @@ const TabBar = () => {
                         backgroundColor: activeTab === 'Categories' ? "#e27e45" : "#000000",
                         flexDirection: "column",
                         borderRadius: 100,
-                        padding: 2
+                        // padding: 2
                     }}
                     onPress={() => changeTab('Categories')}
                 >

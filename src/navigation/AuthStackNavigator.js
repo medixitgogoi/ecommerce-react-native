@@ -11,6 +11,7 @@ import Practice from "../screens/Practice";
 import Category from '../screens/Category';
 import Categories from '../screens/Categories';
 import CategoryProducts from '../screens/CategoryProducts';
+import ElectronicCategory from '../screens/ElectronicCategory';
 
 
 const AuthStackNavigator = () => {
@@ -29,6 +30,7 @@ const AuthStackNavigator = () => {
             <Stack.Screen name="Profile" component={Profile} />
             <Stack.Screen name="Categories" component={Categories} />
             <Stack.Screen name="CategoryProducts" component={CategoryProducts} />
+            <Stack.Screen name="ElectronicCategory" component={ElectronicCategory} />
         </Stack.Navigator>
     )
 }
