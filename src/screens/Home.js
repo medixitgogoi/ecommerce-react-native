@@ -43,7 +43,7 @@ const Home = ({ navigation }) => {
     const fetchProducts = async () => {
         try {
             const response = await axios.get('https://fakestoreapi.com/products');
-            console.log(response.data)
+            // console.log(response.data)
             const data = response.data;
             setProducts(data);
             setLoading(false);
@@ -194,7 +194,7 @@ const Home = ({ navigation }) => {
                                 data={slicedData}
                                 numColumns={2}
                                 renderItem={({ item }) => {
-                                    console.log("datatatatata", item);
+                                    // console.log("datatatatata", item);
                                     return (
                                         <TouchableOpacity style={{ backgroundColor: '#fff', borderRadius: 10, elevation: 2, width: "48%", margin: 3, }} onPress={() => navigation.navigate('ProductDetails', { data: item })}>
                                             <TouchableOpacity style={{ position: 'absolute', right: 5, top: 5, padding: 3, backgroundColor: "#1f1f1f", borderRadius: 100, zIndex: 10 }}>

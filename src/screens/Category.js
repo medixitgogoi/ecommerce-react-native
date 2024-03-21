@@ -78,7 +78,9 @@ const Category = ({ navigation, route }) => {
     // }, [])
 
     const pressHandler = () => {
-        setModalVisible(false);
+        if (selectedId) {
+            setModalVisible(false);
+        }
         setOkpress(true)
     }
 
@@ -308,7 +310,7 @@ const Category = ({ navigation, route }) => {
                     isVisible={isModalVisible}
                     animationIn="slideInUp"
                     animationOut="slideOutDown"
-                    onBackdropPress={() => setModalVisible(false)}
+                    // onBackdropPress={() => setModalVisible(false)}
                     onSwipeComplete={() => setModalVisible(false)}
                 >
                     <View style={{
