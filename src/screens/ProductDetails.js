@@ -85,20 +85,22 @@ const ProductDetails = ({ navigation, route }) => {
     const [images, setImages] = useState([]);
 
     useEffect(() => {
-        setImages(prevImages => {
-            const newImages = [];
-            for (var i = 0; i < 3; i++) {
-                if (detail.images[i]) {
-                    newImages.push(detail.images[i]);
+        if (images.length !== 3) {
+            setImages(prevImages => {
+                const newImages = [];
+                for (var i = 0; i < 3; i++) {
+                    if (detail.images[i]) {
+                        newImages.push(detail.images[i]);
+                    }
                 }
-            }
-            return [...prevImages, ...newImages];
-        });
+                return [...prevImages, ...newImages];
+            });
+        }
     }, []);
 
-    console.log(route)
+    // console.log(route);
 
-    console.log(detail.rating)
+    // console.log(detail.rating);
 
     const dispatch = useDispatch();
 
@@ -132,17 +134,17 @@ const ProductDetails = ({ navigation, route }) => {
                     </View>
                 </View> */}
 
-                <View style={{ backgroundColor: "#fff", borderTopLeftRadius: 15, borderTopRightRadius: 15 }}>
+                <View style={{ backgroundColor: "#f6f6f6", borderTopLeftRadius: 15, borderTopRightRadius: 15 }}>
                     <SliderBox
                         images={images}
                         imageLoadingColor="#e27e45"
                         dotColor="#F29D38"
                         resizeMethod={'resize'}
-                        dotStyle={{ width: 30, height: 4, marginRight: 0, marginLeft: 0 }}
-                        autoplay
-                        circleLoop
-                        resizeMode={'cover'}
-                        ImageComponentStyle={{ borderRadius: 15, marginTop: 8, backgroundColor: "#000", width: "95%" }}
+                        dotStyle={{ width: 30, height: 4, }}
+                        // autoplay
+                        // circleLoop
+                        resizeMode={'center'}
+                        ImageComponentStyle={{ borderRadius: 15, marginTop: 8, backgroundColor: "#f6f6f6", width: "95%", height: 400 }}
                         inactiveDotColor="#aeaeae"
                         sliderBoxHeight={120}
                         paginationBoxStyle={{
