@@ -13,9 +13,9 @@ const Category = ({ navigation, route }) => {
 
     const category = route.params.data
 
-    console.log("datadatadatadata",data111)
+    console.log("datadatadatadata", data)
 
-    const categoryProducts = data111.filter(item => item.category === category);
+    const categoryProducts = data.filter(item => item.category === category);
 
     const [okpress, setOkpress] = useState(false);
     const [isModalVisible, setModalVisible] = useState(true);
@@ -348,7 +348,6 @@ const Category = ({ navigation, route }) => {
         },
     ]), []);
 
-
     return (
         <SafeAreaView style={{ flex: 1, paddingBottom: 53 }}>
 
@@ -494,6 +493,7 @@ const Category = ({ navigation, route }) => {
                         </View>
                     )}
                 </View>
+                
             </View>
 
             <Modal
