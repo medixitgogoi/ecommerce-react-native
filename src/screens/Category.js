@@ -11,44 +11,39 @@ import { responsiveFontSize } from 'react-native-responsive-dimensions';
 
 const Category = ({ navigation, route }) => {
 
-    // console.log(data)
-
-    // console.log(route.params.data);
     const category = route.params.data
 
-    const categoryProducts = data.filter(item => item.category === category);
-    const subCategoryProducts = categoryProducts.filter(item => item.subCategory === subCategorySelected);
-
-    console.log("categoryProductscategoryProducts", categoryProducts);
+    const categoryProducts = productsData.filter(item => item.category === category);
 
     const [okpress, setOkpress] = useState(false);
     const [isModalVisible, setModalVisible] = useState(true);
     const [selectedId, setSelectedId] = useState("");
-    const [subCategorySelected, setSubCategorySelected] = useState("");
-    const [products, setProducts] = useState([]);
+    const [pricemodel, setpricemodel] = useState(false);
+    const [Ratingmodel, setRatingmodel] = useState("");
+    const [Categoriesmodel, setCategoriesmodel] = useState(false);
+    const [Categoryname, setCategoryname] = useState("");
+    const [ratingname, setratingname] = useState([]);
+    const [pricename, setpricename] = useState([]);
+    const [gendername, setgendername] = useState([]);
     const [loading, setLoading] = useState(false);
     const [SortedBYmodel, setSortedBYmodel] = useState(false);
     const [filtermodel, setfiltermodel] = useState(false);
     const [Gendermodel, setGendermodel] = useState(false);
-    const [sizemodel, setsizemodel] = useState(false);
+    const [sortedname, setsortedname] = useState([]);
     const [Brandmodel, setBrandmodel] = useState(false);
     const [Discountmodel, setDiscountmodel] = useState(false);
-
     const dispatch = useDispatch();
     console.log("selectedId", selectedId)
-
     const typee1 = "men"
     console.log("typeetypee", typee1)
-
     const cartProducts = useSelector(state => state.cart);
 
     const brandsData = [
         { id: '1', name: 'Sort by', iconName: "keyboard-arrow-down" },
-        { id: '2', name: 'Filter', iconName: "filter-list" },
+        { id: '2', name: 'Categories', iconName: "filter-list" },
         { id: '3', name: 'Gender', iconName: "keyboard-arrow-down" },
-        { id: '4', name: 'Brand', iconName: "keyboard-arrow-down" },
-        { id: '5', name: 'Size', iconName: "keyboard-arrow-down" },
-        { id: '6', name: 'Discount', iconName: "keyboard-arrow-down" },
+        { id: '4', name: 'price', iconName: "keyboard-arrow-down" },
+        { id: '5', name: 'Rating', iconName: "keyboard-arrow-down" },
     ];
 
     const toggleModal = () => {
@@ -85,12 +80,12 @@ const Category = ({ navigation, route }) => {
                         setfiltermodel(true)
                     } else if (item.name === "Gender") {
                         setGendermodel(true)
-                    } else if (item.name === "Size") {
-                        setsizemodel(true)
-                    } else if (item.name === "Brand") {
-                        setBrandmodel(true)
-                    } else if (item.name === "Discount") {
-                        setDiscountmodel(true)
+                    } else if (item.name === "price") {
+                        setpricemodel(true)
+                    } else if (item.name === "Rating") {
+                        setRatingmodel(true)
+                    } else if (item.name === "Categories") {
+                        setCategoriesmodel(true)
                     }
                 }}
                 style={styles.brandItem}>
@@ -109,7 +104,7 @@ const Category = ({ navigation, route }) => {
             </TouchableOpacity>
         );
 
-    };
+    }
 
     const radioButtons = useMemo(() => ([
         {
@@ -135,6 +130,221 @@ const Category = ({ navigation, route }) => {
             ),
             color: "#585858",
             size: 15,
+        },
+    ]), []);
+
+    const sortbutton = useMemo(() => ([
+        {
+            id: 'Relavent',
+            label: (
+                <Text style={{ color: "#000", paddingLeft: 5 }}>{'Relavent'}</Text>
+            ),
+            color: "#F29D38",
+            size: responsiveFontSize(3),
+
+        },
+        {
+            id: 'Newest Products',
+            label: (
+                <Text style={{ color: "#000", paddingLeft: 5 }}>{'Newest Products'}</Text>
+            ),
+            color: "#F29D38",
+            size: responsiveFontSize(3),
+
+        },
+        {
+            id: 'Price -- Low To High',
+            label: (
+                <Text style={{ color: "#000", paddingLeft: 5 }}>{'Price -- Low To High'}</Text>
+            ),
+            color: "#F29D38",
+            size: responsiveFontSize(3),
+
+        },
+        {
+            id: 'Price -- Low To High',
+            label: (
+                <Text style={{ color: "#000", paddingLeft: 5 }}>{'Price -- Low To High'}</Text>
+            ),
+            color: "#F29D38",
+            size: responsiveFontSize(3),
+
+        },
+
+    ]), []);
+
+    const GenderButton = useMemo(() => ([
+        {
+            id: 'men',
+            label: (
+                <Text style={{ color: "#000", paddingLeft: 5 }}>{'Male'}</Text>
+            ),
+            color: "#F29D38",
+            size: responsiveFontSize(3),
+
+        },
+        {
+            id: 'women',
+            label: (
+                <Text style={{ color: "#000", paddingLeft: 5 }}>{'Female'}</Text>
+            ),
+            color: "#F29D38",
+            size: responsiveFontSize(3),
+
+        },
+        {
+            id: 'children',
+            label: (
+                <Text style={{ color: "#000", paddingLeft: 5 }}>{'children'}</Text>
+            ),
+            color: "#F29D38",
+            size: responsiveFontSize(3),
+
+        },
+
+    ]), []);
+
+    const pricebutton = useMemo(() => ([
+        {
+            id: "100 - 500",
+            label: (
+                <Text style={{ color: "#000", paddingLeft: 5 }}>{' > ₹500'}</Text>
+            ),
+            color: "#F29D38",
+            size: responsiveFontSize(3),
+            // value: 'option1'
+        },
+        {
+            id: "500 - 650",
+            label: (
+                <Text style={{ color: "#000", paddingLeft: 5 }}>{'₹500 - ₹650'}</Text>
+            ),
+            color: "#F29D38",
+            size: responsiveFontSize(3),
+            // value: 'option2'
+        },
+        {
+            id: "650 - 850",
+            label: (
+                <Text style={{ color: "#000", paddingLeft: 5 }}>{'₹650 - ₹850'}</Text>
+            ),
+            color: "#F29D38",
+            size: responsiveFontSize(3),
+            // value: 'option2'
+        },
+        {
+            id: "850 - 1000",
+            label: (
+                <Text style={{ color: "#000", paddingLeft: 5 }}>{'₹850 - ₹1000 '}</Text>
+            ),
+            color: "#F29D38",
+            size: responsiveFontSize(3),
+
+        },
+        {
+            id: "1000 -3000",
+            label: (
+                <Text style={{ color: "#000", paddingLeft: 5 }}>{'₹1000 +'}</Text>
+            ),
+            color: "#F29D38",
+            size: responsiveFontSize(3),
+
+        },
+    ]), []);
+
+    const ratingbutton = useMemo(() => ([
+        {
+            id: "1",
+            label: (
+                <Text style={{ color: "#000", paddingLeft: 5 }}>{'1+'}</Text>
+            ),
+            color: "#F29D38",
+            size: responsiveFontSize(3),
+            // value: 'option1'
+        },
+        {
+            id: "2",
+            label: (
+                <Text style={{ color: "#000", paddingLeft: 5 }}>{'2+'}</Text>
+            ),
+            color: "#F29D38",
+            size: responsiveFontSize(3),
+            // value: 'option2'
+        },
+        {
+            id: "3",
+            label: (
+                <Text style={{ color: "#000", paddingLeft: 5 }}>{'3+'}</Text>
+            ),
+            color: "#F29D38",
+            size: responsiveFontSize(3),
+            // value: 'option2'
+        },
+        {
+            id: "4",
+            label: (
+                <Text style={{ color: "#000", paddingLeft: 5 }}>{'4+'}</Text>
+            ),
+            color: "#F29D38",
+            size: responsiveFontSize(3),
+
+        },
+        {
+            id: "5",
+            label: (
+                <Text style={{ color: "#000", paddingLeft: 5 }}>{'5+'}</Text>
+            ),
+            color: "#F29D38",
+            size: responsiveFontSize(3),
+
+        },
+    ]), []);
+
+    const categorybutton = useMemo(() => ([
+        {
+            id: "1",
+            label: (
+                <Text style={{ color: "#000", paddingLeft: 5 }}>{'Shoes'}</Text>
+            ),
+            color: "#F29D38",
+            size: responsiveFontSize(3),
+            // value: 'option1'
+        },
+        {
+            id: "2",
+            label: (
+                <Text style={{ color: "#000", paddingLeft: 5 }}>{'Cloths'}</Text>
+            ),
+            color: "#F29D38",
+            size: responsiveFontSize(3),
+            // value: 'option2'
+        },
+        {
+            id: "3",
+            label: (
+                <Text style={{ color: "#000", paddingLeft: 5 }}>{'Cap'}</Text>
+            ),
+            color: "#F29D38",
+            size: responsiveFontSize(3),
+            // value: 'option2'
+        },
+        {
+            id: "4",
+            label: (
+                <Text style={{ color: "#000", paddingLeft: 5 }}>{'Bags'}</Text>
+            ),
+            color: "#F29D38",
+            size: responsiveFontSize(3),
+
+        },
+        {
+            id: "5",
+            label: (
+                <Text style={{ color: "#000", paddingLeft: 5 }}>{'Glasses'}</Text>
+            ),
+            color: "#F29D38",
+            size: responsiveFontSize(3),
+
         },
     ]), []);
 
@@ -209,7 +419,7 @@ const Category = ({ navigation, route }) => {
                                             <TouchableOpacity style={{ backgroundColor: '#fff', borderRadius: 10, elevation: 2, width: "48%", margin: 3, }} onPress={() => navigation.navigate('ProductDetails', { data: item })}>
                                                 {/* <Text style={{ color: "red" }}>oooooo</Text> */}
                                                 <TouchableOpacity style={{ position: 'absolute', right: 5, top: 5, padding: 3, backgroundColor: "#1f1f1f", borderRadius: 100, zIndex: 10 }}>
-                                                    <Icon2 name="heart" size={15} color="#fff" />
+                                                   
                                                     {/* <Text style={{ color: "#fff" }}>{item.subCategory}</Text> */}
                                                 </TouchableOpacity>
 
@@ -288,7 +498,6 @@ const Category = ({ navigation, route }) => {
                     isVisible={isModalVisible}
                     animationIn="slideInUp"
                     animationOut="slideOutDown"
-                    // onBackdropPress={() => setModalVisible(false)}
                     onSwipeComplete={() => setModalVisible(false)}
                 >
                     <View style={{
@@ -333,10 +542,8 @@ const Category = ({ navigation, route }) => {
                 isVisible={SortedBYmodel}
                 onBackdropPress={() => setSortedBYmodel(false)}
                 onSwipeComplete={() => setSortedBYmodel(false)}
-                // swipeDirection={['down']}
                 backdropOpacity={0.5}
-                style={{ justifyContent: 'flex-end', margin: 0 }}
-            >
+                style={{ justifyContent: 'flex-end', margin: 0 }}>
                 <View
                     style={{
                         height: "auto",
@@ -349,22 +556,19 @@ const Category = ({ navigation, route }) => {
                         borderTopLeftRadius: 30,
                         borderTopRightRadius: 30,
                         // paddingHorizontal: 15,
-                        borderColor: "#F29D38",
+                        borderColor: "#e27e45",
                         borderWidth: 0.55
                     }}>
-
                     <View style={{ marginTop: 15 }}>
                         <View style={{ width: "100%" }}>
-
-
                             <View style={{ paddingHorizontal: 15, flexDirection: "row", justifyContent: "space-between", width: "100%" }}>
-                                <Text style={{ color: "#F29D38", fontSize: responsiveFontSize(2.3), fontWeight: "700" }}>
-                                    Languages
+                                <Text style={{ color: "#e27e45", fontSize: responsiveFontSize(2.3), fontWeight: "700" }}>
+                                    Sort By
                                 </Text>
                                 <TouchableOpacity
-                                    onPress={() => languageremove()}
+
                                     style={{
-                                        backgroundColor: "#F29D38",
+                                        backgroundColor: "#e27e45",
                                         borderRadius: 10,
                                         alignItems: "center",
                                         justifyContent: "center"
@@ -373,7 +577,7 @@ const Category = ({ navigation, route }) => {
                                     <Text style={{
                                         color: "#fff",
                                         fontSize: responsiveFontSize(1.5),
-                                        fontWeight: "300",
+                                        fontWeight: "400",
                                         paddingHorizontal: 10,
                                         paddingVertical: 2
                                     }}>
@@ -381,43 +585,28 @@ const Category = ({ navigation, route }) => {
                                     </Text>
                                 </TouchableOpacity>
                             </View>
-
-
-                            {/* <RadioGroup
-                                radioButtons={languagesapii && languagesapii.map((item) => {
-                                    return (
-                                        {
-                                            id: item.name,
-                                            label: (
-                                                <Text style={{ color: "#000", }}>{item.name}</Text>
-                                            ),
-                                            color: "#F29D38",
-                                            size: responsiveFontSize(3),
-                                        }
-                                    )
-                                })}
-                                onPress={setSelectedlanguage}
-                                selectedId={selectedlanguage}
+                            <RadioGroup
+                                radioButtons={sortbutton}
+                                onPress={setsortedname}
+                                selectedId={sortedname}
                                 containerStyle={styles.ViewCard}
-                            /> */}
+                            />
 
                         </View>
                     </View>
 
                     {/* buttonStyle */}
-
                     <View
                         style={{ width: '100%', flexDirection: 'row', paddingTop: 15, paddingHorizontal: 10 }}>
-
                         <View
                             style={{
                                 width: '50%',
-                                backgroundColor: '#F29D38',
+                                backgroundColor: '#e27e45',
                                 borderRadius: 20,
                             }}>
                             <TouchableOpacity
                                 activeOpacity={0.7}
-                                onPress={() => languagecancelfunction()}>
+                                onPress={() => setSortedBYmodel(false)}>
                                 <Text
                                     style={{
                                         color: '#fff',
@@ -437,7 +626,7 @@ const Category = ({ navigation, route }) => {
                             style={{
                                 width: '50%',
                                 backgroundColor: '#fff',
-                                borderColor: '#F29D38',
+                                borderColor: '#e27e45',
                                 borderWidth: 1,
                                 borderRadius: 20,
                                 marginLeft: 3,
@@ -446,14 +635,15 @@ const Category = ({ navigation, route }) => {
                                 justifyContent: "center"
                             }}>
                             <TouchableOpacity
-                                onPress={() => languagesearchFilterFunction()}
+                                // onPress={() => languagesearchFilterFunction()}
+                                onPress={() => setSortedBYmodel(false)}
                                 languagesearchFilterFunction
                                 activeOpacity={0.7}
                                 style={{
                                 }}>
                                 <Text
                                     style={{
-                                        color: '#F29D38',
+                                        color: '#e27e45',
                                         textAlign: 'center',
                                         padding: 8,
                                         fontSize: 15,
@@ -475,8 +665,7 @@ const Category = ({ navigation, route }) => {
                 onSwipeComplete={() => setfiltermodel(false)}
                 // swipeDirection={['down']}
                 backdropOpacity={0.5}
-                style={{ justifyContent: 'flex-end', margin: 0 }}
-            >
+                style={{ justifyContent: 'flex-end', margin: 0 }} >
                 <View
                     style={{
                         height: "auto",
@@ -489,22 +678,19 @@ const Category = ({ navigation, route }) => {
                         borderTopLeftRadius: 30,
                         borderTopRightRadius: 30,
                         // paddingHorizontal: 15,
-                        borderColor: "#F29D38",
+                        borderColor: "#e27e45",
                         borderWidth: 0.55
                     }}>
-
                     <View style={{ marginTop: 15 }}>
                         <View style={{ width: "100%" }}>
-
-
                             <View style={{ paddingHorizontal: 15, flexDirection: "row", justifyContent: "space-between", width: "100%" }}>
-                                <Text style={{ color: "#F29D38", fontSize: responsiveFontSize(2.3), fontWeight: "700" }}>
-                                    Languages
+                                <Text style={{ color: "#e27e45", fontSize: responsiveFontSize(2.3), fontWeight: "700" }}>
+                                    Sort By
                                 </Text>
                                 <TouchableOpacity
-                                    onPress={() => languageremove()}
+                                    // onPress={() => languageremove()}
                                     style={{
-                                        backgroundColor: "#F29D38",
+                                        backgroundColor: "#e27e45",
                                         borderRadius: 10,
                                         alignItems: "center",
                                         justifyContent: "center"
@@ -513,7 +699,7 @@ const Category = ({ navigation, route }) => {
                                     <Text style={{
                                         color: "#fff",
                                         fontSize: responsiveFontSize(1.5),
-                                        fontWeight: "300",
+                                        fontWeight: "400",
                                         paddingHorizontal: 10,
                                         paddingVertical: 2
                                     }}>
@@ -522,25 +708,6 @@ const Category = ({ navigation, route }) => {
                                 </TouchableOpacity>
                             </View>
 
-
-                            {/* <RadioGroup
-                                radioButtons={languagesapii && languagesapii.map((item) => {
-                                    return (
-                                        {
-                                            id: item.name,
-                                            label: (
-                                                <Text style={{ color: "#000", }}>{item.name}</Text>
-                                            ),
-                                            color: "#F29D38",
-                                            size: responsiveFontSize(3),
-                                        }
-                                    )
-                                })}
-                                onPress={setSelectedlanguage}
-                                selectedId={selectedlanguage}
-                                containerStyle={styles.ViewCard}
-                            /> */}
-
                         </View>
                     </View>
 
@@ -548,16 +715,15 @@ const Category = ({ navigation, route }) => {
 
                     <View
                         style={{ width: '100%', flexDirection: 'row', paddingTop: 15, paddingHorizontal: 10 }}>
-
                         <View
                             style={{
                                 width: '50%',
-                                backgroundColor: '#F29D38',
+                                backgroundColor: '#e27e45',
                                 borderRadius: 20,
                             }}>
                             <TouchableOpacity
                                 activeOpacity={0.7}
-                                onPress={() => languagecancelfunction()}>
+                                onPress={() => setfiltermodel(false)}>
                                 <Text
                                     style={{
                                         color: '#fff',
@@ -577,7 +743,7 @@ const Category = ({ navigation, route }) => {
                             style={{
                                 width: '50%',
                                 backgroundColor: '#fff',
-                                borderColor: '#F29D38',
+                                borderColor: '#e27e45',
                                 borderWidth: 1,
                                 borderRadius: 20,
                                 marginLeft: 3,
@@ -586,14 +752,14 @@ const Category = ({ navigation, route }) => {
                                 justifyContent: "center"
                             }}>
                             <TouchableOpacity
-                                onPress={() => languagesearchFilterFunction()}
+                                onPress={() => () => setfiltermodel(false)}
                                 languagesearchFilterFunction
                                 activeOpacity={0.7}
                                 style={{
                                 }}>
                                 <Text
                                     style={{
-                                        color: '#F29D38',
+                                        color: '#e27e45',
                                         textAlign: 'center',
                                         padding: 8,
                                         fontSize: 15,
@@ -608,10 +774,9 @@ const Category = ({ navigation, route }) => {
                 </View>
             </Modal>
 
-            {/* Gendermodel*/}
+            {/* gender*/}
             <Modal
-                isVisible={Gendermodel
-                }
+                isVisible={Gendermodel}
                 onBackdropPress={() => setGendermodel(false)}
                 onSwipeComplete={() => setGendermodel(false)}
                 // swipeDirection={['down']}
@@ -630,7 +795,7 @@ const Category = ({ navigation, route }) => {
                         borderTopLeftRadius: 30,
                         borderTopRightRadius: 30,
                         // paddingHorizontal: 15,
-                        borderColor: "#F29D38",
+                        borderColor: "#e27e45",
                         borderWidth: 0.55
                     }}>
 
@@ -639,13 +804,13 @@ const Category = ({ navigation, route }) => {
 
 
                             <View style={{ paddingHorizontal: 15, flexDirection: "row", justifyContent: "space-between", width: "100%" }}>
-                                <Text style={{ color: "#F29D38", fontSize: responsiveFontSize(2.3), fontWeight: "700" }}>
-                                    Languages
+                                <Text style={{ color: "#e27e45", fontSize: responsiveFontSize(2.3), fontWeight: "700" }}>
+                                    Gender
                                 </Text>
                                 <TouchableOpacity
                                     onPress={() => languageremove()}
                                     style={{
-                                        backgroundColor: "#F29D38",
+                                        backgroundColor: "#e27e45",
                                         borderRadius: 10,
                                         alignItems: "center",
                                         justifyContent: "center"
@@ -654,7 +819,7 @@ const Category = ({ navigation, route }) => {
                                     <Text style={{
                                         color: "#fff",
                                         fontSize: responsiveFontSize(1.5),
-                                        fontWeight: "300",
+                                        fontWeight: "400",
                                         paddingHorizontal: 10,
                                         paddingVertical: 2
                                     }}>
@@ -663,25 +828,12 @@ const Category = ({ navigation, route }) => {
                                 </TouchableOpacity>
                             </View>
 
-
-                            {/* <RadioGroup
-                                radioButtons={languagesapii && languagesapii.map((item) => {
-                                    return (
-                                        {
-                                            id: item.name,
-                                            label: (
-                                                <Text style={{ color: "#000", }}>{item.name}</Text>
-                                            ),
-                                            color: "#F29D38",
-                                            size: responsiveFontSize(3),
-                                        }
-                                    )
-                                })}
-                                onPress={setSelectedlanguage}
-                                selectedId={selectedlanguage}
+                            <RadioGroup
+                                radioButtons={GenderButton}
+                                onPress={setgendername}
+                                selectedId={gendername}
                                 containerStyle={styles.ViewCard}
-                            /> */}
-
+                            />
                         </View>
                     </View>
 
@@ -693,12 +845,12 @@ const Category = ({ navigation, route }) => {
                         <View
                             style={{
                                 width: '50%',
-                                backgroundColor: '#F29D38',
+                                backgroundColor: '#e27e45',
                                 borderRadius: 20,
                             }}>
                             <TouchableOpacity
                                 activeOpacity={0.7}
-                                onPress={() => languagecancelfunction()}>
+                                onPress={() => setGendermodel(false)}>
                                 <Text
                                     style={{
                                         color: '#fff',
@@ -718,7 +870,7 @@ const Category = ({ navigation, route }) => {
                             style={{
                                 width: '50%',
                                 backgroundColor: '#fff',
-                                borderColor: '#F29D38',
+                                borderColor: '#e27e45',
                                 borderWidth: 1,
                                 borderRadius: 20,
                                 marginLeft: 3,
@@ -727,14 +879,14 @@ const Category = ({ navigation, route }) => {
                                 justifyContent: "center"
                             }}>
                             <TouchableOpacity
-                                onPress={() => languagesearchFilterFunction()}
+                                onPress={() => setGendermodel(false)}
                                 languagesearchFilterFunction
                                 activeOpacity={0.7}
                                 style={{
                                 }}>
                                 <Text
                                     style={{
-                                        color: '#F29D38',
+                                        color: '#e27e45',
                                         textAlign: 'center',
                                         padding: 8,
                                         fontSize: 15,
@@ -749,11 +901,12 @@ const Category = ({ navigation, route }) => {
                 </View>
             </Modal>
 
-            {/* setsizemodel */}
+            {/* pricemodel */}
+
             <Modal
-                isVisible={sizemodel}
-                onBackdropPress={() => setsizemodel(false)}
-                onSwipeComplete={() => setsizemodel(false)}
+                isVisible={pricemodel}
+                onBackdropPress={() => setpricemodel(false)}
+                onSwipeComplete={() => setpricemodel(false)}
                 // swipeDirection={['down']}
                 backdropOpacity={0.5}
                 style={{ justifyContent: 'flex-end', margin: 0 }}
@@ -770,7 +923,7 @@ const Category = ({ navigation, route }) => {
                         borderTopLeftRadius: 30,
                         borderTopRightRadius: 30,
                         // paddingHorizontal: 15,
-                        borderColor: "#F29D38",
+                        borderColor: "#e27e45",
                         borderWidth: 0.55
                     }}>
 
@@ -779,13 +932,13 @@ const Category = ({ navigation, route }) => {
 
 
                             <View style={{ paddingHorizontal: 15, flexDirection: "row", justifyContent: "space-between", width: "100%" }}>
-                                <Text style={{ color: "#F29D38", fontSize: responsiveFontSize(2.3), fontWeight: "700" }}>
-                                    Languages
+                                <Text style={{ color: "#e27e45", fontSize: responsiveFontSize(2.3), fontWeight: "700" }}>
+                                    Price
                                 </Text>
                                 <TouchableOpacity
                                     onPress={() => languageremove()}
                                     style={{
-                                        backgroundColor: "#F29D38",
+                                        backgroundColor: "#e27e45",
                                         borderRadius: 10,
                                         alignItems: "center",
                                         justifyContent: "center"
@@ -803,25 +956,12 @@ const Category = ({ navigation, route }) => {
                                 </TouchableOpacity>
                             </View>
 
-
-                            {/* <RadioGroup
-                                radioButtons={languagesapii && languagesapii.map((item) => {
-                                    return (
-                                        {
-                                            id: item.name,
-                                            label: (
-                                                <Text style={{ color: "#000", }}>{item.name}</Text>
-                                            ),
-                                            color: "#F29D38",
-                                            size: responsiveFontSize(3),
-                                        }
-                                    )
-                                })}
-                                onPress={setSelectedlanguage}
-                                selectedId={selectedlanguage}
+                            <RadioGroup
+                                radioButtons={pricebutton}
+                                onPress={setpricename}
+                                selectedId={pricename}
                                 containerStyle={styles.ViewCard}
-                            /> */}
-
+                            />
                         </View>
                     </View>
 
@@ -833,12 +973,12 @@ const Category = ({ navigation, route }) => {
                         <View
                             style={{
                                 width: '50%',
-                                backgroundColor: '#F29D38',
+                                backgroundColor: '#e27e45',
                                 borderRadius: 20,
                             }}>
                             <TouchableOpacity
                                 activeOpacity={0.7}
-                                onPress={() => languagecancelfunction()}>
+                                onPress={() => setpricemodel(false)}>
                                 <Text
                                     style={{
                                         color: '#fff',
@@ -858,7 +998,7 @@ const Category = ({ navigation, route }) => {
                             style={{
                                 width: '50%',
                                 backgroundColor: '#fff',
-                                borderColor: '#F29D38',
+                                borderColor: '#e27e45',
                                 borderWidth: 1,
                                 borderRadius: 20,
                                 marginLeft: 3,
@@ -867,7 +1007,7 @@ const Category = ({ navigation, route }) => {
                                 justifyContent: "center"
                             }}>
                             <TouchableOpacity
-                                onPress={() => languagesearchFilterFunction()}
+                                onPress={() => setpricemodel(false)}
                                 languagesearchFilterFunction
                                 activeOpacity={0.7}
                                 style={{
@@ -889,11 +1029,11 @@ const Category = ({ navigation, route }) => {
                 </View>
             </Modal>
 
-            {/* setDiscountmodel*/}
+            {/* rating*/}
             <Modal
-                isVisible={Discountmodel}
-                onBackdropPress={() => setDiscountmodel(false)}
-                onSwipeComplete={() => setDiscountmodel(false)}
+                isVisible={Ratingmodel}
+                onBackdropPress={() => setRatingmodel(false)}
+                onSwipeComplete={() => setRatingmodel(false)}
                 // swipeDirection={['down']}
                 backdropOpacity={0.5}
                 style={{ justifyContent: 'flex-end', margin: 0 }}
@@ -910,7 +1050,7 @@ const Category = ({ navigation, route }) => {
                         borderTopLeftRadius: 30,
                         borderTopRightRadius: 30,
                         // paddingHorizontal: 15,
-                        borderColor: "#F29D38",
+                        borderColor: "#e27e45",
                         borderWidth: 0.55
                     }}>
 
@@ -919,13 +1059,13 @@ const Category = ({ navigation, route }) => {
 
 
                             <View style={{ paddingHorizontal: 15, flexDirection: "row", justifyContent: "space-between", width: "100%" }}>
-                                <Text style={{ color: "#F29D38", fontSize: responsiveFontSize(2.3), fontWeight: "700" }}>
-                                    Languages
+                                <Text style={{ color: "#e27e45", fontSize: responsiveFontSize(2.3), fontWeight: "700" }}>
+                                    Price
                                 </Text>
                                 <TouchableOpacity
                                     onPress={() => languageremove()}
                                     style={{
-                                        backgroundColor: "#F29D38",
+                                        backgroundColor: "#e27e45",
                                         borderRadius: 10,
                                         alignItems: "center",
                                         justifyContent: "center"
@@ -943,25 +1083,12 @@ const Category = ({ navigation, route }) => {
                                 </TouchableOpacity>
                             </View>
 
-
-                            {/* <RadioGroup
-                                radioButtons={languagesapii && languagesapii.map((item) => {
-                                    return (
-                                        {
-                                            id: item.name,
-                                            label: (
-                                                <Text style={{ color: "#000", }}>{item.name}</Text>
-                                            ),
-                                            color: "#F29D38",
-                                            size: responsiveFontSize(3),
-                                        }
-                                    )
-                                })}
-                                onPress={setSelectedlanguage}
-                                selectedId={selectedlanguage}
+                            <RadioGroup
+                                radioButtons={ratingbutton}
+                                onPress={setratingname}
+                                selectedId={ratingname}
                                 containerStyle={styles.ViewCard}
-                            /> */}
-
+                            />
                         </View>
                     </View>
 
@@ -978,7 +1105,7 @@ const Category = ({ navigation, route }) => {
                             }}>
                             <TouchableOpacity
                                 activeOpacity={0.7}
-                                onPress={() => languagecancelfunction()}>
+                                onPress={() => setRatingmodel(false)}>
                                 <Text
                                     style={{
                                         color: '#fff',
@@ -998,7 +1125,7 @@ const Category = ({ navigation, route }) => {
                             style={{
                                 width: '50%',
                                 backgroundColor: '#fff',
-                                borderColor: '#F29D38',
+                                borderColor: '#e27e45',
                                 borderWidth: 1,
                                 borderRadius: 20,
                                 marginLeft: 3,
@@ -1007,7 +1134,7 @@ const Category = ({ navigation, route }) => {
                                 justifyContent: "center"
                             }}>
                             <TouchableOpacity
-                                onPress={() => languagesearchFilterFunction()}
+                                onPress={() => setRatingmodel(false)}
                                 languagesearchFilterFunction
                                 activeOpacity={0.7}
                                 style={{
@@ -1028,6 +1155,133 @@ const Category = ({ navigation, route }) => {
                     <View style={{ marginBottom: 10 }}></View>
                 </View>
             </Modal>
+
+            {/* categorybutton*/}
+            <Modal
+                isVisible={Categoriesmodel}
+                onBackdropPress={() => setCategoriesmodel(false)}
+                onSwipeComplete={() => setCategoriesmodel(false)}
+                // swipeDirection={['down']}
+                backdropOpacity={0.5}
+                style={{ justifyContent: 'flex-end', margin: 0 }}
+            >
+                <View
+                    style={{
+                        height: "auto",
+                        backgroundColor: "#fff",
+                        position: "absolute",
+                        bottom: 0,
+                        right: 0,
+                        left: 0,
+                        width: "100%",
+                        borderTopLeftRadius: 30,
+                        borderTopRightRadius: 30,
+                        // paddingHorizontal: 15,
+                        borderColor: "#e27e45",
+                        borderWidth: 0.55
+                    }}>
+
+                    <View style={{ marginTop: 15 }}>
+                        <View style={{ width: "100%" }}>
+
+
+                            <View style={{ paddingHorizontal: 15, flexDirection: "row", justifyContent: "space-between", width: "100%" }}>
+                                <Text style={{ color: "#e27e45", fontSize: responsiveFontSize(2.3), fontWeight: "700" }}>
+                                    category
+                                </Text>
+                                <TouchableOpacity
+                                    onPress={() => languageremove()}
+                                    style={{
+                                        backgroundColor: "#e27e45",
+                                        borderRadius: 10,
+                                        alignItems: "center",
+                                        justifyContent: "center"
+                                    }}
+                                >
+                                    <Text style={{
+                                        color: "#fff",
+                                        fontSize: responsiveFontSize(1.5),
+                                        fontWeight: "300",
+                                        paddingHorizontal: 10,
+                                        paddingVertical: 2
+                                    }}>
+                                        Reset All
+                                    </Text>
+                                </TouchableOpacity>
+                            </View>
+
+                            <RadioGroup
+                                radioButtons={categorybutton}
+                                onPress={setCategoryname}
+                                selectedId={Categoryname}
+                                containerStyle={styles.ViewCard}
+                            />
+                        </View>
+                    </View>
+
+                    {/* buttonStyle */}
+
+                    <View
+                        style={{ width: '100%', flexDirection: 'row', paddingTop: 15, paddingHorizontal: 10 }}>
+                        <View
+                            style={{
+                                width: '50%',
+                                backgroundColor: '#e27e45',
+                                borderRadius: 20,
+                            }}>
+                            <TouchableOpacity
+                                activeOpacity={0.7}
+                                onPress={() => setCategoriesmodel(false)}>
+                                <Text
+                                    style={{
+                                        color: '#fff',
+                                        textAlign: 'center',
+                                        padding: 8,
+                                        borderRightColor: '#fff',
+                                        borderRightWidth: 1,
+                                        fontSize: 15,
+                                    }}>
+                                    Cancel
+                                </Text>
+                            </TouchableOpacity>
+                        </View>
+
+
+                        <View
+                            style={{
+                                width: '50%',
+                                backgroundColor: '#fff',
+                                borderColor: '#e27e45',
+                                borderWidth: 1,
+                                borderRadius: 20,
+                                marginLeft: 3,
+                                flexDirection: "row",
+                                alignItems: "center",
+                                justifyContent: "center"
+                            }}>
+                            <TouchableOpacity
+                                onPress={() => setCategoriesmodel(false)}
+                                languagesearchFilterFunction
+                                activeOpacity={0.7}
+                                style={{
+                                }}>
+                                <Text
+                                    style={{
+                                        color: '#e27e45',
+                                        textAlign: 'center',
+                                        padding: 8,
+                                        fontSize: 15,
+
+                                    }}>
+                                    Apply Filter
+                                </Text>
+                            </TouchableOpacity>
+                        </View>
+                    </View>
+                    <View style={{ marginBottom: 10 }}></View>
+                </View>
+            </Modal>
+
 
         </SafeAreaView>
     )
@@ -1054,4 +1308,16 @@ const styles = StyleSheet.create({
         paddingTop: 3,
         marginHorizontal: 12,
     },
+    ViewCard: {
+
+        borderRadius: 8,
+        overflow: 'hidden',
+        flexDirection: "column",
+        color: "#e27e45",
+        paddingTop: 5,
+        alignItems: "flex-start",
+        paddingHorizontal: 10,
+
+    }
+
 });

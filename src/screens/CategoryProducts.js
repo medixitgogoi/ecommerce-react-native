@@ -6,16 +6,21 @@ import { addItemToCart } from '../redux/CartSlice';
 import { useDispatch } from 'react-redux';
 import Modal from "react-native-modal";
 import Icon3 from 'react-native-vector-icons/dist/Ionicons';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 const CategoryProducts = ({ navigation, route }) => {
 
     const [filterModal, setFilterModal] = useState(false);
+    const [selectedFilter, setSelectedFilter] = useState(1);
 
-    console.log("Dixitttttttt", route.params.data);
+    // const filteredProducts =
+
+    // console.log("Dixitttttttt", route.params.data);
 
     const cat = route.params.data.category
     const products = route.params.data.products;
+
+    console.log(products)
 
     const dispatch = useDispatch();
 
@@ -53,6 +58,14 @@ const CategoryProducts = ({ navigation, route }) => {
             name: "Chip"
         },
     ]
+
+    useEffect(() => {
+
+    }, [selectedFilter])
+
+    const pressHandler = (id) => {
+        setSelectedFilter(id)
+    }
 
     return (
         <SafeAreaView style={{ flex: 1, paddingBottom: 15 }}>
@@ -217,19 +230,20 @@ const CategoryProducts = ({ navigation, route }) => {
 
                         {/* Filters */}
                         <ScrollView style={{ flex: 1 }}>
-                            <View style={{ height: "100%", marginVertical: 10, flexDirection: "row", width: "100%" }}>
+                            <View style={{ marginVertical: 10, flexDirection: "row", width: "100%" }}>
 
-                                <View style={{ backgroundColor: "#f6f6f6", height: "100%", width: "35%", flexDirection: "column", alignItems: "center", paddingTop: 15 }}>
+                                <View style={{ height: "100%", width: "35%", flexDirection: "column", alignItems: "center", }}>
                                     {laptopCategories.map((item) => (
-                                        <TouchableOpacity style={{ marginVertical: 10, padding: 5 }} key={item.id}>
+                                        <TouchableOpacity style={{ paddingVertical: 15, padding: 5, backgroundColor: selectedFilter === item.id ? "#fff" : "#f1f1f1", width: "100%", flexDirection: "row", justifyContent: "center" }} key={item.id} onPress={() => pressHandler(item.id)}>
                                             <Text style={{ color: "#000" }}>{item.name}</Text>
                                         </TouchableOpacity>
                                     ))}
                                 </View>
 
-                                <View style={{ height: "100%", width: "65%" }}>
-                                    <Text>Dixit</Text>
+                                <View style={{ height: "100%", width: "65%", backgroundColor: "red" }}>
+
                                 </View>
+
                             </View>
                         </ScrollView>
 
