@@ -2,11 +2,22 @@ import { StyleSheet, Text, View, ScrollView, TouchableOpacity, Image, SafeAreaVi
 import Icon from 'react-native-vector-icons/dist/MaterialIcons';
 import { responsiveFontSize } from 'react-native-responsive-dimensions';
 import Icon2 from 'react-native-vector-icons/dist/Ionicons';
+import { addItemToCart } from '../redux/CartSlice';
+import { useDispatch } from 'react-redux';
+import Modal from "react-native-modal";
+import Icon3 from 'react-native-vector-icons/dist/Ionicons';
+import { useState } from 'react';
 
 const CategoryProducts = ({ navigation, route }) => {
 
+    const [filterModal, setFilterModal] = useState(false);
+
     console.log("Dixitttttttt", route.params.data);
+
+    const cat = route.params.data.category
     const products = route.params.data.products;
+
+    const dispatch = useDispatch();
 
     const renderStarRating = (rating) => {
         const starComponents = [];
@@ -20,8 +31,31 @@ const CategoryProducts = ({ navigation, route }) => {
         return starComponents;
     };
 
+    const laptopCategories = [
+        {
+            id: 1,
+            name: "Processor"
+        },
+        {
+            id: 2,
+            name: "RAM"
+        },
+        {
+            id: 3,
+            name: "SSD"
+        },
+        {
+            id: 4,
+            name: "OS"
+        },
+        {
+            id: 5,
+            name: "Chip"
+        },
+    ]
+
     return (
-        <SafeAreaView style={{ flex: 1, paddingBottom: 44 }}>
+        <SafeAreaView style={{ flex: 1, paddingBottom: 15 }}>
             <StatusBar
                 animated={true}
                 backgroundColor="#fff"
@@ -33,11 +67,25 @@ const CategoryProducts = ({ navigation, route }) => {
                 <TouchableOpacity style={{ backgroundColor: "#f6f6f6", padding: 5, borderRadius: 100, alignItems: "center", justifyContent: "center", elevation: 1, }} onPress={() => navigation.goBack()}>
                     <Icon name="keyboard-arrow-left" size={20} color="#000" />
                 </TouchableOpacity>
-                <Text style={{ color: "#000", textTransform: "uppercase", fontWeight: "800", fontSize: responsiveFontSize(2.2), marginLeft: 10 }}>Category products</Text>
+                <Text style={{ color: "#000", textTransform: "uppercase", fontWeight: "800", fontSize: responsiveFontSize(2.2), marginLeft: 10 }}>{cat}</Text>
             </View>
 
             <ScrollView style={{ flex: 1, }}>
-                <View style={{ backgroundColor: "#f6f6f6", height: "100%", flexDirection: "row", flexWrap: "wrap", justifyContent: "space-evenly", paddingTop: 5 }}>
+
+                {/* Filter */}
+                <View style={{ paddingHorizontal: 8, paddingVertical: 10, backgroundColor: "#f6f6f6", }}>
+                    <TouchableOpacity style={{ backgroundColor: "#e2aa45", padding: 7, flexDirection: "row", justifyContent: "center", alignItems: "center", width: "30%", elevation: 3, borderRadius: 5 }} onPress={() => setFilterModal(true)}>
+                        <Text style={{ color: "#fff", fontWeight: "450", fontSize: 16, fontWeight: "500" }}>
+                            Filter
+                        </Text>
+                        <View style={{ marginLeft: 5, flexDirection: "row", justifyContent: "center", alignItems: "center" }}>
+                            <Icon3 name="filter" size={15} color="#fff" />
+                        </View>
+                    </TouchableOpacity>
+                </View>
+
+                {/* Filters */}
+                <View style={{ backgroundColor: "#f6f6f6", height: "100%", flexDirection: "row", flexWrap: "wrap", justifyContent: "space-evenly", paddingHorizontal: 3 }}>
                     <View>
                         <FlatList
                             data={products}
@@ -106,9 +154,149 @@ const CategoryProducts = ({ navigation, route }) => {
                             }}
                             keyExtractor={(item) => item.id.toString()}
                         />
-
                     </View>
                 </View>
+
+                {/* Filter modal*/}
+                <Modal
+                    isVisible={filterModal}
+                    onBackdropPress={() => setFilterModal(false)}
+                    onSwipeComplete={() => setFilterModal(false)}
+                    // swipeDirection={['down']}
+                    backdropOpacity={0.5}
+                    style={{ justifyContent: 'flex-end', margin: 0 }}
+                >
+
+                    <View
+                        style={{
+                            height: "100%",
+                            backgroundColor: "#fff",
+                            position: "absolute",
+                            bottom: 0,
+                            right: 0,
+                            left: 0,
+                            width: "100%",
+                        }}>
+
+                        {/* Heading */}
+                        <View style={{ marginTop: 15 }}>
+                            <View style={{ width: "100%", paddingHorizontal: 23, }}>
+
+                                <View style={{ flexDirection: "row", justifyContent: "space-between", width: "100%" }}>
+                                    <View style={{ flexDirection: "row", alignItems: "center" }}>
+                                        <TouchableOpacity style={{ backgroundColor: "#f6f6f6", padding: 5, borderRadius: 100, alignItems: "center", justifyContent: "center", elevation: 1, }} onPress={() => setFilterModal(false)}>
+                                            <Icon name="keyboard-arrow-left" size={20} color="#000" />
+                                        </TouchableOpacity>
+                                        <Text style={{ color: "#e27e45", fontSize: responsiveFontSize(2.3), fontWeight: "500", marginLeft: 5 }}>
+                                            Filters
+                                        </Text>
+                                    </View>
+                                    <TouchableOpacity
+                                        // onPress={() => languageremove()}
+                                        style={{
+                                            backgroundColor: "#e27e45",
+                                            borderRadius: 5,
+                                            alignItems: "center",
+                                            justifyContent: "center"
+                                        }}
+                                    >
+                                        <Text style={{
+                                            color: "#fff",
+                                            fontSize: responsiveFontSize(1.8),
+                                            paddingHorizontal: 9,
+                                            paddingVertical: 3,
+                                            fontWeight: "500",
+                                        }}>
+                                            Clear Filters
+                                        </Text>
+                                    </TouchableOpacity>
+                                </View>
+
+                            </View>
+                        </View>
+
+                        {/* Filters */}
+                        <ScrollView style={{ flex: 1 }}>
+                            <View style={{ height: "100%", marginVertical: 10, flexDirection: "row", width: "100%" }}>
+
+                                <View style={{ backgroundColor: "#f6f6f6", height: "100%", width: "35%", flexDirection: "column", alignItems: "center", paddingTop: 15 }}>
+                                    {laptopCategories.map((item) => (
+                                        <TouchableOpacity style={{ marginVertical: 10, padding: 5 }} key={item.id}>
+                                            <Text style={{ color: "#000" }}>{item.name}</Text>
+                                        </TouchableOpacity>
+                                    ))}
+                                </View>
+
+                                <View style={{ height: "100%", width: "65%" }}>
+                                    <Text>Dixit</Text>
+                                </View>
+                            </View>
+                        </ScrollView>
+
+                        {/* buttonStyle */}
+                        <View style={{ width: '100%', flexDirection: 'row', paddingVertical: 15, justifyContent: "space-evenly" }}>
+
+                            <View
+                                style={{
+                                    width: '40%',
+                                    borderColor: '#F29D38',
+                                    borderWidth: 1,
+                                    borderRadius: 20,
+                                }}>
+                                <TouchableOpacity
+                                    activeOpacity={0.7}
+                                    onPress={() => setFilterModal(false)}>
+                                    <Text
+                                        style={{
+                                            color: '#e27e45',
+                                            textAlign: 'center',
+                                            padding: 8,
+                                            fontSize: 15,
+                                            fontWeight: "600"
+                                        }}>
+                                        Cancel
+                                    </Text>
+                                </TouchableOpacity>
+                            </View>
+
+                            <View
+                                style={{
+                                    width: '40%',
+                                    backgroundColor: '#e27e45',
+
+                                    borderRadius: 20,
+                                    marginLeft: 3,
+                                    flexDirection: "row",
+                                    alignItems: "center",
+                                    justifyContent: "center"
+                                }}>
+                                <TouchableOpacity
+                                    onPress={() => languagesearchFilterFunction()}
+                                    languagesearchFilterFunction
+                                    activeOpacity={0.7}
+                                    style={{
+                                    }}>
+                                    <Text
+                                        style={{
+                                            color: '#fff',
+                                            textAlign: 'center',
+                                            padding: 8,
+                                            fontSize: 15,
+                                            fontWeight: "600"
+                                        }}>
+                                        Apply Filter
+                                    </Text>
+                                </TouchableOpacity>
+                            </View>
+
+                        </View>
+
+                        <View style={{ marginBottom: 10 }}></View>
+
+                    </View>
+
+                </Modal>
+
             </ScrollView>
 
         </SafeAreaView>

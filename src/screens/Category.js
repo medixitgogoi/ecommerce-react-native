@@ -55,29 +55,6 @@ const Category = ({ navigation, route }) => {
         setModalVisible(!isModalVisible);
     };
 
-    // useEffect(() => {
-    //     if (selectedId !== "") {
-    //         setModalVisible(false);
-    //     }
-    // }, [selectedId])
-
-    // const fetchProducts = async () => {
-    //     try {
-    //         const response = await axios.get('https://fakestoreapi.com/products');
-    //         console.log(response.data)
-    //         setProducts(response.data);
-    //         setLoading(false);
-    //     } catch (error) {
-    //         console.error('Error fetching products:', error);
-    //         setLoading(false);
-    //     }
-    // };
-
-    // // setModalVisible(true)
-    // useEffect(() => {
-    //     fetchProducts();
-    // }, [])
-
     const pressHandler = () => {
         if (selectedId) {
             setModalVisible(false);
@@ -232,7 +209,7 @@ const Category = ({ navigation, route }) => {
                                             <TouchableOpacity style={{ backgroundColor: '#fff', borderRadius: 10, elevation: 2, width: "48%", margin: 3, }} onPress={() => navigation.navigate('ProductDetails', { data: item })}>
                                                 {/* <Text style={{ color: "red" }}>oooooo</Text> */}
                                                 <TouchableOpacity style={{ position: 'absolute', right: 5, top: 5, padding: 3, backgroundColor: "#1f1f1f", borderRadius: 100, zIndex: 10 }}>
-                                                   
+                                                    <Icon2 name="heart" size={15} color="#fff" />
                                                     {/* <Text style={{ color: "#fff" }}>{item.subCategory}</Text> */}
                                                 </TouchableOpacity>
 

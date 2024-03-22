@@ -32,7 +32,7 @@ export default categoriesLists = [
                         "ram": "8 GB",
                         "ssd": "512 GB",
                         "os": "windows",
-                        "processor": "amd"
+                        "processor1": "amd"
                     },
                     {
                         "id": 2,
@@ -56,7 +56,7 @@ export default categoriesLists = [
                         "ram": "12 GB",
                         "ssd": "256 GB",
                         "os": "linux",
-                        "processor": "intel"
+                        "processor1": "intel"
                     },
                     {
                         "id": 3,
@@ -80,7 +80,7 @@ export default categoriesLists = [
                         "ram": "12 GB",
                         "ssd": "256 GB",
                         "os": "linux",
-                        "processor": "intel"
+                        "processor1": "intel"
                     },
                     {
                         "id": 4,
@@ -104,7 +104,7 @@ export default categoriesLists = [
                         "ram": "12 GB",
                         "ssd": "256 GB",
                         "os": "linux",
-                        "processor": "intel"
+                        "processor1": "apple"
                     },
                     {
                         "id": 5,
@@ -128,7 +128,7 @@ export default categoriesLists = [
                         "ram": "12 GB",
                         "ssd": "256 GB",
                         "os": "mac",
-                        "processor": "intel"
+                        "processor1": "intel"
                     },
                     {
                         "id": 6,
@@ -152,7 +152,7 @@ export default categoriesLists = [
                         "ram": "12 GB",
                         "ssd": "256 GB",
                         "os": "mac",
-                        "processor": "intel"
+                        "processor1": "intel"
                     },
                     {
                         "id": 7,
@@ -176,7 +176,7 @@ export default categoriesLists = [
                         "ram": "12 GB",
                         "ssd": "256 GB",
                         "os": "mac",
-                        "processor": "intel"
+                        "processor1": "apple"
                     },
                     {
                         "id": 8,
@@ -200,7 +200,7 @@ export default categoriesLists = [
                         "ram": "12 GB",
                         "ssd": "256 GB",
                         "os": "linux",
-                        "processor": "intel"
+                        "processor1": "Apple"
                     },
                     {
                         "id": 9,
@@ -224,7 +224,7 @@ export default categoriesLists = [
                         "ram": "12 GB",
                         "ssd": "256 GB",
                         "os": "linux",
-                        "processor": "intel"
+                        "processor1": "intel"
                     },
                     {
                         "id": 10,
@@ -248,7 +248,7 @@ export default categoriesLists = [
                         "ram": "12 GB",
                         "ssd": "256 GB",
                         "os": "linux",
-                        "processor": "intel"
+                        "processor1": "Apple"
                     },
                 ]
             },
