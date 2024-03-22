@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { StyleSheet, Text, View, StatusBar, TouchableOpacity, Image, ScrollView } from 'react-native';
 import Icon from 'react-native-vector-icons/dist/MaterialIcons';
 import Icon2 from 'react-native-vector-icons/dist/Ionicons';
@@ -6,6 +6,7 @@ import Icon3 from 'react-native-vector-icons/dist/Fontisto';
 import Icon4 from 'react-native-vector-icons/dist/Feather';
 import { useDispatch } from 'react-redux';
 import { addItemToCart } from '../redux/CartSlice';
+import { SliderBox } from "react-native-image-slider-box";
 import TabBar from '../components/TabBar';
 
 const sizeData = [
@@ -78,10 +79,25 @@ const ReadMore = ({ text, maxLength }) => {
 
 const ProductDetails = ({ navigation, route }) => {
 
+    const detail = route.params.data;
+
     const [selectedSize, setSelectedSize] = useState(0);
+    const [images, setImages] = useState([]);
+
+    useEffect(() => {
+        setImages(prevImages => {
+            const newImages = [];
+            for (var i = 0; i < 3; i++) {
+                if (detail.images[i]) {
+                    newImages.push(detail.images[i]);
+                }
+            }
+            return [...prevImages, ...newImages];
+        });
+    }, []);
 
     console.log(route)
-    const detail = route.params.data;
+
     console.log(detail.rating)
 
     const dispatch = useDispatch();
@@ -110,10 +126,34 @@ const ProductDetails = ({ navigation, route }) => {
             <ScrollView style={{ flex: 1 }}>
 
                 {/* Product image */}
-                <View style={{ backgroundColor: "#f6f6f6" }}>
+                {/* <View style={{ backgroundColor: "#f6f6f6" }}>
                     <View style={{ width: "100%", alignItems: "center", elevation: 5 }}>
                         <Image source={{ uri: detail.image ? detail.image : detail.images[0] }} style={{ borderRadius: 8, resizeMode: "contain", height: 400, width: 200 }} />
                     </View>
+                </View> */}
+
+                <View style={{ backgroundColor: "#fff", borderTopLeftRadius: 15, borderTopRightRadius: 15 }}>
+                    <SliderBox
+                        images={images}
+                        imageLoadingColor="#e27e45"
+                        dotColor="#F29D38"
+                        resizeMethod={'resize'}
+                        dotStyle={{ width: 30, height: 4, marginRight: 0, marginLeft: 0 }}
+                        autoplay
+                        circleLoop
+                        resizeMode={'cover'}
+                        ImageComponentStyle={{ borderRadius: 15, marginTop: 8, backgroundColor: "#000", width: "95%" }}
+                        inactiveDotColor="#aeaeae"
+                        sliderBoxHeight={120}
+                        paginationBoxStyle={{
+                            position: "relative",
+                            bottom: 0,
+                            padding: 0,
+                            alignItems: "center",
+                            alignSelf: "center",
+                            justifyContent: "center",
+                        }}
+                    />
                 </View>
 
                 {/* Details */}
