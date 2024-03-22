@@ -2,7 +2,6 @@ import { StyleSheet, Text, View, SafeAreaView, StatusBar, TouchableOpacity, Flat
 import { useEffect, useState, useMemo } from 'react';
 import Icon from 'react-native-vector-icons/dist/MaterialIcons';
 import Icon2 from 'react-native-vector-icons/dist/Ionicons';
-import Icon3 from 'react-native-vector-icons/dist/FontAwesome6';
 import Modal from "react-native-modal";
 import RadioGroup from 'react-native-radio-buttons-group';
 import { addItemToCart } from '../redux/CartSlice';
@@ -12,55 +11,31 @@ import { responsiveFontSize } from 'react-native-responsive-dimensions';
 
 const Category = ({ navigation, route }) => {
 
-    // console.log(data)
-
-    // console.log(route.params.data);
     const category = route.params.data
 
     const categoryProducts = data.filter(item => item.category === category);
-    // const subCategoryProducts = categoryProducts.filter(item => item.subCategory === subCategorySelected);
-
-    // console.log("categoryProductscategoryProducts", categoryProducts);
 
     const [okpress, setOkpress] = useState(false);
     const [isModalVisible, setModalVisible] = useState(true);
     const [selectedId, setSelectedId] = useState("");
-    const [subCategorySelected, setSubCategorySelected] = useState("");
-
-    const [sortbydetails, setsortbydetails] = useState([
-        {
-            id: "1",
-            name: "Relavent",
-        },
-        {
-            id: "2",
-            name: "Newest Products",
-        },
-        {
-            id: "3",
-            name: "Price -- Low To High",
-        },
-        {
-            id: "3",
-            name: "Price -- Low To High",
-        }
-
-    ]);
-
-
-
-
+    const [pricemodel, setpricemodel] = useState(false);
+    const [Ratingmodel, setRatingmodel] = useState("");
+    const [Categoriesmodel, setCategoriesmodel] = useState(false);
+    const [Categoryname, setCategoryname] = useState("");
+    const [ratingname, setratingname] = useState([]);
+    const [pricename, setpricename] = useState([]);
+    const [gendername, setgendername] = useState([]);
     const [loading, setLoading] = useState(false);
     const [SortedBYmodel, setSortedBYmodel] = useState(false);
     const [filtermodel, setfiltermodel] = useState(false);
     const [Gendermodel, setGendermodel] = useState(false);
-    const [pricemodel, setpricemodel] = useState(false);
-    const [Ratingmodel, setRatingmodel] = useState(false);
-    const [Categoriesmodel, setCategoriesmodel] = useState(false);
+    const [sortedname, setsortedname] = useState([]);
+    const [Brandmodel, setBrandmodel] = useState(false);
+    const [Discountmodel, setDiscountmodel] = useState(false);
     const dispatch = useDispatch();
     console.log("selectedId", selectedId)
-    // const typee1 = "men"
-    // console.log("typeetypee", typee1)
+    const typee1 = "men"
+    console.log("typeetypee", typee1)
     const cartProducts = useSelector(state => state.cart);
 
     const brandsData = [
@@ -105,7 +80,7 @@ const Category = ({ navigation, route }) => {
                         setpricemodel(true)
                     } else if (item.name === "Rating") {
                         setRatingmodel(true)
-                    }else if (item.name === "Categories") {
+                    } else if (item.name === "Categories") {
                         setCategoriesmodel(true)
                     }
                 }}
@@ -152,6 +127,48 @@ const Category = ({ navigation, route }) => {
             color: "#585858",
             size: 15,
         },
+    ]), []);
+
+
+
+    const sortbutton = useMemo(() => ([
+        {
+            id: 'Relavent',
+            label: (
+                <Text style={{ color: "#000", paddingLeft: 5 }}>{'Relavent'}</Text>
+            ),
+            color: "#F29D38",
+            size: responsiveFontSize(3),
+
+        },
+        {
+            id: 'Newest Products',
+            label: (
+                <Text style={{ color: "#000", paddingLeft: 5 }}>{'Newest Products'}</Text>
+            ),
+            color: "#F29D38",
+            size: responsiveFontSize(3),
+
+        },
+        {
+            id: 'Price -- Low To High',
+            label: (
+                <Text style={{ color: "#000", paddingLeft: 5 }}>{'Price -- Low To High'}</Text>
+            ),
+            color: "#F29D38",
+            size: responsiveFontSize(3),
+
+        },
+        {
+            id: 'Price -- Low To High',
+            label: (
+                <Text style={{ color: "#000", paddingLeft: 5 }}>{'Price -- Low To High'}</Text>
+            ),
+            color: "#F29D38",
+            size: responsiveFontSize(3),
+
+        },
+
     ]), []);
 
     const GenderButton = useMemo(() => ([
@@ -401,7 +418,7 @@ const Category = ({ navigation, route }) => {
                                             <TouchableOpacity style={{ backgroundColor: '#fff', borderRadius: 10, elevation: 2, width: "48%", margin: 3, }} onPress={() => navigation.navigate('ProductDetails', { data: item })}>
                                                 {/* <Text style={{ color: "red" }}>oooooo</Text> */}
                                                 <TouchableOpacity style={{ position: 'absolute', right: 5, top: 5, padding: 3, backgroundColor: "#1f1f1f", borderRadius: 100, zIndex: 10 }}>
-                                                    <Icon2 name="heart" size={15} color="#fff" />
+
                                                     {/* <Text style={{ color: "#fff" }}>{item.subCategory}</Text> */}
                                                 </TouchableOpacity>
 
@@ -549,7 +566,7 @@ const Category = ({ navigation, route }) => {
                                     Sort By
                                 </Text>
                                 <TouchableOpacity
-                                    // onPress={() => languageremove()}
+
                                     style={{
                                         backgroundColor: "#e27e45",
                                         borderRadius: 10,
@@ -569,20 +586,9 @@ const Category = ({ navigation, route }) => {
                                 </TouchableOpacity>
                             </View>
                             <RadioGroup
-                                radioButtons={sortbydetails && sortbydetails.map((item) => {
-                                    return (
-                                        {
-                                            id: item.name,
-                                            label: (
-                                                <Text style={{ color: "#000", paddingLeft: 4, fontSize: responsiveFontSize(2) }}>{item.name}</Text>
-                                            ),
-                                            color: "#e27e45",
-                                            size: responsiveFontSize(2),
-                                        }
-                                    )
-                                })}
-                                onPress={setsortbydetails}
-                                selectedId={setsortbydetails}
+                                radioButtons={sortbutton}
+                                onPress={setsortedname}
+                                selectedId={sortedname}
                                 containerStyle={styles.ViewCard}
                             />
 
@@ -590,7 +596,6 @@ const Category = ({ navigation, route }) => {
                     </View>
 
                     {/* buttonStyle */}
-
                     <View
                         style={{ width: '100%', flexDirection: 'row', paddingTop: 15, paddingHorizontal: 10 }}>
                         <View
@@ -601,7 +606,7 @@ const Category = ({ navigation, route }) => {
                             }}>
                             <TouchableOpacity
                                 activeOpacity={0.7}
-                                onPress={() => languagecancelfunction()}>
+                                onPress={() => setSortedBYmodel(false)}>
                                 <Text
                                     style={{
                                         color: '#fff',
@@ -630,7 +635,8 @@ const Category = ({ navigation, route }) => {
                                 justifyContent: "center"
                             }}>
                             <TouchableOpacity
-                                onPress={() => languagesearchFilterFunction()}
+                                // onPress={() => languagesearchFilterFunction()}
+                                onPress={() => setSortedBYmodel(false)}
                                 languagesearchFilterFunction
                                 activeOpacity={0.7}
                                 style={{
@@ -701,23 +707,6 @@ const Category = ({ navigation, route }) => {
                                     </Text>
                                 </TouchableOpacity>
                             </View>
-                            <RadioGroup
-                                radioButtons={sortbydetails && sortbydetails.map((item) => {
-                                    return (
-                                        {
-                                            id: item.name,
-                                            label: (
-                                                <Text style={{ color: "#000", paddingLeft: 4, fontSize: responsiveFontSize(2) }}>{item.name}</Text>
-                                            ),
-                                            color: "#e27e45",
-                                            size: responsiveFontSize(2),
-                                        }
-                                    )
-                                })}
-                                onPress={setsortbydetails}
-                                selectedId={setsortbydetails}
-                                containerStyle={styles.ViewCard}
-                            />
 
                         </View>
                     </View>
@@ -734,7 +723,7 @@ const Category = ({ navigation, route }) => {
                             }}>
                             <TouchableOpacity
                                 activeOpacity={0.7}
-                                onPress={() => languagecancelfunction()}>
+                                onPress={() => setfiltermodel(false)}>
                                 <Text
                                     style={{
                                         color: '#fff',
@@ -763,7 +752,7 @@ const Category = ({ navigation, route }) => {
                                 justifyContent: "center"
                             }}>
                             <TouchableOpacity
-                                onPress={() => languagesearchFilterFunction()}
+                                onPress={() => () => setfiltermodel(false)}
                                 languagesearchFilterFunction
                                 activeOpacity={0.7}
                                 style={{
@@ -841,8 +830,8 @@ const Category = ({ navigation, route }) => {
 
                             <RadioGroup
                                 radioButtons={GenderButton}
-                                // onPress={setselectedIds}
-                                // selectedId={selectedIds}
+                                onPress={setgendername}
+                                selectedId={gendername}
                                 containerStyle={styles.ViewCard}
                             />
                         </View>
@@ -861,7 +850,7 @@ const Category = ({ navigation, route }) => {
                             }}>
                             <TouchableOpacity
                                 activeOpacity={0.7}
-                                onPress={() => languagecancelfunction()}>
+                                onPress={() => setGendermodel(false)}>
                                 <Text
                                     style={{
                                         color: '#fff',
@@ -890,7 +879,7 @@ const Category = ({ navigation, route }) => {
                                 justifyContent: "center"
                             }}>
                             <TouchableOpacity
-                                onPress={() => languagesearchFilterFunction()}
+                                onPress={() => setGendermodel(false)}
                                 languagesearchFilterFunction
                                 activeOpacity={0.7}
                                 style={{
@@ -912,7 +901,8 @@ const Category = ({ navigation, route }) => {
                 </View>
             </Modal>
 
-            {/* pricemodel*/}
+            {/* pricemodel */}
+
             <Modal
                 isVisible={pricemodel}
                 onBackdropPress={() => setpricemodel(false)}
@@ -968,8 +958,8 @@ const Category = ({ navigation, route }) => {
 
                             <RadioGroup
                                 radioButtons={pricebutton}
-                                // onPress={setselectedIds}
-                                // selectedId={selectedIds}
+                                onPress={setpricename}
+                                selectedId={pricename}
                                 containerStyle={styles.ViewCard}
                             />
                         </View>
@@ -988,7 +978,7 @@ const Category = ({ navigation, route }) => {
                             }}>
                             <TouchableOpacity
                                 activeOpacity={0.7}
-                                onPress={() => languagecancelfunction()}>
+                                onPress={() => setpricemodel(false)}>
                                 <Text
                                     style={{
                                         color: '#fff',
@@ -1017,7 +1007,7 @@ const Category = ({ navigation, route }) => {
                                 justifyContent: "center"
                             }}>
                             <TouchableOpacity
-                                onPress={() => languagesearchFilterFunction()}
+                                onPress={() => setpricemodel(false)}
                                 languagesearchFilterFunction
                                 activeOpacity={0.7}
                                 style={{
@@ -1095,8 +1085,8 @@ const Category = ({ navigation, route }) => {
 
                             <RadioGroup
                                 radioButtons={ratingbutton}
-                                // onPress={setselectedIds}
-                                // selectedId={selectedIds}
+                                onPress={setratingname}
+                                selectedId={ratingname}
                                 containerStyle={styles.ViewCard}
                             />
                         </View>
@@ -1115,7 +1105,7 @@ const Category = ({ navigation, route }) => {
                             }}>
                             <TouchableOpacity
                                 activeOpacity={0.7}
-                                onPress={() => languagecancelfunction()}>
+                                onPress={() => setRatingmodel(false)}>
                                 <Text
                                     style={{
                                         color: '#fff',
@@ -1144,7 +1134,7 @@ const Category = ({ navigation, route }) => {
                                 justifyContent: "center"
                             }}>
                             <TouchableOpacity
-                                onPress={() => languagesearchFilterFunction()}
+                                onPress={() => setRatingmodel(false)}
                                 languagesearchFilterFunction
                                 activeOpacity={0.7}
                                 style={{
@@ -1166,8 +1156,8 @@ const Category = ({ navigation, route }) => {
                 </View>
             </Modal>
 
-              {/* categorybutton*/}
-              <Modal
+            {/* categorybutton*/}
+            <Modal
                 isVisible={Categoriesmodel}
                 onBackdropPress={() => setCategoriesmodel(false)}
                 onSwipeComplete={() => setCategoriesmodel(false)}
@@ -1197,7 +1187,7 @@ const Category = ({ navigation, route }) => {
 
                             <View style={{ paddingHorizontal: 15, flexDirection: "row", justifyContent: "space-between", width: "100%" }}>
                                 <Text style={{ color: "#e27e45", fontSize: responsiveFontSize(2.3), fontWeight: "700" }}>
-                                category
+                                    category
                                 </Text>
                                 <TouchableOpacity
                                     onPress={() => languageremove()}
@@ -1222,8 +1212,8 @@ const Category = ({ navigation, route }) => {
 
                             <RadioGroup
                                 radioButtons={categorybutton}
-                                // onPress={setselectedIds}
-                                // selectedId={selectedIds}
+                                onPress={setCategoryname}
+                                selectedId={Categoryname}
                                 containerStyle={styles.ViewCard}
                             />
                         </View>
@@ -1241,7 +1231,7 @@ const Category = ({ navigation, route }) => {
                             }}>
                             <TouchableOpacity
                                 activeOpacity={0.7}
-                                onPress={() => languagecancelfunction()}>
+                                onPress={() => setCategoriesmodel(false)}>
                                 <Text
                                     style={{
                                         color: '#fff',
@@ -1270,7 +1260,7 @@ const Category = ({ navigation, route }) => {
                                 justifyContent: "center"
                             }}>
                             <TouchableOpacity
-                                onPress={() => languagesearchFilterFunction()}
+                                onPress={() => setCategoriesmodel(false)}
                                 languagesearchFilterFunction
                                 activeOpacity={0.7}
                                 style={{
@@ -1323,7 +1313,7 @@ const styles = StyleSheet.create({
         borderRadius: 8,
         overflow: 'hidden',
         flexDirection: "column",
-        color: "#F29D38",
+        color: "#e27e45",
         paddingTop: 5,
         alignItems: "flex-start",
         paddingHorizontal: 10,
