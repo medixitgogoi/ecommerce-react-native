@@ -78,7 +78,7 @@ export default categoriesLists = [
                         "qty": 0,
                         "processor": "Core i5",
                         "ram": "12 GB",
-                        "ssd": "256 GB",
+                        "ssd": "512 GB",
                         "os": "linux",
                         "processor1": "intel"
                     },
@@ -102,7 +102,7 @@ export default categoriesLists = [
                         "qty": 0,
                         "processor": "Core i7",
                         "ram": "12 GB",
-                        "ssd": "256 GB",
+                        "ssd": "512 GB",
                         "os": "linux",
                         "processor1": "apple"
                     },
@@ -126,7 +126,7 @@ export default categoriesLists = [
                         "qty": 0,
                         "processor": "Core i7",
                         "ram": "12 GB",
-                        "ssd": "256 GB",
+                        "ssd": "512 GB",
                         "os": "mac",
                         "processor1": "intel"
                     },
@@ -197,7 +197,7 @@ export default categoriesLists = [
                         },
                         "qty": 0,
                         "processor": "Core i9",
-                        "ram": "12 GB",
+                        "ram": "16 GB",
                         "ssd": "256 GB",
                         "os": "linux",
                         "processor1": "Apple"
@@ -221,7 +221,7 @@ export default categoriesLists = [
                         },
                         "qty": 0,
                         "processor": "Core i9",
-                        "ram": "12 GB",
+                        "ram": "16 GB",
                         "ssd": "256 GB",
                         "os": "linux",
                         "processor1": "intel"
@@ -245,7 +245,7 @@ export default categoriesLists = [
                         },
                         "qty": 0,
                         "processor": "Core i9",
-                        "ram": "12 GB",
+                        "ram": "16 GB",
                         "ssd": "256 GB",
                         "os": "linux",
                         "processor1": "Apple"

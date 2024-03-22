@@ -22,9 +22,6 @@ const Home = ({ navigation }) => {
 
     const slicedData = data.slice(0, 6);
 
-    // console.log(data)
-    // const products = data;
-
     const [products, setProducts] = useState([]);
     const [loading, setLoading] = useState(false);
 

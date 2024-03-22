@@ -1,10 +1,10 @@
-export default productsData = [
+export default data = [
     {
         "id": 1,
         "title": "Men's Coaches' Jacket",
         "price": 109.95,
         "description": "Your perfect pack for everyday use and walks in the forest. Stash your laptop (up to 15 inches) in the padded sleeve, your everyday",
-        "category": "Nike",
+        "category": "Nike7777777777777777777777777",
         "subCategory": "Men",
         "subCategory1": "Jacket",
         "date":"15/01/2024",

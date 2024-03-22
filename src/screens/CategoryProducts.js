@@ -6,12 +6,14 @@ import { addItemToCart } from '../redux/CartSlice';
 import { useDispatch } from 'react-redux';
 import Modal from "react-native-modal";
 import Icon3 from 'react-native-vector-icons/dist/Ionicons';
-import { useState, useEffect } from 'react';
+import RadioGroup from 'react-native-radio-buttons-group';
+import { useState, useEffect, useMemo } from 'react';
 
 const CategoryProducts = ({ navigation, route }) => {
 
     const [filterModal, setFilterModal] = useState(false);
     const [selectedFilter, setSelectedFilter] = useState(1);
+    const [selectedId, setSelectedId] = useState("");
 
     // const filteredProducts =
 
@@ -57,7 +59,166 @@ const CategoryProducts = ({ navigation, route }) => {
             id: 5,
             name: "Chip"
         },
+        {
+            id: 6,
+            name: "Lifestyle"
+        },
+        {
+            id: 7,
+            name: "Weight"
+        },
+        {
+            id: 8,
+            name: "Touch screen"
+        },
+        {
+            id: 9,
+            name: "Processor brand"
+        },
+        {
+            id: 10,
+            name: "Usage"
+        },
+        {
+            id: 11,
+            name: "Features"
+        },
+        {
+            id: 12,
+            name: "Storage type"
+        },
+        {
+            id: 13,
+            name: "Availability"
+        },
+        {
+            id: 14,
+            name: "Discount"
+        },
+        {
+            id: 15,
+            name: "Customer rating"
+        },
     ]
+
+    const processorButtons = useMemo(() => ([
+        {
+            id: 'men',
+            label: (
+                <Text style={{ color: "#474747", marginLeft: 5, fontSize: 14, fontWeight: "500" }}>{'Core i5'}</Text>
+            ),
+            color: "#585858",
+            size: 13,
+        },
+        {
+            id: 'women',
+            label: (
+                <Text style={{ color: "#474747", marginLeft: 5, fontSize: 14, fontWeight: "500" }}>{'Core i7'}</Text>
+            ),
+            color: "#585858",
+            size: 13,
+        },
+        {
+            id: 'children',
+            label: (
+                <Text style={{ color: "#474747", marginLeft: 5, fontSize: 14, fontWeight: "500" }}>{'Core i9'}</Text>
+            ),
+            color: "#585858",
+            size: 13,
+        },
+    ]), []);
+
+    const ramButtons = useMemo(() => ([
+        {
+            id: 'men',
+            label: (
+                <Text style={{ color: "#474747", marginLeft: 5, fontSize: 14, fontWeight: "500" }}>{'8 GB'}</Text>
+            ),
+            color: "#585858",
+            size: 13,
+        },
+        {
+            id: 'women',
+            label: (
+                <Text style={{ color: "#474747", marginLeft: 5, fontSize: 14, fontWeight: "500" }}>{'12 GB'}</Text>
+            ),
+            color: "#585858",
+            size: 13,
+        },
+        {
+            id: 'children',
+            label: (
+                <Text style={{ color: "#474747", marginLeft: 5, fontSize: 14, fontWeight: "500" }}>{'16 GB'}</Text>
+            ),
+            color: "#585858",
+            size: 13,
+        },
+    ]), []);
+
+    const ssdButtons = useMemo(() => ([
+        {
+            id: 'men',
+            label: (
+                <Text style={{ color: "#474747", marginLeft: 5, fontSize: 14, fontWeight: "500" }}>{'256 GB'}</Text>
+            ),
+            color: "#585858",
+            size: 13,
+        },
+        {
+            id: 'women',
+            label: (
+                <Text style={{ color: "#474747", marginLeft: 5, fontSize: 14, fontWeight: "500" }}>{'512 GB'}</Text>
+            ),
+            color: "#585858",
+            size: 13,
+        },
+    ]), []);
+
+    const osButtons = useMemo(() => ([
+        {
+            id: 'men',
+            label: (
+                <Text style={{ color: "#474747", marginLeft: 5, fontSize: 14, fontWeight: "500" }}>{'Windows'}</Text>
+            ),
+            color: "#585858",
+            size: 13,
+        },
+        {
+            id: 'women',
+            label: (
+                <Text style={{ color: "#474747", marginLeft: 5, fontSize: 14, fontWeight: "500" }}>{'Mac'}</Text>
+            ),
+            color: "#585858",
+            size: 13,
+        },
+        {
+            id: 'women',
+            label: (
+                <Text style={{ color: "#474747", marginLeft: 5, fontSize: 14, fontWeight: "500" }}>{'Linux'}</Text>
+            ),
+            color: "#585858",
+            size: 13,
+        },
+    ]), []);
+
+    const chipButtons = useMemo(() => ([
+        {
+            id: 'men',
+            label: (
+                <Text style={{ color: "#474747", marginLeft: 5, fontSize: 14, fontWeight: "500" }}>{'Intel'}</Text>
+            ),
+            color: "#585858",
+            size: 13,
+        },
+        {
+            id: 'women',
+            label: (
+                <Text style={{ color: "#474747", marginLeft: 5, fontSize: 14, fontWeight: "500" }}>{'Apple'}</Text>
+            ),
+            color: "#585858",
+            size: 13,
+        },
+    ]), []);
 
     useEffect(() => {
 
@@ -175,11 +336,9 @@ const CategoryProducts = ({ navigation, route }) => {
                     isVisible={filterModal}
                     onBackdropPress={() => setFilterModal(false)}
                     onSwipeComplete={() => setFilterModal(false)}
-                    // swipeDirection={['down']}
                     backdropOpacity={0.5}
                     style={{ justifyContent: 'flex-end', margin: 0 }}
                 >
-
                     <View
                         style={{
                             height: "100%",
@@ -232,18 +391,67 @@ const CategoryProducts = ({ navigation, route }) => {
                         <ScrollView style={{ flex: 1 }}>
                             <View style={{ marginVertical: 10, flexDirection: "row", width: "100%" }}>
 
-                                <View style={{ height: "100%", width: "35%", flexDirection: "column", alignItems: "center", }}>
+                                {/* Left */}
+                                <View style={{ height: "100%", width: "40%", flexDirection: "column", alignItems: "center", }}>
                                     {laptopCategories.map((item) => (
-                                        <TouchableOpacity style={{ paddingVertical: 15, padding: 5, backgroundColor: selectedFilter === item.id ? "#fff" : "#f1f1f1", width: "100%", flexDirection: "row", justifyContent: "center" }} key={item.id} onPress={() => pressHandler(item.id)}>
+                                        <TouchableOpacity style={{ paddingVertical: 20, padding: 5, backgroundColor: selectedFilter === item.id ? "#fff" : "#f1f1f1", width: "100%", flexDirection: "row", justifyContent: "center" }} key={item.id} onPress={() => pressHandler(item.id)}>
                                             <Text style={{ color: "#000" }}>{item.name}</Text>
                                         </TouchableOpacity>
                                     ))}
                                 </View>
 
-                                <View style={{ height: "100%", width: "65%", backgroundColor: "red" }}>
-
-                                </View>
-
+                                {/* Right */}
+                                {selectedFilter === 1 ? (
+                                    <View style={{ height: "100%", width: "60%", marginLeft: 10, paddingTop: 5 }}>
+                                        <View style={{ flexDirection: "row", alignItems: "center", justifyContent: "flex-start" }}>
+                                            <RadioGroup
+                                                radioButtons={processorButtons}
+                                                onPress={setSelectedId}
+                                                selectedId={selectedId}
+                                            />
+                                        </View>
+                                    </View>
+                                ) : selectedFilter === 2 ? (
+                                    <View style={{ height: "100%", width: "65%", marginLeft: 10, paddingTop: 5 }}>
+                                        <View style={{ flexDirection: "row", alignItems: "center", justifyContent: "flex-start" }}>
+                                            <RadioGroup
+                                                radioButtons={ramButtons}
+                                                onPress={setSelectedId}
+                                                selectedId={selectedId}
+                                            />
+                                        </View>
+                                    </View>
+                                ) : selectedFilter === 3 ? (
+                                    <View style={{ height: "100%", width: "65%", marginLeft: 10, paddingTop: 5 }}>
+                                        <View style={{ flexDirection: "row", alignItems: "center", justifyContent: "flex-start" }}>
+                                            <RadioGroup
+                                                radioButtons={ssdButtons}
+                                                onPress={setSelectedId}
+                                                selectedId={selectedId}
+                                            />
+                                        </View>
+                                    </View>
+                                ) : selectedFilter === 4 ? (
+                                    <View style={{ height: "100%", width: "65%", marginLeft: 10, paddingTop: 5 }}>
+                                        <View style={{ flexDirection: "row", alignItems: "center", justifyContent: "flex-start" }}>
+                                            <RadioGroup
+                                                radioButtons={osButtons}
+                                                onPress={setSelectedId}
+                                                selectedId={selectedId}
+                                            />
+                                        </View>
+                                    </View>
+                                ) : (
+                                    <View style={{ height: "100%", width: "65%", marginLeft: 10, paddingTop: 5 }}>
+                                        <View style={{ flexDirection: "row", alignItems: "center", justifyContent: "flex-start" }}>
+                                            <RadioGroup
+                                                radioButtons={chipButtons}
+                                                onPress={setSelectedId}
+                                                selectedId={selectedId}
+                                            />
+                                        </View>
+                                    </View>
+                                )}
                             </View>
                         </ScrollView>
 
@@ -308,11 +516,8 @@ const CategoryProducts = ({ navigation, route }) => {
                         <View style={{ marginBottom: 10 }}></View>
 
                     </View>
-
                 </Modal>
-
             </ScrollView>
-
         </SafeAreaView>
     )
 }
