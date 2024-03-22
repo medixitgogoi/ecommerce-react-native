@@ -2,8 +2,6 @@ import { StyleSheet, Text, View, SafeAreaView, StatusBar, TouchableOpacity, Flat
 import { useEffect, useState, useMemo } from 'react';
 import Icon from 'react-native-vector-icons/dist/MaterialIcons';
 import Icon2 from 'react-native-vector-icons/dist/Ionicons';
-import Icon3 from 'react-native-vector-icons/dist/FontAwesome6';
-import Icon4 from 'react-native-vector-icons/dist/MaterialCommunityIcons';
 import Modal from "react-native-modal";
 import RadioGroup from 'react-native-radio-buttons-group';
 import { addItemToCart } from '../redux/CartSlice';
@@ -13,7 +11,7 @@ import { responsiveFontSize } from 'react-native-responsive-dimensions';
 
 const Category = ({ navigation, route }) => {
 
-    console.log(data)
+    // console.log(data)
 
     // console.log(route.params.data);
     const category = route.params.data
@@ -35,10 +33,13 @@ const Category = ({ navigation, route }) => {
     const [sizemodel, setsizemodel] = useState(false);
     const [Brandmodel, setBrandmodel] = useState(false);
     const [Discountmodel, setDiscountmodel] = useState(false);
+
     const dispatch = useDispatch();
     console.log("selectedId", selectedId)
+
     const typee1 = "men"
     console.log("typeetypee", typee1)
+
     const cartProducts = useSelector(state => state.cart);
 
     const brandsData = [
@@ -231,7 +232,7 @@ const Category = ({ navigation, route }) => {
                                             <TouchableOpacity style={{ backgroundColor: '#fff', borderRadius: 10, elevation: 2, width: "48%", margin: 3, }} onPress={() => navigation.navigate('ProductDetails', { data: item })}>
                                                 {/* <Text style={{ color: "red" }}>oooooo</Text> */}
                                                 <TouchableOpacity style={{ position: 'absolute', right: 5, top: 5, padding: 3, backgroundColor: "#1f1f1f", borderRadius: 100, zIndex: 10 }}>
-                                                    <Icon2 name="heart" size={15} color="#fff" />
+                                                   
                                                     {/* <Text style={{ color: "#fff" }}>{item.subCategory}</Text> */}
                                                 </TouchableOpacity>
 
