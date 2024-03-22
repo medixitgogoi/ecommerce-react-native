@@ -42,7 +42,7 @@ const SubCategories = ({ navigation, route }) => {
                 </View>
             </ScrollView>
 
-        </SafeAreaView >
+        </SafeAreaView>
     )
 }
 

@@ -1,11 +1,9 @@
-
 import {
   StyleSheet,
   TouchableOpacity,
   View,
   StatusBar,
   Text,
-  // Modal,
   ActivityIndicator,
   ScrollView,
   Alert,
@@ -15,7 +13,6 @@ import {
 import { useState, useMemo } from 'react'
 import Geocoder from 'react-native-geocoder';
 import Icon from 'react-native-vector-icons/dist/MaterialIcons';
-
 import {
   responsiveHeight,
   responsiveWidth,
@@ -51,7 +48,6 @@ const Profile = () => {
   const dispatch = useDispatch();
 
   // location
-
   const mainn = async () => {
     console.log('sdhiusahdi');
     setlocationmodal(true);
@@ -97,10 +93,12 @@ const Profile = () => {
   };
 
   function get(newLocation) {
+
     var NY = {
       lng: newLocation && newLocation.longitude,
       lat: newLocation && newLocation.latitude,
     };
+
     Geocoder.fallbackToGoogle('AIzaSyBvh5Kc_7DHsFpCj92HAKBq4F2C7J4IZEI');
 
     Geocoder.geocodePosition(NY)
@@ -125,11 +123,8 @@ const Profile = () => {
     console.log(addres && addres, 'check new address');
   }
 
-
-
   return (
     <View style={{ flex: 1, backgroundColor: "#fff" }}>
-
       <StatusBar
         animated={true}
         backgroundColor="#fff"

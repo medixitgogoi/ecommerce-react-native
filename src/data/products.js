@@ -9,9 +9,18 @@ export default data = [
         "subCategory1": "Jacket",
         "date": "15/01/2024",
         "images": [
-            "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/534d2359-c6e2-42fb-b8ce-82b658be202d/swift-uv-running-jacket-9rNwSf.png",
-            "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/75520ec3-492f-4cc1-8b9f-40203b2493e0/club-coaches-jacket-kWqWsm.png",
-            "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/aafa2ef0-442e-4f00-bbe2-dc48ea2ba4c5/club-coaches-jacket-kWqWsm.png"
+            {
+                "image": "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/534d2359-c6e2-42fb-b8ce-82b658be202d/swift-uv-running-jacket-9rNwSf.png",
+                "color": "red"
+            },
+            {
+                "image": "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/75520ec3-492f-4cc1-8b9f-40203b2493e0/club-coaches-jacket-kWqWsm.png",
+                "color": "blue"
+            },
+            {
+                "image": "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/aafa2ef0-442e-4f00-bbe2-dc48ea2ba4c5/club-coaches-jacket-kWqWsm.png",
+                "color": "green"
+            },
         ],
         "rating": {
             "rate": 3.9,
@@ -29,9 +38,18 @@ export default data = [
         "subCategory1": "Jacket",
         "date": "15/03/2024",
         "images": [
-            "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/534d2359-c6e2-42fb-b8ce-82b658be202d/swift-uv-running-jacket-9rNwSf.png",
-            "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/75520ec3-492f-4cc1-8b9f-40203b2493e0/club-coaches-jacket-kWqWsm.png",
-            "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/aafa2ef0-442e-4f00-bbe2-dc48ea2ba4c5/club-coaches-jacket-kWqWsm.png"
+            {
+                "image": "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/534d2359-c6e2-42fb-b8ce-82b658be202d/swift-uv-running-jacket-9rNwSf.png",
+                "color": "red"
+            },
+            {
+                "image": "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/75520ec3-492f-4cc1-8b9f-40203b2493e0/club-coaches-jacket-kWqWsm.png",
+                "color": "blue"
+            },
+            {
+                "image": "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/aafa2ef0-442e-4f00-bbe2-dc48ea2ba4c5/club-coaches-jacket-kWqWsm.png",
+                "color": "green"
+            },
         ],
         "rating": {
             "rate": 4.5,
@@ -49,9 +67,18 @@ export default data = [
         "subCategory1": "Headphones",
         "date": "15/01/2024",
         "images": [
-            "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/534d2359-c6e2-42fb-b8ce-82b658be202d/swift-uv-running-jacket-9rNwSf.png",
-            "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/75520ec3-492f-4cc1-8b9f-40203b2493e0/club-coaches-jacket-kWqWsm.png",
-            "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/aafa2ef0-442e-4f00-bbe2-dc48ea2ba4c5/club-coaches-jacket-kWqWsm.png"
+            {
+                "image": "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/534d2359-c6e2-42fb-b8ce-82b658be202d/swift-uv-running-jacket-9rNwSf.png",
+                "color": "red"
+            },
+            {
+                "image": "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/75520ec3-492f-4cc1-8b9f-40203b2493e0/club-coaches-jacket-kWqWsm.png",
+                "color": "blue"
+            },
+            {
+                "image": "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/aafa2ef0-442e-4f00-bbe2-dc48ea2ba4c5/club-coaches-jacket-kWqWsm.png",
+                "color": "green"
+            },
         ],
         "rating": {
             "rate": 4.2,
@@ -68,9 +95,18 @@ export default data = [
         "subCategory": "men",
         "subCategory1": "Shoes",
         "images": [
-            "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/c297a4f8-8ba4-4d0e-948b-b0832e703811/club-coaches-jacket-kWqWsm.png",
-            "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/3346385b-a478-47d5-81aa-3af4db3a5e0e/swift-uv-running-jacket-9rNwSf.png",
-            "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/a0ea7ab1-a717-4199-855a-9b58ab900781/swift-uv-running-jacket-9rNwSf.png"
+            {
+                "image": "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/c297a4f8-8ba4-4d0e-948b-b0832e703811/club-coaches-jacket-kWqWsm.png",
+                "color": "red"
+            },
+            {
+                "image": "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/3346385b-a478-47d5-81aa-3af4db3a5e0e/swift-uv-running-jacket-9rNwSf.png",
+                "color": "blue"
+            },
+            {
+                "image": "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/a0ea7ab1-a717-4199-855a-9b58ab900781/swift-uv-running-jacket-9rNwSf.png",
+                "color": "green"
+            },
         ],
         "rating": {
             "rate": 4.8,
@@ -87,9 +123,18 @@ export default data = [
         "subCategory": "men",
         "subCategory1": "Shoes",
         "images": [
-            "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/c297a4f8-8ba4-4d0e-948b-b0832e703811/club-coaches-jacket-kWqWsm.png",
-            "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/3346385b-a478-47d5-81aa-3af4db3a5e0e/swift-uv-running-jacket-9rNwSf.png",
-            "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/a0ea7ab1-a717-4199-855a-9b58ab900781/swift-uv-running-jacket-9rNwSf.png"
+            {
+                "image": "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/c297a4f8-8ba4-4d0e-948b-b0832e703811/club-coaches-jacket-kWqWsm.png",
+                "color": "red"
+            },
+            {
+                "image": "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/3346385b-a478-47d5-81aa-3af4db3a5e0e/swift-uv-running-jacket-9rNwSf.png",
+                "color": "blue"
+            },
+            {
+                "image": "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/a0ea7ab1-a717-4199-855a-9b58ab900781/swift-uv-running-jacket-9rNwSf.png",
+                "color": "green"
+            },
         ],
         "rating": {
             "rate": 4.7,
@@ -107,15 +152,24 @@ export default data = [
         "subCategory1": "Bags",
         "date": "15/01/2024",
         "images": [
-            "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/c297a4f8-8ba4-4d0e-948b-b0832e703811/club-coaches-jacket-kWqWsm.png",
-            "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/3346385b-a478-47d5-81aa-3af4db3a5e0e/swift-uv-running-jacket-9rNwSf.png",
-            "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/a0ea7ab1-a717-4199-855a-9b58ab900781/swift-uv-running-jacket-9rNwSf.png"
+            {
+                "image": "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/c297a4f8-8ba4-4d0e-948b-b0832e703811/club-coaches-jacket-kWqWsm.png",
+                "color": "red"
+            },
+            {
+                "image": "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/3346385b-a478-47d5-81aa-3af4db3a5e0e/swift-uv-running-jacket-9rNwSf.png",
+                "color": "blue"
+            },
+            {
+                "image": "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/a0ea7ab1-a717-4199-855a-9b58ab900781/swift-uv-running-jacket-9rNwSf.png",
+                "color": "green"
+            },
         ],
         "rating": {
             "rate": 4.4,
             "count": 80
         },
-        "qty": 8
+        "qty": 0
     },
     {
         "id": 7,
@@ -127,9 +181,18 @@ export default data = [
         "subCategory1": "Jacket",
         "date": "15/03/2024",
         "images": [
-            "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/534d2359-c6e2-42fb-b8ce-82b658be202d/swift-uv-running-jacket-9rNwSf.png",
-            "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/75520ec3-492f-4cc1-8b9f-40203b2493e0/club-coaches-jacket-kWqWsm.png",
-            "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/aafa2ef0-442e-4f00-bbe2-dc48ea2ba4c5/club-coaches-jacket-kWqWsm.png"
+            {
+                "image": "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/534d2359-c6e2-42fb-b8ce-82b658be202d/swift-uv-running-jacket-9rNwSf.png",
+                "color": "red"
+            },
+            {
+                "image": "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/75520ec3-492f-4cc1-8b9f-40203b2493e0/club-coaches-jacket-kWqWsm.png",
+                "color": "blue"
+            },
+            {
+                "image": "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/aafa2ef0-442e-4f00-bbe2-dc48ea2ba4c5/club-coaches-jacket-kWqWsm.png",
+                "color": "green"
+            },
         ],
         "rating": {
             "rate": 3.9,
@@ -147,15 +210,24 @@ export default data = [
         "subCategory1": "Jacket",
         "date": "15/03/2024",
         "images": [
-            "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/534d2359-c6e2-42fb-b8ce-82b658be202d/swift-uv-running-jacket-9rNwSf.png",
-            "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/75520ec3-492f-4cc1-8b9f-40203b2493e0/club-coaches-jacket-kWqWsm.png",
-            "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/aafa2ef0-442e-4f00-bbe2-dc48ea2ba4c5/club-coaches-jacket-kWqWsm.png"
+            {
+                "image": "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/534d2359-c6e2-42fb-b8ce-82b658be202d/swift-uv-running-jacket-9rNwSf.png",
+                "color": "red"
+            },
+            {
+                "image": "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/75520ec3-492f-4cc1-8b9f-40203b2493e0/club-coaches-jacket-kWqWsm.png",
+                "color": "blue"
+            },
+            {
+                "image": "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/aafa2ef0-442e-4f00-bbe2-dc48ea2ba4c5/club-coaches-jacket-kWqWsm.png",
+                "color": "green"
+            },
         ],
         "rating": {
             "rate": 4.5,
             "count": 75
         },
-        "qty": 10
+        "qty": 0
     },
     {
         "id": 9,
@@ -166,15 +238,24 @@ export default data = [
         "subCategory": "men",
         "subCategory1": "Headphones",
         "images": [
-            "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/534d2359-c6e2-42fb-b8ce-82b658be202d/swift-uv-running-jacket-9rNwSf.png",
-            "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/75520ec3-492f-4cc1-8b9f-40203b2493e0/club-coaches-jacket-kWqWsm.png",
-            "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/aafa2ef0-442e-4f00-bbe2-dc48ea2ba4c5/club-coaches-jacket-kWqWsm.png"
+            {
+                "image": "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/534d2359-c6e2-42fb-b8ce-82b658be202d/swift-uv-running-jacket-9rNwSf.png",
+                "color": "red"
+            },
+            {
+                "image": "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/75520ec3-492f-4cc1-8b9f-40203b2493e0/club-coaches-jacket-kWqWsm.png",
+                "color": "blue"
+            },
+            {
+                "image": "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/aafa2ef0-442e-4f00-bbe2-dc48ea2ba4c5/club-coaches-jacket-kWqWsm.png",
+                "color": "green"
+            },
         ],
         "rating": {
             "rate": 4.2,
             "count": 200
         },
-        "qty": 20
+        "qty": 0
     },
     {
         "id": 10,
@@ -185,15 +266,24 @@ export default data = [
         "subCategory": "men",
         "subCategory1": "Shoes",
         "images": [
-            "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/c297a4f8-8ba4-4d0e-948b-b0832e703811/club-coaches-jacket-kWqWsm.png",
-            "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/3346385b-a478-47d5-81aa-3af4db3a5e0e/swift-uv-running-jacket-9rNwSf.png",
-            "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/a0ea7ab1-a717-4199-855a-9b58ab900781/swift-uv-running-jacket-9rNwSf.png"
+            {
+                "image": "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/c297a4f8-8ba4-4d0e-948b-b0832e703811/club-coaches-jacket-kWqWsm.png",
+                "color": "red"
+            },
+            {
+                "image": "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/3346385b-a478-47d5-81aa-3af4db3a5e0e/swift-uv-running-jacket-9rNwSf.png",
+                "color": "blue"
+            },
+            {
+                "image": "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/a0ea7ab1-a717-4199-855a-9b58ab900781/swift-uv-running-jacket-9rNwSf.png",
+                "color": "green"
+            },
         ],
         "rating": {
             "rate": 4.8,
             "count": 150
         },
-        "qty": 15
+        "qty": 0
     },
     {
         "id": 11,
@@ -205,9 +295,18 @@ export default data = [
         "subCategory1": "Jacket",
         "date": "15/03/2024",
         "images": [
-            "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/534d2359-c6e2-42fb-b8ce-82b658be202d/swift-uv-running-jacket-9rNwSf.png",
-            "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/75520ec3-492f-4cc1-8b9f-40203b2493e0/club-coaches-jacket-kWqWsm.png",
-            "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/aafa2ef0-442e-4f00-bbe2-dc48ea2ba4c5/club-coaches-jacket-kWqWsm.png"
+            {
+                "image": "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/534d2359-c6e2-42fb-b8ce-82b658be202d/swift-uv-running-jacket-9rNwSf.png",
+                "color": "red"
+            },
+            {
+                "image": "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/75520ec3-492f-4cc1-8b9f-40203b2493e0/club-coaches-jacket-kWqWsm.png",
+                "color": "blue"
+            },
+            {
+                "image": "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/aafa2ef0-442e-4f00-bbe2-dc48ea2ba4c5/club-coaches-jacket-kWqWsm.png",
+                "color": "green"
+            },
         ],
         "rating": {
             "rate": 3.9,
@@ -225,15 +324,24 @@ export default data = [
         "subCategory1": "Jacket",
         "date": "15/03/2024",
         "images": [
-            "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/534d2359-c6e2-42fb-b8ce-82b658be202d/swift-uv-running-jacket-9rNwSf.png",
-            "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/75520ec3-492f-4cc1-8b9f-40203b2493e0/club-coaches-jacket-kWqWsm.png",
-            "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/aafa2ef0-442e-4f00-bbe2-dc48ea2ba4c5/club-coaches-jacket-kWqWsm.png"
+            {
+                "image": "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/534d2359-c6e2-42fb-b8ce-82b658be202d/swift-uv-running-jacket-9rNwSf.png",
+                "color": "red"
+            },
+            {
+                "image": "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/75520ec3-492f-4cc1-8b9f-40203b2493e0/club-coaches-jacket-kWqWsm.png",
+                "color": "blue"
+            },
+            {
+                "image": "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/aafa2ef0-442e-4f00-bbe2-dc48ea2ba4c5/club-coaches-jacket-kWqWsm.png",
+                "color": "green"
+            },
         ],
         "rating": {
             "rate": 4.5,
             "count": 75
         },
-        "qty": 10
+        "qty": 0
     },
     {
         "id": 13,
@@ -245,15 +353,24 @@ export default data = [
         "subCategory1": "Headphones",
         "date": "15/01/2024",
         "images": [
-            "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/534d2359-c6e2-42fb-b8ce-82b658be202d/swift-uv-running-jacket-9rNwSf.png",
-            "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/75520ec3-492f-4cc1-8b9f-40203b2493e0/club-coaches-jacket-kWqWsm.png",
-            "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/aafa2ef0-442e-4f00-bbe2-dc48ea2ba4c5/club-coaches-jacket-kWqWsm.png"
+            {
+                "image": "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/534d2359-c6e2-42fb-b8ce-82b658be202d/swift-uv-running-jacket-9rNwSf.png",
+                "color": "red"
+            },
+            {
+                "image": "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/75520ec3-492f-4cc1-8b9f-40203b2493e0/club-coaches-jacket-kWqWsm.png",
+                "color": "blue"
+            },
+            {
+                "image": "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/aafa2ef0-442e-4f00-bbe2-dc48ea2ba4c5/club-coaches-jacket-kWqWsm.png",
+                "color": "green"
+            },
         ],
         "rating": {
             "rate": 4.2,
             "count": 200
         },
-        "qty": 20
+        "qty": 0
     },
     {
         "id": 14,
@@ -264,15 +381,24 @@ export default data = [
         "subCategory": "women",
         "subCategory1": "Shoes",
         "images": [
-            "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/c297a4f8-8ba4-4d0e-948b-b0832e703811/club-coaches-jacket-kWqWsm.png",
-            "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/3346385b-a478-47d5-81aa-3af4db3a5e0e/swift-uv-running-jacket-9rNwSf.png",
-            "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/a0ea7ab1-a717-4199-855a-9b58ab900781/swift-uv-running-jacket-9rNwSf.png"
+            {
+                "image": "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/c297a4f8-8ba4-4d0e-948b-b0832e703811/club-coaches-jacket-kWqWsm.png",
+                "color": "red"
+            },
+            {
+                "image": "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/3346385b-a478-47d5-81aa-3af4db3a5e0e/swift-uv-running-jacket-9rNwSf.png",
+                "color": "blue"
+            },
+            {
+                "image": "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/a0ea7ab1-a717-4199-855a-9b58ab900781/swift-uv-running-jacket-9rNwSf.png",
+                "color": "green"
+            },
         ],
         "rating": {
             "rate": 4.8,
             "count": 150
         },
-        "qty": 15
+        "qty": 0
     },
     {
         "id": 15,
@@ -283,15 +409,24 @@ export default data = [
         "subCategory": "women",
         "subCategory1": "Shoes",
         "images": [
-            "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/c297a4f8-8ba4-4d0e-948b-b0832e703811/club-coaches-jacket-kWqWsm.png",
-            "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/3346385b-a478-47d5-81aa-3af4db3a5e0e/swift-uv-running-jacket-9rNwSf.png",
-            "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/a0ea7ab1-a717-4199-855a-9b58ab900781/swift-uv-running-jacket-9rNwSf.png"
+            {
+                "image": "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/c297a4f8-8ba4-4d0e-948b-b0832e703811/club-coaches-jacket-kWqWsm.png",
+                "color": "red"
+            },
+            {
+                "image": "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/3346385b-a478-47d5-81aa-3af4db3a5e0e/swift-uv-running-jacket-9rNwSf.png",
+                "color": "blue"
+            },
+            {
+                "image": "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/a0ea7ab1-a717-4199-855a-9b58ab900781/swift-uv-running-jacket-9rNwSf.png",
+                "color": "green"
+            },
         ],
         "rating": {
             "rate": 4.7,
             "count": 100
         },
-        "qty": 5
+        "qty": 0
     },
     {
         "id": 16,
@@ -302,15 +437,24 @@ export default data = [
         "subCategory": "women",
         "subCategory1": "Bags",
         "images": [
-            "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/c297a4f8-8ba4-4d0e-948b-b0832e703811/club-coaches-jacket-kWqWsm.png",
-            "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/3346385b-a478-47d5-81aa-3af4db3a5e0e/swift-uv-running-jacket-9rNwSf.png",
-            "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/a0ea7ab1-a717-4199-855a-9b58ab900781/swift-uv-running-jacket-9rNwSf.png"
+            {
+                "image": "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/c297a4f8-8ba4-4d0e-948b-b0832e703811/club-coaches-jacket-kWqWsm.png",
+                "color": "red"
+            },
+            {
+                "image": "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/3346385b-a478-47d5-81aa-3af4db3a5e0e/swift-uv-running-jacket-9rNwSf.png",
+                "color": "blue"
+            },
+            {
+                "image": "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/a0ea7ab1-a717-4199-855a-9b58ab900781/swift-uv-running-jacket-9rNwSf.png",
+                "color": "green"
+            },
         ],
         "rating": {
             "rate": 4.4,
             "count": 80
         },
-        "qty": 8
+        "qty": 0
     },
     {
         "id": 17,
@@ -322,9 +466,18 @@ export default data = [
         "subCategory1": "Jacket",
         "date": "15/03/2024",
         "images": [
-            "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/534d2359-c6e2-42fb-b8ce-82b658be202d/swift-uv-running-jacket-9rNwSf.png",
-            "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/75520ec3-492f-4cc1-8b9f-40203b2493e0/club-coaches-jacket-kWqWsm.png",
-            "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/aafa2ef0-442e-4f00-bbe2-dc48ea2ba4c5/club-coaches-jacket-kWqWsm.png"
+            {
+                "image": "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/534d2359-c6e2-42fb-b8ce-82b658be202d/swift-uv-running-jacket-9rNwSf.png",
+                "color": "red"
+            },
+            {
+                "image": "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/75520ec3-492f-4cc1-8b9f-40203b2493e0/club-coaches-jacket-kWqWsm.png",
+                "color": "blue"
+            },
+            {
+                "image": "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/aafa2ef0-442e-4f00-bbe2-dc48ea2ba4c5/club-coaches-jacket-kWqWsm.png",
+                "color": "green"
+            },
         ],
         "rating": {
             "rate": 3.9,
@@ -342,15 +495,24 @@ export default data = [
         "subCategory1": "Jacket",
         "date": "15/03/2024",
         "images": [
-            "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/534d2359-c6e2-42fb-b8ce-82b658be202d/swift-uv-running-jacket-9rNwSf.png",
-            "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/75520ec3-492f-4cc1-8b9f-40203b2493e0/club-coaches-jacket-kWqWsm.png",
-            "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/aafa2ef0-442e-4f00-bbe2-dc48ea2ba4c5/club-coaches-jacket-kWqWsm.png"
+            {
+                "image": "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/534d2359-c6e2-42fb-b8ce-82b658be202d/swift-uv-running-jacket-9rNwSf.png",
+                "color": "red"
+            },
+            {
+                "image": "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/75520ec3-492f-4cc1-8b9f-40203b2493e0/club-coaches-jacket-kWqWsm.png",
+                "color": "blue"
+            },
+            {
+                "image": "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/aafa2ef0-442e-4f00-bbe2-dc48ea2ba4c5/club-coaches-jacket-kWqWsm.png",
+                "color": "green"
+            },
         ],
         "rating": {
             "rate": 4.5,
             "count": 75
         },
-        "qty": 10
+        "qty": 0
     },
     {
         "id": 19,
@@ -361,15 +523,24 @@ export default data = [
         "subCategory": "women",
         "subCategory1": "Headphones",
         "images": [
-            "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/534d2359-c6e2-42fb-b8ce-82b658be202d/swift-uv-running-jacket-9rNwSf.png",
-            "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/75520ec3-492f-4cc1-8b9f-40203b2493e0/club-coaches-jacket-kWqWsm.png",
-            "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/aafa2ef0-442e-4f00-bbe2-dc48ea2ba4c5/club-coaches-jacket-kWqWsm.png"
+            {
+                "image": "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/534d2359-c6e2-42fb-b8ce-82b658be202d/swift-uv-running-jacket-9rNwSf.png",
+                "color": "red"
+            },
+            {
+                "image": "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/75520ec3-492f-4cc1-8b9f-40203b2493e0/club-coaches-jacket-kWqWsm.png",
+                "color": "blue"
+            },
+            {
+                "image": "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/aafa2ef0-442e-4f00-bbe2-dc48ea2ba4c5/club-coaches-jacket-kWqWsm.png",
+                "color": "green"
+            },
         ],
         "rating": {
             "rate": 4.2,
             "count": 200
         },
-        "qty": 20
+        "qty": 0
     },
     {
         "id": 20,
@@ -380,15 +551,24 @@ export default data = [
         "subCategory": "women",
         "subCategory1": "Shoes",
         "images": [
-            "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/c297a4f8-8ba4-4d0e-948b-b0832e703811/club-coaches-jacket-kWqWsm.png",
-            "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/3346385b-a478-47d5-81aa-3af4db3a5e0e/swift-uv-running-jacket-9rNwSf.png",
-            "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/a0ea7ab1-a717-4199-855a-9b58ab900781/swift-uv-running-jacket-9rNwSf.png"
+            {
+                "image": "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/c297a4f8-8ba4-4d0e-948b-b0832e703811/club-coaches-jacket-kWqWsm.png",
+                "color": "red"
+            },
+            {
+                "image": "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/3346385b-a478-47d5-81aa-3af4db3a5e0e/swift-uv-running-jacket-9rNwSf.png",
+                "color": "blue"
+            },
+            {
+                "image": "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/a0ea7ab1-a717-4199-855a-9b58ab900781/swift-uv-running-jacket-9rNwSf.png",
+                "color": "green"
+            },
         ],
         "rating": {
             "rate": 4.8,
             "count": 150
         },
-        "qty": 15
+        "qty": 0
     },
     {
         "id": 21,
@@ -400,9 +580,18 @@ export default data = [
         "subCategory1": "Jacket",
         "date": "15/03/2024",
         "images": [
-            "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/534d2359-c6e2-42fb-b8ce-82b658be202d/swift-uv-running-jacket-9rNwSf.png",
-            "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/75520ec3-492f-4cc1-8b9f-40203b2493e0/club-coaches-jacket-kWqWsm.png",
-            "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/aafa2ef0-442e-4f00-bbe2-dc48ea2ba4c5/club-coaches-jacket-kWqWsm.png"
+            {
+                "image": "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/534d2359-c6e2-42fb-b8ce-82b658be202d/swift-uv-running-jacket-9rNwSf.png",
+                "color": "red"
+            },
+            {
+                "image": "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/75520ec3-492f-4cc1-8b9f-40203b2493e0/club-coaches-jacket-kWqWsm.png",
+                "color": "blue"
+            },
+            {
+                "image": "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/aafa2ef0-442e-4f00-bbe2-dc48ea2ba4c5/club-coaches-jacket-kWqWsm.png",
+                "color": "green"
+            },
         ],
         "rating": {
             "rate": 3.9,
@@ -420,9 +609,18 @@ export default data = [
         "subCategory1": "Jacket",
         "date": "15/03/2024",
         "images": [
-            "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/534d2359-c6e2-42fb-b8ce-82b658be202d/swift-uv-running-jacket-9rNwSf.png",
-            "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/75520ec3-492f-4cc1-8b9f-40203b2493e0/club-coaches-jacket-kWqWsm.png",
-            "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/aafa2ef0-442e-4f00-bbe2-dc48ea2ba4c5/club-coaches-jacket-kWqWsm.png"
+            {
+                "image": "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/534d2359-c6e2-42fb-b8ce-82b658be202d/swift-uv-running-jacket-9rNwSf.png",
+                "color": "red"
+            },
+            {
+                "image": "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/75520ec3-492f-4cc1-8b9f-40203b2493e0/club-coaches-jacket-kWqWsm.png",
+                "color": "blue"
+            },
+            {
+                "image": "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/aafa2ef0-442e-4f00-bbe2-dc48ea2ba4c5/club-coaches-jacket-kWqWsm.png",
+                "color": "green"
+            },
         ],
         "rating": {
             "rate": 4.5,
@@ -439,9 +637,18 @@ export default data = [
         "subCategory": "children",
         "subCategory1": "Headphones",
         "images": [
-            "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/534d2359-c6e2-42fb-b8ce-82b658be202d/swift-uv-running-jacket-9rNwSf.png",
-            "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/75520ec3-492f-4cc1-8b9f-40203b2493e0/club-coaches-jacket-kWqWsm.png",
-            "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/aafa2ef0-442e-4f00-bbe2-dc48ea2ba4c5/club-coaches-jacket-kWqWsm.png"
+            {
+                "image": "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/534d2359-c6e2-42fb-b8ce-82b658be202d/swift-uv-running-jacket-9rNwSf.png",
+                "color": "red"
+            },
+            {
+                "image": "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/75520ec3-492f-4cc1-8b9f-40203b2493e0/club-coaches-jacket-kWqWsm.png",
+                "color": "blue"
+            },
+            {
+                "image": "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/aafa2ef0-442e-4f00-bbe2-dc48ea2ba4c5/club-coaches-jacket-kWqWsm.png",
+                "color": "green"
+            },
         ],
         "rating": {
             "rate": 4.2,
@@ -458,9 +665,18 @@ export default data = [
         "subCategory": "children",
         "subCategory1": "Shoes",
         "images": [
-            "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/c297a4f8-8ba4-4d0e-948b-b0832e703811/club-coaches-jacket-kWqWsm.png",
-            "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/3346385b-a478-47d5-81aa-3af4db3a5e0e/swift-uv-running-jacket-9rNwSf.png",
-            "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/a0ea7ab1-a717-4199-855a-9b58ab900781/swift-uv-running-jacket-9rNwSf.png"
+            {
+                "image": "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/c297a4f8-8ba4-4d0e-948b-b0832e703811/club-coaches-jacket-kWqWsm.png",
+                "color": "red"
+            },
+            {
+                "image": "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/3346385b-a478-47d5-81aa-3af4db3a5e0e/swift-uv-running-jacket-9rNwSf.png",
+                "color": "blue"
+            },
+            {
+                "image": "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/a0ea7ab1-a717-4199-855a-9b58ab900781/swift-uv-running-jacket-9rNwSf.png",
+                "color": "green"
+            },
         ],
         "rating": {
             "rate": 4.8,
@@ -477,9 +693,18 @@ export default data = [
         "subCategory": "children",
         "subCategory1": "Shoes",
         "images": [
-            "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/c297a4f8-8ba4-4d0e-948b-b0832e703811/club-coaches-jacket-kWqWsm.png",
-            "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/3346385b-a478-47d5-81aa-3af4db3a5e0e/swift-uv-running-jacket-9rNwSf.png",
-            "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/a0ea7ab1-a717-4199-855a-9b58ab900781/swift-uv-running-jacket-9rNwSf.png"
+            {
+                "image": "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/c297a4f8-8ba4-4d0e-948b-b0832e703811/club-coaches-jacket-kWqWsm.png",
+                "color": "red"
+            },
+            {
+                "image": "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/3346385b-a478-47d5-81aa-3af4db3a5e0e/swift-uv-running-jacket-9rNwSf.png",
+                "color": "blue"
+            },
+            {
+                "image": "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/a0ea7ab1-a717-4199-855a-9b58ab900781/swift-uv-running-jacket-9rNwSf.png",
+                "color": "green"
+            },
         ],
         "rating": {
             "rate": 4.7,
@@ -496,9 +721,18 @@ export default data = [
         "subCategory": "children",
         "subCategory1": "Bags",
         "images": [
-            "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/c297a4f8-8ba4-4d0e-948b-b0832e703811/club-coaches-jacket-kWqWsm.png",
-            "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/3346385b-a478-47d5-81aa-3af4db3a5e0e/swift-uv-running-jacket-9rNwSf.png",
-            "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/a0ea7ab1-a717-4199-855a-9b58ab900781/swift-uv-running-jacket-9rNwSf.png"
+            {
+                "image": "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/c297a4f8-8ba4-4d0e-948b-b0832e703811/club-coaches-jacket-kWqWsm.png",
+                "color": "red"
+            },
+            {
+                "image": "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/3346385b-a478-47d5-81aa-3af4db3a5e0e/swift-uv-running-jacket-9rNwSf.png",
+                "color": "blue"
+            },
+            {
+                "image": "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/a0ea7ab1-a717-4199-855a-9b58ab900781/swift-uv-running-jacket-9rNwSf.png",
+                "color": "green"
+            },
         ],
         "rating": {
             "rate": 4.4,
@@ -516,9 +750,18 @@ export default data = [
         "subCategory1": "Jacket",
         "date": "15/03/2024",
         "images": [
-            "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/534d2359-c6e2-42fb-b8ce-82b658be202d/swift-uv-running-jacket-9rNwSf.png",
-            "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/75520ec3-492f-4cc1-8b9f-40203b2493e0/club-coaches-jacket-kWqWsm.png",
-            "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/aafa2ef0-442e-4f00-bbe2-dc48ea2ba4c5/club-coaches-jacket-kWqWsm.png"
+            {
+                "image": "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/534d2359-c6e2-42fb-b8ce-82b658be202d/swift-uv-running-jacket-9rNwSf.png",
+                "color": "red"
+            },
+            {
+                "image": "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/75520ec3-492f-4cc1-8b9f-40203b2493e0/club-coaches-jacket-kWqWsm.png",
+                "color": "blue"
+            },
+            {
+                "image": "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/aafa2ef0-442e-4f00-bbe2-dc48ea2ba4c5/club-coaches-jacket-kWqWsm.png",
+                "color": "green"
+            },
         ],
         "rating": {
             "rate": 3.9,
@@ -536,9 +779,18 @@ export default data = [
         "subCategory1": "Jacket",
         "date": "15/03/2024",
         "images": [
-            "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/534d2359-c6e2-42fb-b8ce-82b658be202d/swift-uv-running-jacket-9rNwSf.png",
-            "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/75520ec3-492f-4cc1-8b9f-40203b2493e0/club-coaches-jacket-kWqWsm.png",
-            "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/aafa2ef0-442e-4f00-bbe2-dc48ea2ba4c5/club-coaches-jacket-kWqWsm.png"
+            {
+                "image": "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/534d2359-c6e2-42fb-b8ce-82b658be202d/swift-uv-running-jacket-9rNwSf.png",
+                "color": "red"
+            },
+            {
+                "image": "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/75520ec3-492f-4cc1-8b9f-40203b2493e0/club-coaches-jacket-kWqWsm.png",
+                "color": "blue"
+            },
+            {
+                "image": "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/aafa2ef0-442e-4f00-bbe2-dc48ea2ba4c5/club-coaches-jacket-kWqWsm.png",
+                "color": "green"
+            },
         ],
         "rating": {
             "rate": 4.5,
@@ -555,6 +807,18 @@ export default data = [
         "subCategory": "children",
         "subCategory1": "Headphones",
         "images": [
+            {
+                "image": "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/534d2359-c6e2-42fb-b8ce-82b658be202d/swift-uv-running-jacket-9rNwSf.png",
+                "color": "red"
+            },
+            {
+                "image": "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/75520ec3-492f-4cc1-8b9f-40203b2493e0/club-coaches-jacket-kWqWsm.png",
+                "color": "blue"
+            },
+            {
+                "image": "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/aafa2ef0-442e-4f00-bbe2-dc48ea2ba4c5/club-coaches-jacket-kWqWsm.png",
+                "color": "green"
+            },
             "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/534d2359-c6e2-42fb-b8ce-82b658be202d/swift-uv-running-jacket-9rNwSf.png",
             "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/75520ec3-492f-4cc1-8b9f-40203b2493e0/club-coaches-jacket-kWqWsm.png",
             "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/aafa2ef0-442e-4f00-bbe2-dc48ea2ba4c5/club-coaches-jacket-kWqWsm.png"
