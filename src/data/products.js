@@ -7,7 +7,7 @@ export default data = [
         "category": "Nike",
         "subCategory": "men",
         "subCategory1": "Jacket",
-        "date":"15/01/2024",
+        "date": "15/01/2024",
         "images": [
             "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/534d2359-c6e2-42fb-b8ce-82b658be202d/swift-uv-running-jacket-9rNwSf.png",
             "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/75520ec3-492f-4cc1-8b9f-40203b2493e0/club-coaches-jacket-kWqWsm.png",
@@ -27,7 +27,7 @@ export default data = [
         "category": "Puma",
         "subCategory": "men",
         "subCategory1": "Jacket",
-        "date":"15/03/2024",
+        "date": "15/03/2024",
         "images": [
             "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/534d2359-c6e2-42fb-b8ce-82b658be202d/swift-uv-running-jacket-9rNwSf.png",
             "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/75520ec3-492f-4cc1-8b9f-40203b2493e0/club-coaches-jacket-kWqWsm.png",
@@ -47,7 +47,7 @@ export default data = [
         "category": "Adidas",
         "subCategory": "men",
         "subCategory1": "Headphones",
-        "date":"15/01/2024",
+        "date": "15/01/2024",
         "images": [
             "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/534d2359-c6e2-42fb-b8ce-82b658be202d/swift-uv-running-jacket-9rNwSf.png",
             "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/75520ec3-492f-4cc1-8b9f-40203b2493e0/club-coaches-jacket-kWqWsm.png",
@@ -105,7 +105,7 @@ export default data = [
         "category": "Fashion",
         "subCategory": "men",
         "subCategory1": "Bags",
-        "date":"15/01/2024",
+        "date": "15/01/2024",
         "images": [
             "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/c297a4f8-8ba4-4d0e-948b-b0832e703811/club-coaches-jacket-kWqWsm.png",
             "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/3346385b-a478-47d5-81aa-3af4db3a5e0e/swift-uv-running-jacket-9rNwSf.png",
@@ -125,7 +125,7 @@ export default data = [
         "category": "Nike",
         "subCategory": "Men",
         "subCategory1": "Jacket",
-        "date":"15/03/2024",
+        "date": "15/03/2024",
         "images": [
             "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/534d2359-c6e2-42fb-b8ce-82b658be202d/swift-uv-running-jacket-9rNwSf.png",
             "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/75520ec3-492f-4cc1-8b9f-40203b2493e0/club-coaches-jacket-kWqWsm.png",
@@ -145,7 +145,7 @@ export default data = [
         "category": "Puma",
         "subCategory": "men",
         "subCategory1": "Jacket",
-        "date":"15/03/2024",
+        "date": "15/03/2024",
         "images": [
             "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/534d2359-c6e2-42fb-b8ce-82b658be202d/swift-uv-running-jacket-9rNwSf.png",
             "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/75520ec3-492f-4cc1-8b9f-40203b2493e0/club-coaches-jacket-kWqWsm.png",
@@ -203,7 +203,7 @@ export default data = [
         "category": "Nike",
         "subCategory": "women",
         "subCategory1": "Jacket",
-        "date":"15/03/2024",
+        "date": "15/03/2024",
         "images": [
             "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/534d2359-c6e2-42fb-b8ce-82b658be202d/swift-uv-running-jacket-9rNwSf.png",
             "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/75520ec3-492f-4cc1-8b9f-40203b2493e0/club-coaches-jacket-kWqWsm.png",
@@ -223,7 +223,7 @@ export default data = [
         "category": "Puma",
         "subCategory": "women",
         "subCategory1": "Jacket",
-        "date":"15/03/2024",
+        "date": "15/03/2024",
         "images": [
             "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/534d2359-c6e2-42fb-b8ce-82b658be202d/swift-uv-running-jacket-9rNwSf.png",
             "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/75520ec3-492f-4cc1-8b9f-40203b2493e0/club-coaches-jacket-kWqWsm.png",
@@ -243,7 +243,7 @@ export default data = [
         "category": "Adidas",
         "subCategory": "women",
         "subCategory1": "Headphones",
-        "date":"15/01/2024",
+        "date": "15/01/2024",
         "images": [
             "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/534d2359-c6e2-42fb-b8ce-82b658be202d/swift-uv-running-jacket-9rNwSf.png",
             "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/75520ec3-492f-4cc1-8b9f-40203b2493e0/club-coaches-jacket-kWqWsm.png",
@@ -320,7 +320,7 @@ export default data = [
         "category": "Nike",
         "subCategory": "women",
         "subCategory1": "Jacket",
-        "date":"15/03/2024",
+        "date": "15/03/2024",
         "images": [
             "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/534d2359-c6e2-42fb-b8ce-82b658be202d/swift-uv-running-jacket-9rNwSf.png",
             "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/75520ec3-492f-4cc1-8b9f-40203b2493e0/club-coaches-jacket-kWqWsm.png",
@@ -340,7 +340,7 @@ export default data = [
         "category": "Puma",
         "subCategory": "women",
         "subCategory1": "Jacket",
-        "date":"15/03/2024",
+        "date": "15/03/2024",
         "images": [
             "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/534d2359-c6e2-42fb-b8ce-82b658be202d/swift-uv-running-jacket-9rNwSf.png",
             "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/75520ec3-492f-4cc1-8b9f-40203b2493e0/club-coaches-jacket-kWqWsm.png",
@@ -398,7 +398,7 @@ export default data = [
         "category": "Nike",
         "subCategory": "children",
         "subCategory1": "Jacket",
-        "date":"15/03/2024",
+        "date": "15/03/2024",
         "images": [
             "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/534d2359-c6e2-42fb-b8ce-82b658be202d/swift-uv-running-jacket-9rNwSf.png",
             "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/75520ec3-492f-4cc1-8b9f-40203b2493e0/club-coaches-jacket-kWqWsm.png",
@@ -418,7 +418,7 @@ export default data = [
         "category": "Puma",
         "subCategory": "children",
         "subCategory1": "Jacket",
-        "date":"15/03/2024",
+        "date": "15/03/2024",
         "images": [
             "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/534d2359-c6e2-42fb-b8ce-82b658be202d/swift-uv-running-jacket-9rNwSf.png",
             "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/75520ec3-492f-4cc1-8b9f-40203b2493e0/club-coaches-jacket-kWqWsm.png",
@@ -514,7 +514,7 @@ export default data = [
         "category": "Nike",
         "subCategory": "children",
         "subCategory1": "Jacket",
-        "date":"15/03/2024",
+        "date": "15/03/2024",
         "images": [
             "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/534d2359-c6e2-42fb-b8ce-82b658be202d/swift-uv-running-jacket-9rNwSf.png",
             "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/75520ec3-492f-4cc1-8b9f-40203b2493e0/club-coaches-jacket-kWqWsm.png",
@@ -534,7 +534,7 @@ export default data = [
         "category": "Puma",
         "subCategory": "children",
         "subCategory1": "Jacket",
-        "date":"15/03/2024",
+        "date": "15/03/2024",
         "images": [
             "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/534d2359-c6e2-42fb-b8ce-82b658be202d/swift-uv-running-jacket-9rNwSf.png",
             "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/75520ec3-492f-4cc1-8b9f-40203b2493e0/club-coaches-jacket-kWqWsm.png",
@@ -593,7 +593,7 @@ export default data = [
         "category": "Nike",
         "subCategory": "men",
         "subCategory1": "Jacket",
-        "date":"15/03/2024",
+        "date": "15/03/2024",
         "images": [
             "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/534d2359-c6e2-42fb-b8ce-82b658be202d/swift-uv-running-jacket-9rNwSf.png",
             "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/75520ec3-492f-4cc1-8b9f-40203b2493e0/club-coaches-jacket-kWqWsm.png",
@@ -613,7 +613,7 @@ export default data = [
         "category": "Puma",
         "subCategory": "men",
         "subCategory1": "Jacket",
-        "date":"15/03/2024",
+        "date": "15/03/2024",
         "images": [
             "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/534d2359-c6e2-42fb-b8ce-82b658be202d/swift-uv-running-jacket-9rNwSf.png",
             "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/75520ec3-492f-4cc1-8b9f-40203b2493e0/club-coaches-jacket-kWqWsm.png",
@@ -709,7 +709,7 @@ export default data = [
         "category": "Nike",
         "subCategory": "men",
         "subCategory1": "Jacket",
-        "date":"15/03/2024",
+        "date": "15/03/2024",
         "images": [
             "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/534d2359-c6e2-42fb-b8ce-82b658be202d/swift-uv-running-jacket-9rNwSf.png",
             "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/75520ec3-492f-4cc1-8b9f-40203b2493e0/club-coaches-jacket-kWqWsm.png",
@@ -729,7 +729,7 @@ export default data = [
         "category": "Puma",
         "subCategory": "men",
         "subCategory1": "Jacket",
-        "date":"15/03/2024",
+        "date": "15/03/2024",
         "images": [
             "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/534d2359-c6e2-42fb-b8ce-82b658be202d/swift-uv-running-jacket-9rNwSf.png",
             "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/75520ec3-492f-4cc1-8b9f-40203b2493e0/club-coaches-jacket-kWqWsm.png",
@@ -788,7 +788,7 @@ export default data = [
         "category": "Nike",
         "subCategory": "women",
         "subCategory1": "Jacket",
-        "date":"15/03/2024",
+        "date": "15/03/2024",
         "images": [
             "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/534d2359-c6e2-42fb-b8ce-82b658be202d/swift-uv-running-jacket-9rNwSf.png",
             "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/75520ec3-492f-4cc1-8b9f-40203b2493e0/club-coaches-jacket-kWqWsm.png",
@@ -808,7 +808,7 @@ export default data = [
         "category": "Puma",
         "subCategory": "women",
         "subCategory1": "Jacket",
-        "date":"15/03/2024",
+        "date": "15/03/2024",
         "images": [
             "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/534d2359-c6e2-42fb-b8ce-82b658be202d/swift-uv-running-jacket-9rNwSf.png",
             "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/75520ec3-492f-4cc1-8b9f-40203b2493e0/club-coaches-jacket-kWqWsm.png",
@@ -904,7 +904,7 @@ export default data = [
         "category": "Nike",
         "subCategory": "women",
         "subCategory1": "Jacket",
-        "date":"15/03/2024",
+        "date": "15/03/2024",
         "images": [
             "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/534d2359-c6e2-42fb-b8ce-82b658be202d/swift-uv-running-jacket-9rNwSf.png",
             "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/75520ec3-492f-4cc1-8b9f-40203b2493e0/club-coaches-jacket-kWqWsm.png",
@@ -924,7 +924,7 @@ export default data = [
         "category": "Puma",
         "subCategory": "women",
         "subCategory1": "Jacket",
-        "date":"15/03/2024",
+        "date": "15/03/2024",
         "images": [
             "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/534d2359-c6e2-42fb-b8ce-82b658be202d/swift-uv-running-jacket-9rNwSf.png",
             "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/75520ec3-492f-4cc1-8b9f-40203b2493e0/club-coaches-jacket-kWqWsm.png",
@@ -982,7 +982,7 @@ export default data = [
         "category": "Nike",
         "subCategory": "children",
         "subCategory1": "Jacket",
-        "date":"15/03/2024",
+        "date": "15/03/2024",
         "images": [
             "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/534d2359-c6e2-42fb-b8ce-82b658be202d/swift-uv-running-jacket-9rNwSf.png",
             "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/75520ec3-492f-4cc1-8b9f-40203b2493e0/club-coaches-jacket-kWqWsm.png",
@@ -1002,7 +1002,7 @@ export default data = [
         "category": "Puma",
         "subCategory": "children",
         "subCategory1": "Jacket",
-        "date":"15/03/2024",
+        "date": "15/03/2024",
         "images": [
             "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/534d2359-c6e2-42fb-b8ce-82b658be202d/swift-uv-running-jacket-9rNwSf.png",
             "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/75520ec3-492f-4cc1-8b9f-40203b2493e0/club-coaches-jacket-kWqWsm.png",
@@ -1098,7 +1098,7 @@ export default data = [
         "category": "Nike",
         "subCategory": "children",
         "subCategory1": "Jacket",
-        "date":"15/03/2024",
+        "date": "15/03/2024",
         "images": [
             "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/534d2359-c6e2-42fb-b8ce-82b658be202d/swift-uv-running-jacket-9rNwSf.png",
             "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/75520ec3-492f-4cc1-8b9f-40203b2493e0/club-coaches-jacket-kWqWsm.png",
@@ -1118,7 +1118,7 @@ export default data = [
         "category": "Puma",
         "subCategory": "children",
         "subCategory1": "Jacket",
-        "date":"15/03/2024",
+        "date": "15/03/2024",
         "images": [
             "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/534d2359-c6e2-42fb-b8ce-82b658be202d/swift-uv-running-jacket-9rNwSf.png",
             "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/75520ec3-492f-4cc1-8b9f-40203b2493e0/club-coaches-jacket-kWqWsm.png",

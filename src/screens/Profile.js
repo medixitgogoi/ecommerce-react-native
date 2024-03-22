@@ -35,6 +35,7 @@ import DoubleTick from 'react-native-vector-icons/dist/Ionicons';
 import { useNavigation } from '@react-navigation/native';
 
 const Profile = () => {
+
   const navigation = useNavigation();
   const logindata = useSelector(state => state.user);
   const [modal, setmodal] = useState(false);
@@ -207,7 +208,6 @@ const Profile = () => {
       </View>
 
       {/* location */}
-
       {locationmodal ? (
         <Modal animationType="slide" transparent={true} visible={true}>
           <View
@@ -358,7 +358,4 @@ const Profile = () => {
 export default Profile
 
 const styles = StyleSheet.create({
-
-
 });
-
