@@ -4,8 +4,8 @@ export default data = [
         "title": "Men's Coaches' Jacket",
         "price": 109.95,
         "description": "Your perfect pack for everyday use and walks in the forest. Stash your laptop (up to 15 inches) in the padded sleeve, your everyday",
-        "category": "Nike7777777777777777777777777",
-        "subCategory": "Men",
+        "category": "Nike",
+        "subCategory": "men",
         "subCategory1": "Jacket",
         "date":"15/01/2024",
         "images": [
@@ -591,7 +591,7 @@ export default data = [
         "price": 109,
         "description": "Your perfect pack for everyday use and walks in the forest. Stash your laptop (up to 15 inches) in the padded sleeve, your everyday",
         "category": "Nike",
-        "subCategory": "Men",
+        "subCategory": "men",
         "subCategory1": "Jacket",
         "date":"15/03/2024",
         "images": [
@@ -707,7 +707,7 @@ export default data = [
         "price": 109,
         "description": "Your perfect pack for everyday use and walks in the forest. Stash your laptop (up to 15 inches) in the padded sleeve, your everyday",
         "category": "Nike",
-        "subCategory": "Men",
+        "subCategory": "men",
         "subCategory1": "Jacket",
         "date":"15/03/2024",
         "images": [

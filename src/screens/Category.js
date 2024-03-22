@@ -13,7 +13,9 @@ const Category = ({ navigation, route }) => {
 
     const category = route.params.data
 
-    const categoryProducts = data.filter(item => item.category === category);
+    console.log("datadatadatadata",data111)
+
+    const categoryProducts = data111.filter(item => item.category === category);
 
     const [okpress, setOkpress] = useState(false);
     const [isModalVisible, setModalVisible] = useState(true);
@@ -345,6 +347,7 @@ const Category = ({ navigation, route }) => {
 
         },
     ]), []);
+
 
     return (
         <SafeAreaView style={{ flex: 1, paddingBottom: 53 }}>
@@ -1307,7 +1310,6 @@ const styles = StyleSheet.create({
         marginHorizontal: 12,
     },
     ViewCard: {
-
         borderRadius: 8,
         overflow: 'hidden',
         flexDirection: "column",
