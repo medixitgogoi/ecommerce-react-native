@@ -13,7 +13,7 @@ const Category = ({ navigation, route }) => {
 
     const category = route.params.data
 
-    console.log("datadatadatadata",data111)
+    
 
     const categoryProducts = data111.filter(item => item.category === category);
 
@@ -344,6 +344,7 @@ const Category = ({ navigation, route }) => {
         },
     ]), []);
 
+    console.log("datadatadatadata",selectedId)
 
     return (
         <SafeAreaView style={{ flex: 1, paddingBottom: 53 }}>
@@ -1306,7 +1307,6 @@ const styles = StyleSheet.create({
         marginHorizontal: 12,
     },
     ViewCard: {
-
         borderRadius: 8,
         overflow: 'hidden',
         flexDirection: "column",
