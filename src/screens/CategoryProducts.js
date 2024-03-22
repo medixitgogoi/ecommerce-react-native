@@ -22,7 +22,7 @@ const CategoryProducts = ({ navigation, route }) => {
     const cat = route.params.data.category
     const products = route.params.data.products;
 
-    console.log(products)
+    // console.log(products)
 
     const dispatch = useDispatch();
 
@@ -402,55 +402,144 @@ const CategoryProducts = ({ navigation, route }) => {
 
                                 {/* Right */}
                                 {selectedFilter === 1 ? (
-                                    <View style={{ height: "100%", width: "60%", marginLeft: 10, paddingTop: 5 }}>
-                                        <View style={{ flexDirection: "row", alignItems: "center", justifyContent: "flex-start" }}>
-                                            <RadioGroup
-                                                radioButtons={processorButtons}
-                                                onPress={setSelectedId}
-                                                selectedId={selectedId}
-                                            />
-                                        </View>
-                                    </View>
+                                    // <View style={{ height: "100%", width: "60%", marginLeft: 10, paddingTop: 5 }}>
+                                    //     <View style={{ flexDirection: "row", alignItems: "center", justifyContent: "flex-start" }}>
+                                    //         <RadioGroup
+                                    //             radioButtons={processorButtons}
+                                    //             onPress={setSelectedId}
+                                    //             selectedId={selectedId}
+                                    //             containerStyle={{ 
+                                    //                 borderRadius: 8,
+                                    //                 overflow: 'hidden',
+                                    //                 flexDirection: "column",
+                                    //                 color: "#e27e45",
+                                    //                 paddingTop: 5,
+                                    //                 alignItems: "flex-start",
+                                    //                 paddingHorizontal: 5,
+                                    //             }}
+                                    //         />
+                                    //     </View>
+                                    // </View>
+                                    <RadioGroup
+                                    radioButtons={processorButtons}
+                                    onPress={setSelectedId}
+                                    selectedId={selectedId}
+                                    containerStyle={{ 
+                                        borderRadius: 8,
+                                        overflow: 'hidden',
+                                        flexDirection: "column",
+                                        color: "#e27e45",
+                                        paddingTop: 5,
+                                        alignItems: "flex-start",
+                                        paddingHorizontal: 5,
+                                    }}
+                                />
                                 ) : selectedFilter === 2 ? (
-                                    <View style={{ height: "100%", width: "65%", marginLeft: 10, paddingTop: 5 }}>
-                                        <View style={{ flexDirection: "row", alignItems: "center", justifyContent: "flex-start" }}>
-                                            <RadioGroup
-                                                radioButtons={ramButtons}
-                                                onPress={setSelectedId}
-                                                selectedId={selectedId}
-                                            />
-                                        </View>
-                                    </View>
+                                    // <View style={{ height: "100%", width: "65%", marginLeft: 10, paddingTop: 5 }}>
+                                    //     <View style={{ flexDirection: "row", alignItems: "center", justifyContent: "flex-start" }}>
+                                    //         <RadioGroup
+                                    //             radioButtons={ramButtons}
+                                    //             onPress={setSelectedId}
+                                    //             selectedId={selectedId}
+                                    //         />
+                                    //     </View>
+                                    // </View>
+                                    <RadioGroup
+                                        radioButtons={ramButtons}
+                                        onPress={setSelectedId}
+                                        selectedId={selectedId}
+                                        containerStyle={{
+                                            borderRadius: 8,
+                                            overflow: 'hidden',
+                                            flexDirection: "column",
+                                            color: "#e27e45",
+                                            paddingTop: 5,
+                                            alignItems: "flex-start",
+                                            paddingHorizontal: 5,
+                                        }}
+                                    />
                                 ) : selectedFilter === 3 ? (
-                                    <View style={{ height: "100%", width: "65%", marginLeft: 10, paddingTop: 5 }}>
-                                        <View style={{ flexDirection: "row", alignItems: "center", justifyContent: "flex-start" }}>
-                                            <RadioGroup
-                                                radioButtons={ssdButtons}
-                                                onPress={setSelectedId}
-                                                selectedId={selectedId}
-                                            />
-                                        </View>
-                                    </View>
+                                    // <View style={{ height: "100%", width: "65%", marginLeft: 10, paddingTop: 5 }}>
+                                    //     <View style={{ flexDirection: "row", alignItems: "center", justifyContent: "flex-start" }}>
+                                    //         <RadioGroup
+                                    //             radioButtons={ssdButtons}
+                                    //             onPress={setSelectedId}
+                                    //             selectedId={selectedId}
+                                    //         />
+                                    //     </View>
+                                    // </View>
+                                    <RadioGroup
+                                        radioButtons={ssdButtons}
+                                        onPress={setSelectedId}
+                                        selectedId={selectedId}
+                                    />
                                 ) : selectedFilter === 4 ? (
-                                    <View style={{ height: "100%", width: "65%", marginLeft: 10, paddingTop: 5 }}>
-                                        <View style={{ flexDirection: "row", alignItems: "center", justifyContent: "flex-start" }}>
-                                            <RadioGroup
-                                                radioButtons={osButtons}
-                                                onPress={setSelectedId}
-                                                selectedId={selectedId}
-                                            />
-                                        </View>
-                                    </View>
+                                    // <View style={{ height: "100%", width: "65%", marginLeft: 10, paddingTop: 5 }}>
+                                    //     <View style={{ flexDirection: "row", alignItems: "center", justifyContent: "flex-start" }}>
+                                    //         <RadioGroup
+                                    //             radioButtons={osButtons}
+                                    //             onPress={setSelectedId}
+                                    //             selectedId={selectedId}
+                                    //             containerStyle={{ 
+                                    //                 borderRadius: 8,
+                                    //                 overflow: 'hidden',
+                                    //                 flexDirection: "column",
+                                    //                 color: "#e27e45",
+                                    //                 paddingTop: 5,
+                                    //                 alignItems: "flex-start",
+                                    //                 paddingHorizontal: 5,
+                                    //             }}
+                                    //         />
+                                    //     </View>
+                                    // </View>
+                                    <RadioGroup
+                                        radioButtons={osButtons}
+                                        onPress={setSelectedId}
+                                        selectedId={selectedId}
+                                        containerStyle={{
+                                            borderRadius: 8,
+                                            overflow: 'hidden',
+                                            flexDirection: "column",
+                                            color: "#e27e45",
+                                            paddingTop: 5,
+                                            alignItems: "flex-start",
+                                            paddingHorizontal: 5,
+                                        }}
+                                    />
                                 ) : (
-                                    <View style={{ height: "100%", width: "65%", marginLeft: 10, paddingTop: 5 }}>
-                                        <View style={{ flexDirection: "row", alignItems: "center", justifyContent: "flex-start" }}>
-                                            <RadioGroup
-                                                radioButtons={chipButtons}
-                                                onPress={setSelectedId}
-                                                selectedId={selectedId}
-                                            />
-                                        </View>
-                                    </View>
+                                    // <View style={{ height: "100%", width: "65%", marginLeft: 10, paddingTop: 5 }}>
+                                    //     <View style={{ flexDirection: "row", alignItems: "center", justifyContent: "flex-start" }}>
+                                    //         <RadioGroup
+                                    //             radioButtons={chipButtons}
+                                    //             onPress={setSelectedId}
+                                    //             selectedId={selectedId}
+                                    //             containerStyle={{ 
+                                    //                 borderRadius: 8,
+                                    //                 overflow: 'hidden',
+                                    //                 flexDirection: "column",
+                                    //                 color: "#e27e45",
+                                    //                 paddingTop: 5,
+                                    //                 alignItems: "flex-start",
+                                    //                 paddingHorizontal: 5,
+                                    //             }}
+                                    //         />
+                                    //     </View>
+                                    // </View>
+
+                                    <RadioGroup
+                                        radioButtons={chipButtons}
+                                        onPress={setSelectedId}
+                                        selectedId={selectedId}
+                                        containerStyle={{
+                                            borderRadius: 8,
+                                            overflow: 'hidden',
+                                            flexDirection: "column",
+                                            color: "#e27e45",
+                                            paddingTop: 5,
+                                            alignItems: "flex-start",
+                                            paddingHorizontal: 5,
+                                        }}
+                                    />
                                 )}
                             </View>
                         </ScrollView>
