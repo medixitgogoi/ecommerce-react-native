@@ -13,7 +13,9 @@ const Category = ({ navigation, route }) => {
 
     const category = route.params.data
 
-    const categoryProducts = data.filter(item => item.category === category);
+    console.log("datadatadatadata",data111)
+
+    const categoryProducts = data111.filter(item => item.category === category);
 
     const [okpress, setOkpress] = useState(false);
     const [isModalVisible, setModalVisible] = useState(true);
@@ -33,9 +35,7 @@ const Category = ({ navigation, route }) => {
     const [Brandmodel, setBrandmodel] = useState(false);
     const [Discountmodel, setDiscountmodel] = useState(false);
     const dispatch = useDispatch();
-    console.log("selectedId", selectedId)
-    const typee1 = "men"
-    console.log("typeetypee", typee1)
+
     const cartProducts = useSelector(state => state.cart);
 
     const brandsData = [
@@ -128,8 +128,6 @@ const Category = ({ navigation, route }) => {
             size: 15,
         },
     ]), []);
-
-
 
     const sortbutton = useMemo(() => ([
         {
@@ -492,46 +490,45 @@ const Category = ({ navigation, route }) => {
                         </View>
                     )}
                 </View>
+            </View>
 
-                <Modal
-                    isVisible={isModalVisible}
-                    animationIn="slideInUp"
-                    animationOut="slideOutDown"
-                    // onBackdropPress={() => setModalVisible(false)}
-                    onSwipeComplete={() => setModalVisible(false)}
-                >
-                    <View style={{
-                        backgroundColor: "#fff", height: 160, width: 300, alignSelf: "center", borderRadius: 10, flexDirection: "column", justifyContent: "space-between"
-                    }}>
-                        <View style={{ paddingHorizontal: 20, flexDirection: "column", justifyContent: "space-evenly", flex: 1, paddingBottom: 15 }}>
-                            <View style={{}}>
-                                <Text style={{ color: "#000", fontWeight: "500", fontSize: 20, paddingTop: 10, marginLeft: 10, textAlign: "center" }}>Select sub-category type:</Text>
-                            </View>
-                            <View style={{ flexDirection: "row", }}>
-                                <RadioGroup
-                                    radioButtons={radioButtons}
-                                    onPress={setSelectedId}
-                                    selectedId={selectedId}
-                                    layout='row'
-                                />
-                            </View>
+            <Modal
+                isVisible={isModalVisible}
+                animationIn="slideInUp"
+                animationOut="slideOutDown"
+                // onBackdropPress={() => setModalVisible(false)}
+                onSwipeComplete={() => setModalVisible(false)}
+            >
+                <View style={{
+                    backgroundColor: "#fff", height: 160, width: 300, alignSelf: "center", borderRadius: 10, flexDirection: "column", justifyContent: "space-between"
+                }}>
+                    <View style={{ paddingHorizontal: 20, flexDirection: "column", justifyContent: "space-evenly", flex: 1, paddingBottom: 15 }}>
+                        <View style={{}}>
+                            <Text style={{ color: "#000", fontWeight: "500", fontSize: 20, paddingTop: 10, marginLeft: 10, textAlign: "center" }}>Select sub-category type:</Text>
                         </View>
-                        <View style={{ flexDirection: "row", alignItems: "center", borderTopColor: "#e27e45", borderTopWidth: 0.4 }}>
-                            <TouchableOpacity style={{ flex: 1, alignItems: "center", justifyContent: "center" }} onPress={() => navigation.navigate("Home")}>
-                                <Text style={{ textAlign: "center", color: "#383838", fontWeight: "600" }}>
-                                    CANCEL
-                                </Text>
-                            </TouchableOpacity>
-                            <TouchableOpacity style={{ flex: 1, backgroundColor: "#e27e45", height: 40, alignItems: "center", justifyContent: "center", borderBottomRightRadius: 10 }} onPress={() => pressHandler()}>
-                                <Text style={{ textAlign: "center", fontWeight: "600", color: "#fff" }}>
-                                    OK
-                                </Text>
-                            </TouchableOpacity>
+                        <View style={{ flexDirection: "row", }}>
+                            <RadioGroup
+                                radioButtons={radioButtons}
+                                onPress={setSelectedId}
+                                selectedId={selectedId}
+                                layout='row'
+                            />
                         </View>
                     </View>
-                </Modal>
-
-            </View>
+                    <View style={{ flexDirection: "row", alignItems: "center", borderTopColor: "#e27e45", borderTopWidth: 0.4 }}>
+                        <TouchableOpacity style={{ flex: 1, alignItems: "center", justifyContent: "center" }} onPress={() => navigation.navigate("Home")}>
+                            <Text style={{ textAlign: "center", color: "#383838", fontWeight: "600" }}>
+                                CANCEL
+                            </Text>
+                        </TouchableOpacity>
+                        <TouchableOpacity style={{ flex: 1, backgroundColor: "#e27e45", height: 40, alignItems: "center", justifyContent: "center", borderBottomRightRadius: 10 }} onPress={() => pressHandler()}>
+                            <Text style={{ textAlign: "center", fontWeight: "600", color: "#fff" }}>
+                                OK
+                            </Text>
+                        </TouchableOpacity>
+                    </View>
+                </View>
+            </Modal>
 
             <View style={{ position: "absolute", bottom: 0, width: "100%" }}>
                 <TabBar />
