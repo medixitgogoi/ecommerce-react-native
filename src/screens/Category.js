@@ -12,15 +12,15 @@ import { responsiveFontSize } from 'react-native-responsive-dimensions';
 
 const Category = ({ navigation, route }) => {
 
-    console.log(data)
+    // console.log(data)
 
     // console.log(route.params.data);
     const category = route.params.data
 
     const categoryProducts = data.filter(item => item.category === category);
-    const subCategoryProducts = categoryProducts.filter(item => item.subCategory === subCategorySelected);
+    // const subCategoryProducts = categoryProducts.filter(item => item.subCategory === subCategorySelected);
 
-    console.log("categoryProductscategoryProducts", categoryProducts);
+    // console.log("categoryProductscategoryProducts", categoryProducts);
 
     const [okpress, setOkpress] = useState(false);
     const [isModalVisible, setModalVisible] = useState(true);
