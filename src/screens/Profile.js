@@ -28,7 +28,9 @@ import GetLocation, {
 } from 'react-native-get-location';
 import TabBar from '../components/TabBar';
 import { logoutUser } from '../redux/UserSlice';
-import DoubleTick from 'react-native-vector-icons/dist/Ionicons';
+import Icon2 from 'react-native-vector-icons/dist/MaterialCommunityIcons';
+import Icon3 from 'react-native-vector-icons/dist/Feather';
+import Icon4 from 'react-native-vector-icons/dist/AntDesign';
 import { useNavigation } from '@react-navigation/native';
 
 const Profile = () => {
@@ -124,6 +126,33 @@ const Profile = () => {
     console.log(addres && addres, 'check new address');
   }
 
+  const profileData = [
+    {
+      id: 1,
+      name: "Orders",
+      iconName: "box",
+      nav: "Orders"
+    },
+    {
+      id: 2,
+      name: "Cart",
+      iconName: "shopping-cart",
+      nav: "Cart"
+    },
+    {
+      id: 3,
+      name: "Coupons",
+      iconName: "gift",
+      nav: "Home"
+    },
+    {
+      id: 4,
+      name: "Help Center",
+      iconName: "headphones",
+      nav: "Home"
+    },
+  ]
+
   return (
     <View style={{ flex: 1, backgroundColor: "#f6f6f6" }}>
       <StatusBar
@@ -154,11 +183,43 @@ const Profile = () => {
         </View>
       </View>
 
+      <View style={{ paddingVertical: 8 }}>
 
-      <View style={{ marginHorizontal: 8, paddingVertical: 5 }}>
-
-        <View style={{ backgroundColor: "#fff",padding: 5 }}>
+        {/* Content Header */}
+        <View style={{ backgroundColor: "#fff", padding: 5, justifyContent: "space-between", flexDirection: "row", alignItems: "center", paddingHorizontal: 13, elevation: 1 }}>
           <Text style={{ color: "#000", fontWeight: "500", fontSize: responsiveFontSize(2.2) }}>Hey! {logindata[0].user?.name}</Text>
+          <View style={{ width: 45, height: 28, backgroundColor: "#f6f6f6", borderRadius: 100, alignItems: "center", justifyContent: "center", flexDirection: "row", }}>
+            <View style={{ backgroundColor: "#FFD700", borderRadius: 50, width: 22, height: 22, flexDirection: "row", justifyContent: "center", alignItems: "center" }}>
+              <Icon2 name="hand-coin" size={15} color="#000" />
+            </View>
+            <Text style={{ color: "#000", fontSize: responsiveFontSize(1.8), marginLeft: 3, fontWeight: "600" }}>21</Text>
+          </View>
+        </View>
+
+        {/* Orders, cart, coupons, help */}
+        <View style={{ marginTop: 10, paddingVertical: 10, flexDirection: "row", flexWrap: "wrap", alignItems: "center", justifyContent: "space-evenly", width: "100%", backgroundColor: "#fff", elevation: 1 }}>
+          {profileData.map(item => (
+            <TouchableOpacity key={item.id} style={{ width: "45%", marginBottom: 5, height: 50, borderRadius: 5, borderWidth: 0.5, borderColor: "#cccccc", flexDirection: "row", alignItems: "center", paddingHorizontal: 10, backgroundColor: "#e27e45" }} onPress={() => navigation.navigate(item.nav)}>
+              <Icon3 name={item.iconName} size={18} color="#fff" />
+              <Text style={{ color: "#fff", marginLeft: 4, fontWeight: "600" }}>{item.name}</Text>
+            </TouchableOpacity>
+          ))}
+        </View>
+
+        {/* Account settings */}
+        <View style={{ marginTop: 10, backgroundColor: "#fff", paddingHorizontal: 13, paddingVertical: 5, elevation: 1 }}>
+          <Text style={{ color: "#000", fontWeight: "600", fontSize: responsiveFontSize(2.4) }}>Account Settings</Text>
+          <View style={{ marginTop: 5 }}>
+            <TouchableOpacity style={{ flexDirection: "row", justifyContent: "space-between", alignItems: "center" }}>
+              <View style={{ flexDirection: "row", alignItems: "center" }}>
+                <Icon3 name="user" size={15} color="#000" />
+                <Text style={{ color: "#000", marginLeft: 5 }}>Edit profile</Text>
+              </View>
+              <TouchableOpacity style={{ backgroundColor: "#f6f6f6", padding: 5, borderRadius: 100, alignItems: "center", justifyContent: "center", elevation: 1, marginRight: 6 }} onPress={() => navigation.goBack()}>
+                <Icon name="keyboard-arrow-right" size={20} color="#000" />
+              </TouchableOpacity>
+            </TouchableOpacity>
+          </View>
         </View>
 
       </View>

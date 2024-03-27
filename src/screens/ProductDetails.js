@@ -116,7 +116,7 @@ const ProductDetails = ({ navigation, route }) => {
     const dispatch = useDispatch();
 
     return (
-        <View style={{ flex: 1, paddingBottom: 55 }}>
+        <View style={{ flex: 1, }}>
 
             <StatusBar
                 animated={true}
@@ -276,33 +276,32 @@ const ProductDetails = ({ navigation, route }) => {
             </ScrollView>
 
             {/* Add to cart button */}
-            <View View style={{ position: "absolute", bottom: 65, width: "100%", paddingHorizontal: 10 }}>
-
-                <View style={{ backgroundColor: "#212121", borderRadius: 100, paddingVertical: 7, flexDirection: "row", alignItems: "center", justifyContent: "space-between", paddingHorizontal: 7 }}>
-                    <View style={{ marginLeft: 25 }}>
-                        <Text style={{ color: "#959595", fontWeight: "500", fontSize: 15 }}>Price</Text>
-                        <Text style={{ color: "#fff", fontSize: 22, fontWeight: "500" }}>₹2250</Text>
+            <View View style={{ position: "absolute", bottom: 15, width: "100%", paddingHorizontal: 8 }}>
+                <View style={{ backgroundColor: "#212121", borderRadius: 40, paddingVertical: 4, flexDirection: "row", alignItems: "center", justifyContent: "space-between", paddingHorizontal: 7 }}>
+                    <View style={{ marginLeft: 13 }}>
+                        <Text style={{ color: "#959595", fontWeight: "500", fontSize: 14 }}>Total Price</Text>
+                        <Text style={{ color: "#fff", fontSize: 20, fontWeight: "500" }}>₹2250</Text>
                     </View>
-                    <TouchableOpacity style={{ backgroundColor: "#e27e45", paddingVertical: 12, borderRadius: 100, paddingHorizontal: 20, flexDirection: "row" }} onPress={() => dispatch(addItemToCart(detail))}>
+                    <TouchableOpacity style={{ backgroundColor: "#e27e45", paddingVertical: 8, borderRadius: 100, paddingHorizontal: 15, flexDirection: "row" }} onPress={() => dispatch(addItemToCart(detail))}>
                         <Icon2
                             name="cart"
                             style={{
                                 color: '#fff',
                                 fontSize: 20,
-                                fontWeight: "600",
+                                fontWeight: "500",
                                 marginRight: 5,
                             }}
                         />
-                        <Text style={{ color: "#000", textAlign: "center", color: "#fff", fontWeight: "600", fontSize: 17 }}>
+                        <Text style={{ color: "#000", textAlign: "center", color: "#fff", fontWeight: "500", fontSize: 17 }}>
                             Add to cart
                         </Text>
                     </TouchableOpacity>
                 </View>
             </View>
 
-            <View style={{ position: "absolute", bottom: 0, width: "100%" }}>
+            {/* <View style={{ position: "absolute", bottom: 0, width: "100%" }}>
                 <TabBar />
-            </View>
+            </View> */}
 
         </View>
     )

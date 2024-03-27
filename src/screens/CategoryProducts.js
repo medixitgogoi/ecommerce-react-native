@@ -247,7 +247,7 @@ const CategoryProducts = ({ navigation, route }) => {
             <View style={{ flex: 1, }}>
 
                 {/* Filter */}
-                <View style={{ paddingHorizontal: 8, paddingVertical: 10, backgroundColor: "#f6f6f6", elevation: 5}}>
+                <View style={{ paddingHorizontal: 8, paddingVertical: 10, backgroundColor: "#f6f6f6", elevation: 5 }}>
                     <TouchableOpacity style={{ backgroundColor: "#e2aa45", padding: 7, flexDirection: "row", justifyContent: "center", alignItems: "center", width: "30%", elevation: 3, borderRadius: 5 }} onPress={() => setFilterModal(true)}>
                         <Text style={{ color: "#fff", fontWeight: "450", fontSize: 16, fontWeight: "500" }}>
                             Filter
