@@ -244,10 +244,10 @@ const CategoryProducts = ({ navigation, route }) => {
                 <Text style={{ color: "#000", textTransform: "uppercase", fontWeight: "800", fontSize: responsiveFontSize(2.2), marginLeft: 10 }}>{cat}</Text>
             </View>
 
-            <ScrollView style={{ flex: 1, }}>
+            <View style={{ flex: 1, }}>
 
                 {/* Filter */}
-                <View style={{ paddingHorizontal: 8, paddingVertical: 10, backgroundColor: "#f6f6f6", }}>
+                <View style={{ paddingHorizontal: 8, paddingVertical: 10, backgroundColor: "#f6f6f6", elevation: 5}}>
                     <TouchableOpacity style={{ backgroundColor: "#e2aa45", padding: 7, flexDirection: "row", justifyContent: "center", alignItems: "center", width: "30%", elevation: 3, borderRadius: 5 }} onPress={() => setFilterModal(true)}>
                         <Text style={{ color: "#fff", fontWeight: "450", fontSize: 16, fontWeight: "500" }}>
                             Filter
@@ -258,7 +258,7 @@ const CategoryProducts = ({ navigation, route }) => {
                     </TouchableOpacity>
                 </View>
 
-                {/* Filters */}
+                {/* Product Cards */}
                 <View style={{ backgroundColor: "#f6f6f6", height: "100%", flexDirection: "row", flexWrap: "wrap", justifyContent: "space-evenly", paddingHorizontal: 3 }}>
                     <View>
                         <FlatList
@@ -272,7 +272,7 @@ const CategoryProducts = ({ navigation, route }) => {
                                         </TouchableOpacity>
                                         <View style={{ margin: 5, paddingVertical: 4, justifyContent: "center", width: "100%", flexDirection: "row", alignItems: "center" }}>
                                             <Image
-                                                source={{ uri: item.images[0] }}
+                                                source={{ uri: item.images[0].image }}
                                                 style={{
                                                     width: 100,
                                                     height: 100,
@@ -421,19 +421,19 @@ const CategoryProducts = ({ navigation, route }) => {
                                     //     </View>
                                     // </View>
                                     <RadioGroup
-                                    radioButtons={processorButtons}
-                                    onPress={setSelectedId}
-                                    selectedId={selectedId}
-                                    containerStyle={{ 
-                                        borderRadius: 8,
-                                        overflow: 'hidden',
-                                        flexDirection: "column",
-                                        color: "#e27e45",
-                                        paddingTop: 5,
-                                        alignItems: "flex-start",
-                                        paddingHorizontal: 5,
-                                    }}
-                                />
+                                        radioButtons={processorButtons}
+                                        onPress={setSelectedId}
+                                        selectedId={selectedId}
+                                        containerStyle={{
+                                            borderRadius: 8,
+                                            overflow: 'hidden',
+                                            flexDirection: "column",
+                                            color: "#e27e45",
+                                            paddingTop: 5,
+                                            alignItems: "flex-start",
+                                            paddingHorizontal: 5,
+                                        }}
+                                    />
                                 ) : selectedFilter === 2 ? (
                                     // <View style={{ height: "100%", width: "65%", marginLeft: 10, paddingTop: 5 }}>
                                     //     <View style={{ flexDirection: "row", alignItems: "center", justifyContent: "flex-start" }}>
@@ -606,7 +606,8 @@ const CategoryProducts = ({ navigation, route }) => {
 
                     </View>
                 </Modal>
-            </ScrollView>
+
+            </View>
         </SafeAreaView>
     )
 }

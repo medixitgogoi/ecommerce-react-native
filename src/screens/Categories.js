@@ -43,7 +43,7 @@ const Categories = ({ navigation }) => {
                 <ScrollView>
                     <View style={{ backgroundColor: "#f6f6f6", height: "100%", flexDirection: "row", flexWrap: "wrap", justifyContent: "space-evenly", paddingTop: 15 }}>
                         {categories.map((item) => {
-                            {/* console.log("Dixitncnccj", item) */}
+                            {/* console.log("Dixitncnccj", item) */ }
                             return (
                                 <TouchableOpacity style={{ backgroundColor: "#f6f6f6", justifyContent: "center", alignItems: "center", flexDirection: "column", marginBottom: 15, }} onPress={() => navigation.navigate('SubCategories', { data: item })} key={item.id}>
                                     <View style={{ width: 95, height: 95, borderRadius: 10, backgroundColor: "#f6f6f6", elevation: 3 }}>

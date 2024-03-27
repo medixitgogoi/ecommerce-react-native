@@ -1,5 +1,5 @@
 import { StyleSheet, Text, View, TouchableOpacity, Image, FlatList, SafeAreaView, StatusBar } from 'react-native';
-import Icon4 from 'react-native-vector-icons/dist/FontAwesome5';
+import Icon4 from 'react-native-vector-icons/dist/MaterialIcons';
 import Icon from 'react-native-vector-icons/dist/MaterialIcons';
 import Icon3 from 'react-native-vector-icons/dist/MaterialCommunityIcons';
 import Icon2 from 'react-native-vector-icons/dist/Ionicons';
@@ -94,9 +94,9 @@ const Cart = ({ navigation }) => {
                         <TouchableOpacity onPress={() => navigation.navigate("Home")} style={{ backgroundColor: "#e27e45", height: 40, paddingHorizontal: 8, borderRadius: 5, alignItems: "center", flexDirection: "row", justifyContent: "center", marginTop: 5 }}>
                             <Text style={{ fontSize: 15, fontWeight: "600", color: '#fff', marginRight: 5 }}>Take me to the shopping page</Text>
                             <Icon4
-                                name="smile-beam"
+                                name="emoji-emotions"
                                 style={{
-                                    color: '#000',
+                                    color: '#fff',
                                     fontSize: 20,
                                     fontWeight: "600"
                                 }}
@@ -114,7 +114,7 @@ const Cart = ({ navigation }) => {
                                     <View style={{ flexDirection: "row" }}>
 
                                         <View style={{ flexDirection: "row", flex: 1, backgroundColor: "#fff", padding: 5, elevation: 15 }}>
-                                            <Image source={{ uri: item.images[0] }} style={{ resizeMode: "contain", height: 110, width: "100%" }} />
+                                            <Image source={{ uri: item.images[0].image }} style={{ resizeMode: "contain", height: 110, width: "100%" }} />
                                         </View>
 
                                         <View style={{ flex: 2, flexDirection: "column", height: "100%", marginLeft: 15, paddingTop: 5, }}>

@@ -19,9 +19,18 @@ export default categoriesLists = [
                         "subCategory": "Apple",
                         "subCategory1": "MacBook Pro",
                         "images": [
-                            "https://source.unsplash.com/featured/?macbook",
-                            "https://source.unsplash.com/featured/?macbook",
-                            "https://source.unsplash.com/featured/?macbook",
+                            {
+                                "image": "https://source.unsplash.com/featured/?macbook",
+                                "color": "red"
+                            },
+                            {
+                                "image": "https://source.unsplash.com/featured/?dell-laptop",
+                                "color": "blue"
+                            },
+                            {
+                                "image": "https://source.unsplash.com/featured/?macbook",
+                                "color": "green"
+                            },
                         ],
                         "rating": {
                             "rate": 4.8,
@@ -43,9 +52,18 @@ export default categoriesLists = [
                         "subCategory": "Dell",
                         "subCategory1": "XPS 15",
                         "images": [
-                            "https://source.unsplash.com/featured/?dell-laptop",
-                            "https://source.unsplash.com/featured/?dell-laptop",
-                            "https://source.unsplash.com/featured/?dell-laptop"
+                            {
+                                "image": "https://source.unsplash.com/featured/?dell-laptop",
+                                "color": "red"
+                            },
+                            {
+                                "image": "https://source.unsplash.com/featured/?dell-laptop",
+                                "color": "blue"
+                            },
+                            {
+                                "image": "https://source.unsplash.com/featured/?dell-laptop",
+                                "color": "green"
+                            },
                         ],
                         "rating": {
                             "rate": 4.5,
@@ -67,9 +85,18 @@ export default categoriesLists = [
                         "subCategory": "Dell",
                         "subCategory1": "XPS 15",
                         "images": [
-                            "https://source.unsplash.com/featured/?dell-laptop",
-                            "https://source.unsplash.com/featured/?dell-laptop",
-                            "https://source.unsplash.com/featured/?dell-laptop"
+                            {
+                                "image": "https://source.unsplash.com/featured/?dell-laptop",
+                                "color": "red"
+                            },
+                            {
+                                "image": "https://source.unsplash.com/featured/?dell-laptop",
+                                "color": "blue"
+                            },
+                            {
+                                "image": "https://source.unsplash.com/featured/?dell-laptop",
+                                "color": "green"
+                            },
                         ],
                         "rating": {
                             "rate": 4.5,
@@ -91,9 +118,18 @@ export default categoriesLists = [
                         "subCategory": "Dell",
                         "subCategory1": "XPS 15",
                         "images": [
-                            "https://source.unsplash.com/featured/?dell-laptop",
-                            "https://source.unsplash.com/featured/?dell-laptop",
-                            "https://source.unsplash.com/featured/?dell-laptop"
+                            {
+                                "image": "https://source.unsplash.com/featured/?dell-laptop",
+                                "color": "red"
+                            },
+                            {
+                                "image": "https://source.unsplash.com/featured/?dell-laptop",
+                                "color": "blue"
+                            },
+                            {
+                                "image": "https://source.unsplash.com/featured/?dell-laptop",
+                                "color": "green"
+                            },
                         ],
                         "rating": {
                             "rate": 4.5,
@@ -115,9 +151,18 @@ export default categoriesLists = [
                         "subCategory": "Dell",
                         "subCategory1": "XPS 15",
                         "images": [
-                            "https://source.unsplash.com/featured/?dell-laptop",
-                            "https://source.unsplash.com/featured/?dell-laptop",
-                            "https://source.unsplash.com/featured/?dell-laptop"
+                            {
+                                "image": "https://source.unsplash.com/featured/?dell-laptop",
+                                "color": "red"
+                            },
+                            {
+                                "image": "https://source.unsplash.com/featured/?dell-laptop",
+                                "color": "blue"
+                            },
+                            {
+                                "image": "https://source.unsplash.com/featured/?dell-laptop",
+                                "color": "green"
+                            },
                         ],
                         "rating": {
                             "rate": 4.5,
@@ -139,9 +184,18 @@ export default categoriesLists = [
                         "subCategory": "Dell",
                         "subCategory1": "XPS 15",
                         "images": [
-                            "https://source.unsplash.com/featured/?dell-laptop",
-                            "https://source.unsplash.com/featured/?dell-laptop",
-                            "https://source.unsplash.com/featured/?dell-laptop"
+                            {
+                                "image": "https://source.unsplash.com/featured/?dell-laptop",
+                                "color": "red"
+                            },
+                            {
+                                "image": "https://source.unsplash.com/featured/?dell-laptop",
+                                "color": "blue"
+                            },
+                            {
+                                "image": "https://source.unsplash.com/featured/?dell-laptop",
+                                "color": "green"
+                            },
                         ],
                         "rating": {
                             "rate": 4.5,
@@ -163,9 +217,18 @@ export default categoriesLists = [
                         "subCategory": "Dell",
                         "subCategory1": "XPS 15",
                         "images": [
-                            "https://source.unsplash.com/featured/?dell-laptop",
-                            "https://source.unsplash.com/featured/?dell-laptop",
-                            "https://source.unsplash.com/featured/?dell-laptop"
+                            {
+                                "image": "https://source.unsplash.com/featured/?dell-laptop",
+                                "color": "red"
+                            },
+                            {
+                                "image": "https://source.unsplash.com/featured/?dell-laptop",
+                                "color": "blue"
+                            },
+                            {
+                                "image": "https://source.unsplash.com/featured/?dell-laptop",
+                                "color": "green"
+                            },
                         ],
                         "rating": {
                             "rate": 4.5,
@@ -187,9 +250,18 @@ export default categoriesLists = [
                         "subCategory": "Dell",
                         "subCategory1": "XPS 15",
                         "images": [
-                            "https://source.unsplash.com/featured/?dell-laptop",
-                            "https://source.unsplash.com/featured/?dell-laptop",
-                            "https://source.unsplash.com/featured/?dell-laptop"
+                            {
+                                "image": "https://source.unsplash.com/featured/?dell-laptop",
+                                "color": "red"
+                            },
+                            {
+                                "image": "https://source.unsplash.com/featured/?dell-laptop",
+                                "color": "blue"
+                            },
+                            {
+                                "image": "https://source.unsplash.com/featured/?dell-laptop",
+                                "color": "green"
+                            },
                         ],
                         "rating": {
                             "rate": 4.5,
@@ -211,9 +283,18 @@ export default categoriesLists = [
                         "subCategory": "Dell",
                         "subCategory1": "XPS 15",
                         "images": [
-                            "https://source.unsplash.com/featured/?dell-laptop",
-                            "https://source.unsplash.com/featured/?dell-laptop",
-                            "https://source.unsplash.com/featured/?dell-laptop"
+                            {
+                                "image": "https://source.unsplash.com/featured/?dell-laptop",
+                                "color": "red"
+                            },
+                            {
+                                "image": "https://source.unsplash.com/featured/?dell-laptop",
+                                "color": "blue"
+                            },
+                            {
+                                "image": "https://source.unsplash.com/featured/?dell-laptop",
+                                "color": "green"
+                            },
                         ],
                         "rating": {
                             "rate": 4.5,
@@ -235,9 +316,18 @@ export default categoriesLists = [
                         "subCategory": "Dell",
                         "subCategory1": "XPS 15",
                         "images": [
-                            "https://source.unsplash.com/featured/?dell-laptop",
-                            "https://source.unsplash.com/featured/?dell-laptop",
-                            "https://source.unsplash.com/featured/?dell-laptop"
+                            {
+                                "image": "https://source.unsplash.com/featured/?dell-laptop",
+                                "color": "red"
+                            },
+                            {
+                                "image": "https://source.unsplash.com/featured/?dell-laptop",
+                                "color": "blue"
+                            },
+                            {
+                                "image": "https://source.unsplash.com/featured/?dell-laptop",
+                                "color": "green"
+                            },
                         ],
                         "rating": {
                             "rate": 4.5,
@@ -267,9 +357,18 @@ export default categoriesLists = [
                         "subCategory": "Apple",
                         "subCategory1": "iPhone 13 Pro",
                         "images": [
-                            "https://source.unsplash.com/featured/?iphone",
-                            "https://source.unsplash.com/featured/?iphone2",
-                            "https://source.unsplash.com/featured/?iphone3"
+                            {
+                                "image": "https://source.unsplash.com/featured/?iphone",
+                                "color": "red"
+                            },
+                            {
+                                "image": "https://source.unsplash.com/featured/?iphone2",
+                                "color": "blue"
+                            },
+                            {
+                                "image": "https://source.unsplash.com/featured/?iphone3",
+                                "color": "green"
+                            },
                         ],
                         "rating": {
                             "rate": 4.7,
@@ -286,9 +385,18 @@ export default categoriesLists = [
                         "subCategory": "Samsung",
                         "subCategory1": "Galaxy S22 Ultra",
                         "images": [
-                            "https://source.unsplash.com/featured/?samsung",
-                            "https://source.unsplash.com/featured/?samsung2",
-                            "https://source.unsplash.com/featured/?samsung3"
+                            {
+                                "image": "https://source.unsplash.com/featured/?samsung",
+                                "color": "red"
+                            },
+                            {
+                                "image": "https://source.unsplash.com/featured/?samsung2",
+                                "color": "blue"
+                            },
+                            {
+                                "image": "https://source.unsplash.com/featured/?samsung3",
+                                "color": "green"
+                            },
                         ],
                         "rating": {
                             "rate": 4.6,
@@ -297,7 +405,7 @@ export default categoriesLists = [
                         "qty": 0
                     },
                     {
-                        "id": 2,
+                        "id": 3,
                         "title": "Samsung Galaxy S22 Ultra",
                         "price": 1299.99,
                         "description": "The Samsung Galaxy S22 Ultra is a premium flagship smartphone with a large Dynamic AMOLED display, powerful Exynos chipset, and versatile camera system. It offers top-notch performance, 5G connectivity, and an elegant design.",
@@ -305,9 +413,18 @@ export default categoriesLists = [
                         "subCategory": "Samsung",
                         "subCategory1": "Galaxy S22 Ultra",
                         "images": [
-                            "https://source.unsplash.com/featured/?samsung",
-                            "https://source.unsplash.com/featured/?samsung2",
-                            "https://source.unsplash.com/featured/?samsung3"
+                            {
+                                "image": "https://source.unsplash.com/featured/?samsung",
+                                "color": "red"
+                            },
+                            {
+                                "image": "https://source.unsplash.com/featured/?samsung2",
+                                "color": "blue"
+                            },
+                            {
+                                "image": "https://source.unsplash.com/featured/?samsung3",
+                                "color": "green"
+                            },
                         ],
                         "rating": {
                             "rate": 4.6,
@@ -316,7 +433,7 @@ export default categoriesLists = [
                         "qty": 0
                     },
                     {
-                        "id": 2,
+                        "id": 4,
                         "title": "Samsung Galaxy S22 Ultra",
                         "price": 1299.99,
                         "description": "The Samsung Galaxy S22 Ultra is a premium flagship smartphone with a large Dynamic AMOLED display, powerful Exynos chipset, and versatile camera system. It offers top-notch performance, 5G connectivity, and an elegant design.",
@@ -324,9 +441,18 @@ export default categoriesLists = [
                         "subCategory": "Samsung",
                         "subCategory1": "Galaxy S22 Ultra",
                         "images": [
-                            "https://source.unsplash.com/featured/?samsung",
-                            "https://source.unsplash.com/featured/?samsung2",
-                            "https://source.unsplash.com/featured/?samsung3"
+                            {
+                                "image": "https://source.unsplash.com/featured/?samsung",
+                                "color": "red"
+                            },
+                            {
+                                "image": "https://source.unsplash.com/featured/?samsung2",
+                                "color": "blue"
+                            },
+                            {
+                                "image": "https://source.unsplash.com/featured/?samsung3",
+                                "color": "green"
+                            },
                         ],
                         "rating": {
                             "rate": 4.6,
@@ -335,7 +461,7 @@ export default categoriesLists = [
                         "qty": 0
                     },
                     {
-                        "id": 2,
+                        "id": 5,
                         "title": "Samsung Galaxy S22 Ultra",
                         "price": 1299.99,
                         "description": "The Samsung Galaxy S22 Ultra is a premium flagship smartphone with a large Dynamic AMOLED display, powerful Exynos chipset, and versatile camera system. It offers top-notch performance, 5G connectivity, and an elegant design.",
@@ -343,9 +469,18 @@ export default categoriesLists = [
                         "subCategory": "Samsung",
                         "subCategory1": "Galaxy S22 Ultra",
                         "images": [
-                            "https://source.unsplash.com/featured/?samsung",
-                            "https://source.unsplash.com/featured/?samsung2",
-                            "https://source.unsplash.com/featured/?samsung3"
+                            {
+                                "image": "https://source.unsplash.com/featured/?samsung",
+                                "color": "red"
+                            },
+                            {
+                                "image": "https://source.unsplash.com/featured/?samsung2",
+                                "color": "blue"
+                            },
+                            {
+                                "image": "https://source.unsplash.com/featured/?samsung3",
+                                "color": "green"
+                            },
                         ],
                         "rating": {
                             "rate": 4.6,
@@ -354,7 +489,7 @@ export default categoriesLists = [
                         "qty": 0
                     },
                     {
-                        "id": 2,
+                        "id": 6,
                         "title": "Samsung Galaxy S22 Ultra",
                         "price": 1299.99,
                         "description": "The Samsung Galaxy S22 Ultra is a premium flagship smartphone with a large Dynamic AMOLED display, powerful Exynos chipset, and versatile camera system. It offers top-notch performance, 5G connectivity, and an elegant design.",
@@ -362,9 +497,18 @@ export default categoriesLists = [
                         "subCategory": "Samsung",
                         "subCategory1": "Galaxy S22 Ultra",
                         "images": [
-                            "https://source.unsplash.com/featured/?samsung",
-                            "https://source.unsplash.com/featured/?samsung2",
-                            "https://source.unsplash.com/featured/?samsung3"
+                            {
+                                "image": "https://source.unsplash.com/featured/?samsung",
+                                "color": "red"
+                            },
+                            {
+                                "image": "https://source.unsplash.com/featured/?samsung2",
+                                "color": "blue"
+                            },
+                            {
+                                "image": "https://source.unsplash.com/featured/?samsung3",
+                                "color": "green"
+                            },
                         ],
                         "rating": {
                             "rate": 4.6,
@@ -373,7 +517,7 @@ export default categoriesLists = [
                         "qty": 0
                     },
                     {
-                        "id": 2,
+                        "id": 7,
                         "title": "Samsung Galaxy S22 Ultra",
                         "price": 1299.99,
                         "description": "The Samsung Galaxy S22 Ultra is a premium flagship smartphone with a large Dynamic AMOLED display, powerful Exynos chipset, and versatile camera system. It offers top-notch performance, 5G connectivity, and an elegant design.",
@@ -381,9 +525,18 @@ export default categoriesLists = [
                         "subCategory": "Samsung",
                         "subCategory1": "Galaxy S22 Ultra",
                         "images": [
-                            "https://source.unsplash.com/featured/?samsung",
-                            "https://source.unsplash.com/featured/?samsung2",
-                            "https://source.unsplash.com/featured/?samsung3"
+                            {
+                                "image": "https://source.unsplash.com/featured/?samsung",
+                                "color": "red"
+                            },
+                            {
+                                "image": "https://source.unsplash.com/featured/?samsung2",
+                                "color": "blue"
+                            },
+                            {
+                                "image": "https://source.unsplash.com/featured/?samsung3",
+                                "color": "green"
+                            },
                         ],
                         "rating": {
                             "rate": 4.6,
@@ -392,7 +545,7 @@ export default categoriesLists = [
                         "qty": 0
                     },
                     {
-                        "id": 2,
+                        "id": 8,
                         "title": "Samsung Galaxy S22 Ultra",
                         "price": 1299.99,
                         "description": "The Samsung Galaxy S22 Ultra is a premium flagship smartphone with a large Dynamic AMOLED display, powerful Exynos chipset, and versatile camera system. It offers top-notch performance, 5G connectivity, and an elegant design.",
@@ -400,9 +553,18 @@ export default categoriesLists = [
                         "subCategory": "Samsung",
                         "subCategory1": "Galaxy S22 Ultra",
                         "images": [
-                            "https://source.unsplash.com/featured/?samsung",
-                            "https://source.unsplash.com/featured/?samsung2",
-                            "https://source.unsplash.com/featured/?samsung3"
+                            {
+                                "image": "https://source.unsplash.com/featured/?samsung",
+                                "color": "red"
+                            },
+                            {
+                                "image": "https://source.unsplash.com/featured/?samsung2",
+                                "color": "blue"
+                            },
+                            {
+                                "image": "https://source.unsplash.com/featured/?samsung3",
+                                "color": "green"
+                            },
                         ],
                         "rating": {
                             "rate": 4.6,
@@ -411,7 +573,7 @@ export default categoriesLists = [
                         "qty": 0
                     },
                     {
-                        "id": 2,
+                        "id": 9,
                         "title": "Samsung Galaxy S22 Ultra",
                         "price": 1299.99,
                         "description": "The Samsung Galaxy S22 Ultra is a premium flagship smartphone with a large Dynamic AMOLED display, powerful Exynos chipset, and versatile camera system. It offers top-notch performance, 5G connectivity, and an elegant design.",
@@ -419,9 +581,18 @@ export default categoriesLists = [
                         "subCategory": "Samsung",
                         "subCategory1": "Galaxy S22 Ultra",
                         "images": [
-                            "https://source.unsplash.com/featured/?samsung",
-                            "https://source.unsplash.com/featured/?samsung2",
-                            "https://source.unsplash.com/featured/?samsung3"
+                            {
+                                "image": "https://source.unsplash.com/featured/?samsung",
+                                "color": "red"
+                            },
+                            {
+                                "image": "https://source.unsplash.com/featured/?samsung2",
+                                "color": "blue"
+                            },
+                            {
+                                "image": "https://source.unsplash.com/featured/?samsung3",
+                                "color": "green"
+                            },
                         ],
                         "rating": {
                             "rate": 4.6,
@@ -430,7 +601,7 @@ export default categoriesLists = [
                         "qty": 0
                     },
                     {
-                        "id": 2,
+                        "id": 10,
                         "title": "Samsung Galaxy S22 Ultra",
                         "price": 1299.99,
                         "description": "The Samsung Galaxy S22 Ultra is a premium flagship smartphone with a large Dynamic AMOLED display, powerful Exynos chipset, and versatile camera system. It offers top-notch performance, 5G connectivity, and an elegant design.",
@@ -438,9 +609,18 @@ export default categoriesLists = [
                         "subCategory": "Samsung",
                         "subCategory1": "Galaxy S22 Ultra",
                         "images": [
-                            "https://source.unsplash.com/featured/?samsung",
-                            "https://source.unsplash.com/featured/?samsung2",
-                            "https://source.unsplash.com/featured/?samsung3"
+                            {
+                                "image": "https://source.unsplash.com/featured/?samsung",
+                                "color": "red"
+                            },
+                            {
+                                "image": "https://source.unsplash.com/featured/?samsung2",
+                                "color": "blue"
+                            },
+                            {
+                                "image": "https://source.unsplash.com/featured/?samsung3",
+                                "color": "green"
+                            },
                         ],
                         "rating": {
                             "rate": 4.6,
