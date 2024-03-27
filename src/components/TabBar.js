@@ -34,7 +34,7 @@ const TabBar = () => {
                         height: 50,
                         justifyContent: "center",
                         alignItems: "center",
-                        backgroundColor: activeTab === 'Home' ? "#e27e45" : "#000000", // Change color based on active state
+                        backgroundColor: activeTab === 'Home' ? "#e27e45" : "#000000", 
                         borderRadius: 100
                     }}
                     onPress={() => changeTab('Home')}
