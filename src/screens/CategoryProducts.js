@@ -272,7 +272,7 @@ const CategoryProducts = ({ navigation, route }) => {
                                         </TouchableOpacity>
                                         <View style={{ margin: 5, paddingVertical: 4, justifyContent: "center", width: "100%", flexDirection: "row", alignItems: "center" }}>
                                             <Image
-                                                source={{ uri: item.images[0] }}
+                                                source={{ uri: item.images[0].image }}
                                                 style={{
                                                     width: 100,
                                                     height: 100,

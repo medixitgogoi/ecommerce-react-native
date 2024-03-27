@@ -1,6 +1,6 @@
 import { StyleSheet } from 'react-native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import Dashboard from '../screens/Dashboard';
+
 import Home from '../screens/Home';
 import Cart from '../screens/Cart';
 import ProductDetails from '../screens/ProductDetails';
@@ -11,6 +11,7 @@ import Category from '../screens/Category';
 import Categories from '../screens/Categories';
 import CategoryProducts from '../screens/CategoryProducts';
 import SubCategories from '../screens/SubCategories';
+import Dashboard from '../screens/Dashboard';
 
 
 const AuthStackNavigator = () => {
@@ -37,58 +38,3 @@ const AuthStackNavigator = () => {
 export default AuthStackNavigator;
 
 const styles = StyleSheet.create({})
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// import { StyleSheet,} from 'react-native';
-// import { createNativeStackNavigator } from '@react-navigation/native-stack';
-// import Dashboard from '../screens/Dashboard';
-// import Home from '../screens/Home';
-// import Cart from '../screens/Cart';
-// import ProductDetails from '../screens/ProductDetails';
-
-// const AuthStackNavigator = () => {
-
-//     const Stack = createNativeStackNavigator();
-
-//     return (
-//         <Stack.Navigator screenOptions={{ headerShown: false }}>
-//             <Stack.Screen name="Home" component={Home} />
-//             <Stack.Screen name="Cart" component={Cart} />
-//              <Stack.Screen name="ProductDetails" component={ProductDetails} />
-//             <Stack.Screen name="Dashboard" component={Dashboard} />
-//         </Stack.Navigator>
-//     )
-// }
-
-// export default AuthStackNavigator;
-
-// const styles = StyleSheet.create({})
