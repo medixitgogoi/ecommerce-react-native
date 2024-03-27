@@ -6,10 +6,6 @@ const SubCategories = ({ navigation, route }) => {
 
     const cat = route.params.data.name;
     const products = route.params.data.products;
-
-    // console.log(route.params.data.products);
-    // console.log(route);
-
     return (
         <SafeAreaView style={{ flex: 1, paddingBottom: 15 }}>
             <StatusBar
@@ -32,12 +28,18 @@ const SubCategories = ({ navigation, route }) => {
                 </View>
                 <View style={{ height: "100%", flexDirection: "row", flexWrap: "wrap", justifyContent: "space-evenly", paddingTop: 10 }}>
                     {products.map(item => (
-                        <TouchableOpacity style={{ justifyContent: "center", alignItems: "center", flexDirection: "column", marginBottom: 15, }} key={item.id} onPress={() => navigation.navigate("CategoryProducts", { data: item })}>
-                            <View style={{ elevation: 3, width: 95, height: 95, borderRadius: 10, }}>
+                        <View style={{ justifyContent: "center", alignItems: "center", flexDirection: "column", marginBottom: 15, backgroundColor: "#f6f6f6" }} key={item.id} onPress={() => navigation.navigate("CategoryProducts", { data: item })}>
+                            <TouchableOpacity
+                                key={item.id} onPress={() => navigation.navigate("CategoryProducts", { data: item })}
+                                style={{ elevation: 3, width: 95, height: 95, borderRadius: 10, }}>
                                 <Image source={{ uri: item.image }} style={{ height: "100%", width: "100%", borderRadius: 10, }} />
-                            </View>
+                            </TouchableOpacity>
+                            <TouchableOpacity
+                             key={item.id} onPress={() => navigation.navigate("CategoryProducts", { data: item })}
+                            >
                             <Text style={{ color: "#000", fontWeight: "600", marginTop: 3 }}>{item.category}</Text>
-                        </TouchableOpacity>
+                            </TouchableOpacity>
+                        </View>
                     ))}
                 </View>
             </ScrollView>
