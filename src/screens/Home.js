@@ -24,6 +24,8 @@ const Home = ({ navigation }) => {
 
     const [products, setProducts] = useState([]);
     const [loading, setLoading] = useState(false);
+    const [likedData, setLikedData] = useState({});
+    const [recentlikedData, setrecentLikedData] = useState({});
 
     const slicedProducts = products.slice(0, 6);
 
@@ -82,6 +84,20 @@ const Home = ({ navigation }) => {
             }
         }
         return starComponents;
+    };
+
+    const mostpopularcolorChangeFunction = (itemId) => {
+        setLikedData(prevState => ({
+            ...prevState,
+            [itemId]: !prevState[itemId]
+        }));
+    };
+
+    const recentlyViewwdcolorChangeFunction = (itemId) => {
+        setrecentLikedData(prevState => ({
+            ...prevState,
+            [itemId]: !prevState[itemId] // Toggle liked status
+        }));
     };
 
     return (
@@ -192,11 +208,28 @@ const Home = ({ navigation }) => {
                                 data={slicedData}
                                 numColumns={2}
                                 renderItem={({ item }) => {
-                                    // console.log("datatatatata", item);
+                                    const color = likedData[item.id] ? "#e27e45" : "#fff";
+                                    const backcolor = likedData[item.id] ? "#fff" : "#000";
+                                    const fontsizevalue = likedData[item.id] ? 22 : 15;
                                     return (
                                         <TouchableOpacity style={{ backgroundColor: '#fff', borderRadius: 10, elevation: 2, width: "48%", margin: 3, }} onPress={() => navigation.navigate('ProductDetails', { data: item })}>
-                                            <TouchableOpacity style={{ position: 'absolute', right: 5, top: 5, padding: 3, backgroundColor: "#1f1f1f", borderRadius: 100, zIndex: 10 }}>
-                                                <Icon name="heart" size={15} color="#fff" />
+                                            <TouchableOpacity
+                                                onPress={() => mostpopularcolorChangeFunction(item.id)}
+                                                style={{
+                                                    position: 'absolute',
+                                                    right: 5,
+                                                    top: 5,
+                                                    padding: 3,
+                                                    backgroundColor: backcolor,
+                                                    borderRadius: 100,
+                                                    zIndex: 10
+                                                }}>
+                                                <Icon name="heart"
+                                                    style={{
+                                                        color: color,
+                                                        fontSize: fontsizevalue
+                                                    }}
+                                                />
                                             </TouchableOpacity>
                                             <View style={{ margin: 5, paddingVertical: 4, justifyContent: "center", width: "100%", flexDirection: "row", alignItems: "center" }}>
                                                 <Image
@@ -256,14 +289,13 @@ const Home = ({ navigation }) => {
                                 }}
                                 keyExtractor={(item) => item.id.toString()}
                             />
-
                         </View>
                         {/* )} */}
 
                     </View>
 
                     {/* Recently viewed products */}
-                    <View style={{ backgroundColor: '#fff', paddingHorizontal: 10, height: "100%", paddingTop: 10, flex: 1, borderTopColor: "#f2f0ef", borderTopWidth: 6,  }}>
+                    <View style={{ backgroundColor: '#fff', paddingHorizontal: 10, height: "100%", paddingTop: 10, flex: 1, borderTopColor: "#f2f0ef", borderTopWidth: 6, }}>
 
                         {/* Heading */}
                         <View style={{ flexDirection: 'row', alignItems: "center", justifyContent: "space-between", marginHorizontal: 5, marginBottom: 10 }}>
@@ -278,13 +310,31 @@ const Home = ({ navigation }) => {
                                     data={slicedProducts}
                                     numColumns={2}
                                     renderItem={({ item }) => {
+                                        const color1 = recentlikedData[item.id] ? "#e27e45" : "#fff";
+                                        const backcolor1 = recentlikedData[item.id] ? "#fff" : "#000";
+                                        const fontsizevalue1 = recentlikedData[item.id] ? 22 : 15;
 
                                         // console.log("datatatatata", item);
 
                                         return (
                                             <TouchableOpacity style={{ backgroundColor: '#fff', borderRadius: 10, elevation: 2, width: "48%", margin: 3, }} onPress={() => navigation.navigate('ProductDetails', { data: item })}>
-                                                <TouchableOpacity style={{ position: 'absolute', right: 5, top: 5, padding: 3, backgroundColor: "#1f1f1f", borderRadius: 100, zIndex: 10 }}>
-                                                    <Icon name="heart" size={15} color="#fff" />
+                                                <TouchableOpacity
+                                                    onPress={() => recentlyViewwdcolorChangeFunction(item.id)}
+                                                    style={{
+                                                         position: 'absolute',
+                                                          right: 5, 
+                                                          top: 5, 
+                                                          padding: 3, 
+                                                          backgroundColor: backcolor1, 
+                                                          borderRadius: 100, 
+                                                          zIndex: 10
+                                                           }}>
+                                                    <Icon name="heart" size={15} 
+                                                     style={{
+                                                        color: color1,
+                                                        fontSize: fontsizevalue1
+                                                    }}
+                                                    />
                                                 </TouchableOpacity>
                                                 <View style={{ margin: 5, paddingVertical: 4, justifyContent: "center", width: "100%", flexDirection: "row", alignItems: "center" }}>
                                                     <Image
