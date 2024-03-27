@@ -25,7 +25,7 @@ const CategoryProducts = ({ navigation, route }) => {
     const [pricemodel, setpricemodel] = useState(false);
     // const [pricemodel, setpricemodel] = useState(false);
     const [Ratingmodel, setRatingmodel] = useState(false);
-    
+
     // const filteredProducts =
 
     // console.log("Dixitttttttt", route.params.data);
@@ -299,7 +299,7 @@ const CategoryProducts = ({ navigation, route }) => {
                             marginLeft: 4,
                             fontWeight: "600",
                             // backgroundColor:"#cdcdcd",
-                            borderRadius:50
+                            borderRadius: 50
                         }}
                     />
                 </View>
@@ -485,7 +485,7 @@ const CategoryProducts = ({ navigation, route }) => {
             <View style={{ flex: 1, }}>
 
                 {/* Filter */}
-                <View style={{ paddingHorizontal: 8, paddingVertical: 10, backgroundColor: "#f6f6f6", elevation: 5}}>
+                <View style={{ paddingHorizontal: 8, paddingVertical: 10, backgroundColor: "#f6f6f6", elevation: 5 }}>
                     <TouchableOpacity style={{ backgroundColor: "#e2aa45", padding: 7, flexDirection: "row", justifyContent: "center", alignItems: "center", width: "30%", elevation: 3, borderRadius: 5 }} onPress={() => setFilterModal(true)}>
                         <Text style={{ color: "#fff", fontWeight: "450", fontSize: 16, fontWeight: "500" }}>
                             Filter
@@ -494,7 +494,7 @@ const CategoryProducts = ({ navigation, route }) => {
                             <Icon3 name="filter" size={15} color="#fff" />
                         </View>
                     </TouchableOpacity>
-                </View> */}
+                </View>
 
                 {/* Product Cards */}
                 <View style={{ backgroundColor: "#f6f6f6", height: "100%", flexDirection: "row", flexWrap: "wrap", justifyContent: "space-evenly", paddingHorizontal: 3 }}>
@@ -640,7 +640,7 @@ const CategoryProducts = ({ navigation, route }) => {
 
                                 {/* Right */}
                                 {selectedFilter === 1 ? (
-                 
+
                                     <RadioGroup
                                         radioButtons={processorButtons}
                                         onPress={setSelectedId}
@@ -656,7 +656,7 @@ const CategoryProducts = ({ navigation, route }) => {
                                         }}
                                     />
                                 ) : selectedFilter === 2 ? (
-                            
+
                                     <RadioGroup
                                         radioButtons={ramButtons}
                                         onPress={setSelectedId}
@@ -672,14 +672,14 @@ const CategoryProducts = ({ navigation, route }) => {
                                         }}
                                     />
                                 ) : selectedFilter === 3 ? (
-                            
+
                                     <RadioGroup
                                         radioButtons={ssdButtons}
                                         onPress={setSelectedId}
                                         selectedId={selectedId}
                                     />
                                 ) : selectedFilter === 4 ? (
-                                  
+
                                     <RadioGroup
                                         radioButtons={osButtons}
                                         onPress={setSelectedId}
@@ -695,7 +695,7 @@ const CategoryProducts = ({ navigation, route }) => {
                                         }}
                                     />
                                 ) : (
-                               
+
 
                                     <RadioGroup
                                         radioButtons={chipButtons}
