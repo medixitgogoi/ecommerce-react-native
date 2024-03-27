@@ -22,11 +22,11 @@ const SubCategories = ({ navigation, route }) => {
                 <Text style={{ color: "#000", textTransform: "uppercase", fontWeight: "700", fontSize: responsiveFontSize(2.2), marginLeft: 10 }}>{cat}</Text>
             </View>
 
-            <ScrollView style={{ flex: 1, }}>
+            <ScrollView style={{ flex: 1, backgroundColor: "#f6f6f6", }}>
                 <View style={{ marginVertical: 15, width: "100%", justifyContent: "center", flexDirection: "row" }}>
                     <Text style={{ color: "#000", textAlign: "center", fontSize: responsiveFontSize(2.4), marginHorizontal: 10, fontWeight: "500" }}>Please select your preferred category from {cat}</Text>
                 </View>
-                <View style={{ backgroundColor: "#f6f6f6", height: "100%", flexDirection: "row", flexWrap: "wrap", justifyContent: "space-evenly", paddingTop: 10 }}>
+                <View style={{ height: "100%", flexDirection: "row", flexWrap: "wrap", justifyContent: "space-evenly", paddingTop: 10 }}>
                     {products.map(item => (
                         <View style={{ justifyContent: "center", alignItems: "center", flexDirection: "column", marginBottom: 15, backgroundColor: "#f6f6f6" }} key={item.id} onPress={() => navigation.navigate("CategoryProducts", { data: item })}>
                             <TouchableOpacity

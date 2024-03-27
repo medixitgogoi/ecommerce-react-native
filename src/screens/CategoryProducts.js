@@ -1,5 +1,6 @@
 import { StyleSheet, Text, View, ScrollView, TouchableOpacity, Image, SafeAreaView, StatusBar, FlatList } from 'react-native';
 import Icon from 'react-native-vector-icons/dist/MaterialIcons';
+// import Icon from 'react-native-vector-icons/dist/MaterialIcons';
 import { responsiveFontSize } from 'react-native-responsive-dimensions';
 import Icon2 from 'react-native-vector-icons/dist/Ionicons';
 import { addItemToCart } from '../redux/CartSlice';
@@ -14,7 +15,17 @@ const CategoryProducts = ({ navigation, route }) => {
     const [filterModal, setFilterModal] = useState(false);
     const [selectedFilter, setSelectedFilter] = useState(1);
     const [selectedId, setSelectedId] = useState("");
-
+    const [SortedBYmodel, setSortedBYmodel] = useState(false);
+    const [sortedname, setsortedname] = useState([]);
+    const [filtermodel, setfiltermodel] = useState(false);
+    const [Gendermodel, setGendermodel] = useState(false);
+    const [ratingname, setratingname] = useState([]);
+    const [pricename, setpricename] = useState([]);
+    const [gendername, setgendername] = useState([]);
+    const [pricemodel, setpricemodel] = useState(false);
+    // const [pricemodel, setpricemodel] = useState(false);
+    const [Ratingmodel, setRatingmodel] = useState(false);
+    
     // const filteredProducts =
 
     // console.log("Dixitttttttt", route.params.data);
@@ -227,6 +238,233 @@ const CategoryProducts = ({ navigation, route }) => {
     const pressHandler = (id) => {
         setSelectedFilter(id)
     }
+    const brandsData = [
+        { id: '1', name: 'Sort by', iconName: "keyboard-arrow-down" },
+        { id: '2', name: 'Filter', iconName: "filter-list" },
+        { id: '3', name: 'Gender', iconName: "keyboard-arrow-down" },
+        { id: '4', name: 'Price', iconName: "keyboard-arrow-down" },
+        { id: '5', name: 'Rating', iconName: "keyboard-arrow-down" },
+    ];
+
+    const renderBrandItem = ({ item }) => {
+        // console.log("itemitem", item.name == "Sort by")
+        return (
+            <TouchableOpacity
+                onPress={() => {
+                    if (item.name === "Sort by") {
+                        setSortedBYmodel(true);
+                    } else if (item.name === "Filter") {
+                        setFilterModal(true)
+                    } else if (item.name === "Gender") {
+                        setGendermodel(true)
+                    } else if (item.name === "Price") {
+                        setpricemodel(true)
+                    } else if (item.name === "Rating") {
+                        setRatingmodel(true)
+                    } else if (item.name === "Categories") {
+                        setCategoriesmodel(true)
+                    }
+                }}
+                style={{
+                    marginRight: 10,
+                    alignItems: 'center',
+                    paddingVertical: 10,
+                    marginLeft: 9
+                    // backgroundColor: "#fff",
+                    // marginHorizontal:15,
+                }}>
+                <View style={{
+                    backgroundColor: "#fff",
+                    // paddingHorizontal: 10,
+                    borderRadius: 20,
+                    justifyContent: "space-between",
+                    alignItems: "center",
+                    flexDirection: "row",
+                    paddingVertical: 4,
+                    borderColor: "#83a597",
+                    elevation: 3,
+                    width: 90,
+                    paddingHorizontal: 10
+                }}>
+                    <Text style={{
+                        color: "#000",
+                        fontSize: 14,
+                        fontWeight: '500',
+                    }}>{item.name}</Text>
+                    <Icon
+                        name={item.iconName}
+                        size={18}
+                        style={{
+                            color: '#000',
+                            marginLeft: 4,
+                            fontWeight: "600",
+                            // backgroundColor:"#cdcdcd",
+                            borderRadius:50
+                        }}
+                    />
+                </View>
+            </TouchableOpacity>
+        );
+
+    }
+    const sortbutton = useMemo(() => ([
+        {
+            id: 'Relavent',
+            label: (
+                <Text style={{ color: "#000", paddingLeft: 5 }}>{'Relavent'}</Text>
+            ),
+            color: "#F29D38",
+            size: responsiveFontSize(3),
+
+        },
+        {
+            id: 'Newest Products',
+            label: (
+                <Text style={{ color: "#000", paddingLeft: 5 }}>{'Newest Products'}</Text>
+            ),
+            color: "#F29D38",
+            size: responsiveFontSize(3),
+
+        },
+        {
+            id: 'Price -- Low To High',
+            label: (
+                <Text style={{ color: "#000", paddingLeft: 5 }}>{'Price -- Low To High'}</Text>
+            ),
+            color: "#F29D38",
+            size: responsiveFontSize(3),
+
+        },
+        {
+            id: 'Price -- Low To High',
+            label: (
+                <Text style={{ color: "#000", paddingLeft: 5 }}>{'Price -- Low To High'}</Text>
+            ),
+            color: "#F29D38",
+            size: responsiveFontSize(3),
+
+        },
+
+    ]), []);
+
+    const GenderButton = useMemo(() => ([
+        {
+            id: 'men',
+            label: (
+                <Text style={{ color: "#000", paddingLeft: 5 }}>{'Male'}</Text>
+            ),
+            color: "#F29D38",
+            size: responsiveFontSize(3),
+
+        },
+        {
+            id: 'women',
+            label: (
+                <Text style={{ color: "#000", paddingLeft: 5 }}>{'Female'}</Text>
+            ),
+            color: "#F29D38",
+            size: responsiveFontSize(3),
+
+        },
+
+
+    ]), []);
+
+    const pricebutton = useMemo(() => ([
+        {
+            id: "100 - 500",
+            label: (
+                <Text style={{ color: "#000", paddingLeft: 5 }}>{' > ₹500'}</Text>
+            ),
+            color: "#F29D38",
+            size: responsiveFontSize(3),
+            // value: 'option1'
+        },
+        {
+            id: "500 - 650",
+            label: (
+                <Text style={{ color: "#000", paddingLeft: 5 }}>{'₹500 - ₹650'}</Text>
+            ),
+            color: "#F29D38",
+            size: responsiveFontSize(3),
+            // value: 'option2'
+        },
+        {
+            id: "650 - 850",
+            label: (
+                <Text style={{ color: "#000", paddingLeft: 5 }}>{'₹650 - ₹850'}</Text>
+            ),
+            color: "#F29D38",
+            size: responsiveFontSize(3),
+            // value: 'option2'
+        },
+        {
+            id: "850 - 1000",
+            label: (
+                <Text style={{ color: "#000", paddingLeft: 5 }}>{'₹850 - ₹1000 '}</Text>
+            ),
+            color: "#F29D38",
+            size: responsiveFontSize(3),
+
+        },
+        {
+            id: "1000 -3000",
+            label: (
+                <Text style={{ color: "#000", paddingLeft: 5 }}>{'₹1000 +'}</Text>
+            ),
+            color: "#F29D38",
+            size: responsiveFontSize(3),
+
+        },
+    ]), []);
+
+    const ratingbutton = useMemo(() => ([
+        {
+            id: "1",
+            label: (
+                <Text style={{ color: "#000", paddingLeft: 5 }}>{'1+'}</Text>
+            ),
+            color: "#F29D38",
+            size: responsiveFontSize(3),
+            // value: 'option1'
+        },
+        {
+            id: "2",
+            label: (
+                <Text style={{ color: "#000", paddingLeft: 5 }}>{'2+'}</Text>
+            ),
+            color: "#F29D38",
+            size: responsiveFontSize(3),
+            // value: 'option2'
+        },
+        {
+            id: "3",
+            label: (
+                <Text style={{ color: "#000", paddingLeft: 5 }}>{'3+'}</Text>
+            ),
+            color: "#F29D38",
+            size: responsiveFontSize(3),
+            // value: 'option2'
+        },
+        {
+            id: "4",
+            label: (
+                <Text style={{ color: "#000", paddingLeft: 5 }}>{'4+'}</Text>
+            ),
+            color: "#F29D38",
+            size: responsiveFontSize(3),
+
+        },
+        {
+            id: "5",
+            label: (
+                <Text style={{ color: "#000", paddingLeft: 5 }}>{'5+'}</Text>
+            ),
+            color: "#F29D38",
+            size: responsiveFontSize(3),
+
+        },
+    ]), []);
 
     return (
         <SafeAreaView style={{ flex: 1, paddingBottom: 15 }}>
@@ -244,10 +482,19 @@ const CategoryProducts = ({ navigation, route }) => {
                 <Text style={{ color: "#000", textTransform: "uppercase", fontWeight: "800", fontSize: responsiveFontSize(2.2), marginLeft: 10 }}>{cat}</Text>
             </View>
 
-            <ScrollView style={{ flex: 1, }}>
+            <View style={{ flex: 1, }}>
 
                 {/* Filter */}
-                <View style={{ paddingHorizontal: 8, paddingVertical: 10, backgroundColor: "#f6f6f6", }}>
+                <View style={styles.container}>
+                    <FlatList
+                        data={brandsData}
+                        horizontal
+                        showsHorizontalScrollIndicator={false}
+                        keyExtractor={(item) => item.id}
+                        renderItem={renderBrandItem}
+                    />
+                </View>
+                {/* <View style={{ paddingHorizontal: 8, paddingVertical: 10, backgroundColor: "#f6f6f6", elevation: 5}}>
                     <TouchableOpacity style={{ backgroundColor: "#e2aa45", padding: 7, flexDirection: "row", justifyContent: "center", alignItems: "center", width: "30%", elevation: 3, borderRadius: 5 }} onPress={() => setFilterModal(true)}>
                         <Text style={{ color: "#fff", fontWeight: "450", fontSize: 16, fontWeight: "500" }}>
                             Filter
@@ -256,9 +503,9 @@ const CategoryProducts = ({ navigation, route }) => {
                             <Icon3 name="filter" size={15} color="#fff" />
                         </View>
                     </TouchableOpacity>
-                </View>
+                </View> */}
 
-                {/* Filters */}
+                {/* Product Cards */}
                 <View style={{ backgroundColor: "#f6f6f6", height: "100%", flexDirection: "row", flexWrap: "wrap", justifyContent: "space-evenly", paddingHorizontal: 3 }}>
                     <View>
                         <FlatList
@@ -402,48 +649,23 @@ const CategoryProducts = ({ navigation, route }) => {
 
                                 {/* Right */}
                                 {selectedFilter === 1 ? (
-                                    // <View style={{ height: "100%", width: "60%", marginLeft: 10, paddingTop: 5 }}>
-                                    //     <View style={{ flexDirection: "row", alignItems: "center", justifyContent: "flex-start" }}>
-                                    //         <RadioGroup
-                                    //             radioButtons={processorButtons}
-                                    //             onPress={setSelectedId}
-                                    //             selectedId={selectedId}
-                                    //             containerStyle={{ 
-                                    //                 borderRadius: 8,
-                                    //                 overflow: 'hidden',
-                                    //                 flexDirection: "column",
-                                    //                 color: "#e27e45",
-                                    //                 paddingTop: 5,
-                                    //                 alignItems: "flex-start",
-                                    //                 paddingHorizontal: 5,
-                                    //             }}
-                                    //         />
-                                    //     </View>
-                                    // </View>
+                 
                                     <RadioGroup
-                                    radioButtons={processorButtons}
-                                    onPress={setSelectedId}
-                                    selectedId={selectedId}
-                                    containerStyle={{ 
-                                        borderRadius: 8,
-                                        overflow: 'hidden',
-                                        flexDirection: "column",
-                                        color: "#e27e45",
-                                        paddingTop: 5,
-                                        alignItems: "flex-start",
-                                        paddingHorizontal: 5,
-                                    }}
-                                />
+                                        radioButtons={processorButtons}
+                                        onPress={setSelectedId}
+                                        selectedId={selectedId}
+                                        containerStyle={{
+                                            borderRadius: 8,
+                                            overflow: 'hidden',
+                                            flexDirection: "column",
+                                            color: "#e27e45",
+                                            paddingTop: 5,
+                                            alignItems: "flex-start",
+                                            paddingHorizontal: 5,
+                                        }}
+                                    />
                                 ) : selectedFilter === 2 ? (
-                                    // <View style={{ height: "100%", width: "65%", marginLeft: 10, paddingTop: 5 }}>
-                                    //     <View style={{ flexDirection: "row", alignItems: "center", justifyContent: "flex-start" }}>
-                                    //         <RadioGroup
-                                    //             radioButtons={ramButtons}
-                                    //             onPress={setSelectedId}
-                                    //             selectedId={selectedId}
-                                    //         />
-                                    //     </View>
-                                    // </View>
+                            
                                     <RadioGroup
                                         radioButtons={ramButtons}
                                         onPress={setSelectedId}
@@ -459,39 +681,14 @@ const CategoryProducts = ({ navigation, route }) => {
                                         }}
                                     />
                                 ) : selectedFilter === 3 ? (
-                                    // <View style={{ height: "100%", width: "65%", marginLeft: 10, paddingTop: 5 }}>
-                                    //     <View style={{ flexDirection: "row", alignItems: "center", justifyContent: "flex-start" }}>
-                                    //         <RadioGroup
-                                    //             radioButtons={ssdButtons}
-                                    //             onPress={setSelectedId}
-                                    //             selectedId={selectedId}
-                                    //         />
-                                    //     </View>
-                                    // </View>
+                            
                                     <RadioGroup
                                         radioButtons={ssdButtons}
                                         onPress={setSelectedId}
                                         selectedId={selectedId}
                                     />
                                 ) : selectedFilter === 4 ? (
-                                    // <View style={{ height: "100%", width: "65%", marginLeft: 10, paddingTop: 5 }}>
-                                    //     <View style={{ flexDirection: "row", alignItems: "center", justifyContent: "flex-start" }}>
-                                    //         <RadioGroup
-                                    //             radioButtons={osButtons}
-                                    //             onPress={setSelectedId}
-                                    //             selectedId={selectedId}
-                                    //             containerStyle={{ 
-                                    //                 borderRadius: 8,
-                                    //                 overflow: 'hidden',
-                                    //                 flexDirection: "column",
-                                    //                 color: "#e27e45",
-                                    //                 paddingTop: 5,
-                                    //                 alignItems: "flex-start",
-                                    //                 paddingHorizontal: 5,
-                                    //             }}
-                                    //         />
-                                    //     </View>
-                                    // </View>
+                                  
                                     <RadioGroup
                                         radioButtons={osButtons}
                                         onPress={setSelectedId}
@@ -507,24 +704,7 @@ const CategoryProducts = ({ navigation, route }) => {
                                         }}
                                     />
                                 ) : (
-                                    // <View style={{ height: "100%", width: "65%", marginLeft: 10, paddingTop: 5 }}>
-                                    //     <View style={{ flexDirection: "row", alignItems: "center", justifyContent: "flex-start" }}>
-                                    //         <RadioGroup
-                                    //             radioButtons={chipButtons}
-                                    //             onPress={setSelectedId}
-                                    //             selectedId={selectedId}
-                                    //             containerStyle={{ 
-                                    //                 borderRadius: 8,
-                                    //                 overflow: 'hidden',
-                                    //                 flexDirection: "column",
-                                    //                 color: "#e27e45",
-                                    //                 paddingTop: 5,
-                                    //                 alignItems: "flex-start",
-                                    //                 paddingHorizontal: 5,
-                                    //             }}
-                                    //         />
-                                    //     </View>
-                                    // </View>
+                               
 
                                     <RadioGroup
                                         radioButtons={chipButtons}
@@ -606,11 +786,528 @@ const CategoryProducts = ({ navigation, route }) => {
 
                     </View>
                 </Modal>
-            </ScrollView>
+
+                {/* SortedBY */}
+                <Modal
+                    isVisible={SortedBYmodel}
+                    onBackdropPress={() => setSortedBYmodel(false)}
+                    onSwipeComplete={() => setSortedBYmodel(false)}
+                    backdropOpacity={0.5}
+                    style={{ justifyContent: 'flex-end', margin: 0 }}>
+                    <View
+                        style={{
+                            height: "auto",
+                            backgroundColor: "#fff",
+                            position: "absolute",
+                            bottom: 0,
+                            right: 0,
+                            left: 0,
+                            width: "100%",
+                            borderTopLeftRadius: 30,
+                            borderTopRightRadius: 30,
+                            // paddingHorizontal: 15,
+                            borderColor: "#e27e45",
+                            borderWidth: 0.55
+                        }}>
+                        <View style={{ marginTop: 15 }}>
+                            <View style={{ width: "100%" }}>
+                                <View style={{ paddingHorizontal: 15, flexDirection: "row", justifyContent: "space-between", width: "100%" }}>
+                                    <Text style={{ color: "#e27e45", fontSize: responsiveFontSize(2.3), fontWeight: "700" }}>
+                                        Sort By
+                                    </Text>
+                                    <TouchableOpacity
+
+                                        style={{
+                                            backgroundColor: "#e27e45",
+                                            borderRadius: 10,
+                                            alignItems: "center",
+                                            justifyContent: "center"
+                                        }}
+                                    >
+                                        <Text style={{
+                                            color: "#fff",
+                                            fontSize: responsiveFontSize(1.5),
+                                            fontWeight: "400",
+                                            paddingHorizontal: 10,
+                                            paddingVertical: 2
+                                        }}>
+                                            Reset All
+                                        </Text>
+                                    </TouchableOpacity>
+                                </View>
+                                <RadioGroup
+                                    radioButtons={sortbutton}
+                                    onPress={setsortedname}
+                                    selectedId={sortedname}
+                                    containerStyle={styles.ViewCard}
+                                />
+
+                            </View>
+                        </View>
+
+                        {/* buttonStyle */}
+                        <View
+                            style={{ width: '100%', flexDirection: 'row', paddingTop: 15, paddingHorizontal: 10 }}>
+                            <View
+                                style={{
+                                    width: '50%',
+                                    backgroundColor: '#e27e45',
+                                    borderRadius: 20,
+                                }}>
+                                <TouchableOpacity
+                                    activeOpacity={0.7}
+                                    onPress={() => setSortedBYmodel(false)}>
+                                    <Text
+                                        style={{
+                                            color: '#fff',
+                                            textAlign: 'center',
+                                            padding: 8,
+                                            borderRightColor: '#fff',
+                                            borderRightWidth: 1,
+                                            fontSize: 15,
+                                        }}>
+                                        Cancel
+                                    </Text>
+                                </TouchableOpacity>
+                            </View>
+
+
+                            <View
+                                style={{
+                                    width: '50%',
+                                    backgroundColor: '#fff',
+                                    borderColor: '#e27e45',
+                                    borderWidth: 1,
+                                    borderRadius: 20,
+                                    marginLeft: 3,
+                                    flexDirection: "row",
+                                    alignItems: "center",
+                                    justifyContent: "center"
+                                }}>
+                                <TouchableOpacity
+                                    // onPress={() => languagesearchFilterFunction()}
+                                    onPress={() => setSortedBYmodel(false)}
+                                    languagesearchFilterFunction
+                                    activeOpacity={0.7}
+                                    style={{
+                                    }}>
+                                    <Text
+                                        style={{
+                                            color: '#e27e45',
+                                            textAlign: 'center',
+                                            padding: 8,
+                                            fontSize: 15,
+
+                                        }}>
+                                        Apply Filter
+                                    </Text>
+                                </TouchableOpacity>
+                            </View>
+                        </View>
+                        <View style={{ marginBottom: 10 }}></View>
+                    </View>
+                </Modal>
+
+                {/* gender*/}
+                <Modal
+                    isVisible={Gendermodel}
+                    onBackdropPress={() => setGendermodel(false)}
+                    onSwipeComplete={() => setGendermodel(false)}
+                    // swipeDirection={['down']}
+                    backdropOpacity={0.5}
+                    style={{ justifyContent: 'flex-end', margin: 0 }}
+                >
+                    <View
+                        style={{
+                            height: "auto",
+                            backgroundColor: "#fff",
+                            position: "absolute",
+                            bottom: 0,
+                            right: 0,
+                            left: 0,
+                            width: "100%",
+                            borderTopLeftRadius: 30,
+                            borderTopRightRadius: 30,
+                            // paddingHorizontal: 15,
+                            borderColor: "#e27e45",
+                            borderWidth: 0.55
+                        }}>
+
+                        <View style={{ marginTop: 15 }}>
+                            <View style={{ width: "100%" }}>
+
+
+                                <View style={{ paddingHorizontal: 15, flexDirection: "row", justifyContent: "space-between", width: "100%" }}>
+                                    <Text style={{ color: "#e27e45", fontSize: responsiveFontSize(2.3), fontWeight: "700" }}>
+                                        Gender
+                                    </Text>
+                                    <TouchableOpacity
+                                        onPress={() => languageremove()}
+                                        style={{
+                                            backgroundColor: "#e27e45",
+                                            borderRadius: 10,
+                                            alignItems: "center",
+                                            justifyContent: "center"
+                                        }}
+                                    >
+                                        <Text style={{
+                                            color: "#fff",
+                                            fontSize: responsiveFontSize(1.5),
+                                            fontWeight: "400",
+                                            paddingHorizontal: 10,
+                                            paddingVertical: 2
+                                        }}>
+                                            Reset All
+                                        </Text>
+                                    </TouchableOpacity>
+                                </View>
+
+                                <RadioGroup
+                                    radioButtons={GenderButton}
+                                    onPress={setgendername}
+                                    selectedId={gendername}
+                                    containerStyle={styles.ViewCard}
+                                />
+                            </View>
+                        </View>
+
+                        {/* buttonStyle */}
+
+                        <View
+                            style={{ width: '100%', flexDirection: 'row', paddingTop: 15, paddingHorizontal: 10 }}>
+
+                            <View
+                                style={{
+                                    width: '50%',
+                                    backgroundColor: '#e27e45',
+                                    borderRadius: 20,
+                                }}>
+                                <TouchableOpacity
+                                    activeOpacity={0.7}
+                                    onPress={() => setGendermodel(false)}>
+                                    <Text
+                                        style={{
+                                            color: '#fff',
+                                            textAlign: 'center',
+                                            padding: 8,
+                                            borderRightColor: '#fff',
+                                            borderRightWidth: 1,
+                                            fontSize: 15,
+                                        }}>
+                                        Cancel
+                                    </Text>
+                                </TouchableOpacity>
+                            </View>
+
+
+                            <View
+                                style={{
+                                    width: '50%',
+                                    backgroundColor: '#fff',
+                                    borderColor: '#e27e45',
+                                    borderWidth: 1,
+                                    borderRadius: 20,
+                                    marginLeft: 3,
+                                    flexDirection: "row",
+                                    alignItems: "center",
+                                    justifyContent: "center"
+                                }}>
+                                <TouchableOpacity
+                                    onPress={() => setGendermodel(false)}
+                                    languagesearchFilterFunction
+                                    activeOpacity={0.7}
+                                    style={{
+                                    }}>
+                                    <Text
+                                        style={{
+                                            color: '#e27e45',
+                                            textAlign: 'center',
+                                            padding: 8,
+                                            fontSize: 15,
+
+                                        }}>
+                                        Apply Filter
+                                    </Text>
+                                </TouchableOpacity>
+                            </View>
+                        </View>
+                        <View style={{ marginBottom: 10 }}></View>
+                    </View>
+                </Modal>
+
+                {/* pricemodel */}
+
+                <Modal
+                    isVisible={pricemodel}
+                    onBackdropPress={() => setpricemodel(false)}
+                    onSwipeComplete={() => setpricemodel(false)}
+                    // swipeDirection={['down']}
+                    backdropOpacity={0.5}
+                    style={{ justifyContent: 'flex-end', margin: 0 }}
+                >
+                    <View
+                        style={{
+                            height: "auto",
+                            backgroundColor: "#fff",
+                            position: "absolute",
+                            bottom: 0,
+                            right: 0,
+                            left: 0,
+                            width: "100%",
+                            borderTopLeftRadius: 30,
+                            borderTopRightRadius: 30,
+                            // paddingHorizontal: 15,
+                            borderColor: "#e27e45",
+                            borderWidth: 0.55
+                        }}>
+
+                        <View style={{ marginTop: 15 }}>
+                            <View style={{ width: "100%" }}>
+
+
+                                <View style={{ paddingHorizontal: 15, flexDirection: "row", justifyContent: "space-between", width: "100%" }}>
+                                    <Text style={{ color: "#e27e45", fontSize: responsiveFontSize(2.3), fontWeight: "700" }}>
+                                        Price
+                                    </Text>
+                                    <TouchableOpacity
+                                        onPress={() => languageremove()}
+                                        style={{
+                                            backgroundColor: "#e27e45",
+                                            borderRadius: 10,
+                                            alignItems: "center",
+                                            justifyContent: "center"
+                                        }}
+                                    >
+                                        <Text style={{
+                                            color: "#fff",
+                                            fontSize: responsiveFontSize(1.5),
+                                            fontWeight: "300",
+                                            paddingHorizontal: 10,
+                                            paddingVertical: 2
+                                        }}>
+                                            Reset All
+                                        </Text>
+                                    </TouchableOpacity>
+                                </View>
+
+                                <RadioGroup
+                                    radioButtons={pricebutton}
+                                    onPress={setpricename}
+                                    selectedId={pricename}
+                                    containerStyle={styles.ViewCard}
+                                />
+                            </View>
+                        </View>
+
+                        {/* buttonStyle */}
+
+                        <View
+                            style={{ width: '100%', flexDirection: 'row', paddingTop: 15, paddingHorizontal: 10 }}>
+
+                            <View
+                                style={{
+                                    width: '50%',
+                                    backgroundColor: '#e27e45',
+                                    borderRadius: 20,
+                                }}>
+                                <TouchableOpacity
+                                    activeOpacity={0.7}
+                                    onPress={() => setpricemodel(false)}>
+                                    <Text
+                                        style={{
+                                            color: '#fff',
+                                            textAlign: 'center',
+                                            padding: 8,
+                                            borderRightColor: '#fff',
+                                            borderRightWidth: 1,
+                                            fontSize: 15,
+                                        }}>
+                                        Cancel
+                                    </Text>
+                                </TouchableOpacity>
+                            </View>
+
+
+                            <View
+                                style={{
+                                    width: '50%',
+                                    backgroundColor: '#fff',
+                                    borderColor: '#e27e45',
+                                    borderWidth: 1,
+                                    borderRadius: 20,
+                                    marginLeft: 3,
+                                    flexDirection: "row",
+                                    alignItems: "center",
+                                    justifyContent: "center"
+                                }}>
+                                <TouchableOpacity
+                                    onPress={() => setpricemodel(false)}
+                                    languagesearchFilterFunction
+                                    activeOpacity={0.7}
+                                    style={{
+                                    }}>
+                                    <Text
+                                        style={{
+                                            color: '#F29D38',
+                                            textAlign: 'center',
+                                            padding: 8,
+                                            fontSize: 15,
+
+                                        }}>
+                                        Apply Filter
+                                    </Text>
+                                </TouchableOpacity>
+                            </View>
+                        </View>
+                        <View style={{ marginBottom: 10 }}></View>
+                    </View>
+                </Modal>
+
+                {/* rating*/}
+                <Modal
+                    isVisible={Ratingmodel}
+                    onBackdropPress={() => setRatingmodel(false)}
+                    onSwipeComplete={() => setRatingmodel(false)}
+                    // swipeDirection={['down']}
+                    backdropOpacity={0.5}
+                    style={{ justifyContent: 'flex-end', margin: 0 }}
+                >
+                    <View
+                        style={{
+                            height: "auto",
+                            backgroundColor: "#fff",
+                            position: "absolute",
+                            bottom: 0,
+                            right: 0,
+                            left: 0,
+                            width: "100%",
+                            borderTopLeftRadius: 30,
+                            borderTopRightRadius: 30,
+                            // paddingHorizontal: 15,
+                            borderColor: "#e27e45",
+                            borderWidth: 0.55
+                        }}>
+
+                        <View style={{ marginTop: 15 }}>
+                            <View style={{ width: "100%" }}>
+
+
+                                <View style={{ paddingHorizontal: 15, flexDirection: "row", justifyContent: "space-between", width: "100%" }}>
+                                    <Text style={{ color: "#e27e45", fontSize: responsiveFontSize(2.3), fontWeight: "700" }}>
+                                        Price
+                                    </Text>
+                                    <TouchableOpacity
+                                        onPress={() => languageremove()}
+                                        style={{
+                                            backgroundColor: "#e27e45",
+                                            borderRadius: 10,
+                                            alignItems: "center",
+                                            justifyContent: "center"
+                                        }}
+                                    >
+                                        <Text style={{
+                                            color: "#fff",
+                                            fontSize: responsiveFontSize(1.5),
+                                            fontWeight: "300",
+                                            paddingHorizontal: 10,
+                                            paddingVertical: 2
+                                        }}>
+                                            Reset All
+                                        </Text>
+                                    </TouchableOpacity>
+                                </View>
+
+                                <RadioGroup
+                                    radioButtons={ratingbutton}
+                                    onPress={setratingname}
+                                    selectedId={ratingname}
+                                    containerStyle={styles.ViewCard}
+                                />
+                            </View>
+                        </View>
+
+                        {/* buttonStyle */}
+
+                        <View
+                            style={{ width: '100%', flexDirection: 'row', paddingTop: 15, paddingHorizontal: 10 }}>
+
+                            <View
+                                style={{
+                                    width: '50%',
+                                    backgroundColor: '#F29D38',
+                                    borderRadius: 20,
+                                }}>
+                                <TouchableOpacity
+                                    activeOpacity={0.7}
+                                    onPress={() => setRatingmodel(false)}>
+                                    <Text
+                                        style={{
+                                            color: '#fff',
+                                            textAlign: 'center',
+                                            padding: 8,
+                                            borderRightColor: '#fff',
+                                            borderRightWidth: 1,
+                                            fontSize: 15,
+                                        }}>
+                                        Cancel
+                                    </Text>
+                                </TouchableOpacity>
+                            </View>
+
+
+                            <View
+                                style={{
+                                    width: '50%',
+                                    backgroundColor: '#fff',
+                                    borderColor: '#e27e45',
+                                    borderWidth: 1,
+                                    borderRadius: 20,
+                                    marginLeft: 3,
+                                    flexDirection: "row",
+                                    alignItems: "center",
+                                    justifyContent: "center"
+                                }}>
+                                <TouchableOpacity
+                                    onPress={() => setRatingmodel(false)}
+                                    languagesearchFilterFunction
+                                    activeOpacity={0.7}
+                                    style={{
+                                    }}>
+                                    <Text
+                                        style={{
+                                            color: '#F29D38',
+                                            textAlign: 'center',
+                                            padding: 8,
+                                            fontSize: 15,
+
+                                        }}>
+                                        Apply Filter
+                                    </Text>
+                                </TouchableOpacity>
+                            </View>
+                        </View>
+                        <View style={{ marginBottom: 10 }}></View>
+                    </View>
+                </Modal>
+
+
+            </View>
         </SafeAreaView>
     )
 }
 
 export default CategoryProducts
 
-const styles = StyleSheet.create({})
+const styles = StyleSheet.create({
+    ViewCard: {
+        borderRadius: 8,
+        overflow: 'hidden',
+        flexDirection: "column",
+        color: "#e27e45",
+        paddingTop: 5,
+        alignItems: "flex-start",
+        paddingHorizontal: 10,
+
+    }
+
+});

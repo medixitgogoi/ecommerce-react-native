@@ -50,6 +50,7 @@ const Categories = ({ navigation }) => {
                         paddingTop: 15
                     }}>
                         {categories.map((item) => {
+                            {/* console.log("Dixitncnccj", item) */}
                             return (
                                 <View style={{
                                     backgroundColor: "#f6f6f6",

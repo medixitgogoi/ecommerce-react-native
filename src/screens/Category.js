@@ -192,15 +192,7 @@ const Category = ({ navigation, route }) => {
             size: responsiveFontSize(3),
 
         },
-        {
-            id: 'children',
-            label: (
-                <Text style={{ color: "#000", paddingLeft: 5 }}>{'children'}</Text>
-            ),
-            color: "#F29D38",
-            size: responsiveFontSize(3),
-
-        },
+       
 
     ]), []);
 
@@ -417,12 +409,12 @@ const Category = ({ navigation, route }) => {
                                     if (selectedId == item.subCategory && okpress) {
                                         return (
                                             <TouchableOpacity style={{ backgroundColor: '#fff', borderRadius: 10, elevation: 2, width: "48%", margin: 3, }} onPress={() => navigation.navigate('ProductDetails', { data: item })}>
+
                                                 {/* <Text style={{ color: "red" }}>oooooo</Text> */}
                                                 <TouchableOpacity style={{ position: 'absolute', right: 5, top: 5, padding: 3, backgroundColor: "#1f1f1f", borderRadius: 100, zIndex: 10 }}>
                                                     <Icon2 name="heart" size={15} color="#fff" />
                                                     {/* <Text style={{ color: "#fff" }}>{item.subCategory}</Text> */}
                                                 </TouchableOpacity>
-
 
                                                 <View style={{ margin: 5, paddingVertical: 4, justifyContent: "center", width: "100%", flexDirection: "row", alignItems: "center" }}>
                                                     <Image
@@ -441,9 +433,12 @@ const Category = ({ navigation, route }) => {
                                                         {renderStarRating(item.rating.rate)}
                                                         <Text style={{ marginLeft: 4, color: '#333', fontWeight: "600" }}>{item.rating.rate}</Text>
                                                     </View>
+
+                                                    {/* to be deleted later */}
                                                     <View>
                                                         <Text style={{ color: "#000" }}>{item.subCategory}</Text>
                                                     </View>
+
                                                     <View style={{ flexDirection: "row", alignItems: "center", marginBottom: 8 }}>
                                                         <Text numberOfLines={1} ellipsizeMode="tail" style={{ fontSize: 15, fontWeight: 'bold', color: "#000" }}>{item.title}</Text>
                                                         <Text style={{ color: "#" }}>{item.subCategory}</Text>
@@ -533,6 +528,7 @@ const Category = ({ navigation, route }) => {
                 </View>
             </Modal>
 
+            {/* Tabbar */}
             <View style={{ position: "absolute", bottom: 0, width: "100%" }}>
                 <TabBar />
             </View>
@@ -1281,7 +1277,6 @@ const Category = ({ navigation, route }) => {
                     <View style={{ marginBottom: 10 }}></View>
                 </View>
             </Modal>
-
 
         </SafeAreaView>
     )
