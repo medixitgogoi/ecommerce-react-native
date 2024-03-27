@@ -41,16 +41,38 @@ const Categories = ({ navigation }) => {
 
                 {/* Categories */}
                 <ScrollView>
-                    <View style={{ backgroundColor: "#f6f6f6", height: "100%", flexDirection: "row", flexWrap: "wrap", justifyContent: "space-evenly", paddingTop: 15 }}>
+                    <View style={{
+                        backgroundColor: "#f6f6f6",
+                        height: "100%",
+                        flexDirection: "row",
+                        flexWrap: "wrap",
+                        justifyContent: "space-evenly",
+                        paddingTop: 15
+                    }}>
                         {categories.map((item) => {
-                            {/* console.log("Dixitncnccj", item) */}
                             return (
-                                <TouchableOpacity style={{ backgroundColor: "#f6f6f6", justifyContent: "center", alignItems: "center", flexDirection: "column", marginBottom: 15, }} onPress={() => navigation.navigate('SubCategories', { data: item })} key={item.id}>
-                                    <View style={{ width: 95, height: 95, borderRadius: 10, backgroundColor: "#f6f6f6", elevation: 3 }}>
-                                        <Image source={{ uri: item.image }} style={{ height: "100%", width: "100%", borderRadius: 10, }} />
-                                    </View>
+                                <View style={{
+                                    backgroundColor: "#f6f6f6",
+                                    justifyContent: "center",
+                                    alignItems: "center",
+                                    flexDirection: "column",
+                                    marginBottom: 15,
+                                }} onPress={() => navigation.navigate('SubCategories', { data: item })} key={item.id}>
+                                    <TouchableOpacity 
+                                     onPress={() => navigation.navigate('SubCategories', { data: item })}
+                                     key={item.id}
+                                    style={{ width: 95, height: 95, borderRadius: 10, elevation: 3  }}>
+                                        <Image source={{ uri: item.image }} 
+                                        style={{
+                                            height: "100%", width: "100%", borderRadius: 10, backgroundColor: "#fff", }} />
+                                    </TouchableOpacity>
+                                    <TouchableOpacity
+                                    onPress={() => navigation.navigate('SubCategories', { data: item })} key={item.id}
+                                    >
                                     <Text style={{ color: "#000", fontWeight: "600", marginTop: 3 }}>{item.name}</Text>
-                                </TouchableOpacity>
+
+                                    </TouchableOpacity>
+                                </View>
                             )
                         })}
                     </View>

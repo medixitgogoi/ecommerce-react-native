@@ -482,7 +482,6 @@ const Category = ({ navigation, route }) => {
                                                 </View>
                                             </TouchableOpacity>
                                         )
-
                                     } else {
                                         return null
                                     }
@@ -493,7 +492,7 @@ const Category = ({ navigation, route }) => {
                         </View>
                     )}
                 </View>
-                
+
             </View>
 
             <Modal
