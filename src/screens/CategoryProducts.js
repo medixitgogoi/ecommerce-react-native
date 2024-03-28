@@ -238,6 +238,7 @@ const CategoryProducts = ({ navigation, route }) => {
     const pressHandler = (id) => {
         setSelectedFilter(id)
     }
+
     const brandsData = [
         { id: '1', name: 'Sort by', iconName: "keyboard-arrow-down" },
         { id: '2', name: 'Filter', iconName: "filter-list" },
@@ -485,15 +486,14 @@ const CategoryProducts = ({ navigation, route }) => {
             <View style={{ flex: 1, }}>
 
                 {/* Filter */}
-                <View style={{ paddingHorizontal: 8, paddingVertical: 10, backgroundColor: "#f6f6f6", elevation: 5 }}>
-                    <TouchableOpacity style={{ backgroundColor: "#e2aa45", padding: 7, flexDirection: "row", justifyContent: "center", alignItems: "center", width: "30%", elevation: 3, borderRadius: 5 }} onPress={() => setFilterModal(true)}>
-                        <Text style={{ color: "#fff", fontWeight: "450", fontSize: 16, fontWeight: "500" }}>
-                            Filter
-                        </Text>
-                        <View style={{ marginLeft: 5, flexDirection: "row", justifyContent: "center", alignItems: "center" }}>
-                            <Icon3 name="filter" size={15} color="#fff" />
-                        </View>
-                    </TouchableOpacity>
+                <View style={styles.container}>
+                    <FlatList
+                        data={brandsData}
+                        horizontal
+                        showsHorizontalScrollIndicator={false}
+                        keyExtractor={(item) => item.id}
+                        renderItem={renderBrandItem}
+                    />
                 </View>
 
                 {/* Product Cards */}
@@ -1027,7 +1027,6 @@ const CategoryProducts = ({ navigation, route }) => {
                 </Modal>
 
                 {/* pricemodel */}
-
                 <Modal
                     isVisible={pricemodel}
                     onBackdropPress={() => setpricemodel(false)}
@@ -1281,8 +1280,8 @@ const CategoryProducts = ({ navigation, route }) => {
                     </View>
                 </Modal>
 
-
             </View>
+
         </SafeAreaView>
     )
 }
@@ -1298,7 +1297,5 @@ const styles = StyleSheet.create({
         paddingTop: 5,
         alignItems: "flex-start",
         paddingHorizontal: 10,
-
     }
-
 });

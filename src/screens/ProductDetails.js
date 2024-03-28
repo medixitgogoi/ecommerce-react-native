@@ -7,7 +7,6 @@ import Icon4 from 'react-native-vector-icons/dist/Feather';
 import { useDispatch } from 'react-redux';
 import { addItemToCart } from '../redux/CartSlice';
 import { SliderBox } from "react-native-image-slider-box";
-import TabBar from '../components/TabBar';
 
 const sizeData = [
     {
@@ -89,7 +88,7 @@ const ProductDetails = ({ navigation, route }) => {
             setImages(prevImages => {
                 const newImages = [];
                 for (var i = 0; i < 3; i++) {
-                    if (detail.images[i]) {
+                    if (detail.images[i].image) {
                         newImages.push(detail.images[i].image)
                     }
                 }

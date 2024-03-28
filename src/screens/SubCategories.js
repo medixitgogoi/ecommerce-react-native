@@ -6,6 +6,7 @@ const SubCategories = ({ navigation, route }) => {
 
     const cat = route.params.data.name;
     const products = route.params.data.products;
+    
     return (
         <SafeAreaView style={{ flex: 1, paddingBottom: 15 }}>
             <StatusBar
@@ -35,9 +36,9 @@ const SubCategories = ({ navigation, route }) => {
                                 <Image source={{ uri: item.image }} style={{ height: "100%", width: "100%", borderRadius: 10, }} />
                             </TouchableOpacity>
                             <TouchableOpacity
-                             key={item.id} onPress={() => navigation.navigate("CategoryProducts", { data: item })}
+                                key={item.id} onPress={() => navigation.navigate("CategoryProducts", { data: item })}
                             >
-                            <Text style={{ color: "#000", fontWeight: "600", marginTop: 3 }}>{item.category}</Text>
+                                <Text style={{ color: "#000", fontWeight: "600", marginTop: 3 }}>{item.category}</Text>
                             </TouchableOpacity>
                         </View>
                     ))}

@@ -16,7 +16,7 @@ const Categories = ({ navigation }) => {
             <View style={{ height: "100%", backgroundColor: "#fff" }}>
 
                 {/* header */}
-                <View style={{ paddingTop: 6, flexDirection: "row", alignItems: "center", paddingHorizontal: 15, backgroundColor: "#fff" }}>
+                <View style={{ paddingTop: 6, flexDirection: "row", alignItems: "center", paddingHorizontal: 15, backgroundColor: "#fff", }}>
                     <TouchableOpacity style={{ backgroundColor: "#f6f6f6", padding: 5, borderRadius: 100, alignItems: "center", justifyContent: "center", elevation: 1, }} onPress={() => navigation.goBack()}>
                         <Icon name="keyboard-arrow-left" size={20} color="#000" />
                     </TouchableOpacity>
@@ -24,7 +24,7 @@ const Categories = ({ navigation }) => {
                 </View>
 
                 {/* Searchbar */}
-                <View style={{ backgroundColor: "#fff", paddingBottom: 5 }}>
+                <View style={{ backgroundColor: "#fff", paddingBottom: 5, }}>
                     <View style={{ flexDirection: 'row', alignItems: 'center', backgroundColor: '#fff', borderRadius: 100, paddingHorizontal: 7, marginHorizontal: 16, marginTop: 15, elevation: 5, marginBottom: 10 }}>
 
                         <View style={{ backgroundColor: "#e27e45", borderRadius: 100, alignItems: "center", justifyContent: "center", padding: 6, marginRight: 3, }}>
@@ -50,7 +50,7 @@ const Categories = ({ navigation }) => {
                         paddingTop: 15
                     }}>
                         {categories.map((item) => {
-                            {/* console.log("Dixitncnccj", item) */}
+                            {/* console.log("Dixitncnccj", item) */ }
                             return (
                                 <View style={{
                                     backgroundColor: "#f6f6f6",
@@ -59,18 +59,19 @@ const Categories = ({ navigation }) => {
                                     flexDirection: "column",
                                     marginBottom: 15,
                                 }} onPress={() => navigation.navigate('SubCategories', { data: item })} key={item.id}>
-                                    <TouchableOpacity 
-                                     onPress={() => navigation.navigate('SubCategories', { data: item })}
-                                     key={item.id}
-                                    style={{ width: 95, height: 95, borderRadius: 10, elevation: 3  }}>
-                                        <Image source={{ uri: item.image }} 
-                                        style={{
-                                            height: "100%", width: "100%", borderRadius: 10, backgroundColor: "#fff", }} />
+                                    <TouchableOpacity
+                                        onPress={() => navigation.navigate('SubCategories', { data: item })}
+                                        key={item.id}
+                                        style={{ width: 95, height: 95, borderRadius: 10, elevation: 3 }}>
+                                        <Image source={{ uri: item.image }}
+                                            style={{
+                                                height: "100%", width: "100%", borderRadius: 10, backgroundColor: "#fff",
+                                            }} />
                                     </TouchableOpacity>
                                     <TouchableOpacity
-                                    onPress={() => navigation.navigate('SubCategories', { data: item })} key={item.id}
+                                        onPress={() => navigation.navigate('SubCategories', { data: item })} key={item.id}
                                     >
-                                    <Text style={{ color: "#000", fontWeight: "600", marginTop: 3 }}>{item.name}</Text>
+                                        <Text style={{ color: "#000", fontWeight: "600", marginTop: 3 }}>{item.name}</Text>
 
                                     </TouchableOpacity>
                                 </View>
